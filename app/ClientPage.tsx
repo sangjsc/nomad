@@ -89,11 +89,7 @@ export default function ClientPage() {
                   <br />
                   <span className="text-pink-500">마사지</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                  Experience a luxurious retreat
-                  <br />
-                  in the comfort of your home.
-                </p>
+                
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
