@@ -15,9 +15,9 @@ export default function HomePage() {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm md:text-lg">GAIN</span>
+                <span className="text-white font-bold text-sm md:text-lg">{"ND"}</span>
               </div>
-              <div className="text-lg md:text-2xl font-bold text-gray-800">가인출장마사지</div>
+              <div className="text-lg md:text-2xl font-bold text-gray-800">노마드출장마사지</div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -28,29 +28,6 @@ export default function HomePage() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-4 text-sm text-gray-600">
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                홈
-              </a>
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                강남출장
-              </a>
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                김포출장
-              </a>
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                강서출장
-              </a>
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                인천출장
-              </a>
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                수원출장
-              </a>
-              <a href="#" className="hover:text-orange-500 transition-colors px-2 py-1">
-                More
-              </a>
-            </nav>
           </div>
         </div>
       </header>
@@ -81,7 +58,7 @@ export default function HomePage() {
           </h1>
 
           <div className="space-y-1 md:space-y-2 text-sm sm:text-base md:text-lg lg:text-xl mb-6 md:mb-8">
-            <p>최상의 마인드를 갖춘고 이쁜 20대 관리사</p>
+            <p>최상의 마인드를 갖춘고 20대 관리사</p>
             <p className="text-orange-400 font-semibold">100% 후불 안심결제 시스템</p>
             <p>서울/경기/인천 30분내로 출발 이동</p>
           </div>
@@ -187,7 +164,9 @@ export default function HomePage() {
                     </div>
 
                     <div className="bg-gradient-to-r from-orange-50 to-red-50 p-3 md:p-4 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2 md:mb-3 text-sm md:text-base">스웨디시 마사지</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2 md:mb-3 text-sm md:text-base">
+                        스웨디시 힐링 마사지
+                      </h4>
                       <div className="space-y-1 md:space-y-2 text-xs md:text-sm">
                         <div className="flex justify-between">
                           <span>60분 코스</span>
@@ -248,15 +227,15 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-3 h-3 md:w-4 md:h-4 text-orange-500" />
-                      <span>서울 전 지역</span>
+                      <span> 경기도 광주시 전 지역</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-3 h-3 md:w-4 md:h-4 text-orange-500" />
-                      <span>경기도 전 지역</span>
+                      <span> 여주시 전 지역</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <MapPin className="w-3 h-3 md:w-4 md:h-4 text-orange-500" />
-                      <span>인천 전 지역</span>
+                      <span>안산 전 지역</span>
                     </div>
                   </div>
                 </CardContent>
@@ -270,8 +249,8 @@ export default function HomePage() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">전문 관리사 & 시설</h2>
-            <p className="text-sm md:text-base text-gray-600">깨끗하고 전문적인 환경에서 최고의 서비스를 제공합니다</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">전문 관리사</h2>
+            <p className="text-sm md:text-base text-gray-600">깨끗하고 전문적인 최고의 서비스를 제공해 드립니다. </p>
           </div>
 
           {/* Mobile-First Gallery Grid */}
@@ -332,9 +311,7 @@ export default function HomePage() {
           <div className="text-center mt-8 md:mt-12">
             <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
               <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4">지금 바로 예약하세요!</h3>
-              <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">
-                전문 관리사가 최고의 마사지 서비스를 제공합니다
-              </p>
+              <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">경기도 이천,광주,여주 최고의 마사지</p>
               <div className="flex flex-col space-y-3 md:space-y-0 md:flex-row md:gap-4 justify-center items-center mb-4">
                 <div className="flex items-center space-x-2 text-orange-600 font-bold text-lg md:text-xl">
                   <Phone className="w-5 h-5 md:w-6 md:h-6" />
@@ -350,7 +327,7 @@ export default function HomePage() {
                 </Button>
                 <Button
                   className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold w-full md:w-auto"
-                  onClick={() => window.open("https://open.kakao.com/o/ndmsg1234")}
+                  onClick={() => window.open("https://open.kakao.com/o/ssZxRuEh")}
                 >
                   카카오톡 상담
                 </Button>
@@ -367,9 +344,9 @@ export default function HomePage() {
             <div>
               <div className="flex items-center space-x-3 mb-4 md:mb-6">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm md:text-base">GAIN</span>
+                  <span className="text-white font-bold text-sm md:text-base">{"ND"}</span>
                 </div>
-                <span className="text-lg md:text-xl font-bold">가인출장마사지</span>
+                <span className="text-lg md:text-xl font-bold">노마드출장마사지</span>
               </div>
               <p className="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">
                 검증된 이천출장마사지 프리미엄 마사지 업체
