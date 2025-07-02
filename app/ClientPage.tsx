@@ -98,10 +98,10 @@ export default function ClientPage() {
 
                 <h1 className="text-3xl sm:text-4xl lg:text-7xl xl:text-8xl font-bold mb-3 lg:mb-6 leading-tight">
                   <span className="bg-gradient-to-r from-white via-rose-100 to-purple-100 bg-clip-text text-transparent block">
-                    노마드24시
+                    이천, 광주, 여주, 용인
                   </span>
                   <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 bg-clip-text text-transparent block">
-                    출장마사지
+                    노마드 출장마사지
                   </span>
                 </h1>
 
@@ -577,7 +577,7 @@ export default function ClientPage() {
 
                 {/* Service Areas */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
-                  {["이천시", "광주시", "여주시", "안산시"].map((area, index) => (
+                  {["이천시", "광주시", "여주시", "용인시"].map((area, index) => (
                     <div
                       key={index}
                       className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 lg:p-4 hover:bg-white/20 transition-all duration-300"
