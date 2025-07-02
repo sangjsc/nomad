@@ -71,7 +71,7 @@ export default function ClientPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/spa-background.jpg"
-            alt="Premium Massage Service"
+            alt="노마드출장마사지 프리미엄 서비스 배경 이미지"
             fill
             className="object-cover"
             style={{ objectPosition: "center 30%" }}
@@ -153,7 +153,7 @@ export default function ClientPage() {
                   <div className="relative">
                     <Image
                       src="/images/spa-image-1.jpg"
-                      alt="Premium Service"
+                      alt="노마드출장마사지 최고급 서비스 시연 이미지"
                       width={500}
                       height={600}
                       className="w-full h-96 xl:h-[500px] object-cover object-center"
