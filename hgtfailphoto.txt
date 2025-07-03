@@ -1,0 +1,105 @@
+📋 출근부 이미지 다운로드 실패 로그
+
+
+[🛑 실패한 출근부 상세 목록]
+- [92] 일산휴게텔-벨벳 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=21891
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/cb/9c/cb9c4c4f53d6257728726d57029cb81e.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/cb/9c/cb9c4c4f53d6257728726d57029cb81e.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/cb/9c/cb9c4c4f53d6257728726d57029cb81e.gif)
+- [265] 분당휴게텔-팝콘티비 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=20993
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/ed/65/ed6550b35754cf691ff84f48d2901380.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/11/9d/119dfcdbefadf4b8fce614f2960a2181.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/7f/b2/7fb2b989be7d2c885b32a732c3d1c61d.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/7f/0d/7f0d39737e656c2ad81194df9f427a5a.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/c8/43/c843ff5191392bc8e15c9d4a84325819.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/bf/98/bf98e66ed767e9565f7ca21106636b93.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/4a/464ab6cffeddc5be3e9646c71d7cb97b.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/21/ad/21ad0b1ff02198d09a1d3b45b1bce386.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/8d/9c/8d9c036909ee6d4ba00eb505dc8bc010.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/e5/a6/e5a6dcb01c21c14ea9984031918fa2aa.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/53/3d/533d262ee129f7cb318de96d95e89cc8.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/b5/80/b58012465b37e7c4c57d8f7b2e820476.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/5b/465b5346100073a7446a5e315dfeea55.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/05/50/0550f6d41f4bb5270a34b0a0e249100d.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/75/96/75966d5c9dd94eb2413ac8d8a052e3fd.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/27/77/277722a9c5facdb08665273739f04d4b.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/06/7a/067a01da57ed96c4f8ba7e84b8871c04.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/86/fe/86fe8e08ed255aec14f727f8da6d93f2.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/ef/cb/efcbb87c2b368d0eca861a4adebc3586.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/82/7a/827aac7a673069cfbcaa4be66377c14c.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/31/84/3184dfc8079c6a4035a52d15cdc0f7bb.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/b8/2f/b82fe39bbc6b50b35cac8daee68bd1a8.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/a5/5b/a55b9b7ced764e38df6f0f575ae59338.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/1a/73/1a73decbaab846baa2322052c1a4af19.jpeg)
+- [274] 시흥휴게텔-팝콘 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=24352
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://starop08.com/upfile/editor/2503/3565_1741859954.5597.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://starop08.com/upfile/editor/2503/3565_1741859954.5597.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://starop08.com/upfile/editor/2503/3565_1741859954.5597.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://starop08.com/upfile/editor/2503/3565_1741859954.5597.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://starop08.com/upfile/editor/2503/3565_1741859954.5597.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://starop08.com/upfile/editor/2503/3565_1741859954.5597.gif)
+- [280] 강서휴게텔-레전드 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=24183
+    ⤷ 응답 오류 404: https://starop05.com/upfile/editor/2501/9861_1736343002.7706.gif
+    ⤷ 응답 오류 404: https://starop05.com/upfile/editor/2501/9861_1736343002.7706.gif
+- [283] 시흥휴게텔-럭셔리 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=24515
+    ⤷ 응답 오류 429: https://i.imgur.com/dwCy5Il.gif
+    ⤷ 응답 오류 404: https://starop05.com/upfile/editor/2501/9861_1736343002.7706.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/dwCy5Il.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/dwCy5Il.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/dwCy5Il.gif
+- [309] 오산휴게텔-마카롱코리아 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=9022
+    ⤷ 응답 오류 500: https://aan001.diskn.com/0/a33.gif
+- [323] 광주휴게텔-CaFe | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=20573
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/4ddac51e07557c7cfb972ff3f1a0d9a6.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/e6a4c3ca1cbe17b468e2dbc0f186f494.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/348ecfe3c3fe4aabd4a8e50129f40b92.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/05cba114e3ccf3a2e69290138be2af43.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/2a2c6021acd8a590dfcbabbf9d68f45d.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/8f86c69c4287632230a90dac80af0ac9.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/91c8341bb7e9199b581ed9fbe6a037d5.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/32d2cc079983dfc60c1fc31bccc031ef.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/5b3ab275af90a37a13385f873e33a207.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/91c8341bb7e9199b581ed9fbe6a037d5.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/781/229/064/91c8341bb7e9199b581ed9fbe6a037d5.gif)
+- [388] 주안휴게텔-여우 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=9604
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+    ⤷ 응답 오류 429: https://i.imgur.com/FtRzsLK.gif
+- [391] 광주휴게텔-식스나인 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=22827
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/342/228/051/308a04c0caac0cd212d6d455e230c73c.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/342/228/051/0d8cd18ce845d4eb0586a76e4b38e8f1.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://albam8.com/files/attach/images/3521/342/228/051/2be94b580ee7d0ca4f56ae7d82131399.gif)
+- [422] 아산휴게텔-미끌미끌 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=14322
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/26/dc/26dc4250d01bd0a768d487c59994414c.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/4f/e9/4fe9d962fe6a5c08594fc3d7fa988338.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/85/b6/85b6247bc819a48a59fe2dee4103fcdb.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/3d/82/3d82816055a169e346284470890eae9f.jpeg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://lonelynight1.net/data/image/46/41/4641fba8bbb59ed56259172451bb7738.gif)
+- [451] 선릉휴게텔-스캔들 | https://opyaya.com/etc/profile.php?act=working&type=customer&idx=24780
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630395_3469.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630395_977.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630363_0068.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630363_6483.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630364_4322.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630365_1836.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630365_9529.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630366_7194.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630367_502.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630368_279.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630369_0405.jpg)
+    ⤷ 다운로드 실패: ('Connection aborted.', ConnectionResetError(10054, '현재 연결은 원격 호스트에 의해 강제로 끊겼습니다', None, 10054, None)) (https://bamje46.com/data/editor/2505/cf862d9c5a6c111f4b097da08e742c39_1746630369_7998.jpg)
+
+[요약] 총 출근부: 455개 | 성공: 444개 | 실패: 11개
+실패한 출근부:
+  [92] 일산휴게텔-벨벳, [265] 분당휴게텔-팝콘티비, [274] 시흥휴게텔-팝콘, [280] 강서휴게텔-레전드, [283] 시흥휴게텔-럭셔리, [309] 오산휴게텔-마카롱코리아, [323] 광주휴게텔-CaFe, [388] 주안휴게텔-여우, [391] 광주휴게텔-식스나인, [422] 아산휴게텔-미끌미끌, [451] 선릉휴게텔-스캔들
