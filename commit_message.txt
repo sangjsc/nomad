@@ -1,0 +1,1 @@
+fix: Use npx for next-sitemap in build script

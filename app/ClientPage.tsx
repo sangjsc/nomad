@@ -386,7 +386,13 @@ export default function ClientPage() {
                     최상의 <span className="font-bold">출장안마</span>와 <span className="font-bold">출장마사지</span> 서비스를 제공하는 프리미엄 브랜드입니다.
                   </p>
                   <p className="text-base lg:text-lg">
-                    전원 한국인 20대 전문 관리사로 구성되어 있으며, 체계적인 교육을 통해 고객님께 최상의 힐링 경험을 선사합니다. 
+                    경기도 이천의 중심에서 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 이천 시민 여러분께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
+                  </p>
+                  <p className="text-lg lg:text-xl">
+                    경기도 이천의 중심에서 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 이천 시민 여러분께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
+                  </p>
+                  <p className="text-base lg:text-lg">
+                    실력과 마인드를 겸비한 전문 여성 관리사로 구성되어 있으며, 체계적인 교육을 통해 고객님께 최상의 힐링 경험을 선사합니다. 
                     이제 집, 오피스텔, 호텔 등 가장 편안한 공간에서 격이 다른 서비스를 경험해 보세요.
                   </p>
                   <p className="text-base lg:text-lg">
@@ -440,10 +446,7 @@ export default function ClientPage() {
                           title: "안전한 후불제",
                           desc: "서비스 완료 후 결제하는 100% 안심 시스템",
                         },
-                        {
-                          title: "빠른 출발",
-                          desc: "예약 후 30분 내로 출발하여 신속한 서비스",
-                        },
+                        
                       ].map((item, index) => (
                         <div key={index} className="flex items-start space-x-3 lg:space-x-4">
                           <div className="w-6 h-6 lg:w-8 lg:h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">

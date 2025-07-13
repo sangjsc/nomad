@@ -22,15 +22,17 @@ export default function GwangjuPage() {
     <LocationPage
       city="광주"
       cityEn="gwangju"
-      description="경기도 광주시 전 지역에서 최고의 출장마사지 서비스를 제공합니다."
+      theme="purple"
+      heroImage="/images/spa-image-2.jpg"
+      description="경기도 광주의 주민들을 위한 프리미엄 출장마사지 서비스를 제공합니다."
       areas={["송정동", "경안동", "쌍령동", "오포읍", "곤지암읍", "남종면", "중부면", "남한산성면", "초월읍", "도척면"]}
       latitude="37.429084"
       longitude="127.255189"
       intro={
         <>
           <p>
-            아름다운 자연과 역사가 공존하는 경기도 <strong>광주</strong>, 노마드출장마사지가 여러분의 편안한 휴식을 책임집니다.
-            복잡한 도심을 벗어나 휴식이 필요할 때, 계신 곳 어디든 전문 관리사가 직접 방문하여 최상의 <strong>출장안마</strong> 서비스를 제공합니다.
+            경기도 <strong>광주</strong>의 아늑한 주거지역에서 노마드출장마사지가 여러분의 편안한 휴식을 책임집니다.
+            바쁜 일상과 직장 스트레스로 지친 분들에게 계신 곳 어디든 전문 관리사가 직접 방문하여 최상의 <strong>출장안마</strong> 서비스를 제공합니다.
             광주시 전역, 신속하고 프라이빗한 케어로 활력을 되찾으세요.
           </p>
         </>

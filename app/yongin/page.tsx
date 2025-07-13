@@ -22,15 +22,18 @@ export default function YonginPage() {
     <LocationPage
       city="용인"
       cityEn="yongin"
-      description="경기도 용인시 전 지역에서 최고의 출장마사지 서비스를 제공합니다."
+      theme="rose"
+      heroImage="/images/spa-image-4.jpg"
+      description="삼성전자, LG 등 대기업이 위치한 용인에서 바쁜 직장인들을 위한 프리미엄 출장마사지 서비스를 제공합니다."
       areas={["수지구", "기흥구", "처인구", "죽전동", "분당선", "신갈동", "구성동", "보정동", "동천동", "상현동"]}
       latitude="37.240245"
       longitude="127.178020"
       intro={
         <>
           <p>
-            첨단 도시와 자연의 아름다움이 공존하는 경기도 <strong>용인</strong>, 노마드출장마사지가 여러분의 일상에 특별한 활력을 더해드립니다.
-            <strong>수지, 기흥, 처인</strong> 등 용인시 어디에서든, 집, 호텔, 오피스텔 등 가장 편안한 장소에서 프리미엄 <strong>출장안마</strong> 서비스를 만나보세요.
+            대기업 직장인들과 IT 전문가들이 많이 거주하는 <strong>용인</strong>에서 노마드출장마사지가 최상의 휴식을 선사합니다.
+            <strong>수지, 기흥, 처인</strong> 등 업무로 지친 직장인들을 위해 집, 호텔, 오피스텔 등 가장 편안한 장소에서 전문적인 <strong>출장안마</strong> 서비스를 제공합니다.
+            바쁜 일정 중에도 편리하게 이용할 수 있도록 고객님의 프라이버시와 편안함을 최우선으로 생각합니다.
           </p>
         </>
       }
