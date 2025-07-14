@@ -5,7 +5,19 @@
       "Bash(npx next dev:*)",
       "Bash(npm run build:*)",
       "Bash(rm:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(taskkill:*)",
+      "Bash(pkill:*)",
+      "Bash(curl:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(find:*)",
+      "Bash(for dir in seongnam anyang gwacheon uiwang gunpo hanam)",
+      "Bash(do echo \"Fixing $dir...\")",
+      "Bash(tail:*)",
+      "Bash(done)"
     ],
     "deny": []
   }

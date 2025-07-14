@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="aromatherapyGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgba(252, 211, 245, 1)" />
+      <stop offset="60%" style="stop-color:rgba(233, 190, 255, 1)" />
+      <stop offset="100%" style="stop-color:rgba(193, 168, 224, 1)" />
+    </radialGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#aromatherapyGradient)" />
+  <g filter="url(#softGlow)" opacity="0.7">
+    <path d="M 200,150 C 300,50 500,50 600,150 S 700,250 800,150 S 1000,50 1100,150" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" />
+    <path d="M 150,450 C 250,550 450,550 550,450 S 650,350 750,450 S 950,550 1050,450" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" />
+     <path d="M 250,300 C 350,200 550,200 650,300 S 750,400 850,300 S 1050,200 1150,300" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" />
+  </g>
+</svg>

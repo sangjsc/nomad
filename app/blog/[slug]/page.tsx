@@ -1,0 +1,80 @@
+import { notFound } from "next/navigation"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import BlogLayout from "@/components/BlogLayout"
+import { getPostData, getAllPostSlugs } from "@/lib/blog"
+import type { Metadata } from "next"
+
+interface BlogPostPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs()
+  return slugs.map((slug) => ({
+    slug: slug,
+  }))
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = params
+  const post = getPostData(slug)
+  
+  if (!post) {
+    return {
+      title: "글을 찾을 수 없습니다 | 노마드출장마사지",
+    }
+  }
+
+  return {
+    title: `${post.title} | 노마드출장마사지 블로그`,
+    description: post.excerpt || `${post.title}에 대한 전문적인 정보를 제공합니다.`,
+    keywords: post.tags?.join(", ") || "마사지, 건강, 웰빙",
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || `${post.title}에 대한 전문적인 정보`,
+      url: `https://nomadthai.kr/blog/${post.slug}`,
+      siteName: "노마드출장마사지",
+      locale: "ko_KR",
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author || "노마드출장마사지"],
+      tags: post.tags,
+      images: post.image ? [`https://nomadthai.kr${post.image}`] : ["https://nomadthai.kr/images/spa-background.jpg"],
+    },
+    alternates: {
+      canonical: `https://nomadthai.kr/blog/${post.slug}`,
+    },
+  }
+}
+
+const components = {
+  h1: (props: any) => <h1 className="text-3xl font-bold text-gray-900 mb-4 mt-6" {...props} />,
+  h2: (props: any) => <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-8" {...props} />,
+  h3: (props: any) => <h3 className="text-xl font-bold text-gray-800 mb-4 mt-6" {...props} />,
+  p: (props: any) => <p className="text-lg text-gray-700 leading-relaxed mb-6" {...props} />,
+  ul: (props: any) => <ul className="list-disc list-inside text-lg text-gray-700 mb-6 space-y-2" {...props} />,
+  ol: (props: any) => <ol className="list-decimal list-inside text-lg text-gray-700 mb-6 space-y-2" {...props} />,
+  blockquote: (props: any) => (
+    <blockquote className="border-l-4 border-rose-400 pl-6 py-2 my-6 bg-rose-50 text-lg italic text-gray-700" {...props} />
+  ),
+  strong: (props: any) => <strong className="font-semibold text-gray-900" {...props} />,
+  em: (props: any) => <em className="italic text-gray-800" {...props} />,
+  a: (props: any) => <a className="text-rose-600 hover:underline font-medium" {...props} />,
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = params
+  const post = getPostData(slug)
+
+  if (!post) {
+    notFound()
+  }
+
+  return (
+    <BlogLayout post={post}>
+      <MDXRemote source={post.content} components={components} />
+    </BlogLayout>
+  )
+}
