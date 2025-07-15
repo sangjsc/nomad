@@ -168,64 +168,97 @@ export default function LocationPage({
   const currentTheme = useMemo(() => themes[theme] || themes.rose, [theme])
 
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `노마드출장마사지 ${city}점`,
-    description: `경기도 ${city}시 전문 출장마사지 서비스. ${city} 출장안마 전문 업체.`,
-    url: `https://nomadthai.kr/${cityEn}`,
-    telephone: '010-8186-7771',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: `${city}시`,
-      addressRegion: '경기도',
-      addressCountry: 'KR',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: latitude,
-      longitude: longitude,
-    },
-    openingHours: 'Mo-Su 00:00-23:59',
-    priceRange: '₩₩',
-    serviceArea: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: '37.2636',
-        longitude: '127.2794',
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": `노마드출장마사지 ${city}점`,
+        "description": `경기도 ${city}시 전문 출장마사지 서비스. ${city} 출장안마 전문 업체.`,
+        "url": `https://nomadthai.kr/${cityEn}`,
+        "telephone": "010-8186-7771",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": `${city}시`,
+          "addressRegion": "경기도",
+          "addressCountry": "KR",
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": latitude,
+          "longitude": longitude,
+        },
+        "openingHours": "Mo-Su 00:00-23:59",
+        "priceRange": "₩₩",
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": latitude,
+            "longitude": longitude,
+          },
+          "geoRadius": "30000", // 30km 반경
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "마사지 서비스",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "타이 마사지",
+                "description": "전통 타이 마사지 기법",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "아로마 마사지",
+                "description": "향긋한 아로마 오일 마사지",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "스웨디시 힐링 마사지",
+                "description": "깊은 이완과 근육 회복을 위한 전문 마사지",
+              },
+            },
+          ],
+        },
       },
-      geoRadius: '50000',
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: '마사지 서비스',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: '타이 마사지',
-            description: '전통 타이 마사지 기법',
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `${city} 출장마사지 예약은 어떻게 하나요?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `전화(010-8186-7771) 또는 카카오톡 채널을 통해 24시간 언제든지 ${city} 전 지역으로 예약 상담이 가능합니다.`,
+            },
           },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: '아로마 마사지',
-            description: '향긋한 아로마 오일 마사지',
+          {
+            "@type": "Question",
+            "name": "결제는 어떻게 이루어지나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "저희 노마드출장마사지는 100% 후불제를 원칙으로 합니다. 관리사에게 서비스를 받으신 후 현장에서 직접 결제하시면 됩니다.",
+            },
           },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: '스웨디시 힐링 마사지',
-            description: '깊은 이완과 근육 회복을 위한 전문 마사지',
+          {
+            "@type": "Question",
+            "name": `${city} 어느 지역까지 가능한가요?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `${city}시 전 지역 및 인근 지역까지 출장이 가능합니다. 자세한 주소는 전화 문의 시 친절하게 안내해 드립니다.`,
+            },
           },
-        },
-      ],
-    },
+        ],
+      },
+    ],
   }
 
   return (
@@ -321,7 +354,7 @@ export default function LocationPage({
                     <div className="relative">
                       <Image
                         src={heroImage}
-                        alt={`${city} 출장마사지 전문 관리사`}
+                        alt={`${city} 출장마사지 전문 관리사 - 노마드출장마사지`}
                         width={500}
                         height={600}
                         className="w-full h-64 sm:h-80 lg:h-96 object-cover"
@@ -798,18 +831,21 @@ export default function LocationPage({
                   title: '전문 관리사',
                   desc: "실력과 마인드를 겸비한 전문 여성 관리사",
                   gradient: `from-rose-200/80 via-pink-200/70 to-purple-200/60`,
+                  alt: `${city} 지역 전문 관리사 - 노마드출장마사지`,
                 },
                 {
                   src: '/images/spa-image-3.jpg',
                   title: '럭셔리 서비스',
                   desc: '최고급 프리미엄 경험',
                   gradient: `from-pink-200/80 via-rose-200/70 to-purple-200/60`,
+                  alt: `${city} 지역 럭셔리 서비스 - 노마드출장마사지`,
                 },
                 {
                   src: '/images/spa-image-4.jpg',
                   title: '힐링 서비스',
                   desc: '완벽한 휴식과 회복',
                   gradient: `from-purple-200/80 via-pink-200/70 to-rose-200/60`,
+                  alt: `${city} 지역 힐링 서비스 - 노마드출장마사지`,
                 },
               ].map((item, index) => (
                 <div
@@ -819,7 +855,7 @@ export default function LocationPage({
                   <div className="relative">
                     <Image
                       src={item.src || '/placeholder.svg'}
-                      alt={`${item.title} - 노마드출장마사지`}
+                      alt={item.alt || `${item.title} - 노마드출장마사지`}
                       width={400}
                       height={500}
                       className="w-full h-72 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 group-hover:brightness-110"

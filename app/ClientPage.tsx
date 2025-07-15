@@ -20,73 +20,111 @@ export default function ClientPage() {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "노마드출장마사지",
-    description: "경기도 이천, 광주, 여주, 용인 지역 전문 출장마사지 서비스",
-    url: "https://nomadthai.kr",
-    telephone: "010-8186-7771",
-    address: {
-      "@type": "PostalAddress",
-      addressRegion: "경기도",
-      addressCountry: "KR",
-    },
-    openingHours: "Mo-Su 00:00-23:59",
-    priceRange: "₩₩",
-    serviceArea: [
+    "@graph": [
       {
-        "@type": "City",
-        name: "이천시",
-      },
-      {
-        "@type": "City",
-        name: "광주시",
-      },
-      {
-        "@type": "City",
-        name: "여주시",
-      },
-      {
-        "@type": "City",
-        name: "용인시",
-      },
-    ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "마사지 서비스",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "타이 마사지",
-            description: "전통 타이 마사지 기법",
-          },
+        "@type": "LocalBusiness",
+        "name": "노마드출장마사지",
+        "image": "https://nomadthai.kr/images/spa-background.jpg",
+        "description": "경기도 이천, 광주, 여주, 용인 지역 전문 출장마사지 서비스. 24시간 예약, 100% 후불제.",
+        "url": "https://nomadthai.kr",
+        "telephone": "010-8186-7771",
+        "priceRange": "₩₩",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "경기도",
+          "addressCountry": "KR"
         },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "아로마 마사지",
-            description: "향긋한 아로마 오일 마사지",
-          },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "37.275",
+          "longitude": "127.009"
         },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "스웨디시 힐링 마사지",
-            description: "깊은 이완과 근육 회복을 위한 전문 마사지",
+        "openingHours": "Mo-Su 00:00-23:59",
+        "serviceArea": [
+          { "@type": "City", "name": "이천시" },
+          { "@type": "City", "name": "광주시" },
+          { "@type": "City", "name": "여주시" },
+          { "@type": "City", "name": "용인시" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "마사지 서비스",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "타이 마사지",
+                "description": "전통 타이 마사지 기법"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "아로마 마사지",
+                "description": "향긋한 아로마 오일 마사지"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "스웨디시 힐링 마사지",
+                "description": "깊은 이완과 근육 회복을 위한 전문 마사지"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "예약은 어떻게 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "전화(010-8186-7771) 또는 카카오톡 채널을 통해 24시간 언제든지 예약 상담이 가능합니다."
+            }
           },
-        },
-      ],
-    },
+          {
+            "@type": "Question",
+            "name": "결제는 어떻게 이루어지나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "저희 노마드출장마사지는 100% 후불제를 원칙으로 합니다. 관리사에게 서비스를 받으신 후 현장에서 직접 결제하시면 됩니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "서비스 지역은 어디인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "경기도 이천, 광주, 여주, 용인시 전 지역을 중심으로 서비스하고 있습니다. 자세한 지역은 전화로 문의해주세요."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "영업시간은 어떻게 되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "365일 24시간 연중무휴로 운영되어 언제든지 편하신 시간에 이용하실 수 있습니다."
+            }
+          }
+        ]
+      }
+    ]
   }
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-rose-50">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-rose-50 overflow-x-hidden">
         
 
         {/* Ultra Luxury Hero Section */}
@@ -95,7 +133,7 @@ export default function ClientPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/spa-background.jpg"
-              alt="경기도 출장마사지 전문 관리사"
+              alt="노마드출장마사지 메인 - 경기도 전역 출장마사지 서비스"
               fill
               className="object-cover"
               style={{ objectPosition: "center 20%" }}
@@ -122,15 +160,15 @@ export default function ClientPage() {
 
                   <h1 className="text-3xl sm:text-4xl lg:text-7xl xl:text-8xl font-bold mb-3 lg:mb-6 leading-tight">
                     <span className="bg-gradient-to-r from-white via-rose-100 to-purple-100 bg-clip-text text-transparent block">
-                      이천·광주·여주·용인
+                      노마드출장마사지
                     </span>
                     <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 bg-clip-text text-transparent block">
-                      출장마사지
+                      프리미엄 홈케어
                     </span>
                   </h1>
 
                   <p className="text-sm sm:text-lg lg:text-2xl xl:text-3xl text-gray-200 mb-4 lg:mb-8 leading-relaxed px-2 sm:px-0">
-                    경기도 최고의 프리미엄 출장마사지
+                    최고의 프리미엄 출장마사지
                     <br className="hidden sm:block" />
                     <span className="text-rose-300">24시간 언제든 예약 가능</span>
                   </p>
@@ -177,7 +215,7 @@ export default function ClientPage() {
                     <div className="relative">
                       <Image
                         src="/images/spa-image-1.jpg"
-                        alt="경기도 출장마사지 전문 관리사"
+                        alt="노마드출장마사지 - 프리미엄 스파 경험"
                         width={500}
                         height={600}
                         className="w-full h-96 xl:h-[500px] object-cover object-center"
@@ -211,61 +249,23 @@ export default function ClientPage() {
         <section className="py-16 lg:py-24 bg-gradient-to-br from-white via-rose-50/30 to-purple-50/30">
           <div className="container mx-auto px-2 sm:px-4">
             <div className="text-center mb-12 lg:mb-16">
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">서비스 지역</h2>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">전국 서비스 지역</h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                경기도 주요 지역에서 최고의 출장마사지 서비스를 제공합니다
+                전국 주요 도시에서 최고의 출장마사지 서비스를 제공합니다
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  city: "이천",
-                  cityEn: "icheon",
-                  desc: "이천시 전 지역 출장마사지",
-                  areas: ["부발읍", "신둔면", "백사면", "설성면"],
-                },
-                {
-                  city: "광주",
-                  cityEn: "gwangju",
-                  desc: "광주시 전 지역 출장마사지",
-                  areas: ["송정동", "경안동", "쌍령동", "오포읍"],
-                },
-                {
-                  city: "여주",
-                  cityEn: "yeoju",
-                  desc: "여주시 전 지역 출장마사지",
-                  areas: ["여주동", "오학동", "현암동", "점동면"],
-                },
-                {
-                  city: "용인",
-                  cityEn: "yongin",
-                  desc: "용인시 전 지역 출장마사지",
-                  areas: ["수지구", "기흥구", "처인구", "죽전동"],
-                },
-              ].map((location, index) => (
-                <Link key={index} href={`/${location.cityEn}`}>
-                  <Card className="bg-white shadow-xl rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-rose-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <MapPin className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2">{location.city} 출장마사지</h3>
-                      <p className="text-gray-600 mb-4">{location.desc}</p>
-                      <div className="space-y-1">
-                        {location.areas.map((area, areaIndex) => (
-                          <span
-                            key={areaIndex}
-                            className="inline-block bg-rose-50 text-rose-600 text-xs px-2 py-1 rounded-full mr-1 mb-1"
-                          >
-                            {area}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
+            <div className="grid grid-cols-1 gap-6">
+              <Card className="bg-white shadow-xl rounded-2xl p-6 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-rose-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">전국 어디든 방문합니다</h3>
+                <p className="text-gray-600 mb-4">전국 주요 도시 및 지역에서 프리미엄 출장마사지 서비스를 제공합니다.</p>
+                <Link href="/contact" className="text-rose-600 hover:underline font-medium">
+                  자세한 서비스 지역 문의
                 </Link>
-              ))}
+              </Card>
             </div>
           </div>
         </section>
@@ -288,14 +288,14 @@ export default function ClientPage() {
 
                 <div className="space-y-4 lg:space-y-6 text-gray-600 leading-relaxed">
                   <p className="text-lg lg:text-xl">
-                    <span className="font-bold text-rose-600">노마드출장마사지</span>는 이천, 광주, 여주, 용인 지역을 중심으로
+                    <span className="font-bold text-rose-600">노마드출장마사지</span>는 전국 주요 도시를 중심으로
                     최상의 <span className="font-bold">출장안마</span>와 <span className="font-bold">출장마사지</span> 서비스를 제공하는 프리미엄 브랜드입니다.
                   </p>
                   <p className="text-base lg:text-lg">
-                    경기도 이천의 중심에서 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 이천 시민 여러분께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
+                    바쁜 일상에 지친 고객님들을 위해 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 고객님께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
                   </p>
                   <p className="text-lg lg:text-xl">
-                    경기도 이천의 중심에서 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 이천 시민 여러분께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
+                    바쁜 일상에 지친 고객님들을 위해 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 고객님께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
                   </p>
                   <p className="text-base lg:text-lg">
                     실력과 마인드를 겸비한 전문 여성 관리사로 구성되어 있으며, 체계적인 교육을 통해 고객님께 최상의 힐링 경험을 선사합니다. 
@@ -326,8 +326,8 @@ export default function ClientPage() {
               {/* Right Content - Ultra Premium Why Us Card */}
               <div className="relative">
                 <Card className="bg-gradient-to-br from-rose-500 via-pink-500 to-purple-600 text-white rounded-3xl shadow-2xl overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 lg:w-32 h-24 lg:h-32 bg-white/10 rounded-full -translate-y-12 lg:-translate-y-16 translate-x-12 lg:translate-x-16"></div>
-                  <div className="absolute bottom-0 left-0 w-16 lg:w-24 h-16 lg:h-24 bg-white/10 rounded-full translate-y-8 lg:translate-y-12 -translate-x-8 lg:-translate-x-12"></div>
+                  <div className="absolute top-0 right-0 w-24 lg:w-32 h-24 lg:h-32 bg-white/10 rounded-full -translate-y-12 lg:-translate-y-16 translate-x-6 lg:translate-x-8"></div>
+                  <div className="absolute bottom-0 left-0 w-16 lg:w-24 h-16 lg:h-24 bg-white/10 rounded-full translate-y-8 lg:translate-y-12 -translate-x-4 lg:-translate-x-6"></div>
 
                   <CardContent className="p-6 lg:p-12 relative z-10">
                     <div className="mb-6 lg:mb-10">
@@ -483,7 +483,7 @@ export default function ClientPage() {
                 {/* 타이 + 아로마 패키지 */}
                 <Card className="bg-gradient-to-br from-rose-500 via-pink-500 to-purple-500 text-white shadow-2xl rounded-3xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                   <CardContent className="p-6 lg:p-8 relative">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-5"></div>
 
                     <div className="flex items-center space-x-3 mb-4 lg:mb-6">
                       <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
@@ -511,7 +511,7 @@ export default function ClientPage() {
                 {/* 타이 + 스웨디시 패키지 */}
                 <Card className="bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 text-white shadow-2xl rounded-3xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                   <CardContent className="p-6 lg:p-8 relative">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-5"></div>
 
                     <div className="flex items-center space-x-3 mb-4 lg:mb-6">
                       <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
@@ -562,18 +562,21 @@ export default function ClientPage() {
                   title: "전문 관리사",
                   desc: "친절하고 전문적인 서비스",
                   gradient: "from-rose-200/80 via-pink-200/70 to-purple-200/60",
+                  alt: "친절하고 전문적인 서비스를 제공하는 노마드출장마사지 전문 관리사",
                 },
                 {
                   src: "/images/spa-image-3.jpg",
                   title: "럭셔리 서비스",
                   desc: "최고급 프리미엄 경험",
                   gradient: "from-pink-200/80 via-rose-200/70 to-purple-200/60",
+                  alt: "최고급 프리미엄 경험을 제공하는 노마드출장마사지 럭셔리 서비스",
                 },
                 {
                   src: "/images/spa-image-4.jpg",
                   title: "힐링 서비스",
                   desc: "완벽한 휴식과 회복",
                   gradient: "from-purple-200/80 via-pink-200/70 to-rose-200/60",
+                  alt: "완벽한 휴식과 회복을 위한 노마드출장마사지 힐링 서비스",
                 },
               ].map((item, index) => (
                 <div
@@ -583,7 +586,7 @@ export default function ClientPage() {
                   <div className="relative">
                     <Image
                       src={item.src || "/placeholder.svg"}
-                      alt={`${item.title} - 노마드출장마사지`}
+                      alt={item.alt || `${item.title} - 노마드출장마사지`}
                       width={400}
                       height={500}
                       className="w-full h-72 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 group-hover:brightness-110"
@@ -637,8 +640,8 @@ export default function ClientPage() {
           <div className="container mx-auto px-2 sm:px-4">
             <div className="max-w-5xl mx-auto">
               <Card className="bg-gradient-to-br from-rose-500 via-pink-500 to-purple-600 rounded-3xl p-6 lg:p-16 text-white text-center shadow-2xl overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-32 lg:w-48 h-32 lg:h-48 bg-white/10 rounded-full -translate-y-16 lg:-translate-y-24 translate-x-16 lg:translate-x-24"></div>
-                <div className="absolute bottom-0 left-0 w-24 lg:w-36 h-24 lg:h-36 bg-white/10 rounded-full translate-y-12 lg:translate-y-18 -translate-x-12 lg:-translate-x-18"></div>
+                <div className="absolute top-0 right-0 w-32 lg:w-48 h-32 lg:h-48 bg-white/10 rounded-full -translate-y-16 lg:-translate-y-24 translate-x-8 lg:translate-x-12"></div>
+                <div className="absolute bottom-0 left-0 w-24 lg:w-36 h-24 lg:h-36 bg-white/10 rounded-full translate-y-12 lg:translate-y-18 -translate-x-6 lg:-translate-x-9"></div>
 
                 <div className="relative z-10">
                   <div className="mb-6 lg:mb-10">
@@ -648,7 +651,7 @@ export default function ClientPage() {
                     </div>
                     <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">지금 바로 예약하세요</h2>
                     <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8">
-                      경기도 이천, 광주, 여주, 용인 최고의 프리미엄 마사지
+                      최고의 프리미엄 마사지 서비스를 경험하세요
                     </p>
                     <div className="flex items-center justify-center space-x-3 lg:space-x-4 text-xl lg:text-3xl font-bold mb-6 lg:mb-10">
                       <Phone className="w-6 h-6 lg:w-8 lg:h-8" />
@@ -701,11 +704,11 @@ export default function ClientPage() {
                   </div>
                   <div>
                     <div className="text-lg lg:text-xl font-bold">노마드출장마사지</div>
-                    <div className="text-xs lg:text-sm text-rose-400">경기도 전문 출장마사지</div>
+                    <div className="text-xs lg:text-sm text-rose-400">전국 프리미엄 출장마사지</div>
                   </div>
                 </Link>
                 <p className="text-gray-400 mb-4 lg:mb-6 text-sm lg:text-base leading-relaxed">
-                  경기도 이천, 광주, 여주, 용인 검증된 프리미엄 출장마사지 서비스
+                  전국 주요 도시 검증된 프리미엄 출장마사지 서비스
                 </p>
                 <div className="flex flex-wrap items-center gap-2 lg:gap-4 text-xs lg:text-sm text-gray-400">
                   <span>24시간 운영</span>

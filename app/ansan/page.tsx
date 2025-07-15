@@ -22,7 +22,7 @@ export default function AnsanPage() {
     <LocationPage
       city="안산"
       cityEn="ansan"
-      theme="sky"
+      theme="green"
       heroImage="/images/spa-image-2.jpg"
       description="안산 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 안산 어디서든 최상의 힐링을 경험하세요."
       areas={["단원구", "상록구", "중앙동", "고잔동", "초지동", "선부동", "월피동", "성포동", "본오동", "사동"]}
@@ -47,7 +47,7 @@ export default function AnsanPage() {
           <p>
             고객 만족 최우선! 노마드출장마사지 안산점에서 최상의 서비스를 경험하세요. 예약금, 선입금 없이 서비스 완료 후 현장 결제하는 투명한 시스템. 간편한 전화 한 통으로 안산 최고의 힐링을 경험하세요. 고객님의 소중한 시간을 위한 최고의 선택입니다.
           </p>
-          <div className="mt-4 text-sm text-gray-600">#단원구 #상록구 #중앙동 #고잔동 #초지동 #선부동 #월피동 #성포동 #본오동 #사동</div>
+          <div className="mt-4 text-sm text-gray-600">단원구 상록구 중앙동 고잔동 초지동 선부동 월피동 성포동 본오동 사동</div>
         </>
       }
     />

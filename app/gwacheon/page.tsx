@@ -20,7 +20,7 @@ export default function GwacheonPage() {
     <LocationPage
       city="과천"
       cityEn="gwacheon"
-      theme="indigo"
+      theme="amber"
       heroImage="/images/spa-image-3.jpg"
       description="과천 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 과천 어디서든 최상의 힐링을 경험하세요."
       areas={["중앙동", "갈현동", "별양동", "원문동", "과천동", "주암동", "문원동", "막계동", "청계동", "관문동"]}
@@ -45,7 +45,7 @@ export default function GwacheonPage() {
           <p>
             고객 만족 최우선! 노마드출장마사지 과천점에서 최상의 서비스를 경험하세요. 예약금, 선입금 없이 서비스 완료 후 현장 결제하는 투명한 시스템. 간편한 전화 한 통으로 과천 최고의 힐링을 경험하세요. 고객님의 소중한 시간을 위한 최고의 선택입니다.
           </p>
-          <div className="mt-4 text-sm text-gray-600">#중앙동 #갈현동 #별양동 #원문동 #과천동 #주암동 #문원동 #막계동 #청계동 #관문동</div>
+          <div className="mt-4 text-sm text-gray-600">중앙동 갈현동 별양동 원문동 과천동 주암동 문원동 막계동 청계동 관문동</div>
         </>
       }
     />
