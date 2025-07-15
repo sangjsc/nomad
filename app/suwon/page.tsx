@@ -22,7 +22,7 @@ export default function SuwonPage() {
     <LocationPage
       city="수원"
       cityEn="suwon"
-      theme="purple"
+      theme="lavender"
       heroImage="/images/spa-image-3.jpg"
       description="수원 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 수원 어디서든 최상의 힐링을 경험하세요."
       areas={["팔달구", "영통구", "권선구", "장안구", "인계동", "광교", "매탄동", "세류동", "정자동", "호매실동"]}

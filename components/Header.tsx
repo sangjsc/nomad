@@ -24,47 +24,117 @@ const navLinks = [
 ]
 
 const getPageTheme = (pathname: string) => {
+  if (pathname === '/icheon') return 'sage'
+  if (pathname === '/yeoju') return 'amber'
+  if (pathname === '/yongin') return 'rose'
+  if (pathname === '/gwangju') return 'purple'
+  if (pathname === '/suwon') return 'lavender'
+  if (pathname === '/ansan') return 'sky'
   if (pathname === '/seongnam') return 'blue'
-  if (pathname === '/anyang') return 'rose'
-  if (pathname === '/gwacheon') return 'purple'
-  if (pathname === '/uiwang') return 'blue'
-  if (pathname === '/gunpo') return 'rose'
-  if (pathname === '/hanam') return 'green'
+  if (pathname === '/anyang') return 'coral'
+  if (pathname === '/gwacheon') return 'indigo'
+  if (pathname === '/uiwang') return 'mint'
+  if (pathname === '/gunpo') return 'peach'
+  if (pathname === '/hanam') return 'emerald'
   return 'rose' // default theme
 }
 
 const themeColors = {
+  sage: {
+    primary: 'from-green-400 to-green-500',
+    hover: 'hover:from-green-500 hover:to-green-600',
+    accent: 'text-green-300',
+    border: 'border-green-300',
+    text: 'text-green-700',
+    bg: 'bg-green-50'
+  },
+  amber: {
+    primary: 'from-amber-400 to-amber-500',
+    hover: 'hover:from-amber-500 hover:to-amber-600',
+    accent: 'text-amber-300',
+    border: 'border-amber-300',
+    text: 'text-amber-700',
+    bg: 'bg-amber-50'
+  },
   rose: {
-    primary: 'from-rose-500 to-rose-600',
-    hover: 'hover:from-rose-600 hover:to-rose-700',
+    primary: 'from-rose-400 to-rose-500',
+    hover: 'hover:from-rose-500 hover:to-rose-600',
     accent: 'text-rose-300',
     border: 'border-rose-300',
     text: 'text-rose-700',
     bg: 'bg-rose-50'
   },
-  blue: {
-    primary: 'from-blue-500 to-blue-600', 
-    hover: 'hover:from-blue-600 hover:to-blue-700',
-    accent: 'text-blue-300',
-    border: 'border-blue-300',
-    text: 'text-blue-700',
-    bg: 'bg-blue-50'
-  },
   purple: {
-    primary: 'from-purple-500 to-purple-600',
-    hover: 'hover:from-purple-600 hover:to-purple-700', 
+    primary: 'from-purple-400 to-purple-500',
+    hover: 'hover:from-purple-500 hover:to-purple-600',
     accent: 'text-purple-300',
     border: 'border-purple-300',
     text: 'text-purple-700',
     bg: 'bg-purple-50'
   },
-  green: {
-    primary: 'from-green-500 to-green-600',
-    hover: 'hover:from-green-600 hover:to-green-700',
-    accent: 'text-green-300', 
-    border: 'border-green-300',
-    text: 'text-green-700',
-    bg: 'bg-green-50'
+  lavender: {
+    primary: 'from-violet-400 to-violet-500',
+    hover: 'hover:from-violet-500 hover:to-violet-600',
+    accent: 'text-violet-300',
+    border: 'border-violet-300',
+    text: 'text-violet-700',
+    bg: 'bg-violet-50'
+  },
+  sky: {
+    primary: 'from-sky-400 to-sky-500',
+    hover: 'hover:from-sky-500 hover:to-sky-600',
+    accent: 'text-sky-300',
+    border: 'border-sky-300',
+    text: 'text-sky-700',
+    bg: 'bg-sky-50'
+  },
+  blue: {
+    primary: 'from-blue-400 to-blue-500',
+    hover: 'hover:from-blue-500 hover:to-blue-600',
+    accent: 'text-blue-300',
+    border: 'border-blue-300',
+    text: 'text-blue-700',
+    bg: 'bg-blue-50'
+  },
+  coral: {
+    primary: 'from-orange-400 to-pink-400',
+    hover: 'hover:from-orange-500 hover:to-pink-500',
+    accent: 'text-orange-300',
+    border: 'border-orange-300',
+    text: 'text-orange-700',
+    bg: 'bg-orange-50'
+  },
+  indigo: {
+    primary: 'from-indigo-400 to-indigo-500',
+    hover: 'hover:from-indigo-500 hover:to-indigo-600',
+    accent: 'text-indigo-300',
+    border: 'border-indigo-300',
+    text: 'text-indigo-700',
+    bg: 'bg-indigo-50'
+  },
+  mint: {
+    primary: 'from-teal-400 to-emerald-400',
+    hover: 'hover:from-teal-500 hover:to-emerald-500',
+    accent: 'text-teal-300',
+    border: 'border-teal-300',
+    text: 'text-teal-700',
+    bg: 'bg-teal-50'
+  },
+  peach: {
+    primary: 'from-pink-400 to-rose-400',
+    hover: 'hover:from-pink-500 hover:to-rose-500',
+    accent: 'text-pink-300',
+    border: 'border-pink-300',
+    text: 'text-pink-700',
+    bg: 'bg-pink-50'
+  },
+  emerald: {
+    primary: 'from-emerald-400 to-green-400',
+    hover: 'hover:from-emerald-500 hover:to-green-500',
+    accent: 'text-emerald-300',
+    border: 'border-emerald-300',
+    text: 'text-emerald-700',
+    bg: 'bg-emerald-50'
   }
 }
 

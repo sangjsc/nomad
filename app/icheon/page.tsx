@@ -22,7 +22,7 @@ export default function IcheonPage() {
     <LocationPage
       city="이천"
       cityEn="icheon"
-      theme="green"
+      theme="sage"
       heroImage="/images/spa-image-1.jpg"
       description="🍃 이천 출장마사지, 노마드출장마사지! 자연과 힐링의 도시에서 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 이천 어디서든 자연의 힐링을 경험하세요."
       areas={["부발읍 🌾", "신둔면 🌸", "백사면 🌿", "설성면 🍀", "마장면 🌳", "호법면 🌲", "모가면 🌱", "중리동 🏞️", "증포동 🌺", "관고동 🍃"]}

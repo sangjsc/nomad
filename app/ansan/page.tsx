@@ -22,7 +22,7 @@ export default function AnsanPage() {
     <LocationPage
       city="안산"
       cityEn="ansan"
-      theme="blue"
+      theme="sky"
       heroImage="/images/spa-image-2.jpg"
       description="안산 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 안산 어디서든 최상의 힐링을 경험하세요."
       areas={["단원구", "상록구", "중앙동", "고잔동", "초지동", "선부동", "월피동", "성포동", "본오동", "사동"]}

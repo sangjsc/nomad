@@ -20,7 +20,7 @@ export default function UiwangPage() {
     <LocationPage
       city="의왕"
       cityEn="uiwang"
-      theme="blue"
+      theme="mint"
       heroImage="/images/spa-image-4.jpg"
       description="의왕 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 의왕 어디서든 최상의 힐링을 경험하세요."
       areas={[

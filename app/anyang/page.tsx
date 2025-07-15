@@ -20,7 +20,7 @@ export default function AnyangPage() {
     <LocationPage
       city="안양"
       cityEn="anyang"
-      theme="rose"
+      theme="coral"
       heroImage="/images/spa-image-2.jpg"
       description="안양 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 안양 어디서든 최상의 힐링을 경험하세요."
       areas={["동안구", "만안구", "비산동", "갈산동", "관양동", "평촌동", "호계동", "법계원동", "안양동", "박달동"]}

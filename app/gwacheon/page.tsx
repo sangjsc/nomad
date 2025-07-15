@@ -20,7 +20,7 @@ export default function GwacheonPage() {
     <LocationPage
       city="과천"
       cityEn="gwacheon"
-      theme="purple"
+      theme="indigo"
       heroImage="/images/spa-image-3.jpg"
       description="과천 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 과천 어디서든 최상의 힐링을 경험하세요."
       areas={["중앙동", "갈현동", "별양동", "원문동", "과천동", "주암동", "문원동", "막계동", "청계동", "관문동"]}

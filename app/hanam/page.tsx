@@ -20,7 +20,7 @@ export default function HanamPage() {
     <LocationPage
       city="하남"
       cityEn="hanam"
-      theme="green"
+      theme="emerald"
       heroImage="/images/spa-image-2.jpg"
       description="하남 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 하남 어디서든 최상의 힐링을 경험하세요."
       areas={[

@@ -20,7 +20,7 @@ export default function GunpoPage() {
     <LocationPage
       city="군포"
       cityEn="gunpo"
-      theme="rose"
+      theme="peach"
       heroImage="/images/spa-image-1.jpg"
       description="군포 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 군포 어디서든 최상의 힐링을 경험하세요."
       areas={[
