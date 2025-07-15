@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#10B981"/>
+  
+  <!-- Stylized "N" for Nomad -->
+  <path d="M128 160V352H168V248L280 352H320V160H280V264L168 160H128Z" fill="white"/>
+  
+  <!-- Small decorative elements representing wellness/massage -->
+  <circle cx="384" cy="192" r="24" fill="white" opacity="0.8"/>
+  <circle cx="352" cy="128" r="16" fill="white" opacity="0.6"/>
+  <circle cx="416" cy="160" r="12.8" fill="white" opacity="0.7"/>
+</svg>
