@@ -24,11 +24,18 @@ export default function ClientPage() {
       {
         "@type": "LocalBusiness",
         "name": "노마드출장마사지",
-        "image": "https://nomadthai.kr/images/spa-background.jpg",
-        "description": "경기도 이천, 광주, 여주, 용인 지역 전문 출장마사지 서비스. 24시간 예약, 100% 후불제.",
+        "alternateName": ["노마드 출장마사지", "Nomad Business Trip Massage"],
+        "image": [
+          "https://nomadthai.kr/images/spa-background.jpg",
+          "https://nomadthai.kr/images/spa-image-1.jpg",
+          "https://nomadthai.kr/images/spa-image-2.jpg"
+        ],
+        "description": "경기도 전지역 전문 출장마사지 서비스. 안산, 안양, 수원, 용인, 이천, 광주, 여주, 성남, 군포, 과천, 의왕, 하남 24시간 예약, 100% 후불제, 전문 관리사.",
         "url": "https://nomadthai.kr",
         "telephone": "010-8186-7771",
-        "priceRange": "₩₩",
+        "priceRange": "₩₩-₩₩₩",
+        "paymentAccepted": ["Cash", "Credit Card"],
+        "currenciesAccepted": "KRW",
         "address": {
           "@type": "PostalAddress",
           "addressRegion": "경기도",
@@ -41,37 +48,69 @@ export default function ClientPage() {
         },
         "openingHours": "Mo-Su 00:00-23:59",
         "serviceArea": [
-          { "@type": "City", "name": "이천시" },
-          { "@type": "City", "name": "광주시" },
-          { "@type": "City", "name": "여주시" },
-          { "@type": "City", "name": "용인시" }
+          { "@type": "City", "name": "안산시", "description": "안산출장마사지 전문" },
+          { "@type": "City", "name": "안양시", "description": "안양출장마사지 전문" },
+          { "@type": "City", "name": "수원시", "description": "수원출장마사지 전문" },
+          { "@type": "City", "name": "용인시", "description": "용인출장마사지 전문" },
+          { "@type": "City", "name": "이천시", "description": "이천출장마사지 전문" },
+          { "@type": "City", "name": "광주시", "description": "광주출장마사지 전문" },
+          { "@type": "City", "name": "여주시", "description": "여주출장마사지 전문" },
+          { "@type": "City", "name": "성남시", "description": "성남출장마사지 전문" },
+          { "@type": "City", "name": "군포시", "description": "군포출장마사지 전문" },
+          { "@type": "City", "name": "과천시", "description": "과천출장마사지 전문" },
+          { "@type": "City", "name": "의왕시", "description": "의왕출장마사지 전문" },
+          { "@type": "City", "name": "하남시", "description": "하남출장마사지 전문" }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "마사지 서비스",
+          "name": "출장마사지 서비스",
           "itemListElement": [
             {
               "@type": "Offer",
+              "price": "70000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
               "itemOffered": {
                 "@type": "Service",
                 "name": "타이 마사지",
-                "description": "전통 타이 마사지 기법"
+                "description": "전통 타이 마사지 기법으로 몸의 균형을 맞춰드립니다. 60분/90분/120분 코스 제공",
+                "serviceType": "출장 타이마사지"
               }
             },
             {
               "@type": "Offer",
+              "price": "80000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
               "itemOffered": {
                 "@type": "Service",
                 "name": "아로마 마사지",
-                "description": "향긋한 아로마 오일 마사지"
+                "description": "향긋한 아로마 오일로 심신의 안정을 선사합니다. 60분/90분/120분 코스 제공",
+                "serviceType": "출장 아로마마사지"
               }
             },
             {
               "@type": "Offer",
+              "price": "100000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
               "itemOffered": {
                 "@type": "Service",
                 "name": "스웨디시 힐링 마사지",
-                "description": "깊은 이완과 근육 회복을 위한 전문 마사지"
+                "description": "깊은 이완과 근육 회복을 위한 전문 마사지. 60분/90분/120분 코스 제공",
+                "serviceType": "출장 스웨디시마사지"
+              }
+            },
+            {
+              "@type": "Offer",
+              "price": "80000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "홈타이 마사지",
+                "description": "집에서 편안하게 받는 태국식 전통 마사지 서비스",
+                "serviceType": "출장 홈타이"
               }
             }
           ]
@@ -82,34 +121,50 @@ export default function ClientPage() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "예약은 어떻게 하나요?",
+            "name": "출장마사지 예약은 어떻게 하나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "전화(010-8186-7771) 또는 카카오톡 채널을 통해 24시간 언제든지 예약 상담이 가능합니다."
+              "text": "전화(010-8186-7771) 또는 카카오톡 채널을 통해 24시간 언제든지 예약 상담이 가능합니다. 30분 내로 신속하게 출발합니다."
             }
           },
           {
             "@type": "Question",
-            "name": "결제는 어떻게 이루어지나요?",
+            "name": "출장마사지 결제는 어떻게 이루어지나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "저희 노마드출장마사지는 100% 후불제를 원칙으로 합니다. 관리사에게 서비스를 받으신 후 현장에서 직접 결제하시면 됩니다."
+              "text": "저희 노마드출장마사지는 100% 후불제를 원칙으로 합니다. 관리사에게 서비스를 받으신 후 현장에서 직접 결제하시면 됩니다. 현금 및 카드 결제 모두 가능합니다."
             }
           },
           {
             "@type": "Question",
-            "name": "서비스 지역은 어디인가요?",
+            "name": "어느 지역까지 출장마사지 서비스가 가능한가요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "경기도 이천, 광주, 여주, 용인시 전 지역을 중심으로 서비스하고 있습니다. 자세한 지역은 전화로 문의해주세요."
+              "text": "경기도 안산, 안양, 수원, 용인, 이천, 광주, 여주, 성남, 군포, 과천, 의왕, 하남시 전 지역에서 서비스를 제공합니다. 각 지역별 상세 정보는 해당 지역 페이지를 확인해주세요."
             }
           },
           {
             "@type": "Question",
-            "name": "영업시간은 어떻게 되나요?",
+            "name": "출장마사지 영업시간은 어떻게 되나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "365일 24시간 연중무휴로 운영되어 언제든지 편하신 시간에 이용하실 수 있습니다."
+              "text": "365일 24시간 연중무휴로 운영되어 새벽이나 밤늦은 시간에도 언제든지 편하신 시간에 이용하실 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "출장마사지 가격은 얼마인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "타이마사지 70,000원부터, 아로마마사지 80,000원부터, 스웨디시 힐링마사지 100,000원부터 시작합니다. 60분, 90분, 120분 코스가 있으며 자세한 가격은 전화 문의 바랍니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "어떤 종류의 마사지 서비스를 제공하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "타이마사지, 아로마마사지, 스웨디시 힐링마사지, 홈타이 등 다양한 마사지 서비스를 제공합니다. 모든 서비스는 전문 교육을 받은 여성 관리사가 담당합니다."
             }
           }
         ]
@@ -245,26 +300,80 @@ export default function ClientPage() {
           </div>
         </section>
 
-        {/* Service Areas Section */}
+        {/* Premium Service Areas Section */}
         <section className="py-16 lg:py-24 bg-gradient-to-br from-white via-rose-50/30 to-purple-50/30">
           <div className="container mx-auto px-2 sm:px-4">
             <div className="text-center mb-12 lg:mb-16">
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">전국 서비스 지역</h2>
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
+                <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
+                <span className="text-rose-800 font-semibold text-sm lg:text-base">Service Areas</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">경기도 전지역 출장마사지</h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                전국 주요 도시에서 최고의 출장마사지 서비스를 제공합니다
+                24시간 언제든 신속하게 찾아가는 프리미엄 홈케어 서비스
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6">
-              <Card className="bg-white shadow-xl rounded-2xl p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-rose-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">전국 어디든 방문합니다</h3>
-                <p className="text-gray-600 mb-4">전국 주요 도시 및 지역에서 프리미엄 출장마사지 서비스를 제공합니다.</p>
-                <Link href="/contact" className="text-rose-600 hover:underline font-medium">
-                  자세한 서비스 지역 문의
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+              {[
+                { name: "안산출장마사지", href: "/ansan", area: "안산시", theme: "from-green-400 to-emerald-500" },
+                { name: "안양출장마사지", href: "/anyang", area: "안양시", theme: "from-blue-400 to-indigo-500" },
+                { name: "수원출장마사지", href: "/suwon", area: "수원시", theme: "from-rose-400 to-pink-500" },
+                { name: "용인출장마사지", href: "/yongin", area: "용인시", theme: "from-purple-400 to-violet-500" },
+                { name: "이천출장마사지", href: "/icheon", area: "이천시", theme: "from-blue-400 to-cyan-500" },
+                { name: "광주출장마사지", href: "/gwangju", area: "광주시", theme: "from-purple-400 to-indigo-500" },
+                { name: "여주출장마사지", href: "/yeoju", area: "여주시", theme: "from-amber-400 to-orange-500" },
+                { name: "성남출장마사지", href: "/seongnam", area: "성남시", theme: "from-teal-400 to-cyan-500" },
+                { name: "군포출장마사지", href: "/gunpo", area: "군포시", theme: "from-rose-400 to-red-500" },
+                { name: "과천출장마사지", href: "/gwacheon", area: "과천시", theme: "from-amber-400 to-yellow-500" },
+                { name: "의왕출장마사지", href: "/uiwang", area: "의왕시", theme: "from-purple-400 to-pink-500" },
+                { name: "하남출장마사지", href: "/hanam", area: "하남시", theme: "from-green-400 to-teal-500" }
+              ].map((location, index) => (
+                <Link key={index} href={location.href}>
+                  <Card className="bg-white hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl overflow-hidden group">
+                    <CardContent className="p-4 lg:p-6">
+                      <div className={`w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br ${location.theme} rounded-xl flex items-center justify-center mx-auto mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <MapPin className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
+                      </div>
+                      <h3 className="text-sm lg:text-base font-bold text-gray-800 mb-1 lg:mb-2 text-center group-hover:text-rose-600 transition-colors duration-300">
+                        {location.name}
+                      </h3>
+                      <p className="text-xs lg:text-sm text-gray-600 text-center">
+                        {location.area} 전지역
+                      </p>
+                      <div className="mt-2 lg:mt-3 text-center">
+                        <span className="inline-flex items-center text-xs lg:text-sm text-rose-600 font-medium group-hover:text-rose-700">
+                          24시간 예약
+                          <Crown className="w-3 h-3 lg:w-4 lg:h-4 ml-1" />
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </Link>
+              ))}
+            </div>
+
+            <div className="mt-12 lg:mt-16 text-center">
+              <Card className="bg-gradient-to-br from-rose-500 via-pink-500 to-purple-600 text-white rounded-3xl shadow-2xl p-6 lg:p-8 max-w-4xl mx-auto">
+                <h3 className="text-xl lg:text-3xl font-bold mb-4">지금 바로 예약하세요!</h3>
+                <p className="text-sm lg:text-lg mb-6 opacity-90">
+                  경기도 전지역 30분내 도착 · 100% 후불제 · 24시간 운영
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Button
+                    className="bg-white text-rose-600 hover:bg-rose-50 px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-105"
+                    onClick={() => window.open("tel:010-8186-7771")}
+                  >
+                    <Phone className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
+                    010-8186-7771
+                  </Button>
+                  <Button
+                    className="bg-green-500 hover:bg-green-600 text-white px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg rounded-full font-bold shadow-lg transition-all duration-300 transform hover:scale-105"
+                    onClick={() => window.open("https://open.kakao.com/o/ssZxRuEh")}
+                  >
+                    카카오톡 상담
+                  </Button>
+                </div>
               </Card>
             </div>
           </div>
@@ -717,19 +826,25 @@ export default function ClientPage() {
                   <span>•</span>
                   <span>전문 관리사</span>
                 </div>
-                <div className="flex flex-wrap gap-4 text-sm text-gray-400 mt-4">
-                  <Link href="/icheon" className="hover:text-rose-400">
-                    이천출장마사지
-                  </Link>
-                  <Link href="/gwangju" className="hover:text-rose-400">
-                    광주출장마사지
-                  </Link>
-                  <Link href="/yeoju" className="hover:text-rose-400">
-                    여주출장마사지
-                  </Link>
-                  <Link href="/yongin" className="hover:text-rose-400">
-                    용인출장마사지
-                  </Link>
+                <div className="flex flex-wrap gap-3 lg:gap-4 text-sm text-gray-400 mt-4">
+                  {[
+                    { name: "안산출장마사지", href: "/ansan" },
+                    { name: "안양출장마사지", href: "/anyang" },
+                    { name: "수원출장마사지", href: "/suwon" },
+                    { name: "용인출장마사지", href: "/yongin" },
+                    { name: "이천출장마사지", href: "/icheon" },
+                    { name: "광주출장마사지", href: "/gwangju" },
+                    { name: "여주출장마사지", href: "/yeoju" },
+                    { name: "성남출장마사지", href: "/seongnam" },
+                    { name: "군포출장마사지", href: "/gunpo" },
+                    { name: "과천출장마사지", href: "/gwacheon" },
+                    { name: "의왕출장마사지", href: "/uiwang" },
+                    { name: "하남출장마사지", href: "/hanam" }
+                  ].map((location, index) => (
+                    <Link key={index} href={location.href} className="hover:text-rose-400 transition-colors duration-200">
+                      {location.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
               <div className="text-center lg:text-right">

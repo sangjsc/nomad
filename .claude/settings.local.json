@@ -19,7 +19,13 @@
       "Bash(tail:*)",
       "Bash(done)",
       "Bash(git commit:*)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "WebFetch(domain:forumup.org)",
+      "Bash(npx prisma:*)",
+      "Bash(git restore:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(git checkout:*)",
+      "Bash(npx create-next-app:*)"
     ],
     "deny": []
   }

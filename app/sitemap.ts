@@ -4,11 +4,25 @@ import { getSortedPostsData } from "@/lib/blog"
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getSortedPostsData()
   
+  // 지역 페이지 목록
+  const locationPages = [
+    "ansan", "anyang", "suwon", "yongin", "icheon", 
+    "gwangju", "yeoju", "seongnam", "gunpo", "gwacheon", 
+    "uiwang", "hanam"
+  ]
+  
   const blogUrls = posts.map((post) => ({
     url: `https://nomadthai.kr/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "weekly" as const,
     priority: 0.7,
+  }))
+
+  const locationUrls = locationPages.map((location) => ({
+    url: `https://nomadthai.kr/${location}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.95, // 지역 페이지는 높은 우선순위
   }))
 
   return [
@@ -24,78 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.9,
     },
-    {
-      url: "https://nomadthai.kr/icheon",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/gwangju",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/yeoju",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/yongin",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/suwon",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/ansan",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/seongnam",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/anyang",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/gwacheon",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/uiwang",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/gunpo",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: "https://nomadthai.kr/hanam",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
+    ...locationUrls,
     ...blogUrls,
   ]
 }

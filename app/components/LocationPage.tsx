@@ -188,42 +188,83 @@ export default function LocationPage({
           "longitude": longitude,
         },
         "openingHours": "Mo-Su 00:00-23:59",
-        "priceRange": "₩₩",
-        "serviceArea": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": latitude,
-            "longitude": longitude,
+        "priceRange": "₩₩-₩₩₩",
+        "paymentAccepted": ["Cash", "Credit Card"],
+        "currenciesAccepted": "KRW",
+        "serviceArea": [
+          {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": latitude,
+              "longitude": longitude,
+            },
+            "geoRadius": "30000", // 30km 반경
           },
-          "geoRadius": "30000", // 30km 반경
-        },
+          {
+            "@type": "City",
+            "name": `${city}시`,
+            "description": `${city}출장마사지 전문 서비스 지역`
+          }
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "마사지 서비스",
+          "name": `${city} 출장마사지 서비스`,
           "itemListElement": [
             {
               "@type": "Offer",
+              "price": "70000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
+              "validFrom": new Date().toISOString().split('T')[0],
               "itemOffered": {
                 "@type": "Service",
-                "name": "타이 마사지",
-                "description": "전통 타이 마사지 기법",
+                "name": `${city} 타이 마사지`,
+                "description": `${city}시 전통 타이 마사지 기법으로 몸의 균형을 맞춰드립니다. 60분/90분/120분 코스`,
+                "serviceType": `${city}출장 타이마사지`,
+                "areaServed": `${city}시`
               },
             },
             {
               "@type": "Offer",
+              "price": "80000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
+              "validFrom": new Date().toISOString().split('T')[0],
               "itemOffered": {
                 "@type": "Service",
-                "name": "아로마 마사지",
-                "description": "향긋한 아로마 오일 마사지",
+                "name": `${city} 아로마 마사지`,
+                "description": `${city}시 향긋한 아로마 오일로 심신의 안정을 선사합니다. 60분/90분/120분 코스`,
+                "serviceType": `${city}출장 아로마마사지`,
+                "areaServed": `${city}시`
               },
             },
             {
               "@type": "Offer",
+              "price": "100000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
+              "validFrom": new Date().toISOString().split('T')[0],
               "itemOffered": {
                 "@type": "Service",
-                "name": "스웨디시 힐링 마사지",
-                "description": "깊은 이완과 근육 회복을 위한 전문 마사지",
+                "name": `${city} 스웨디시 힐링 마사지`,
+                "description": `${city}시 깊은 이완과 근육 회복을 위한 전문 마사지. 60분/90분/120분 코스`,
+                "serviceType": `${city}출장 스웨디시마사지`,
+                "areaServed": `${city}시`
+              },
+            },
+            {
+              "@type": "Offer",
+              "price": "80000",
+              "priceCurrency": "KRW",
+              "availability": "https://schema.org/InStock",
+              "validFrom": new Date().toISOString().split('T')[0],
+              "itemOffered": {
+                "@type": "Service",
+                "name": `${city} 홈타이`,
+                "description": `${city}시 집에서 편안하게 받는 태국식 전통 마사지 서비스`,
+                "serviceType": `${city}출장 홈타이`,
+                "areaServed": `${city}시`
               },
             },
           ],
@@ -268,7 +309,26 @@ export default function LocationPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100">
+      {/* Mobile Floating CTA */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
+        <div className="grid grid-cols-2 gap-2">
+          <Button
+            className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} text-white px-4 py-3 text-base rounded-xl font-bold shadow-2xl transition-all duration-300 transform active:scale-95 w-full`}
+            onClick={() => window.open('tel:010-8186-7771')}
+          >
+            <Phone className="w-4 h-4 mr-2" />
+            즉시 예약
+          </Button>
+          <Button
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-3 text-base rounded-xl font-bold shadow-2xl transition-all duration-300 transform active:scale-95 w-full"
+            onClick={() => window.open('https://open.kakao.com/o/ssZxRuEh')}
+          >
+            💬 카톡 상담
+          </Button>
+        </div>
+      </div>
+
+      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100 pb-20 md:pb-0">
         
 
         <section className="relative py-8 sm:py-12 lg:py-16">
@@ -289,7 +349,7 @@ export default function LocationPage({
                     </span>
                   </div>
 
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 leading-tight text-gray-900">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight text-gray-900">
                     <span className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} bg-clip-text text-transparent block`}>
                       {city} 출장마사지
                     </span>
@@ -302,20 +362,20 @@ export default function LocationPage({
 
                 <div className="flex flex-col gap-4 mb-8 lg:mb-12">
                   <Button
-                    className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} ${currentTheme.hoverGradientFrom} ${currentTheme.hoverGradientVia} ${currentTheme.hoverGradientTo} text-white px-8 py-4 text-lg rounded-2xl font-bold shadow-xl transition-all duration-300 transform active:scale-95 w-full sm:w-auto`}
+                    className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} ${currentTheme.hoverGradientFrom} ${currentTheme.hoverGradientVia} ${currentTheme.hoverGradientTo} text-white px-8 py-5 text-lg sm:text-xl rounded-2xl font-bold shadow-xl transition-all duration-300 transform active:scale-95 w-full sm:w-auto hover:shadow-2xl`}
                     onClick={() => window.open('tel:010-8186-7771')}
                   >
-                    <Phone className="w-5 h-5 mr-2" />
-                    지금 예약하기
+                    <Phone className="w-5 h-5 mr-3" />
+                    📞 지금 예약하기
                   </Button>
                   <Button
                     variant="outline"
-                    className={`border-2 ${currentTheme.border} ${currentTheme.text} hover:bg-gray-50 px-8 py-4 text-lg rounded-2xl font-bold transition-all duration-300 active:scale-95 w-full sm:w-auto`}
+                    className={`border-2 ${currentTheme.border} ${currentTheme.text} hover:bg-gray-50 px-8 py-5 text-lg sm:text-xl rounded-2xl font-bold transition-all duration-300 active:scale-95 w-full sm:w-auto hover:shadow-lg bg-white`}
                     onClick={() =>
                       window.open('https://open.kakao.com/o/ssZxRuEh')
                     }
                   >
-                    카카오톡 상담
+                    💬 카카오톡 상담
                   </Button>
                 </div>
 
@@ -359,6 +419,8 @@ export default function LocationPage({
                         height={600}
                         className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                         style={{ objectPosition: 'center top' }}
+                        priority
+                        loading="eager"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${currentTheme.gradientFrom}/20 via-transparent to-transparent`}></div>
                     </div>
@@ -908,6 +970,211 @@ export default function LocationPage({
           </div>
         </section>
 
+        {/* Local Information Section */}
+        <section className={`py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/20`}>
+          <div className="container mx-auto px-2 sm:px-4">
+            <div className="text-center mb-12 lg:mb-16">
+              <div className={`inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6`}>
+                <MapPin className={`w-4 h-4 lg:w-5 lg:h-5 ${currentTheme.lightText}`} />
+                <span className={`font-semibold text-sm lg:text-base ${currentTheme.lightText}`}>
+                  {city} 지역 정보
+                </span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
+                {city}출장마사지 서비스 지역 안내
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                {city}시 전지역에서 이용 가능한 {city}출장마사지 및 {city}홈타이 서비스
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16">
+              <Card className="bg-white shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-6 lg:p-8">
+                  <div className="flex items-center mb-4 lg:mb-6">
+                    <div className={`w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br ${currentTheme.gradientFrom} ${currentTheme.gradientTo} rounded-2xl flex items-center justify-center mr-4`}>
+                      <MapPin className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
+                      {city}출장마사지 이용 가능 지역
+                    </h3>
+                  </div>
+                  <div className="space-y-3 lg:space-y-4">
+                    <p className="text-gray-600 leading-relaxed">
+                      <strong className={currentTheme.text}>{city}출장마사지</strong>는 {areas.slice(0, 3).join(', ')} 등 {city}시 전 지역에서 이용하실 수 있습니다.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      특히 {areas.slice(3, 6).join(', ')} 지역의 <strong className={currentTheme.text}>{city}홈타이</strong> 서비스는 고객 만족도가 매우 높습니다.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      모든 지역에서 동일한 품질의 <strong className={currentTheme.text}>{city}출장태국마사지</strong> 서비스를 제공하며, 24시간 예약이 가능합니다.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-6 lg:p-8">
+                  <div className="flex items-center mb-4 lg:mb-6">
+                    <div className={`w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center mr-4`}>
+                      <Clock className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
+                      {city}출장마사지 운영 시간
+                    </h3>
+                  </div>
+                  <div className="space-y-3 lg:space-y-4">
+                    <p className="text-gray-600 leading-relaxed">
+                      <strong className={currentTheme.text}>{city}출장마사지</strong>는 24시간 연중무휴로 운영됩니다.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      오전 9시부터 새벽 2시까지는 <strong className={currentTheme.text}>{city}홈타이</strong> 예약이 특히 많습니다.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      {city}시 전지역 30분 내 도착을 목표로, 최대한 빠른 <strong className={currentTheme.text}>{city}출장마사지</strong> 서비스를 제공합니다.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Enhanced FAQ Section */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-xl">
+              <div className="text-center mb-8 lg:mb-12">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+                  {city}출장마사지 자주 묻는 질문
+                </h3>
+                <div className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientTo} mx-auto`}></div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <div className="space-y-4 lg:space-y-6">
+                  <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
+                    <h4 className="font-bold text-gray-800 mb-2">
+                      {city}출장마사지 예약은 얼마나 미리 해야 하나요?
+                    </h4>
+                    <p className="text-gray-600 text-sm lg:text-base">
+                      {city}출장마사지는 당일 예약도 가능합니다. {city}홈타이 서비스는 예약 후 30분 내 도착을 목표로 하고 있습니다.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
+                    <h4 className="font-bold text-gray-800 mb-2">
+                      {city}출장마사지 이용 시 준비할 것이 있나요?
+                    </h4>
+                    <p className="text-gray-600 text-sm lg:text-base">
+                      {city}출장마사지 이용 시 별도로 준비하실 것은 없습니다. 모든 마사지 용품은 관리사가 직접 준비해 드립니다.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 lg:space-y-6">
+                  <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
+                    <h4 className="font-bold text-gray-800 mb-2">
+                      {city}홈타이와 {city}출장마사지의 차이점은?
+                    </h4>
+                    <p className="text-gray-600 text-sm lg:text-base">
+                      {city}홈타이는 태국 전통 마사지 기법을, {city}출장마사지는 다양한 마사지 기법을 포함합니다. 고객 선호에 따라 선택 가능합니다.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
+                    <h4 className="font-bold text-gray-800 mb-2">
+                      {city}출장마사지 가격은 지역별로 차이가 있나요?
+                    </h4>
+                    <p className="text-gray-600 text-sm lg:text-base">
+                      {city}시 전지역 동일한 가격으로 {city}출장마사지 서비스를 제공하며, 추가 교통비는 없습니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Areas Section */}
+        <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-rose-50/30">
+          <div className="container mx-auto px-2 sm:px-4">
+            <div className="text-center mb-12 lg:mb-16">
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
+                <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
+                <span className="text-rose-800 font-semibold text-sm lg:text-base">
+                  Other Areas
+                </span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
+                경기도 전지역 출장마사지
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                노마드출장마사지는 경기도 전지역에서 동일한 프리미엄 서비스를 제공합니다
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+              {[
+                { name: "안산출장마사지", href: "/ansan", area: "안산시" },
+                { name: "안양출장마사지", href: "/anyang", area: "안양시" },
+                { name: "수원출장마사지", href: "/suwon", area: "수원시" },
+                { name: "용인출장마사지", href: "/yongin", area: "용인시" },
+                { name: "이천출장마사지", href: "/icheon", area: "이천시" },
+                { name: "광주출장마사지", href: "/gwangju", area: "광주시" },
+                { name: "여주출장마사지", href: "/yeoju", area: "여주시" },
+                { name: "성남출장마사지", href: "/seongnam", area: "성남시" },
+                { name: "군포출장마사지", href: "/gunpo", area: "군포시" },
+                { name: "과천출장마사지", href: "/gwacheon", area: "과천시" },
+                { name: "의왕출장마사지", href: "/uiwang", area: "의왕시" },
+                { name: "하남출장마사지", href: "/hanam", area: "하남시" }
+              ].filter(location => !location.href.includes(cityEn)).map((location, index) => (
+                <Link key={index} href={location.href}>
+                  <Card className="bg-white hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl overflow-hidden group border-2 border-transparent hover:border-rose-200">
+                    <CardContent className="p-4 lg:p-5">
+                      <div className={`w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br ${currentTheme.gradientFrom} ${currentTheme.gradientTo} rounded-xl flex items-center justify-center mx-auto mb-2 lg:mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                        <MapPin className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
+                      </div>
+                      <h3 className="text-xs lg:text-sm font-bold text-gray-800 mb-1 text-center group-hover:text-rose-600 transition-colors duration-300">
+                        {location.name}
+                      </h3>
+                      <p className="text-xs text-gray-600 text-center">
+                        {location.area}
+                      </p>
+                      <div className="mt-2 text-center">
+                        <span className="inline-flex items-center text-xs text-rose-600 font-medium group-hover:text-rose-700">
+                          24시간
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-12 lg:mt-16 text-center">
+              <Card className={`bg-gradient-to-br ${currentTheme.lightBg} border-2 ${currentTheme.lightBorder} rounded-3xl p-6 lg:p-8 max-w-4xl mx-auto shadow-xl`}>
+                <h3 className={`text-xl lg:text-2xl font-bold mb-4 ${currentTheme.lightText}`}>
+                  경기도 어디든 동일한 프리미엄 서비스
+                </h3>
+                <p className="text-sm lg:text-base text-gray-600 mb-6">
+                  모든 지역에서 동일한 품질의 서비스 · 100% 후불제 · 전문 관리사
+                </p>
+                <div className="flex flex-wrap gap-2 lg:gap-3 justify-center">
+                  <span className="bg-white rounded-full px-3 lg:px-4 py-1 lg:py-2 text-xs lg:text-sm text-gray-700 font-medium shadow-sm">
+                    타이마사지
+                  </span>
+                  <span className="bg-white rounded-full px-3 lg:px-4 py-1 lg:py-2 text-xs lg:text-sm text-gray-700 font-medium shadow-sm">
+                    아로마마사지
+                  </span>
+                  <span className="bg-white rounded-full px-3 lg:px-4 py-1 lg:py-2 text-xs lg:text-sm text-gray-700 font-medium shadow-sm">
+                    스웨디시마사지
+                  </span>
+                  <span className="bg-white rounded-full px-3 lg:px-4 py-1 lg:py-2 text-xs lg:text-sm text-gray-700 font-medium shadow-sm">
+                    홈타이
+                  </span>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-purple-900">
           <div className="container mx-auto px-2 sm:px-4">
             <div className="max-w-5xl mx-auto">
@@ -1008,19 +1275,25 @@ export default function LocationPage({
                   <span>•</span>
                   <span>전문 관리사</span>
                 </div>
-                <div className="flex flex-wrap gap-4 text-sm text-gray-400 mt-4">
-                  <Link href="/icheon" className={`hover:${currentTheme.text}`}>
-                    이천출장마사지
-                  </Link>
-                  <Link href="/gwangju" className={`hover:${currentTheme.text}`}>
-                    광주출장마사지
-                  </Link>
-                  <Link href="/yeoju" className={`hover:${currentTheme.text}`}>
-                    여주출장마사지
-                  </Link>
-                  <Link href="/yongin" className={`hover:${currentTheme.text}`}>
-                    용인출장마사지
-                  </Link>
+                <div className="flex flex-wrap gap-3 lg:gap-4 text-sm text-gray-400 mt-4">
+                  {[
+                    { name: "안산출장마사지", href: "/ansan" },
+                    { name: "안양출장마사지", href: "/anyang" },
+                    { name: "수원출장마사지", href: "/suwon" },
+                    { name: "용인출장마사지", href: "/yongin" },
+                    { name: "이천출장마사지", href: "/icheon" },
+                    { name: "광주출장마사지", href: "/gwangju" },
+                    { name: "여주출장마사지", href: "/yeoju" },
+                    { name: "성남출장마사지", href: "/seongnam" },
+                    { name: "군포출장마사지", href: "/gunpo" },
+                    { name: "과천출장마사지", href: "/gwacheon" },
+                    { name: "의왕출장마사지", href: "/uiwang" },
+                    { name: "하남출장마사지", href: "/hanam" }
+                  ].filter(location => !location.href.includes(cityEn)).slice(0, 8).map((location, index) => (
+                    <Link key={index} href={location.href} className={`hover:${currentTheme.text} transition-colors duration-200`}>
+                      {location.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
               <div className="text-center lg:text-right">
