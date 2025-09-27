@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: '군포 출장마사지 | 24시간 전문 서비스',
     description: '군포시 전체 지역 출장마사지 전문업체. 산본신도시 주민들을 위한 프리미엄 서비스',
-    url: 'https://nomadthai.kr/gunpo',
+    url: 'https://www.nomadthai.kr/gunpo',
   },
   alternates: {
-    canonical: 'https://nomadthai.kr/gunpo',
+    canonical: 'https://www.nomadthai.kr/gunpo',
   },
 }
 

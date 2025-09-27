@@ -12,14 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
   
   const blogUrls = posts.map((post) => ({
-    url: `https://nomadthai.kr/blog/${post.slug}`,
+    url: `https://www.nomadthai.kr/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }))
 
   const locationUrls = locationPages.map((location) => ({
-    url: `https://nomadthai.kr/${location}`,
+    url: `https://www.nomadthai.kr/${location}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.95, // 지역 페이지는 높은 우선순위
@@ -27,13 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: "https://nomadthai.kr",
+      url: "https://www.nomadthai.kr",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: "https://nomadthai.kr/blog",
+      url: "https://www.nomadthai.kr/blog",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,

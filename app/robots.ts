@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://nomadthai.kr/sitemap.xml",
+    sitemap: "https://www.nomadthai.kr/sitemap.xml",
   }
 }

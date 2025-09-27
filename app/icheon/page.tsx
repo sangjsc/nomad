@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "이천출장마사지 1등업체 | 이천홈타이 전문 | 노마드출장마사지",
     description: "경기도 이천시 1등 이천출장마사지 전문업체. 24시간 이천홈타이, 이천출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
-    url: "https://nomadthai.kr/icheon",
+    url: "https://www.nomadthai.kr/icheon",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/icheon",
+    canonical: "https://www.nomadthai.kr/icheon",
   },
 };
 

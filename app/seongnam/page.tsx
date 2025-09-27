@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: '성남출장마사지 1등업체 | 성남홈타이 전문 | 노마드출장마사지',
     description: '경기도 성남시 1등 성남출장마사지 전문업체. 24시간 성남홈타이, 성남출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.',
-    url: 'https://nomadthai.kr/seongnam',
+    url: 'https://www.nomadthai.kr/seongnam',
   },
   alternates: {
-    canonical: 'https://nomadthai.kr/seongnam',
+    canonical: 'https://www.nomadthai.kr/seongnam',
   },
 }
 

@@ -1,4 +1,5 @@
 import ClientPage from "./ClientPage"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "노마드출장마사지 | 전국 프리미엄 출장안마 홈케어",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "노마드출장마사지 | 당신의 공간에서 즐기는 최상의 힐링",
     description: "24시간 전국 출장마사지. 집에서 편안하게 즐기는 프리미엄 힐링 서비스.",
-    url: "https://nomadthai.kr",
+    url: "https://www.nomadthai.kr",
     siteName: "노마드출장마사지",
     locale: "ko_KR",
     type: "website",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://nomadthai.kr",
+    canonical: "https://www.nomadthai.kr",
   },
 }
 

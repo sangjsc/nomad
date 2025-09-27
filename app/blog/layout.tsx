@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "마사지 정보 블로그 | 노마드출장마사지",
     description: "건강과 웰빙에 관한 전문적인 정보를 제공하는 노마드출장마사지 블로그",
-    url: "https://nomadthai.kr/blog",
+    url: "https://www.nomadthai.kr/blog",
     siteName: "노마드출장마사지",
     locale: "ko_KR",
     type: "website",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/blog",
+    canonical: "https://www.nomadthai.kr/blog",
   },
 }
 

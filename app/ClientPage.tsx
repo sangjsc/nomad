@@ -26,12 +26,12 @@ export default function ClientPage() {
         "name": "노마드출장마사지",
         "alternateName": ["노마드 출장마사지", "Nomad Business Trip Massage"],
         "image": [
-          "https://nomadthai.kr/images/spa-background.jpg",
-          "https://nomadthai.kr/images/spa-image-1.jpg",
-          "https://nomadthai.kr/images/spa-image-2.jpg"
+          "https://www.nomadthai.kr/images/spa-background.jpg",
+          "https://www.nomadthai.kr/images/spa-image-1.jpg",
+          "https://www.nomadthai.kr/images/spa-image-2.jpg"
         ],
         "description": "경기도 전지역 전문 출장마사지 서비스. 안산, 안양, 수원, 용인, 이천, 광주, 여주, 성남, 군포, 과천, 의왕, 하남 24시간 예약, 100% 후불제, 전문 관리사.",
-        "url": "https://nomadthai.kr",
+        "url": "https://www.nomadthai.kr",
         "telephone": "010-8186-7771",
         "priceRange": "₩₩-₩₩₩",
         "paymentAccepted": ["Cash", "Credit Card"],

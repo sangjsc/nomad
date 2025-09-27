@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: '과천 출장마사지 | 24시간 전문 서비스',
     description: '과천시 전체 지역 출장마사지 전문업체. 정부천사 공무원과 과천 시민들을 위한 프리미엄 서비스',
-    url: 'https://nomadthai.kr/gwacheon',
+    url: 'https://www.nomadthai.kr/gwacheon',
   },
   alternates: {
-    canonical: 'https://nomadthai.kr/gwacheon',
+    canonical: 'https://www.nomadthai.kr/gwacheon',
   },
 }
 

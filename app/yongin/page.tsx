@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "용인출장마사지 1등업체 | 용인홈타이 전문 | 노마드출장마사지",
     description: "경기도 용인시 1등 용인출장마사지 전문업체. 24시간 용인홈타이, 용인출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
-    url: "https://nomadthai.kr/yongin",
+    url: "https://www.nomadthai.kr/yongin",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/yongin",
+    canonical: "https://www.nomadthai.kr/yongin",
   },
 };
 

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: '의왕 출장마사지 | 24시간 전문 서비스',
     description: '의왕시 전체 지역 출장마사지 전문업체. KTX 의왕역 이용객과 의왕 시민들을 위한 프리미엄 서비스',
-    url: 'https://nomadthai.kr/uiwang',
+    url: 'https://www.nomadthai.kr/uiwang',
   },
   alternates: {
-    canonical: 'https://nomadthai.kr/uiwang',
+    canonical: 'https://www.nomadthai.kr/uiwang',
   },
 }
 

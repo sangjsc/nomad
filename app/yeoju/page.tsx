@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "여주 출장마사지 & 출장안마 | 노마드출장마사지",
     description: "경기도 여주시 1등 출장마사지. 24시간 언제든 편하게 예약하고 최상의 서비스를 경험하세요.",
-    url: "https://nomadthai.kr/yeoju",
+    url: "https://www.nomadthai.kr/yeoju",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/yeoju",
+    canonical: "https://www.nomadthai.kr/yeoju",
   },
 };
 

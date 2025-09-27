@@ -174,7 +174,7 @@ export default function LocationPage({
         "@type": "LocalBusiness",
         "name": `노마드출장마사지 ${city}점`,
         "description": `경기도 ${city}시 전문 출장마사지 서비스. ${city} 출장안마 전문 업체.`,
-        "url": `https://nomadthai.kr/${cityEn}`,
+        "url": `https://www.nomadthai.kr/${cityEn}`,
         "telephone": "010-8186-7771",
         "address": {
           "@type": "PostalAddress",

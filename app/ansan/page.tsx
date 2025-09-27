@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "안산출장마사지 1등업체 | 안산홈타이 전문 | 노마드출장마사지",
     description: "경기도 안산시 1등 안산출장마사지 전문업체. 24시간 안산홈타이, 안산출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
-    url: "https://nomadthai.kr/ansan",
+    url: "https://www.nomadthai.kr/ansan",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/ansan",
+    canonical: "https://www.nomadthai.kr/ansan",
   },
 };
 

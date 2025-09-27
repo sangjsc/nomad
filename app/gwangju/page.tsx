@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "광주출장마사지 1등업체 | 광주홈타이 전문 | 노마드출장마사지",
     description: "경기도 광주시 1등 광주출장마사지 전문업체. 24시간 광주홈타이, 광주출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
-    url: "https://nomadthai.kr/gwangju",
+    url: "https://www.nomadthai.kr/gwangju",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/gwangju",
+    canonical: "https://www.nomadthai.kr/gwangju",
   },
 };
 

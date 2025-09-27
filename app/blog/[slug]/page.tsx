@@ -34,17 +34,17 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     openGraph: {
       title: post.title,
       description: post.excerpt || `${post.title}에 대한 전문적인 정보`,
-      url: `https://nomadthai.kr/blog/${post.slug}`,
+      url: `https://www.nomadthai.kr/blog/${post.slug}`,
       siteName: "노마드출장마사지",
       locale: "ko_KR",
       type: "article",
       publishedTime: post.date,
       authors: [post.author || "노마드출장마사지"],
       tags: post.tags,
-      images: post.image ? [`https://nomadthai.kr${post.image}`] : ["https://nomadthai.kr/images/spa-background.jpg"],
+      images: post.image ? [`https://www.nomadthai.kr${post.image}`] : ["https://www.nomadthai.kr/images/spa-background.jpg"],
     },
     alternates: {
-      canonical: `https://nomadthai.kr/blog/${post.slug}`,
+      canonical: `https://www.nomadthai.kr/blog/${post.slug}`,
     },
   }
 }

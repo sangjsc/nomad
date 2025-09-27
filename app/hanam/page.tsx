@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: '하남 출장마사지 | 24시간 전문 서비스',
     description: '하남시 전체 지역 출장마사지 전문업체. 미사강변도시 주민들을 위한 프리미엄 서비스',
-    url: 'https://nomadthai.kr/hanam',
+    url: 'https://www.nomadthai.kr/hanam',
   },
   alternates: {
-    canonical: 'https://nomadthai.kr/hanam',
+    canonical: 'https://www.nomadthai.kr/hanam',
   },
 }
 

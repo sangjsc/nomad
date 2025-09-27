@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "수원출장마사지 1등업체 | 수원홈타이 전문 | 노마드출장마사지",
     description: "경기도 수원시 1등 수원출장마사지 전문업체. 24시간 수원홈타이, 수원출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
-    url: "https://nomadthai.kr/suwon",
+    url: "https://www.nomadthai.kr/suwon",
   },
   alternates: {
-    canonical: "https://nomadthai.kr/suwon",
+    canonical: "https://www.nomadthai.kr/suwon",
   },
 };
 
