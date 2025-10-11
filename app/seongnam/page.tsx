@@ -21,7 +21,12 @@ export default function SeongnamPage() {
       city="성남"
       cityEn="seongnam"
       theme="blue"
-      heroImage="/images/spa-image-1.jpg"
+      heroImage="/images/location-6.jpg"
+      teamImages={[
+        { src: '/images/location-1.jpg', title: '전문 관리사', desc: "실력과 마인드를 겸비한 전문 여성 관리사", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
+        { src: '/images/location-2.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
+        { src: '/images/location-3.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
+      ]}
       description="성남 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 성남 어디서든 최상의 힐링을 경험하세요."
       areas={["분당구", "수정구", "중원구", "야탑동", "정자동", "서현동", "판교동", "태평동", "신흥동", "복정동"]}
       latitude="37.4449"

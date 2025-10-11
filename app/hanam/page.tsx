@@ -21,7 +21,12 @@ export default function HanamPage() {
       city="하남"
       cityEn="hanam"
       theme="green"
-      heroImage="/images/spa-image-2.jpg"
+      heroImage="/images/location-6.jpg"
+      teamImages={[
+        { src: '/images/location-7.jpg', title: '전문 관리사', desc: "실력과 마인드를 겸비한 전문 여성 관리사", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
+        { src: '/images/location-8.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
+        { src: '/images/location-9.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
+      ]}
       description="하남 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 하남 어디서든 최상의 힐링을 경험하세요."
       areas={[
         "미사강변도시", "위례동", "신장동", "천현동", "감동", "감일동", "창우동", "덕풍동", "미사역", "하남검단사"

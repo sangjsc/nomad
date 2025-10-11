@@ -21,7 +21,12 @@ export default function GunpoPage() {
       city="군포"
       cityEn="gunpo"
       theme="rose"
-      heroImage="/images/spa-image-1.jpg"
+      heroImage="/images/location-3.jpg"
+      teamImages={[
+        { src: '/images/location-4.jpg', title: '전문 관리사', desc: "실력과 마인드를 겸비한 전문 여성 관리사", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
+        { src: '/images/location-5.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
+        { src: '/images/location-6.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
+      ]}
       description="군포 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 군포 어디서든 최상의 힐링을 경험하세요."
       areas={[
         "산본동", "금정동", "당정동", "대야미동", "반월동", "재궁동", "산본역", "금정역", "당정역", "지하철 4호선"

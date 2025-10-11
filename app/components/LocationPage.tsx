@@ -149,6 +149,7 @@ interface LocationPageProps {
   longitude: string
   theme: keyof typeof themes
   heroImage?: string
+  teamImages?: { src: string; title: string; desc: string; gradient: string; }[];
 }
 
 export default function LocationPage({
@@ -163,6 +164,26 @@ export default function LocationPage({
   longitude,
   theme,
   heroImage = '/images/spa-image-1.jpg',
+  teamImages = [
+    {
+      src: '/images/spa-image-2.jpg',
+      title: '전문 관리사',
+      desc: "실력과 마인드를 겸비한 전문 여성 관리사",
+      gradient: `from-rose-200/80 via-pink-200/70 to-purple-200/60`,
+    },
+    {
+      src: '/images/spa-image-3.jpg',
+      title: '럭셔리 서비스',
+      desc: '최고급 프리미엄 경험',
+      gradient: `from-pink-200/80 via-rose-200/70 to-purple-200/60`,
+    },
+    {
+      src: '/images/spa-image-4.jpg',
+      title: '힐링 서비스',
+      desc: '완벽한 휴식과 회복',
+      gradient: `from-purple-200/80 via-pink-200/70 to-rose-200/60`,
+    },
+  ],
 }: LocationPageProps) {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
   const currentTheme = useMemo(() => themes[theme] || themes.rose, [theme])
@@ -410,7 +431,7 @@ export default function LocationPage({
               <div className="w-full lg:col-span-5 order-1 lg:order-2">
                 <div className="relative max-w-md mx-auto lg:max-w-none">
                   <div className={`absolute inset-0 bg-gradient-to-br ${currentTheme.gradientFrom} ${currentTheme.gradientTo} rounded-3xl transform rotate-3 lg:rotate-6 opacity-20`}></div>
-                  <Card className="bg-white shadow-2xl rounded-3xl overflow-hidden relative transform hover:-rotate-1 transition-all duration-500">
+                  <Card className="bg-white shadow-2xl rounded-3xl overflow-hidden relative transition-all duration-500">
                     <div className="relative">
                       <Image
                         src={heroImage}
@@ -887,29 +908,7 @@ export default function LocationPage({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
-              {[
-                {
-                  src: '/images/spa-image-2.jpg',
-                  title: '전문 관리사',
-                  desc: "실력과 마인드를 겸비한 전문 여성 관리사",
-                  gradient: `from-rose-200/80 via-pink-200/70 to-purple-200/60`,
-                  alt: `${city} 지역 전문 관리사 - 노마드출장마사지`,
-                },
-                {
-                  src: '/images/spa-image-3.jpg',
-                  title: '럭셔리 서비스',
-                  desc: '최고급 프리미엄 경험',
-                  gradient: `from-pink-200/80 via-rose-200/70 to-purple-200/60`,
-                  alt: `${city} 지역 럭셔리 서비스 - 노마드출장마사지`,
-                },
-                {
-                  src: '/images/spa-image-4.jpg',
-                  title: '힐링 서비스',
-                  desc: '완벽한 휴식과 회복',
-                  gradient: `from-purple-200/80 via-pink-200/70 to-rose-200/60`,
-                  alt: `${city} 지역 힐링 서비스 - 노마드출장마사지`,
-                },
-              ].map((item, index) => (
+              {teamImages.map((item, index) => (
                 <div
                   key={index}
                   className={`group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2`}
@@ -917,11 +916,11 @@ export default function LocationPage({
                   <div className="relative">
                     <Image
                       src={item.src || '/placeholder.svg'}
-                      alt={item.alt || `${item.title} - 노마드출장마사지`}
+                      alt={`${city} ${item.title} - 노마드출장마사지`}
                       width={400}
                       height={500}
                       className="w-full h-72 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 group-hover:brightness-110"
-                      style={{ objectPosition: 'center center' }}
+                      style={{ objectPosition: 'center top' }}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       priority={index === 0}
                     />

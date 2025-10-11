@@ -23,7 +23,12 @@ export default function IcheonPage() {
       city="이천"
       cityEn="icheon"
       theme="blue"
-      heroImage="/images/spa-image-1.jpg"
+      heroImage="/images/location-7.jpg"
+      teamImages={[
+        { src: '/images/location-8.jpg', title: '전문 관리사', desc: "실력과 마인드를 겸비한 전문 여성 관리사", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
+        { src: '/images/location-9.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
+        { src: '/images/location-1.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
+      ]}
       description="이천 출장마사지, 노마드출장마사지! 자연과 힐링의 도시에서 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 이천 어디서든 자연의 힐링을 경험하세요."
       areas={["부발읍", "신둔면", "백사면", "설성면", "마장면", "호법면", "모가면", "중리동", "증포동", "관고동"]}
       latitude="37.27221"
