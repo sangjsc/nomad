@@ -25,7 +25,12 @@
       "Bash(git restore:*)",
       "Bash(npm uninstall:*)",
       "Bash(git checkout:*)",
-      "Bash(npx create-next-app:*)"
+      "Bash(npx create-next-app:*)",
+      "Bash(git reset:*)",
+      "Bash(git push:*)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(cat:*)",
+      "Read(//d/crdw/**)"
     ],
     "deny": []
   }
