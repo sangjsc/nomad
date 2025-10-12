@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/MobileBottomNav'
 import ScrollToTop from '@/components/ScrollToTop'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.nomadthai.kr'),
@@ -44,6 +45,22 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KV1DS4S3MR"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-base"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KV1DS4S3MR');
+            `,
+          }}
+        />
         <Header />
         <main className="pb-20 md:pb-0">{children}</main>
         <MobileBottomNav />
