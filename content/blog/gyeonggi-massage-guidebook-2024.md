@@ -116,7 +116,7 @@ image: "/images/guidebook-2024.svg"
 
 아래 링크를 클릭하시면 별도의 다운로드 없이 PC나 모바일에서 바로 보실 수 있는 온라인 플립북으로 연결됩니다.
 
-### 👉 [2024 노마드타이 수도권 마사지 가이드북 보기](https://anyflip.com/center/flips/book.php?cid=6375596)
+### 👉 [2024 노마드타이 수도권 마사지 가이드북 보기](https://anyflip.com/homepage/dibje)
 
 **가이드북 특징:**
 - 📱 모바일 최적화 (언제 어디서나)
