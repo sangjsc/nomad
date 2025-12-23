@@ -11,6 +11,23 @@ export const metadata: Metadata = {
     title: "수원출장마사지 1등업체 | 수원홈타이 전문 | 노마드출장마사지",
     description: "경기도 수원시 1등 수원출장마사지 전문업체. 24시간 수원홈타이, 수원출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
     url: "https://www.nomadthai.kr/suwon",
+    type: "website",
+    locale: "ko_KR",
+    images: [
+      {
+        url: "/images/spa-background.jpg",
+        width: 1200,
+        height: 630,
+        alt: "수원출장마사지 - 노마드출장마사지 24시간 서비스",
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "수원출장마사지 1등업체 | 노마드출장마사지",
+    description: "수원시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.",
+    images: ["/images/spa-background.jpg"],
   },
   alternates: {
     canonical: "https://www.nomadthai.kr/suwon",

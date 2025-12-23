@@ -5,9 +5,9 @@ import { getPostData, getAllPostSlugs } from "@/lib/blog"
 import type { Metadata } from "next"
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -18,9 +18,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
   const post = getPostData(slug)
-  
+
   if (!post) {
     return {
       title: "글을 찾을 수 없습니다 | 노마드출장마사지",
@@ -65,7 +65,7 @@ const components = {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params
+  const { slug } = await params
   const post = getPostData(slug)
 
   if (!post) {

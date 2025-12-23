@@ -9,6 +9,23 @@ export const metadata: Metadata = {
     title: '하남 출장마사지 | 24시간 전문 서비스',
     description: '하남시 전체 지역 출장마사지 전문업체. 미사강변도시 주민들을 위한 프리미엄 서비스',
     url: 'https://www.nomadthai.kr/hanam',
+    type: 'website',
+    locale: 'ko_KR',
+    images: [
+      {
+        url: '/images/spa-background.jpg',
+        width: 1200,
+        height: 630,
+        alt: '하남출장마사지 - 노마드출장마사지 24시간 서비스',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '하남출장마사지 1등업체 | 노마드출장마사지',
+    description: '하남시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.',
+    images: ['/images/spa-background.jpg'],
   },
   alternates: {
     canonical: 'https://www.nomadthai.kr/hanam',

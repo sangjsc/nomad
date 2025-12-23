@@ -187,7 +187,7 @@ export default function ClientPage() {
           {/* Premium Background */}
           <div className="absolute inset-0">
             <Image
-              src="/images/hero-background.jpg"
+              src="/images/spa-background.jpg"
               alt="노마드출장마사지 메인 - 경기도 전역 출장마사지 서비스"
               fill
               className="object-cover"
@@ -266,7 +266,7 @@ export default function ClientPage() {
               {/* Right Content - Premium Floating Card */}
               <div className="relative hidden lg:block">
                 <div className="relative">
-                  <Card className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden hover:rotate-0 transition-all duration-700 ring-1 ring-rose-200/50">
+                  <Card className="bg-white/95 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden transform rotate-2 hover:rotate-0 transition-all duration-700 ring-1 ring-rose-200/50">
                     <div className="relative">
                       <Image
                         src="/images/spa-image-1.jpg"
@@ -699,7 +699,7 @@ export default function ClientPage() {
                       width={400}
                       height={500}
                       className="w-full h-72 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 group-hover:brightness-110"
-                      style={{ objectPosition: "center top" }}
+                      style={{ objectPosition: "center center" }}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       priority={index === 0}
                     />
