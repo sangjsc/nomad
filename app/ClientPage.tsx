@@ -826,6 +826,20 @@ export default function ClientPage() {
                   <span>•</span>
                   <span>전문 관리사</span>
                 </div>
+
+                {/* 공식 채널 링크 */}
+                <div className="mt-4 lg:mt-6">
+                  <a
+                    href="https://solo.to/nomadthai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-3 bg-gradient-to-r from-rose-500/20 to-purple-500/20 hover:from-rose-500/30 hover:to-purple-500/30 border border-rose-400/30 hover:border-rose-400/50 rounded-full transition-all duration-300 text-sm lg:text-base text-rose-300 hover:text-rose-200"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span className="font-medium">노마드타이 공식 가이드북 및 소셜 채널</span>
+                  </a>
+                </div>
+
                 <div className="flex flex-wrap gap-3 lg:gap-4 text-sm text-gray-400 mt-4">
                   {[
                     { name: "안산출장마사지", href: "/ansan" },
