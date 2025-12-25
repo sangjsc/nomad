@@ -17,8 +17,8 @@
 * **[📍 2026 노마드타이 안심 서비스 가이드 센터 (Google Sites)](https://sites.google.com/view/nomadthai-guide/)**
 * **[📍 노마드타이 브랜드 공식 뉴스룸 (Pinterest)](https://pin.it/32KOgnNEr)**
 * **[📍 노마드타이 실시간 공식 소식통 (X/Twitter)](https://x.com/jscnwing9201)**
-* **[📍 2026 경기도 마사지 공식 서비스 로드맵 (Issuu)](https://issuu.com/docs/7927fdc2dae978a2a7f1ac9a4acd43dd)**
-* **[📍 2026 노마드타이 안심 이용 공식 가이드 (AnyFlip)](https://anyflip.com/dibje/gpeu/)**
+* **[📍 2026 경기도 마사지 공식 서비스 로드맵 (Issuu)](https://issuu.com/docs/6f464d67eece8867f497cb1331aa6f83)**
+* **[📍 2026 노마드타이 안심 이용 공식 가이드 (AnyFlip)](https://anyflip.com/dibje/wkpr)**
 
 ---
 #출장마사지 #노마드타이 #이천출장마사지 #수원출장마사지 #안심예약 #후불제마사지 #홈타이 #스웨디시
