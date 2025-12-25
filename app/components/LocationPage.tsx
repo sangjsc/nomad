@@ -1268,9 +1268,9 @@ export default function LocationPage({
                   <span>전문 관리사</span>
                 </div>
 
-                {/* 구글 사이트 링크 */}
-                {googleSiteLink && (
-                  <div className="mt-4 lg:mt-6">
+                {/* 공식 채널 링크 */}
+                <div className="mt-4 lg:mt-6 flex flex-col gap-3 lg:gap-4">
+                  {googleSiteLink && (
                     <a
                       href={googleSiteLink}
                       target="_blank"
@@ -1278,10 +1278,20 @@ export default function LocationPage({
                       className={`inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-3 bg-gradient-to-r ${currentTheme.gradientFrom}/20 ${currentTheme.gradientTo}/20 hover:${currentTheme.gradientFrom}/30 hover:${currentTheme.gradientTo}/30 border ${currentTheme.border}/30 hover:${currentTheme.border}/50 rounded-full transition-all duration-300 text-sm lg:text-base text-gray-300 hover:text-gray-200`}
                     >
                       <Sparkles className="w-4 h-4" />
-                      <span className="font-medium">노마드타이 공식 가이드북 및 소셜 채널</span>
+                      <span className="font-medium">👉 [{city} 출장마사지 상세 안심 이용 가이드 (Google 공식)]</span>
                     </a>
-                  </div>
-                )}
+                  )}
+
+                  <a
+                    href="https://solo.to/nomadthai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-3 bg-gradient-to-r from-rose-500/20 to-purple-500/20 hover:from-rose-500/30 hover:to-purple-500/30 border border-rose-400/30 hover:border-rose-400/50 rounded-full transition-all duration-300 text-sm lg:text-base text-gray-300 hover:text-gray-200"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span className="font-medium">노마드타이 공식 가이드북 및 소셜 채널</span>
+                  </a>
+                </div>
 
                 <div className="flex flex-wrap gap-3 lg:gap-4 text-sm text-gray-400 mt-4">
                   {[
