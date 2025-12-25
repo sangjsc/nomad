@@ -150,6 +150,7 @@ interface LocationPageProps {
   theme: keyof typeof themes
   heroImage?: string
   teamImages?: { src: string; title: string; desc: string; gradient: string; }[];
+  googleSiteLink?: string
 }
 
 export default function LocationPage({
@@ -184,6 +185,7 @@ export default function LocationPage({
       gradient: `from-purple-200/80 via-pink-200/70 to-rose-200/60`,
     },
   ],
+  googleSiteLink,
 }: LocationPageProps) {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
   const currentTheme = useMemo(() => themes[theme] || themes.rose, [theme])
@@ -1265,6 +1267,22 @@ export default function LocationPage({
                   <span>•</span>
                   <span>전문 관리사</span>
                 </div>
+
+                {/* 구글 사이트 링크 */}
+                {googleSiteLink && (
+                  <div className="mt-4 lg:mt-6">
+                    <a
+                      href={googleSiteLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-3 bg-gradient-to-r ${currentTheme.gradientFrom}/20 ${currentTheme.gradientTo}/20 hover:${currentTheme.gradientFrom}/30 hover:${currentTheme.gradientTo}/30 border ${currentTheme.border}/30 hover:${currentTheme.border}/50 rounded-full transition-all duration-300 text-sm lg:text-base text-gray-300 hover:text-gray-200`}
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      <span className="font-medium">노마드타이 공식 가이드북 및 소셜 채널</span>
+                    </a>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-3 lg:gap-4 text-sm text-gray-400 mt-4">
                   {[
                     { name: "안산출장마사지", href: "/ansan" },
