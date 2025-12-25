@@ -871,6 +871,28 @@ export default function ClientPage() {
                 </Button>
               </div>
             </div>
+
+            {/* Verification & Assets Links */}
+            <div className="mt-8 pt-6 border-t border-gray-800 text-center">
+              <p className="text-[10px] lg:text-[11px] text-gray-500 leading-relaxed">
+                [Verification & Assets]{' '}
+                <a href="https://www.nomadthai.kr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Main</a>
+                {' | '}
+                <a href="https://gitlab.com/nomadthai-official/nomadthai-main-hub/-/snippets/4916220" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">GitLab</a>
+                {' | '}
+                <a href="https://github.com/sangjsc/nomad" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">GitHub</a>
+                {' | '}
+                <a href="https://solo.to/nomadthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Solo.to</a>
+                {' | '}
+                <a href="https://anyflip.com/dibje/wkpr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Guide</a>
+                {' | '}
+                <a href="https://issuu.com/docs/6f464d67eece8867f497cb1331aa6f83" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Roadmap</a>
+                {' | '}
+                <a href="https://pin.it/32KOgnNEr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">News</a>
+                {' | '}
+                <a href="https://x.com/jscnwing9201" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">X</a>
+              </p>
+            </div>
           </div>
         </footer>
       </div>
