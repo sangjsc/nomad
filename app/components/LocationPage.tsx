@@ -1070,15 +1070,6 @@ export default function LocationPage({
                 <div className="space-y-4 lg:space-y-6">
                   <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
                     <h4 className="font-bold text-gray-800 mb-2">
-                      {city}홈타이와 {city}출장마사지의 차이점은?
-                    </h4>
-                    <p className="text-gray-600 text-sm lg:text-base">
-                      {city}홈타이는 태국 전통 마사지 기법을, {city}출장마사지는 다양한 마사지 기법을 포함합니다. 고객 선호에 따라 선택 가능합니다.
-                    </p>
-                  </div>
-                  
-                  <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
-                    <h4 className="font-bold text-gray-800 mb-2">
                       {city}출장마사지 가격은 지역별로 차이가 있나요?
                     </h4>
                     <p className="text-gray-600 text-sm lg:text-base">

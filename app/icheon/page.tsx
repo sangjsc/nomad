@@ -52,6 +52,11 @@ export default function IcheonPage() {
       longitude="127.43513"
       intro={
         <>
+          <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-500 rounded-lg">
+            <p className="text-lg font-semibold text-gray-800 leading-relaxed">
+              노마드타이는 <strong className="text-blue-600">이천 전 지역(중리동, 창전동, 부발읍 등)</strong>을 아우르는 프리미엄 이천 출장마사지 공식 예약 채널입니다.
+            </p>
+          </div>
           <p>
             자연과 함께하는 힐링의 도시 이천! 쌀과 온천으로 유명한 이천에서 바쁜 일상에 지친 고객님을 위한 최상의 자연 힐링을 선사합니다. 노마드출장마사지는 이천 전 지역 호텔, 모텔, 자택 등 고객님이 계신 곳으로 전문 관리사가 직접 방문하여 자연의 편안함이 담긴 프라이빗한 마사지 경험을 제공합니다.
           </p>
