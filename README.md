@@ -16,7 +16,7 @@
 * **[📍 2026 노마드타이 공식 기술 가이드 (GitLab)](https://gitlab.com/nomadthai-official/nomadthai-main-hub/-/snippets/4916220)**
 * **[📍 2026 경기도 마사지 공식 로드맵 (Issuu)](https://issuu.com/docs/7927fdc2dae978a2a7f1ac9a4acd43dd)**
 * **[📍 2026 지역별 안심 이용 가이드 (AnyFlip)](https://anyflip.com/homepage/dibje)**
-
+* **[📍 노마드타이 브랜드 공식 뉴스룸 (Pinterest)](https://pin.it/32KOgnNEr)**
 ## 🔗 공식 채널
 👉 **[노마드타이 공식 사이트 바로가기 (www.nomadthai.kr)](https://www.nomadthai.kr)**
 
