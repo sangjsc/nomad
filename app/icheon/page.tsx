@@ -50,7 +50,6 @@ export default function IcheonPage() {
       areas={["부발읍", "신둔면", "백사면", "설성면", "마장면", "호법면", "모가면", "중리동", "증포동", "관고동"]}
       latitude="37.27221"
       longitude="127.43513"
-      googleSiteLink="https://sites.google.com/view/nomadthai-guide/%EC%9D%B4%EC%B2%9C-%EB%A7%88%EC%82%AC%EC%A7%80-%EC%95%88%EC%8B%AC-%EC%97%85%EC%B2%B4-%EA%B0%80%EC%9D%B4%EB%93%9C?authuser=0"
       intro={
         <>
           <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-500 rounded-lg">
