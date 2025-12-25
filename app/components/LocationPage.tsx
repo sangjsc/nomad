@@ -916,7 +916,7 @@ export default function LocationPage({
                   <div className="relative">
                     <Image
                       src={item.src || '/placeholder.svg'}
-                      alt={`${city} ${item.title} - 노마드출장마사지`}
+                      alt={`${city} 출장마사지 ${item.title} - 노마드출장마사지`}
                       width={400}
                       height={500}
                       className="w-full h-72 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 group-hover:brightness-110"
