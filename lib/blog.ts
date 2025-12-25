@@ -4,6 +4,8 @@ import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
+export type BlogCategory = 'official' | 'regional' | 'info'
+
 export interface BlogPost {
   slug: string
   title: string
@@ -13,6 +15,7 @@ export interface BlogPost {
   author?: string
   tags?: string[]
   image?: string
+  category?: BlogCategory
 }
 
 export function getSortedPostsData(): BlogPost[] {
@@ -38,6 +41,7 @@ export function getSortedPostsData(): BlogPost[] {
         author: matterResult.data.author,
         tags: matterResult.data.tags || [],
         image: matterResult.data.image,
+        category: matterResult.data.category,
       }
     })
 
@@ -73,6 +77,7 @@ export function getPostData(slug: string): BlogPost | null {
     author: matterResult.data.author,
     tags: matterResult.data.tags || [],
     image: matterResult.data.image,
+    category: matterResult.data.category,
   }
 }
 
@@ -85,4 +90,9 @@ export function getAllPostSlugs(): string[] {
   return fileNames
     .filter((fileName) => fileName.endsWith('.md') || fileName.endsWith('.mdx'))
     .map((fileName) => fileName.replace(/\.(md|mdx)$/, ''))
+}
+
+export function getPostsByCategory(category: BlogCategory): BlogPost[] {
+  const allPosts = getSortedPostsData()
+  return allPosts.filter(post => post.category === category)
 }

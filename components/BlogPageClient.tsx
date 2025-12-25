@@ -5,20 +5,22 @@ import Link from 'next/link'
 import { Crown, Phone, Tag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import BlogCard from '@/components/BlogCard'
-import type { BlogPost } from '@/lib/blog'
+import type { BlogPost, BlogCategory } from '@/lib/blog'
 
 interface BlogPageClientProps {
   posts: BlogPost[]
+  category?: 'all' | BlogCategory
 }
 
-export default function BlogPageClient({ posts }: BlogPageClientProps) {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+export default function BlogPageClient({ posts, category = 'all' }: BlogPageClientProps) {
+  const categories = [
+    { id: 'all', label: '전체', href: '/blog' },
+    { id: 'official', label: '[공식] 브랜드 소식', href: '/blog/official' },
+    { id: 'regional', label: '[경기] 지역 안심 가이드', href: '/blog/regional' },
+    { id: 'info', label: '[정보] 테라피 인사이트', href: '/blog/info' },
+  ]
 
-  const allCategories = ['all', ...Array.from(new Set(posts.flatMap(p => p.tags || [])))]
-
-  const filteredPosts = selectedCategory === 'all' 
-    ? posts 
-    : posts.filter(post => post.tags?.includes(selectedCategory))
+  const filteredPosts = posts
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -53,16 +55,16 @@ export default function BlogPageClient({ posts }: BlogPageClientProps) {
             <p className='text-lg text-gray-600'>마사지와 웰빙에 대한 유용한 정보를 확인하세요.</p>
           </div>
 
-          {/* Category Filter */}
+          {/* Category Navigation */}
           <div className='flex justify-center flex-wrap gap-2 mb-12'>
-            {allCategories.map(category => (
-              <Button 
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                onClick={() => setSelectedCategory(category)}
-                className={`rounded-full capitalize ${selectedCategory === category ? 'bg-rose-500 hover:bg-rose-600' : ''}`}>
-                {category === 'all' ? '전체보기' : category}
-              </Button>
+            {categories.map(cat => (
+              <Link key={cat.id} href={cat.href}>
+                <Button
+                  variant={category === cat.id ? 'default' : 'outline'}
+                  className={`rounded-full ${category === cat.id ? 'bg-rose-500 hover:bg-rose-600' : ''}`}>
+                  {cat.label}
+                </Button>
+              </Link>
             ))}
           </div>
 
@@ -88,13 +90,41 @@ export default function BlogPageClient({ posts }: BlogPageClientProps) {
         <div className='bg-white mt-16 py-8 border-t'>
           <div className='container mx-auto px-4 text-center'>
             <h3 className='text-xl md:text-2xl font-bold text-gray-800 mb-4'>다른 지역 마사지 페이지 둘러보기</h3>
-            <div className='flex flex-wrap justify-center gap-4'>
-              <Link href='/suwon' className='text-rose-500 hover:text-rose-600 font-semibold'>수원</Link>
-              <Link href='/ansan' className='text-rose-500 hover:text-rose-600 font-semibold'>안산</Link>
-              <Link href='/icheon' className='text-rose-500 hover:text-rose-600 font-semibold'>이천</Link>
-              <Link href='/gwangju' className='text-rose-500 hover:text-rose-600 font-semibold'>광주</Link>
-              <Link href='/yeoju' className='text-rose-500 hover:text-rose-600 font-semibold'>여주</Link>
-              <Link href='/yongin' className='text-rose-500 hover:text-rose-600 font-semibold'>용인</Link>
+            <div className='flex flex-wrap justify-center gap-3 lg:gap-4'>
+              <Link href='/suwon' className='text-rose-500 hover:text-rose-600 font-semibold'>수원출장마사지</Link>
+              <Link href='/ansan' className='text-rose-500 hover:text-rose-600 font-semibold'>안산출장마사지</Link>
+              <Link href='/seongnam' className='text-rose-500 hover:text-rose-600 font-semibold'>성남출장마사지</Link>
+              <Link href='/anyang' className='text-rose-500 hover:text-rose-600 font-semibold'>안양출장마사지</Link>
+              <Link href='/gwacheon' className='text-rose-500 hover:text-rose-600 font-semibold'>과천출장마사지</Link>
+              <Link href='/uiwang' className='text-rose-500 hover:text-rose-600 font-semibold'>의왕출장마사지</Link>
+              <Link href='/gunpo' className='text-rose-500 hover:text-rose-600 font-semibold'>군포출장마사지</Link>
+              <Link href='/hanam' className='text-rose-500 hover:text-rose-600 font-semibold'>하남출장마사지</Link>
+              <Link href='/icheon' className='text-rose-500 hover:text-rose-600 font-semibold'>이천출장마사지</Link>
+              <Link href='/gwangju' className='text-rose-500 hover:text-rose-600 font-semibold'>광주출장마사지</Link>
+              <Link href='/yeoju' className='text-rose-500 hover:text-rose-600 font-semibold'>여주출장마사지</Link>
+              <Link href='/yongin' className='text-rose-500 hover:text-rose-600 font-semibold'>용인출장마사지</Link>
+            </div>
+
+            {/* Verification & Assets */}
+            <div className='mt-8 pt-6 border-t border-gray-200'>
+              <p className='text-[10px] lg:text-[11px] text-gray-500 leading-relaxed'>
+                [Verification & Assets]{' '}
+                <a href='https://www.nomadthai.kr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Main</a>
+                {' | '}
+                <a href='https://gitlab.com/nomadthai-official/nomadthai-main-hub/-/snippets/4916220' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>GitLab</a>
+                {' | '}
+                <a href='https://github.com/sangjsc/nomad' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>GitHub</a>
+                {' | '}
+                <a href='https://solo.to/nomadthai' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Solo.to</a>
+                {' | '}
+                <a href='https://anyflip.com/dibje/wkpr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Guide</a>
+                {' | '}
+                <a href='https://issuu.com/docs/6f464d67eece8867f497cb1331aa6f83' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Roadmap</a>
+                {' | '}
+                <a href='https://pin.it/32KOgnNEr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>News</a>
+                {' | '}
+                <a href='https://x.com/jscnwing9201' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>X</a>
+              </p>
             </div>
           </div>
         </div>
