@@ -878,6 +878,16 @@ export default function ClientPage() {
                 <a href="https://pin.it/32KOgnNEr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">News</a>
                 {' | '}
                 <a href="https://x.com/jscnwing9201" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">X</a>
+                {' | '}
+                <a href="https://gravatar.com/ndmthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Gravatar</a>
+                {' | '}
+                <a href="https://www.behance.net/nomadthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Behance</a>
+                {' | '}
+                <a href="https://medium.com/@jscnwing920" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Medium</a>
+                {' | '}
+                <a href="https://www.slideshare.net/slideshow/2026-2fe7/284836511" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">SlideShare</a>
+                {' | '}
+                <a href="https://hub.docker.com/r/cclfrhr/nomadthai-core-v1" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Docker Hub</a>
               </p>
             </div>
           </div>
