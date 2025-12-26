@@ -14,10 +14,10 @@ interface BlogPageClientProps {
 
 export default function BlogPageClient({ posts, category = 'all' }: BlogPageClientProps) {
   const categories = [
-    { id: 'all', label: '전체', href: '/blog' },
-    { id: 'official', label: '[공식] 브랜드 소식', href: '/blog/official' },
-    { id: 'regional', label: '[경기] 지역 안심 가이드', href: '/blog/regional' },
-    { id: 'info', label: '[정보] 테라피 인사이트', href: '/blog/info' },
+    { id: 'all', label: '?�체', href: '/blog' },
+    { id: 'official', label: '[공식] 브랜???�식', href: '/blog/official' },
+    { id: 'regional', label: '[경기] 지???�심 가?�드', href: '/blog/regional' },
+    { id: 'info', label: '[?�보] ?�라???�사?�트', href: '/blog/info' },
   ]
 
   const filteredPosts = posts
@@ -25,12 +25,12 @@ export default function BlogPageClient({ posts, category = 'all' }: BlogPageClie
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: '노마드출장마사지 블로그',
-    description: '출장마사지와 건강 정보를 제공하는 전문 블로그',
+    name: '?�마?�출?�마?��? 블로�?,
+    description: '출장마사지?� 건강 ?�보�??�공?�는 ?�문 블로�?,
     url: 'https://nomadthai.kr/blog',
     publisher: {
       '@type': 'Organization',
-      name: '노마드출장마사지',
+      name: '?�마?�출?�마?��?',
       url: 'https://nomadthai.kr',
     },
     blogPost: posts.map(post => ({
@@ -51,8 +51,8 @@ export default function BlogPageClient({ posts, category = 'all' }: BlogPageClie
         {/* Main Content */}
         <main className='container mx-auto px-4 py-8 md:py-12'>
           <div className='text-center mb-10 md:mb-16'>
-            <h1 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-3'>블로그</h1>
-            <p className='text-lg text-gray-600'>마사지와 웰빙에 대한 유용한 정보를 확인하세요.</p>
+            <h1 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-3'>블로�?/h1>
+            <p className='text-lg text-gray-600'>마사지?� ?�빙???�???�용???�보�??�인?�세??</p>
           </div>
 
           {/* Category Navigation */}
@@ -80,8 +80,8 @@ export default function BlogPageClient({ posts, category = 'all' }: BlogPageClie
               <div className='w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Tag className='w-10 h-10 text-rose-400' />
               </div>
-              <h3 className='text-2xl font-bold text-gray-800 mb-2'>선택한 카테고리에 글이 없습니다.</h3>
-              <p className='text-gray-600'>다른 카테고리를 확인해보세요.</p>
+              <h3 className='text-2xl font-bold text-gray-800 mb-2'>?�택??카테고리??글???�습?�다.</h3>
+              <p className='text-gray-600'>?�른 카테고리�??�인?�보?�요.</p>
             </div>
           )}
         </main>
@@ -89,20 +89,20 @@ export default function BlogPageClient({ posts, category = 'all' }: BlogPageClie
         {/* Location Navigation */}
         <div className='bg-white mt-16 py-8 border-t'>
           <div className='container mx-auto px-4 text-center'>
-            <h3 className='text-xl md:text-2xl font-bold text-gray-800 mb-4'>다른 지역 마사지 페이지 둘러보기</h3>
+            <h3 className='text-xl md:text-2xl font-bold text-gray-800 mb-4'>?�른 지??마사지 ?�이지 ?�러보기</h3>
             <div className='flex flex-wrap justify-center gap-3 lg:gap-4'>
-              <Link href='/suwon' className='text-rose-500 hover:text-rose-600 font-semibold'>수원출장마사지</Link>
-              <Link href='/ansan' className='text-rose-500 hover:text-rose-600 font-semibold'>안산출장마사지</Link>
-              <Link href='/seongnam' className='text-rose-500 hover:text-rose-600 font-semibold'>성남출장마사지</Link>
-              <Link href='/anyang' className='text-rose-500 hover:text-rose-600 font-semibold'>안양출장마사지</Link>
+              <Link href='/suwon' className='text-rose-500 hover:text-rose-600 font-semibold'>?�원출장마사지</Link>
+              <Link href='/ansan' className='text-rose-500 hover:text-rose-600 font-semibold'>?�산출장마사지</Link>
+              <Link href='/seongnam' className='text-rose-500 hover:text-rose-600 font-semibold'>?�남출장마사지</Link>
+              <Link href='/anyang' className='text-rose-500 hover:text-rose-600 font-semibold'>?�양출장마사지</Link>
               <Link href='/gwacheon' className='text-rose-500 hover:text-rose-600 font-semibold'>과천출장마사지</Link>
-              <Link href='/uiwang' className='text-rose-500 hover:text-rose-600 font-semibold'>의왕출장마사지</Link>
+              <Link href='/uiwang' className='text-rose-500 hover:text-rose-600 font-semibold'>?�왕출장마사지</Link>
               <Link href='/gunpo' className='text-rose-500 hover:text-rose-600 font-semibold'>군포출장마사지</Link>
-              <Link href='/hanam' className='text-rose-500 hover:text-rose-600 font-semibold'>하남출장마사지</Link>
-              <Link href='/icheon' className='text-rose-500 hover:text-rose-600 font-semibold'>이천출장마사지</Link>
+              <Link href='/hanam' className='text-rose-500 hover:text-rose-600 font-semibold'>?�남출장마사지</Link>
+              <Link href='/icheon' className='text-rose-500 hover:text-rose-600 font-semibold'>?�천출장마사지</Link>
               <Link href='/gwangju' className='text-rose-500 hover:text-rose-600 font-semibold'>광주출장마사지</Link>
-              <Link href='/yeoju' className='text-rose-500 hover:text-rose-600 font-semibold'>여주출장마사지</Link>
-              <Link href='/yongin' className='text-rose-500 hover:text-rose-600 font-semibold'>용인출장마사지</Link>
+              <Link href='/yeoju' className='text-rose-500 hover:text-rose-600 font-semibold'>?�주출장마사지</Link>
+              <Link href='/yongin' className='text-rose-500 hover:text-rose-600 font-semibold'>?�인출장마사지</Link>
             </div>
 
             {/* Verification & Assets */}
@@ -123,8 +123,7 @@ export default function BlogPageClient({ posts, category = 'all' }: BlogPageClie
                 {' | '}
                 <a href='https://pin.it/32KOgnNEr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>News</a>
                 {' | '}
-                <a href='https://x.com/jscnwing9201' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>X</a>
-              </p>
+                <a href='https://x.com/jscnwing9201' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>X</a>\r\n                {' | '}\r\n                <a href='https://gravatar.com/ndmthai' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Gravatar</a>\r\n                {' | '}\r\n                <a href='https://www.behance.net/nomadthai' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Behance</a>\r\n                {' | '}\r\n                <a href='https://medium.com/@jscnwing920' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Medium</a>\r\n                {' | '}\r\n                <a href='https://www.slideshare.net/slideshow/2026-2fe7/284836511' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>SlideShare</a>\r\n                {' | '}\r\n                <a href='https://hub.docker.com/r/cclfrhr/nomadthai-core-v1' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Docker Hub</a>\r\n              </p>
             </div>
           </div>
         </div>
