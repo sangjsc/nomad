@@ -14,16 +14,16 @@ interface BlogLayoutProps {
 }
 
 const navLinks = [
-  { href: "/", label: "마사지 ?? },
-  { href: "/icheon", label: "?�천" },
+  { href: "/", label: "마사지 홈" },
+  { href: "/icheon", label: "이천" },
   { href: "/gwangju", label: "광주" },
-  { href: "/yeoju", label: "?�주" },
-  { href: "/yongin", label: "?�인" },
+  { href: "/yeoju", label: "여주" },
+  { href: "/yongin", label: "용인" },
 ]
 
 export default function BlogLayout({ post, children }: BlogLayoutProps) {
   const city = post.category === 'regional' ? extractCityFromTitle(post.title) : ''
-  const imageAlt = city ? `${city} 출장마사지 ?�마?��??? : post.title
+  const imageAlt = city ? `${city} 출장마사지 노마드타이` : post.title
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -32,11 +32,11 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
     description: post.excerpt,
     author: {
       "@type": "Person",
-      name: post.author || "?�마?�출?�마?��?",
+      name: post.author || "노마드출장마사지",
     },
     publisher: {
       "@type": "Organization",
-      name: "?�마?�출?�마?��?",
+      name: "노마드출장마사지",
       url: "https://nomadthai.kr",
     },
     datePublished: post.date,
@@ -61,9 +61,9 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
             <div className="flex items-center space-x-2 text-sm text-gray-500 mb-6">
-              <Link href="/" className="hover:text-rose-500">??/Link>
+              <Link href="/" className="hover:text-rose-500">홈</Link>
               <span>/</span>
-              <Link href="/blog" className="hover:text-rose-500">블로�?/Link>
+              <Link href="/blog" className="hover:text-rose-500">블로그</Link>
               <span>/</span>
               <span className="font-medium text-gray-700 truncate">{post.title}</span>
             </div>
@@ -115,7 +115,7 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                 {post.tags && post.tags.length > 0 && (
                   <div className="mt-10 pt-6 border-t">
                     <div className="flex items-center flex-wrap gap-3">
-                      <span className="font-semibold text-gray-800">관???�그:</span>
+                      <span className="font-semibold text-gray-800">관련 태그:</span>
                       {post.tags.map((tag) => (
                         <span key={tag} className="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-sm font-medium">
                           {tag}
@@ -125,9 +125,9 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                   </div>
                 )}
 
-                {/* 관??공식 ?�료 */}
+                {/* 관련 공식 자료 */}
                 <div className="mt-10 pt-6 border-t">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">관??공식 ?�료</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">관련 공식 자료</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <a
                       href="https://anyflip.com/dibje/wkpr"
@@ -137,8 +137,8 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                     >
                       <div className="flex items-start justify-between">
                         <div>
-                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-blue-600">AnyFlip 가?�드</h4>
-                          <p className="text-sm text-gray-600">?�자�??�태???�세 가?�드</p>
+                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-blue-600">AnyFlip 가이드</h4>
+                          <p className="text-sm text-gray-600">전자책 형태의 상세 가이드</p>
                         </div>
                         <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600" />
                       </div>
@@ -151,8 +151,8 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                     >
                       <div className="flex items-start justify-between">
                         <div>
-                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-purple-600">Issuu 로드�?/h4>
-                          <p className="text-sm text-gray-600">?�비??발전 계획</p>
+                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-purple-600">Issuu 로드맵</h4>
+                          <p className="text-sm text-gray-600">서비스 발전 계획</p>
                         </div>
                         <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-600" />
                       </div>
@@ -165,8 +165,8 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                     >
                       <div className="flex items-start justify-between">
                         <div>
-                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-rose-600">Solo.to ?�브</h4>
-                          <p className="text-sm text-gray-600">모든 ?�셜 채널 ?�합</p>
+                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-rose-600">Solo.to 허브</h4>
+                          <p className="text-sm text-gray-600">모든 소셜 채널 통합</p>
                         </div>
                         <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-rose-600" />
                       </div>
@@ -192,7 +192,18 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                     {' | '}
                     <a href="https://pin.it/32KOgnNEr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">News</a>
                     {' | '}
-                    <a href="https://x.com/jscnwing9201" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">X</a>\r\n                    {' | '}\r\n                    <a href="https://gravatar.com/ndmthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Gravatar</a>\r\n                    {' | '}\r\n                    <a href="https://www.behance.net/nomadthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Behance</a>\r\n                    {' | '}\r\n                    <a href="https://medium.com/@jscnwing920" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Medium</a>\r\n                    {' | '}\r\n                    <a href="https://www.slideshare.net/slideshow/2026-2fe7/284836511" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">SlideShare</a>\r\n                    {' | '}\r\n                    <a href="https://hub.docker.com/r/cclfrhr/nomadthai-core-v1" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Docker Hub</a>\r\n                  </p>
+                    <a href="https://x.com/jscnwing9201" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">X</a>
+                    {' | '}
+                    <a href="https://gravatar.com/ndmthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Gravatar</a>
+                    {' | '}
+                    <a href="https://www.behance.net/nomadthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Behance</a>
+                    {' | '}
+                    <a href="https://medium.com/@jscnwing920" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Medium</a>
+                    {' | '}
+                    <a href="https://www.slideshare.net/slideshow/2026-2fe7/284836511" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">SlideShare</a>
+                    {' | '}
+                    <a href="https://hub.docker.com/r/cclfrhr/nomadthai-core-v1" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Docker Hub</a>
+                  </p>
                 </div>
               </div>
             </article>
@@ -206,7 +217,7 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                 </Link>
               </Button>
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-600">??글 공유?�기:</span>
+                <span className="text-sm font-medium text-gray-600">이 글 공유하기:</span>
                 <Button
                   variant="outline"
                   size="icon"
@@ -215,7 +226,7 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                       navigator.share({ title: post.title, text: post.excerpt, url: window.location.href });
                     } else {
                       navigator.clipboard.writeText(window.location.href);
-                      alert('링크가 ?�립보드??복사?�었?�니??');
+                      alert('링크가 클립보드에 복사되었습니다!');
                     }
                   }}
                 >
@@ -230,34 +241,34 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
         <section className="py-16 lg:py-20 bg-rose-500">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto text-white">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">지�?바로 최상???�식???�약?�세??/h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">지금 바로 최상의 휴식을 예약하세요</h2>
               <p className="text-lg lg:text-xl mb-6 text-rose-100 font-semibold">
-                [?�마?��???경기???�비??지???�체 보기]
+                [노마드타이 경기도 서비스 지역 전체 보기]
               </p>
               <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-8 text-white">
-                <Link href="/suwon" className="hover:text-rose-200 underline transition-colors">?�원</Link>
+                <Link href="/suwon" className="hover:text-rose-200 underline transition-colors">수원</Link>
                 <span>|</span>
-                <Link href="/ansan" className="hover:text-rose-200 underline transition-colors">?�산</Link>
+                <Link href="/ansan" className="hover:text-rose-200 underline transition-colors">안산</Link>
                 <span>|</span>
-                <Link href="/seongnam" className="hover:text-rose-200 underline transition-colors">?�남</Link>
+                <Link href="/seongnam" className="hover:text-rose-200 underline transition-colors">성남</Link>
                 <span>|</span>
-                <Link href="/anyang" className="hover:text-rose-200 underline transition-colors">?�양</Link>
+                <Link href="/anyang" className="hover:text-rose-200 underline transition-colors">안양</Link>
                 <span>|</span>
                 <Link href="/gwacheon" className="hover:text-rose-200 underline transition-colors">과천</Link>
                 <span>|</span>
-                <Link href="/uiwang" className="hover:text-rose-200 underline transition-colors">?�왕</Link>
+                <Link href="/uiwang" className="hover:text-rose-200 underline transition-colors">의왕</Link>
                 <span>|</span>
                 <Link href="/gunpo" className="hover:text-rose-200 underline transition-colors">군포</Link>
                 <span>|</span>
-                <Link href="/hanam" className="hover:text-rose-200 underline transition-colors">?�남</Link>
+                <Link href="/hanam" className="hover:text-rose-200 underline transition-colors">하남</Link>
                 <span>|</span>
-                <Link href="/icheon" className="hover:text-rose-200 underline transition-colors">?�천</Link>
+                <Link href="/icheon" className="hover:text-rose-200 underline transition-colors">이천</Link>
                 <span>|</span>
                 <Link href="/gwangju" className="hover:text-rose-200 underline transition-colors">광주</Link>
                 <span>|</span>
-                <Link href="/yeoju" className="hover:text-rose-200 underline transition-colors">?�주</Link>
+                <Link href="/yeoju" className="hover:text-rose-200 underline transition-colors">여주</Link>
                 <span>|</span>
-                <Link href="/yongin" className="hover:text-rose-200 underline transition-colors">?�인</Link>
+                <Link href="/yongin" className="hover:text-rose-200 underline transition-colors">용인</Link>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -265,14 +276,14 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                   className="bg-white text-rose-600 hover:bg-rose-50 rounded-full font-bold shadow-lg transition transform hover:scale-105"
                   onClick={() => window.open("tel:010-8186-7771")}
                 >
-                  ?�화�??�약?�기
+                  전화로 예약하기
                 </Button>
                 <Button
                   size="lg"
                   className="bg-white text-rose-600 hover:bg-rose-50 rounded-full font-bold shadow-lg transition transform hover:scale-105"
                   asChild
                 >
-                  <Link href="/">?�으�??�아가�?/Link>
+                  <Link href="/">홈으로 돌아가기</Link>
                 </Button>
               </div>
             </div>
