@@ -180,7 +180,7 @@ export default function ClientPage() {
       />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-rose-50 overflow-x-hidden">
-        
+
 
         {/* Ultra Luxury Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -232,7 +232,7 @@ export default function ClientPage() {
                 <div className="flex flex-col sm:flex-row gap-3 lg:gap-6 mb-6 lg:mb-12 px-2 sm:px-0">
                   <Button
                     className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:via-pink-600 hover:to-purple-700 text-white px-4 lg:px-10 py-3 lg:py-5 text-base lg:text-xl rounded-full font-bold shadow-2xl ring-4 ring-rose-400/30 hover:ring-rose-300/50 transition-all duration-300 transform hover:scale-105"
-                    onClick={() => window.open("tel:010-8186-7771")}
+                    onClick={() => requestAnimationFrame(() => window.open("tel:010-8186-7771"))}
                   >
                     <Phone className="w-4 h-4 mr-2" />
                     지금 예약하기
@@ -240,7 +240,7 @@ export default function ClientPage() {
                   <Button
                     variant="outline"
                     className="border-2 border-white/50 text-white hover:bg-white hover:text-gray-800 px-4 lg:px-10 py-3 lg:py-5 text-base lg:text-xl rounded-full font-bold transition-all duration-300 bg-transparent backdrop-blur-sm"
-                    onClick={() => window.open("https://open.kakao.com/o/ssZxRuEh")}
+                    onClick={() => requestAnimationFrame(() => window.open("https://open.kakao.com/o/ssZxRuEh"))}
                   >
                     카카오톡 상담
                   </Button>
@@ -407,11 +407,11 @@ export default function ClientPage() {
                     바쁜 일상에 지친 고객님들을 위해 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 고객님께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수
                   </p>
                   <p className="text-base lg:text-lg">
-                    실력과 마인드를 겸비한 전문 여성 관리사로 구성되어 있으며, 체계적인 교육을 통해 고객님께 최상의 힐링 경험을 선사합니다. 
+                    실력과 마인드를 겸비한 전문 여성 관리사로 구성되어 있으며, 체계적인 교육을 통해 고객님께 최상의 힐링 경험을 선사합니다.
                     이제 집, 오피스텔, 호텔 등 가장 편안한 공간에서 격이 다른 서비스를 경험해 보세요.
                   </p>
                   <p className="text-base lg:text-lg">
-                    서비스에 만족하신 후 결제하는 <span className="font-bold">100% 안심 후불제</span>를 통해 고객님의 신뢰를 최우선으로 생각하며, 
+                    서비스에 만족하신 후 결제하는 <span className="font-bold">100% 안심 후불제</span>를 통해 고객님의 신뢰를 최우선으로 생각하며,
                     24시간 언제나 신속하고 정확한 서비스를 제공할 것을 약속드립니다.
                   </p>
                 </div>
@@ -461,7 +461,7 @@ export default function ClientPage() {
                           title: "안전한 후불제",
                           desc: "서비스 완료 후 결제하는 100% 안심 시스템",
                         },
-                        
+
                       ].map((item, index) => (
                         <div key={index} className="flex items-start space-x-3 lg:space-x-4">
                           <div className="w-6 h-6 lg:w-8 lg:h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">

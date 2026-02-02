@@ -337,14 +337,14 @@ export default function LocationPage({
         <div className="grid grid-cols-2 gap-2">
           <Button
             className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} text-white px-4 py-3 text-base rounded-xl font-bold shadow-2xl transition-all duration-300 transform active:scale-95 w-full`}
-            onClick={() => window.open('tel:010-8186-7771')}
+            onClick={() => requestAnimationFrame(() => window.open('tel:010-8186-7771'))}
           >
             <Phone className="w-4 h-4 mr-2" />
             즉시 예약
           </Button>
           <Button
             className="bg-green-500 hover:bg-green-600 text-white px-4 py-3 text-base rounded-xl font-bold shadow-2xl transition-all duration-300 transform active:scale-95 w-full"
-            onClick={() => window.open('https://open.kakao.com/o/ssZxRuEh')}
+            onClick={() => requestAnimationFrame(() => window.open('https://open.kakao.com/o/ssZxRuEh'))}
           >
             💬 카톡 상담
           </Button>
@@ -352,7 +352,7 @@ export default function LocationPage({
       </div>
 
       <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-slate-100 pb-20 md:pb-0">
-        
+
 
         <section className="relative py-8 sm:py-12 lg:py-16">
           <div className="container mx-auto px-4 sm:px-6">
@@ -629,6 +629,53 @@ export default function LocationPage({
           </div>
         </section>
 
+        {/* GEAF Q&A 섹션 - 구글 AI/SGE 최적화 */}
+        <section className="py-12 lg:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center mb-8 lg:mb-12">
+              <h2 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-4">
+                {city} 출장마사지 자주 묻는 질문
+              </h2>
+              <p className="text-base lg:text-lg text-gray-600">
+                {city} 출장마사지에 대해 가장 많이 궁금해하시는 내용입니다
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-5 lg:p-6 border border-rose-100">
+                <h3 className={`text-lg lg:text-xl font-bold ${currentTheme.lightText} mb-3`}>
+                  {city} 출장마사지 가격은 얼마인가요?
+                </h3>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  노마드타이의 {city} 출장마사지 기본 가격은 <strong>70,000원(60분)</strong>부터 시작합니다.
+                  관리사가 도착한 후 결제하는 <strong>100% 후불제</strong>로 운영되며,
+                  타이마사지, 아로마마사지, 스웨디시 중 선택 가능합니다.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-5 lg:p-6 border border-purple-100">
+                <h3 className={`text-lg lg:text-xl font-bold ${currentTheme.lightText} mb-3`}>
+                  {city} 출장마사지 예약 후 얼마나 빨리 오나요?
+                </h3>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  {city}시 전 지역 예약 확정 후 <strong>30분~1시간 이내</strong>에 도착합니다.
+                  <strong>오후 7시부터 오전 4시까지</strong> 운영되며, 심야 시간대도 예약 가능합니다.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-5 lg:p-6 border border-pink-100">
+                <h3 className={`text-lg lg:text-xl font-bold ${currentTheme.lightText} mb-3`}>
+                  {city} 어느 지역까지 출장 가능한가요?
+                </h3>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  {city}시 전 지역({areas.slice(0, 5).join(', ')} 등) 호텔, 모텔, 자택 모두 방문 가능합니다.
+                  정확한 주소를 말씀해주시면 출장 가능 여부와 예상 도착 시간을 안내해드립니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section
           id="services"
           className={`py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/40`}
@@ -675,27 +722,28 @@ export default function LocationPage({
                     전통 타이 마사지 기법으로 몸의 균형을 맞춰드립니다
                   </p>
 
-                  <div className="space-y-2 lg:space-y-3">
-                    {[
-                      { time: '60분', price: '70,000원' },
-                      { time: '90분', price: '80,000원' },
-                      { time: '120분', price: '100,000원' },
-                    ].map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center p-2 lg:p-3 bg-white/70 rounded-xl"
-                      >
-                        <span className="text-gray-700 font-medium text-sm lg:text-base">
-                          {item.time}
-                        </span>
-                        <span
-                          className={`font-bold ${currentTheme.lightText} text-sm lg:text-base`}
-                        >
-                          {item.price}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  <table className="w-full border-separate border-spacing-y-2">
+                    <thead className="sr-only">
+                      <tr>
+                        <th scope="col">시간</th>
+                        <th scope="col">가격</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">60분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>70,000원</td>
+                      </tr>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">90분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>80,000원</td>
+                      </tr>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">120분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>100,000원</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </Card>
 
@@ -715,27 +763,28 @@ export default function LocationPage({
                     향긋한 아로마 오일로 심신의 안정을 선사합니다
                   </p>
 
-                  <div className="space-y-2 lg:space-y-3">
-                    {[
-                      { time: '60분', price: '80,000원' },
-                      { time: '90분', price: '90,000원' },
-                      { time: '120분', price: '110,000원' },
-                    ].map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center p-2 lg:p-3 bg-white/70 rounded-xl"
-                      >
-                        <span className="text-gray-700 font-medium text-sm lg:text-base">
-                          {item.time}
-                        </span>
-                        <span
-                          className={`font-bold ${currentTheme.lightText} text-sm lg:text-base`}
-                        >
-                          {item.price}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  <table className="w-full border-separate border-spacing-y-2">
+                    <thead className="sr-only">
+                      <tr>
+                        <th scope="col">시간</th>
+                        <th scope="col">가격</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">60분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>80,000원</td>
+                      </tr>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">90분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>90,000원</td>
+                      </tr>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">120분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>110,000원</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </Card>
 
@@ -756,27 +805,28 @@ export default function LocationPage({
                     깊은 이완과 근육 회복을 위한 전문 마사지
                   </p>
 
-                  <div className="space-y-2 lg:space-y-3">
-                    {[
-                      { time: '60분', price: '100,000원' },
-                      { time: '90분', price: '130,000원' },
-                      { time: '120분', price: '160,000원' },
-                    ].map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center p-2 lg:p-3 bg-white/70 rounded-xl"
-                      >
-                        <span className="text-gray-700 font-medium text-sm lg:text-base">
-                          {item.time}
-                        </span>
-                        <span
-                          className={`font-bold ${currentTheme.lightText} text-sm lg:text-base`}
-                        >
-                          {item.price}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  <table className="w-full border-separate border-spacing-y-2">
+                    <thead className="sr-only">
+                      <tr>
+                        <th scope="col">시간</th>
+                        <th scope="col">가격</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">60분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>100,000원</td>
+                      </tr>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">90분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>130,000원</td>
+                      </tr>
+                      <tr className="bg-white/70 rounded-xl">
+                        <td className="text-gray-700 font-medium text-sm lg:text-base p-2 lg:p-3 rounded-l-xl">120분</td>
+                        <td className={`font-bold ${currentTheme.lightText} text-sm lg:text-base p-2 lg:p-3 rounded-r-xl text-right`}>160,000원</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </Card>
             </div>
@@ -1047,7 +1097,7 @@ export default function LocationPage({
                 </h3>
                 <div className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientTo} mx-auto`}></div>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 <div className="space-y-4 lg:space-y-6">
                   <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
@@ -1058,7 +1108,7 @@ export default function LocationPage({
                       {city}출장마사지는 당일 예약도 가능합니다. {city}홈타이 서비스는 예약 후 30분 내 도착을 목표로 하고 있습니다.
                     </p>
                   </div>
-                  
+
                   <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
                     <h4 className="font-bold text-gray-800 mb-2">
                       {city}출장마사지 이용 시 준비할 것이 있나요?
@@ -1068,7 +1118,7 @@ export default function LocationPage({
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4 lg:space-y-6">
                   <div className="bg-white rounded-2xl p-4 lg:p-6 shadow-md">
                     <h4 className="font-bold text-gray-800 mb-2">
