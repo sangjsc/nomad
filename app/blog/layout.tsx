@@ -11,9 +11,25 @@ export const metadata: Metadata = {
     siteName: "노마드출장마사지",
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "https://www.nomadthai.kr/og/home",
+        width: 1200,
+        height: 630,
+        alt: "노마드출장마사지 블로그",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "노마드출장마사지 블로그",
+    description: "출장마사지와 웰빙 정보를 제공하는 공식 블로그",
+    images: ["https://www.nomadthai.kr/og/home"],
   },
   alternates: {
-    canonical: "https://www.nomadthai.kr/blog",
+    types: {
+      "application/rss+xml": "https://www.nomadthai.kr/blog/rss.xml",
+    },
   },
 }
 

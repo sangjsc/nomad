@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import BlogLayout from "@/components/BlogLayout"
-import { getPostData, getAllPostSlugs } from "@/lib/blog"
+import { getPostData, getAllPostSlugs, getPostLastModified, getRelatedPosts } from "@/lib/blog"
 import type { Metadata } from "next"
 
 interface BlogPostPageProps {
@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
+  const modifiedTime = getPostLastModified(post)
+
   return {
     title: `${post.title} | 노마드출장마사지 블로그`,
     description: post.excerpt || `${post.title}에 대한 전문적인 정보를 제공합니다.`,
@@ -39,9 +41,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       locale: "ko_KR",
       type: "article",
       publishedTime: post.date,
+      modifiedTime,
       authors: [post.author || "노마드출장마사지"],
       tags: post.tags,
-      images: post.image ? [`https://www.nomadthai.kr${post.image}`] : ["https://www.nomadthai.kr/images/spa-background.jpg"],
+      images: ["https://www.nomadthai.kr/og/home"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || `${post.title}에 대한 전문적인 정보`,
+      images: ["https://www.nomadthai.kr/og/home"],
+    },
+    other: {
+      "article:published_time": post.date,
+      "article:modified_time": modifiedTime,
     },
     alternates: {
       canonical: `https://www.nomadthai.kr/blog/${post.slug}`,
@@ -50,7 +63,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 const components = {
-  h1: (props: any) => <h1 className="text-3xl font-bold text-gray-900 mb-4 mt-6" {...props} />,
+  // Layout already renders the document H1 with the post title.
+  // Legacy markdown repeats the same title, so omit its H1 instead of rendering a duplicate H2.
+  h1: () => null,
   h2: (props: any) => <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-8" {...props} />,
   h3: (props: any) => <h3 className="text-xl font-bold text-gray-800 mb-4 mt-6" {...props} />,
   p: (props: any) => <p className="text-lg text-gray-700 leading-relaxed mb-6" {...props} />,
@@ -72,8 +87,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
+  const relatedPosts = getRelatedPosts(post, 3)
+
   return (
-    <BlogLayout post={post}>
+    <BlogLayout post={post} relatedPosts={relatedPosts}>
       <MDXRemote source={post.content} components={components} />
     </BlogLayout>
   )

@@ -1,312 +1,184 @@
-"use client"
-
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Phone, MapPin, Menu, X, Crown, Sparkles, Heart } from "lucide-react"
+import { ChevronDown, Crown, Heart, MapPin, Menu, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { PHONE_DISPLAY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS } from "@/lib/site"
 
-const navLinks = [
+const priorityNavLinks = [
   { href: "/", label: "홈", icon: Crown },
-  { href: "/suwon", label: "수원" },
-  { href: "/ansan", label: "안산" },
-  { href: "/seongnam", label: "성남" },
-  { href: "/anyang", label: "안양" },
-  { href: "/gwacheon", label: "과천" },
-  { href: "/uiwang", label: "의왕" },
-  { href: "/gunpo", label: "군포" },
-  { href: "/hanam", label: "하남" },
-  { href: "/icheon", label: "이천" },
-  { href: "/gwangju", label: "광주" },
-  { href: "/yeoju", label: "여주" },
-  { href: "/yongin", label: "용인" },
+  ...PRIMARY_SERVICE_AREAS.map((area) => ({
+    href: `/${area.slug}`,
+    label: area.name,
+    icon: undefined,
+  })),
+]
+
+const utilityNavLinks = [
+  { href: "/", label: "홈", icon: Crown },
+  { href: "/service-areas", label: "전체지역 안내", icon: MapPin },
+  { href: "/about", label: "이용 안내", icon: Sparkles },
   { href: "/blog", label: "블로그", icon: Heart },
 ]
 
-const getPageTheme = (pathname: string) => {
-  if (pathname === '/icheon') return 'sage'
-  if (pathname === '/yeoju') return 'amber'
-  if (pathname === '/yongin') return 'rose'
-  if (pathname === '/gwangju') return 'purple'
-  if (pathname === '/suwon') return 'lavender'
-  if (pathname === '/ansan') return 'sky'
-  if (pathname === '/seongnam') return 'blue'
-  if (pathname === '/anyang') return 'coral'
-  if (pathname === '/gwacheon') return 'indigo'
-  if (pathname === '/uiwang') return 'mint'
-  if (pathname === '/gunpo') return 'peach'
-  if (pathname === '/hanam') return 'emerald'
-  return 'rose' // default theme
-}
-
-const themeColors = {
-  sage: {
-    primary: 'from-green-400 to-green-500',
-    hover: 'hover:from-green-500 hover:to-green-600',
-    accent: 'text-green-300',
-    border: 'border-green-300',
-    text: 'text-green-700',
-    bg: 'bg-green-50'
-  },
-  amber: {
-    primary: 'from-amber-400 to-amber-500',
-    hover: 'hover:from-amber-500 hover:to-amber-600',
-    accent: 'text-amber-300',
-    border: 'border-amber-300',
-    text: 'text-amber-700',
-    bg: 'bg-amber-50'
-  },
-  rose: {
-    primary: 'from-rose-400 to-rose-500',
-    hover: 'hover:from-rose-500 hover:to-rose-600',
-    accent: 'text-rose-300',
-    border: 'border-rose-300',
-    text: 'text-rose-700',
-    bg: 'bg-rose-50'
-  },
-  purple: {
-    primary: 'from-purple-400 to-purple-500',
-    hover: 'hover:from-purple-500 hover:to-purple-600',
-    accent: 'text-purple-300',
-    border: 'border-purple-300',
-    text: 'text-purple-700',
-    bg: 'bg-purple-50'
-  },
-  lavender: {
-    primary: 'from-violet-400 to-violet-500',
-    hover: 'hover:from-violet-500 hover:to-violet-600',
-    accent: 'text-violet-300',
-    border: 'border-violet-300',
-    text: 'text-violet-700',
-    bg: 'bg-violet-50'
-  },
-  sky: {
-    primary: 'from-sky-400 to-sky-500',
-    hover: 'hover:from-sky-500 hover:to-sky-600',
-    accent: 'text-sky-300',
-    border: 'border-sky-300',
-    text: 'text-sky-700',
-    bg: 'bg-sky-50'
-  },
-  blue: {
-    primary: 'from-blue-400 to-blue-500',
-    hover: 'hover:from-blue-500 hover:to-blue-600',
-    accent: 'text-blue-300',
-    border: 'border-blue-300',
-    text: 'text-blue-700',
-    bg: 'bg-blue-50'
-  },
-  coral: {
-    primary: 'from-orange-400 to-pink-400',
-    hover: 'hover:from-orange-500 hover:to-pink-500',
-    accent: 'text-orange-300',
-    border: 'border-orange-300',
-    text: 'text-orange-700',
-    bg: 'bg-orange-50'
-  },
-  indigo: {
-    primary: 'from-indigo-400 to-indigo-500',
-    hover: 'hover:from-indigo-500 hover:to-indigo-600',
-    accent: 'text-indigo-300',
-    border: 'border-indigo-300',
-    text: 'text-indigo-700',
-    bg: 'bg-indigo-50'
-  },
-  mint: {
-    primary: 'from-teal-400 to-emerald-400',
-    hover: 'hover:from-teal-500 hover:to-emerald-500',
-    accent: 'text-teal-300',
-    border: 'border-teal-300',
-    text: 'text-teal-700',
-    bg: 'bg-teal-50'
-  },
-  peach: {
-    primary: 'from-pink-400 to-rose-400',
-    hover: 'hover:from-pink-500 hover:to-rose-500',
-    accent: 'text-pink-300',
-    border: 'border-pink-300',
-    text: 'text-pink-700',
-    bg: 'bg-pink-50'
-  },
-  emerald: {
-    primary: 'from-emerald-400 to-green-400',
-    hover: 'hover:from-emerald-500 hover:to-green-500',
-    accent: 'text-emerald-300',
-    border: 'border-emerald-300',
-    text: 'text-emerald-700',
-    bg: 'bg-emerald-50'
-  }
-}
-
 export default function Header() {
-  const pathname = usePathname()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const currentTheme = getPageTheme(pathname)
-  const colors = themeColors[currentTheme]
-
   return (
     <>
-      {/* Premium Top Bar */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-2 hidden md:block">
+      <div className="hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-2 text-white md:block">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center text-sm">
+          <div className="flex items-center justify-between text-sm">
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <MapPin className={`w-4 h-4 ${colors.accent}`} />
-                <span className="text-slate-200">수원 · 안산 · 성남 · 안양 · 과천 · 의왕 · 군포 · 하남 · 이천 · 광주 · 여주 · 용인</span>
+                <MapPin className="h-4 w-4 text-rose-300" />
+                <span className="text-slate-200">이천 · 광주 · 여주 · 용인 · 수원 · 화성 · 평택 · 시흥 · 부천 · 광명 외 경기권 다수 지역</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Sparkles className={`w-4 h-4 ${colors.accent}`} />
-                <span className="text-slate-200">24시간 운영 · 100% 후불제</span>
+                <Sparkles className="h-4 w-4 text-rose-300" />
+                <span className="text-slate-200">오후 7시~오전 4시 운영 · 100% 후불제</span>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Phone className={`w-4 h-4 ${colors.accent}`} />
-              <a 
-                href="tel:010-8186-7771" 
-                className={`text-slate-200 hover:text-white font-medium transition-colors`}
-              >
-                010-8186-7771
-              </a>
-            </div>
+            <a href={PHONE_TEL} className="flex items-center space-x-2 text-slate-200 transition-colors hover:text-white">
+              <Phone className="h-4 w-4 text-rose-300" />
+              <span className="font-medium">{PHONE_DISPLAY}</span>
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+      <header className="sticky top-0 z-[70] border-b border-slate-200/60 bg-white shadow-sm md:bg-white/95 md:backdrop-blur-md">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group">
+          <div className="flex h-16 items-center justify-between md:h-20">
+            <Link href="/" aria-label="노마드출장마사지 홈으로 이동" className="flex min-w-0 items-center space-x-3">
               <div className="relative">
-                <div className={`w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br ${colors.primary} rounded-xl flex items-center justify-center shadow-lg`}>
-                  <Crown className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-rose-600 shadow-lg md:h-12 md:w-12">
+                  <Crown className="h-5 w-5 text-white md:h-6 md:w-6" />
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-amber-400 to-amber-500 rounded-full flex items-center justify-center">
-                  <Sparkles className="w-2 h-2 text-white" />
+                <div className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-500">
+                  <Sparkles className="h-2 w-2 text-white" />
                 </div>
               </div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+              <div className="min-w-0">
+                <p className="truncate bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-base font-bold text-transparent sm:text-xl md:text-2xl">
                   노마드출장마사지
-                </h1>
-                <p className="text-xs md:text-sm text-slate-500 -mt-1">Premium Massage Service</p>
+                </p>
+                <p className="-mt-1 hidden text-xs text-slate-500 sm:block md:text-sm">Premium Massage Service</p>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-2">
-              {navLinks.map((link) => {
+            <nav aria-label="주요 메뉴" className="hidden items-center space-x-1 xl:flex">
+              {priorityNavLinks.map((link) => {
                 const IconComponent = link.icon
-                const isActive = pathname === link.href
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`group relative px-2 py-2 rounded-full transition-all duration-300 ${
-                      isActive 
-                        ? `${colors.bg} ${colors.text}` 
-                        : 'hover:bg-slate-50'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-2">
-                      {IconComponent && <IconComponent className={`w-4 h-4 ${isActive ? colors.text : 'text-rose-500'}`} />}
-                      <span className={`font-medium text-sm whitespace-nowrap ${
-                        isActive 
-                          ? colors.text 
-                          : 'text-slate-700 group-hover:text-slate-900'
-                      }`}>
-                        {link.label}
-                      </span>
-                    </div>
-                    <div className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r ${colors.primary} rounded-full transition-transform duration-300 ${
-                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                    }`} />
+                  <Link key={link.href} href={link.href} className="group rounded-full px-3 py-2 transition-colors hover:bg-slate-50">
+                    <span className="flex items-center space-x-2">
+                      {IconComponent ? <IconComponent className="h-4 w-4 text-rose-500" /> : null}
+                      <span className="whitespace-nowrap text-sm font-medium text-slate-700 group-hover:text-slate-900">{link.label}</span>
+                    </span>
                   </Link>
                 )
               })}
+
+              <details className="group relative">
+                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 [&::-webkit-details-marker]:hidden">
+                  <MapPin className="h-4 w-4 text-rose-500" aria-hidden="true" />
+                  <span className="whitespace-nowrap">전체 22개 지역</span>
+                  <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
+                </summary>
+                <div className="absolute right-0 top-full mt-3 w-[36rem] rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl">
+                  <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div>
+                      <p className="font-bold text-slate-900">경기 지역별 출장마사지</p>
+                      <p className="mt-1 text-xs text-slate-500">원하는 지역 페이지로 바로 이동하세요</p>
+                    </div>
+                    <Link href="/service-areas" className="text-sm font-semibold text-rose-600 hover:text-rose-700">
+                      전체 안내 보기
+                    </Link>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2">
+                    {SERVICE_AREAS.map((area) => (
+                      <Link
+                        key={area.slug}
+                        href={`/${area.slug}`}
+                        title={`${area.fullName} 출장마사지 페이지`}
+                        className="flex min-h-10 items-center rounded-xl border border-slate-100 bg-slate-50 px-3 text-sm font-medium text-slate-700 transition-colors hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
+                      >
+                        {area.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </details>
+
+              <Link href="/about" className="group rounded-full px-3 py-2 transition-colors hover:bg-slate-50">
+                <span className="flex items-center space-x-2">
+                  <Sparkles className="h-4 w-4 text-rose-500" />
+                  <span className="whitespace-nowrap text-sm font-medium text-slate-700 group-hover:text-slate-900">이용 안내</span>
+                </span>
+              </Link>
+              <Link href="/blog" className="group rounded-full px-3 py-2 transition-colors hover:bg-slate-50">
+                <span className="flex items-center space-x-2">
+                  <Heart className="h-4 w-4 text-rose-500" />
+                  <span className="whitespace-nowrap text-sm font-medium text-slate-700 group-hover:text-slate-900">블로그</span>
+                </span>
+              </Link>
             </nav>
 
-            {/* Call Button */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Button
-                size="lg"
-                className={`bg-gradient-to-r ${colors.primary} ${colors.hover} text-white font-semibold rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
-                onClick={() => window.open("tel:010-8186-7771")}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                지금 예약
+            <div className="hidden md:block">
+              <Button asChild className="rounded-full bg-gradient-to-r from-rose-500 to-rose-600 px-6 py-3 font-semibold text-white shadow-lg hover:from-rose-600 hover:to-rose-700">
+                <a href={PHONE_TEL}><Phone className="mr-2 h-4 w-4" />지금 예약</a>
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-slate-700" />
-              ) : (
-                <Menu className="w-6 h-6 text-slate-700" />
-              )}
-            </Button>
+            <details className="relative shrink-0 xl:hidden">
+              <summary aria-label="전체 메뉴 열기" className="list-none cursor-pointer rounded-md p-3 text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 [&::-webkit-details-marker]:hidden">
+                <Menu className="h-6 w-6" />
+              </summary>
+              <div className="absolute right-0 top-full mt-2 max-h-[calc(100vh-9.5rem)] w-[min(22rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl md:max-h-[calc(100vh-8rem)]">
+                <nav aria-label="모바일 전체 메뉴">
+                  <div className="mb-3 flex items-center justify-between">
+                    <div>
+                      <p className="font-bold text-slate-900">전체 22개 지역</p>
+                      <p className="mt-0.5 text-xs text-slate-500">지역을 선택하세요</p>
+                    </div>
+                    <Link href="/service-areas" className="text-xs font-semibold text-rose-600 hover:text-rose-700">
+                      전체 안내
+                    </Link>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    {SERVICE_AREAS.map((area) => (
+                      <Link
+                        key={area.slug}
+                        href={`/${area.slug}`}
+                        title={`${area.fullName} 출장마사지 페이지`}
+                        className={`flex min-h-11 items-center rounded-xl border px-3 text-sm font-medium transition-colors ${
+                          area.tier === 1
+                            ? "border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100"
+                            : "border-slate-100 bg-slate-50 text-slate-700 hover:border-rose-200 hover:bg-rose-50"
+                        }`}
+                      >
+                        {area.name}
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 space-y-1 border-t border-slate-100 pt-3">
+                  {utilityNavLinks.map((link) => {
+                    const IconComponent = link.icon
+                    return (
+                      <Link key={link.href} href={link.href} className="flex min-h-11 items-center space-x-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50">
+                        {IconComponent ? <IconComponent className="h-4 w-4 text-rose-500" /> : null}
+                        <span>{link.label}</span>
+                      </Link>
+                    )
+                  })}
+                  </div>
+                  <Button asChild size="sm" className="mt-2 min-h-11 w-full rounded-lg bg-gradient-to-r from-rose-500 to-rose-600 font-semibold text-white hover:from-rose-600 hover:to-rose-700">
+                    <a href={PHONE_TEL}><Phone className="mr-2 h-4 w-4" />예약하기</a>
+                  </Button>
+                </nav>
+              </div>
+            </details>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-md">
-            <div className="container mx-auto px-4 py-3">
-              <nav className="space-y-1">
-                {navLinks.map((link) => {
-                  const IconComponent = link.icon
-                  const isActive = pathname === link.href
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors group ${
-                        isActive 
-                          ? `${colors.bg} ${colors.text}` 
-                          : 'hover:bg-slate-50'
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {IconComponent && (
-                        <IconComponent className={`w-4 h-4 ${isActive ? colors.text : 'text-rose-500'}`} />
-                      )}
-                      <span className={`font-medium text-sm ${
-                        isActive 
-                          ? colors.text 
-                          : 'text-slate-700 group-hover:text-slate-900'
-                      }`}>
-                        {link.label}
-                      </span>
-                    </Link>
-                  )
-                })}
-                
-                {/* Mobile Contact Info */}
-                <div className="pt-2 border-t border-slate-200 mt-3">
-                  <Button
-                    size="sm"
-                    className={`w-full bg-gradient-to-r ${colors.primary} ${colors.hover} text-white font-semibold rounded-lg py-2 shadow-lg`}
-                    onClick={() => {
-                      window.open("tel:010-8186-7771")
-                      setIsMenuOpen(false)
-                    }}
-                  >
-                    <Phone className="w-4 h-4 mr-2" />
-                    예약하기
-                  </Button>
-                </div>
-              </nav>
-            </div>
-          </div>
-        )}
       </header>
     </>
   )

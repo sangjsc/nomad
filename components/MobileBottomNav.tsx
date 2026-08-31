@@ -1,177 +1,32 @@
-"use client"
-
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Home, MapPin, Phone, BookOpen, Crown, ChevronUp } from "lucide-react"
-import { useState } from "react"
-
-const navItems = [
-  {
-    href: "/",
-    label: "홈",
-    icon: Home,
-  },
-  {
-    label: "지역",
-    icon: MapPin,
-    isDropdown: true,
-  },
-  {
-    href: "/blog",
-    label: "블로그",
-    icon: BookOpen,
-  },
-  {
-    href: "tel:010-8186-7771",
-    label: "예약",
-    icon: Phone,
-    isExternal: true,
-  },
-]
-
-const locationItems = [
-  { href: "/suwon", label: "수원" },
-  { href: "/anyang", label: "안양" },
-  { href: "/seongnam", label: "성남" },
-  { href: "/ansan", label: "안산" },
-  { href: "/gunpo", label: "군포" },
-  { href: "/gwacheon", label: "과천" },
-  { href: "/hanam", label: "하남" },
-  { href: "/uiwang", label: "의왕" },
-  { href: "/icheon", label: "이천" },
-  { href: "/gwangju", label: "광주" },
-  { href: "/yeoju", label: "여주" },
-  { href: "/yongin", label: "용인" },
-]
+import { MessageCircle, Phone } from "lucide-react"
+import { KAKAO_CHAT_URL, PHONE_TEL } from "@/lib/site"
 
 export default function MobileBottomNav() {
-  const pathname = usePathname()
-  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false)
-
-  const isLocationActive = locationItems.some(item => pathname === item.href)
-
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-      {/* Location Dropdown */}
-      {isLocationDropdownOpen && (
-        <div className="absolute bottom-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200/50 shadow-lg">
-          <div className="grid grid-cols-3 gap-2 p-4 max-h-64 overflow-y-auto">
-            {locationItems.map((location) => (
-              <Link
-                key={location.href}
-                href={location.href}
-                onClick={() => setIsLocationDropdownOpen(false)}
-                className={`flex items-center justify-center p-3 rounded-lg transition-all duration-200 active:scale-95 ${
-                  pathname === location.href 
-                    ? "bg-rose-100 text-rose-600" 
-                    : "bg-slate-50 text-slate-700 hover:bg-slate-100"
-                }`}
-              >
-                <span className="text-sm font-medium">{location.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Main Navigation */}
-      <div className="bg-white/95 backdrop-blur-md border-t border-slate-200/50 shadow-lg">
-        <div className="grid grid-cols-4 px-2 py-2">
-          {navItems.map((item, index) => {
-            const IconComponent = item.icon
-            const isActive = item.href ? pathname === item.href : isLocationActive
-            const isPhoneCall = item.isExternal
-            const isDropdown = item.isDropdown
-            
-            if (isPhoneCall) {
-              return (
-                <button
-                  key={index}
-                  onClick={() => window.open(item.href)}
-                  className="flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 active:scale-95"
-                >
-                  <div className="bg-gradient-to-br from-rose-500 to-rose-600 p-2 rounded-xl shadow-lg">
-                    <IconComponent className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-xs font-medium text-rose-600 mt-1">
-                    {item.label}
-                  </span>
-                </button>
-              )
-            }
-
-            if (isDropdown) {
-              return (
-                <button
-                  key={index}
-                  onClick={() => setIsLocationDropdownOpen(!isLocationDropdownOpen)}
-                  className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 active:scale-95 ${
-                    isActive ? "bg-rose-50" : "hover:bg-slate-50"
-                  }`}
-                >
-                  <div className={`relative p-2 rounded-xl transition-colors ${
-                    isActive 
-                      ? "bg-rose-100" 
-                      : "bg-slate-100"
-                  }`}>
-                    <IconComponent className={`w-4 h-4 ${
-                      isActive 
-                        ? "text-rose-600" 
-                        : "text-slate-600"
-                    }`} />
-                    <ChevronUp className={`w-3 h-3 absolute -top-1 -right-1 transition-transform duration-200 ${
-                      isLocationDropdownOpen ? "rotate-180" : ""
-                    } ${
-                      isActive 
-                        ? "text-rose-600" 
-                        : "text-slate-600"
-                    }`} />
-                  </div>
-                  <span className={`text-xs font-medium mt-1 ${
-                    isActive 
-                      ? "text-rose-600" 
-                      : "text-slate-600"
-                  }`}>
-                    {item.label}
-                  </span>
-                </button>
-              )
-            }
-
-            return (
-              <Link
-                key={index}
-                href={item.href}
-                className={`flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-200 active:scale-95 ${
-                  isActive ? "bg-rose-50" : "hover:bg-slate-50"
-                }`}
-              >
-                <div className={`p-2 rounded-xl transition-colors ${
-                  isActive 
-                    ? "bg-rose-100" 
-                    : "bg-slate-100"
-                }`}>
-                  <IconComponent className={`w-4 h-4 ${
-                    isActive 
-                      ? "text-rose-600" 
-                      : "text-slate-600"
-                  }`} />
-                </div>
-                <span className={`text-xs font-medium mt-1 ${
-                  isActive 
-                    ? "text-rose-600" 
-                    : "text-slate-600"
-                }`}>
-                  {item.label}
-                </span>
-              </Link>
-            )
-          })}
-        </div>
+    <nav
+      aria-label="빠른 예약 및 상담"
+      className="fixed inset-x-0 bottom-0 z-[60] border-t border-slate-200/80 bg-white shadow-[0_-8px_24px_rgba(15,23,42,0.12)] md:hidden"
+    >
+      <div className="grid grid-cols-2 gap-2 px-3 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2">
+        <a
+          href={PHONE_TEL}
+          aria-label="전화로 즉시 예약"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 px-4 text-base font-bold text-white shadow-md transition-transform active:scale-[0.98]"
+        >
+          <Phone className="h-5 w-5" aria-hidden="true" />
+          전화 예약
+        </a>
+        <a
+          href={KAKAO_CHAT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="카카오톡으로 상담"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#FEE500] px-4 text-base font-bold text-[#191919] shadow-md transition-transform active:scale-[0.98]"
+        >
+          <MessageCircle className="h-5 w-5" aria-hidden="true" />
+          카톡 상담
+        </a>
       </div>
-      
-      {/* Safe area for notch devices */}
-      <div className="bg-white h-safe-area-inset-bottom"></div>
-    </div>
+    </nav>
   )
 }

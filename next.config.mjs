@@ -3,12 +3,6 @@ import createMDX from '@next/mdx'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     formats: ['image/webp'],
     minimumCacheTTL: 86400,
@@ -21,6 +15,15 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/blog/gyeonggi-massage-guidebook-2024',
+        destination: '/service-areas',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

@@ -2,30 +2,30 @@ import { Metadata } from 'next'
 import LocationPage from '../components/LocationPage'
 
 export const metadata: Metadata = {
-  title: '안양출장마사지 1등업체 | 24시간 안양홈타이 | 100% 후불제',
-  description: '안양출장마사지 1등업체 노마드! 안양시 동안구 만안구 전지역 24시간 안양출장마사지, 안양홈타이, 안양출장태국마사지 서비스. 100% 후불제, 30분 내 도착. 안양출장마사지 전문업체.',
-  keywords: '안양출장마사지, 안양홈타이, 안양출장태국마사지, 안양출장안마, 안양마사지, 동안구출장마사지, 만안구출장마사지, 비산동출장마사지, 갈산동출장마사지, 관양동출장마사지, 평촌동출장마사지, 호계동출장마사지, 법계원동출장마사지, 안양동출장마사지, 박달동출장마사지, 안양시출장마사지',
+  title: '안양출장마사지 | 경기도 안양 홈타이 예약 안내 | 오후 7시~오전 4시',
+  description: '경기도 안양시 전 지역 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제, 전화·카카오톡 상담이 가능합니다.',
+  keywords: '안양출장마사지, 안양홈타이, 안양출장태국마사지, 안양출장안마, 안양마사지, 동안구출장마사지, 만안구출장마사지, 비산동출장마사지, 갈산동출장마사지, 관양동출장마사지, 평촌동출장마사지, 호계동출장마사지, 범계동출장마사지, 안양동출장마사지, 박달동출장마사지, 안양시출장마사지',
   openGraph: {
-    title: '안양출장마사지 1등업체 | 안양홈타이 전문 | 노마드출장마사지',
-    description: '경기도 안양시 1등 안양출장마사지 전문업체. 24시간 안양홈타이, 안양출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.',
+    title: '안양출장마사지 | 경기도 안양 홈타이 예약 안내 | 노마드출장마사지',
+    description: '경기도 안양시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 안심하고 이용하세요.',
     url: 'https://www.nomadthai.kr/anyang',
     type: 'website',
     locale: 'ko_KR',
     images: [
       {
-        url: '/images/spa-background.jpg',
+        url: '/og/anyang',
         width: 1200,
         height: 630,
-        alt: '안양출장마사지 - 노마드출장마사지 24시간 서비스',
-        type: 'image/jpeg',
+        alt: '안양출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '안양출장마사지 1등업체 | 노마드출장마사지',
-    description: '안양시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.',
-    images: ['/images/spa-background.jpg'],
+    title: '안양출장마사지 | 노마드출장마사지',
+    description: '안양시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.',
+    images: ['/og/anyang'],
   },
   alternates: {
     canonical: 'https://www.nomadthai.kr/anyang',
@@ -44,8 +44,8 @@ export default function AnyangPage() {
         { src: '/images/location-4.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-5.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="안양 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 안양 어디서든 최상의 힐링을 경험하세요."
-      areas={["동안구", "만안구", "비산동", "갈산동", "관양동", "평촌동", "호계동", "법계원동", "안양동", "박달동"]}
+      description="안양 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 안양 어디서든 최상의 힐링을 경험하세요."
+      areas={["동안구", "만안구", "비산동", "갈산동", "관양동", "평촌동", "호계동", "범계동", "안양동", "박달동"]}
       latitude="37.3943"
       longitude="126.9568"
       intro={
@@ -67,7 +67,7 @@ export default function AnyangPage() {
           <p>
             고객 만족 최우선! 노마드출장마사지 안양점에서 최상의 서비스를 경험하세요. 예약금, 선입금 없이 서비스 완료 후 현장 결제하는 투명한 시스템. 간편한 전화 한 통으로 안양 최고의 힐링을 경험하세요. 고객님의 소중한 시간을 위한 최고의 선택입니다.
           </p>
-          <div className="mt-4 text-sm text-gray-600">동안구 만안구 비산동 갈산동 관양동 평촌동 호계동 법계원동 안양동 박달동</div>
+          <div className="mt-4 text-sm text-gray-600">동안구 만안구 비산동 갈산동 관양동 평촌동 호계동 범계동 안양동 박달동</div>
         </>
       }
     />

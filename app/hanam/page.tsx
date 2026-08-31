@@ -2,30 +2,30 @@ import { Metadata } from 'next'
 import LocationPage from '../components/LocationPage'
 
 export const metadata: Metadata = {
-  title: '하남출장마사지 | 하남출장안마 | 하남홈타이 | 노마드 - 24시간',
-  description: '하남출장마사지 1등업체 노마드! 하남시 전지역 24시간 출장안마, 하남홈타이, 하남출장태국마사지. 100% 후불제, 30분내 도착. 하남출장마사지 최저가 보장.',
-  keywords: '하남출장마사지, 하남출장안마, 하남홈타이, 하남출장태국마사지, 하남마사지, 미사강변도시출장마사지, 위례동출장안마, 신장동출장마사지, 천현동출장안마, 감동홈타이, 감일동출장마사지, 창우동출장안마, 덕풍동출장마사지, 미사역출장안마, 하남시출장마사지',
+  title: '하남출장마사지 | 경기도 하남 홈타이 예약 안내 | 오후 7시~오전 4시',
+  description: '경기도 하남시 전 지역 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제, 전화·카카오톡 상담이 가능합니다.',
+  keywords: '하남출장마사지, 하남출장안마, 하남홈타이, 하남출장태국마사지, 하남마사지, 미사강변도시출장마사지, 위례동출장안마, 신장동출장마사지, 천현동출장안마, 감북동홈타이, 감일동출장마사지, 감이동출장안마, 창우동출장안마, 덕풍동출장마사지, 미사역출장안마, 하남시출장마사지',
   openGraph: {
-    title: '하남 출장마사지 | 24시간 전문 서비스',
-    description: '하남시 전체 지역 출장마사지 전문업체. 미사강변도시 주민들을 위한 프리미엄 서비스',
+    title: '하남출장마사지 | 경기도 하남 홈타이 예약 안내 | 노마드출장마사지',
+    description: '경기도 하남시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 이용 가능합니다.',
     url: 'https://www.nomadthai.kr/hanam',
     type: 'website',
     locale: 'ko_KR',
     images: [
       {
-        url: '/images/spa-background.jpg',
+        url: '/og/hanam',
         width: 1200,
         height: 630,
-        alt: '하남출장마사지 - 노마드출장마사지 24시간 서비스',
-        type: 'image/jpeg',
+        alt: '하남출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '하남출장마사지 1등업체 | 노마드출장마사지',
-    description: '하남시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.',
-    images: ['/images/spa-background.jpg'],
+    title: '하남출장마사지 | 노마드출장마사지',
+    description: '하남시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.',
+    images: ['/og/hanam'],
   },
   alternates: {
     canonical: 'https://www.nomadthai.kr/hanam',
@@ -44,9 +44,9 @@ export default function HanamPage() {
         { src: '/images/location-8.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-9.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="하남 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 하남 어디서든 최상의 힐링을 경험하세요."
+      description="하남 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 하남 어디서든 최상의 힐링을 경험하세요."
       areas={[
-        "미사강변도시", "위례동", "신장동", "천현동", "감동", "감일동", "창우동", "덕풍동", "미사역", "하남검단사"
+        "미사강변도시", "위례동", "신장동", "천현동", "감북동", "감일동", "감이동", "창우동", "덕풍동", "미사역", "검단산"
       ]}
       latitude="37.5392"
       longitude="127.2145"
@@ -69,7 +69,7 @@ export default function HanamPage() {
           <p>
             고객 만족 최우선! 노마드출장마사지 하남점에서 최상의 서비스를 경험하세요. 예약금, 선입금 없이 서비스 완료 후 현장 결제하는 투명한 시스템. 간편한 전화 한 통으로 하남 최고의 힐링을 경험하세요. 고객님의 소중한 시간을 위한 최고의 선택입니다.
           </p>
-          <div className="mt-4 text-sm text-gray-600">미사강변도시 위례동 신장동 천현동 감동 감일동 창우동 덕풍동 미사역 하남검단사</div>
+          <div className="mt-4 text-sm text-gray-600">미사강변도시 위례동 신장동 천현동 감북동 감일동 감이동 창우동 덕풍동 미사역 검단산</div>
         </>
       }
     />

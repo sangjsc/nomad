@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/private/",
+      disallow: ["/private/", "/api/"],
     },
+    host: "https://www.nomadthai.kr",
     sitemap: "https://www.nomadthai.kr/sitemap.xml",
   }
 }

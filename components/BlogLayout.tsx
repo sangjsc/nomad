@@ -2,28 +2,30 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Crown, Calendar, User, Tag, ArrowLeft, Share2, Menu, ExternalLink } from "lucide-react"
+import { Calendar, User, ArrowLeft, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import type { BlogPost } from "@/lib/blog"
+import type { BlogPost, BlogPostSummary } from "@/lib/blog"
 import { extractCityFromTitle } from "@/lib/blog-utils"
+import { PRIMARY_SERVICE_AREAS, SERVICE_AREAS } from "@/lib/site"
 
 interface BlogLayoutProps {
   post: BlogPost
+  relatedPosts?: BlogPostSummary[]
   children: React.ReactNode
 }
 
-const navLinks = [
-  { href: "/", label: "마사지 홈" },
-  { href: "/icheon", label: "이천" },
-  { href: "/gwangju", label: "광주" },
-  { href: "/yeoju", label: "여주" },
-  { href: "/yongin", label: "용인" },
-]
-
-export default function BlogLayout({ post, children }: BlogLayoutProps) {
+export default function BlogLayout({ post, relatedPosts = [], children }: BlogLayoutProps) {
   const city = post.category === 'regional' ? extractCityFromTitle(post.title) : ''
   const imageAlt = city ? `${city} 출장마사지 노마드타이` : post.title
+  const modifiedDate = post.updated || post.date
+  const postSearchText = [post.title, ...(post.tags || [])].join(' ')
+  const matchedArea = SERVICE_AREAS.find((area) => {
+    const shortName = area.name.replace('경기 ', '')
+    return postSearchText.includes(area.name) || postSearchText.includes(shortName)
+  })
+  const contextualAreas = matchedArea
+    ? [matchedArea, ...PRIMARY_SERVICE_AREAS.filter((area) => area.slug !== matchedArea.slug)].slice(0, 4)
+    : PRIMARY_SERVICE_AREAS
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -31,27 +33,53 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
     headline: post.title,
     description: post.excerpt,
     author: {
-      "@type": "Person",
+      "@type": "Organization",
+      "@id": "https://www.nomadthai.kr/#organization",
       name: post.author || "노마드출장마사지",
+      url: "https://www.nomadthai.kr/about",
     },
     publisher: {
-      "@type": "Organization",
-      name: "노마드출장마사지",
-      url: "https://nomadthai.kr",
+      "@id": "https://www.nomadthai.kr/#organization",
     },
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: modifiedDate,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://nomadthai.kr/blog/${post.slug}`,
+      "@id": `https://www.nomadthai.kr/blog/${post.slug}`,
     },
-    image: post.image ? `https://nomadthai.kr${post.image}` : "https://nomadthai.kr/images/spa-background.jpg",
-    url: `https://nomadthai.kr/blog/${post.slug}`,
+    image: "https://www.nomadthai.kr/og/home",
+    url: `https://www.nomadthai.kr/blog/${post.slug}`,
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "홈",
+        item: "https://www.nomadthai.kr",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "블로그",
+        item: "https://www.nomadthai.kr/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://www.nomadthai.kr/blog/${post.slug}`,
+      },
+    ],
   }
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-rose-50">
         
@@ -75,10 +103,11 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                   <Image
                     src={post.image}
                     alt={imageAlt}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
                     className="w-full h-full"
+                    style={{ objectFit: "cover" }}
                     priority
+                    sizes="(max-width: 768px) 100vw, 896px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
@@ -99,6 +128,10 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4" />
                     <span>{new Date(post.date).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>업데이트: {new Date(modifiedDate).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
                   {post.author && (
                     <div className="flex items-center space-x-2">
@@ -125,85 +158,29 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
                   </div>
                 )}
 
-                {/* 관련 공식 자료 */}
-                <div className="mt-10 pt-6 border-t">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">관련 공식 자료</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <a
-                      href="https://anyflip.com/dibje/wkpr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg hover:shadow-md transition-all group"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-blue-600">AnyFlip 가이드</h4>
-                          <p className="text-sm text-gray-600">전자책 형태의 상세 가이드</p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600" />
-                      </div>
-                    </a>
-                    <a
-                      href="https://issuu.com/docs/6f464d67eece8867f497cb1331aa6f83"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg hover:shadow-md transition-all group"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-purple-600">Issuu 로드맵</h4>
-                          <p className="text-sm text-gray-600">서비스 발전 계획</p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-600" />
-                      </div>
-                    </a>
-                    <a
-                      href="https://solo.to/nomadthai"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-4 bg-gradient-to-br from-rose-50 to-orange-50 border border-rose-200 rounded-lg hover:shadow-md transition-all group"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-rose-600">Solo.to 허브</h4>
-                          <p className="text-sm text-gray-600">모든 소셜 채널 통합</p>
-                        </div>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-rose-600" />
-                      </div>
-                    </a>
+                {relatedPosts.length > 0 && (
+                  <div className="mt-10 pt-6 border-t">
+                    <h2 className="text-xl font-bold text-gray-800 mb-4">관련 글 더 보기</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {relatedPosts.map((related) => (
+                        <Link
+                          key={related.slug}
+                          href={`/blog/${related.slug}`}
+                          className="p-4 rounded-xl border border-gray-200 hover:border-rose-300 hover:bg-rose-50/40 transition-colors"
+                        >
+                          <p className="text-xs text-gray-500 mb-2">
+                            {new Date(related.updated || related.date).toLocaleDateString('ko-KR')}
+                          </p>
+                          <p className="font-semibold text-gray-800 line-clamp-2">{related.title}</p>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
-                {/* Verification & Assets */}
-                <div className="mt-8 pt-6 border-t text-center">
-                  <p className="text-[10px] lg:text-[11px] text-gray-500 leading-relaxed">
-                    [Verification & Assets]{' '}
-                    <a href="https://www.nomadthai.kr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Main</a>
-                    {' | '}
-                    <a href="https://gitlab.com/nomadthai-official/nomadthai-main-hub/-/snippets/4916220" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">GitLab</a>
-                    {' | '}
-                    <a href="https://github.com/sangjsc/nomad" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">GitHub</a>
-                    {' | '}
-                    <a href="https://solo.to/nomadthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Solo.to</a>
-                    {' | '}
-                    <a href="https://anyflip.com/dibje/wkpr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Guide</a>
-                    {' | '}
-                    <a href="https://issuu.com/docs/6f464d67eece8867f497cb1331aa6f83" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Roadmap</a>
-                    {' | '}
-                    <a href="https://pin.it/32KOgnNEr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">News</a>
-                    {' | '}
-                    <a href="https://x.com/jscnwing9201" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">X</a>
-                    {' | '}
-                    <a href="https://gravatar.com/ndmthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Gravatar</a>
-                    {' | '}
-                    <a href="https://www.behance.net/nomadthai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Behance</a>
-                    {' | '}
-                    <a href="https://medium.com/@jscnwing920" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Medium</a>
-                    {' | '}
-                    <a href="https://www.slideshare.net/slideshow/2026-2fe7/284836511" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">SlideShare</a>
-                    {' | '}
-                    <a href="https://hub.docker.com/r/cclfrhr/nomadthai-core-v1" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Docker Hub</a>
-                  </p>
+                <div className="mt-10 flex flex-wrap gap-4 border-t pt-6">
+                  <Link href="/service-areas" className="font-semibold text-rose-600 hover:text-rose-700">서비스 지역 확인</Link>
+                  <Link href="/about" className="font-semibold text-rose-600 hover:text-rose-700">예약 및 이용 안내</Link>
                 </div>
               </div>
             </article>
@@ -241,34 +218,25 @@ export default function BlogLayout({ post, children }: BlogLayoutProps) {
         <section className="py-16 lg:py-20 bg-rose-500">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto text-white">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">지금 바로 최상의 휴식을 예약하세요</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">예약 전 서비스 지역과 시간을 확인하세요</h2>
               <p className="text-lg lg:text-xl mb-6 text-rose-100 font-semibold">
-                [노마드타이 경기도 서비스 지역 전체 보기]
+                현재 글과 관련된 지역 안내
               </p>
               <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-8 text-white">
-                <Link href="/suwon" className="hover:text-rose-200 underline transition-colors">수원</Link>
-                <span>|</span>
-                <Link href="/ansan" className="hover:text-rose-200 underline transition-colors">안산</Link>
-                <span>|</span>
-                <Link href="/seongnam" className="hover:text-rose-200 underline transition-colors">성남</Link>
-                <span>|</span>
-                <Link href="/anyang" className="hover:text-rose-200 underline transition-colors">안양</Link>
-                <span>|</span>
-                <Link href="/gwacheon" className="hover:text-rose-200 underline transition-colors">과천</Link>
-                <span>|</span>
-                <Link href="/uiwang" className="hover:text-rose-200 underline transition-colors">의왕</Link>
-                <span>|</span>
-                <Link href="/gunpo" className="hover:text-rose-200 underline transition-colors">군포</Link>
-                <span>|</span>
-                <Link href="/hanam" className="hover:text-rose-200 underline transition-colors">하남</Link>
-                <span>|</span>
-                <Link href="/icheon" className="hover:text-rose-200 underline transition-colors">이천</Link>
-                <span>|</span>
-                <Link href="/gwangju" className="hover:text-rose-200 underline transition-colors">광주</Link>
-                <span>|</span>
-                <Link href="/yeoju" className="hover:text-rose-200 underline transition-colors">여주</Link>
-                <span>|</span>
-                <Link href="/yongin" className="hover:text-rose-200 underline transition-colors">용인</Link>
+                {contextualAreas.map((area, index) => (
+                  <span key={area.slug} className="inline-flex items-center gap-2">
+                    {index > 0 ? <span>|</span> : null}
+                    <Link href={`/${area.slug}`} className="hover:text-rose-200 underline transition-colors">
+                      {area.name} 출장마사지
+                    </Link>
+                  </span>
+                ))}
+                <span className="inline-flex items-center gap-2">
+                  <span>|</span>
+                  <Link href="/service-areas" className="hover:text-rose-200 underline transition-colors">
+                    전체 서비스 지역
+                  </Link>
+                </span>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

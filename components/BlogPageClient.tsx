@@ -1,140 +1,178 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
-import { Crown, Phone, Tag } from 'lucide-react'
+import { Tag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import BlogCard from '@/components/BlogCard'
-import type { BlogPost, BlogCategory } from '@/lib/blog'
+import type { BlogPostSummary, BlogCategory } from '@/lib/blog'
+import { PRIMARY_SERVICE_AREAS, SITE_URL } from '@/lib/site'
 
 interface BlogPageClientProps {
-  posts: BlogPost[]
+  posts: BlogPostSummary[]
   category?: 'all' | BlogCategory
+  currentPage?: number
+  totalPages?: number
+  basePath?: string
 }
 
-export default function BlogPageClient({ posts, category = 'all' }: BlogPageClientProps) {
-  const categories = [
+function buildPageHref(basePath: string, page: number): string {
+  if (page <= 1) {
+    return basePath
+  }
+  return `${basePath}/page/${page}`
+}
+
+function getVisiblePages(currentPage: number, totalPages: number): number[] {
+  const maxVisible = 5
+  const pages: number[] = []
+  const start = Math.max(1, currentPage - Math.floor(maxVisible / 2))
+  const end = Math.min(totalPages, start + maxVisible - 1)
+  const adjustedStart = Math.max(1, end - maxVisible + 1)
+
+  for (let page = adjustedStart; page <= end; page += 1) {
+    pages.push(page)
+  }
+
+  return pages
+}
+
+export default function BlogPageClient({
+  posts,
+  category = 'all',
+  currentPage = 1,
+  totalPages = 1,
+  basePath = '/blog',
+}: BlogPageClientProps) {
+  const categories: Array<{ id: 'all' | BlogCategory; label: string; href: string }> = [
     { id: 'all', label: '전체', href: '/blog' },
     { id: 'official', label: '[공식] 브랜드 소식', href: '/blog/official' },
-    { id: 'regional', label: '[경기] 지역 안심 가이드', href: '/blog/regional' },
+    { id: 'regional', label: '[경기] 지역별 이용 가이드', href: '/blog/regional' },
     { id: 'info', label: '[정보] 테라피 인사이트', href: '/blog/info' },
   ]
 
-  const filteredPosts = posts
+  const pageTitle =
+    category === 'official'
+      ? '공식 소식'
+      : category === 'regional'
+        ? '경기 지역 가이드'
+        : category === 'info'
+          ? '테라피 인사이트'
+          : '블로그'
+
+  const pageDescription =
+    category === 'official'
+      ? '운영 공지, 서비스 변경사항, 정책 업데이트를 확인하세요.'
+      : category === 'regional'
+        ? '지역별 출장마사지 예약 포인트와 이용 팁을 확인하세요.'
+        : category === 'info'
+          ? '마사지 전후 관리와 코스 선택에 도움이 되는 정보를 확인하세요.'
+          : '출장마사지 이용 정보와 지역별 가이드를 확인하세요.'
+
+  const currentPath = buildPageHref(basePath, currentPage)
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: '노마드출장마사지 블로그',
-    description: '출장마사지와 건강 정보를 제공하는 전문 블로그',
-    url: 'https://nomadthai.kr/blog',
+    description: '출장마사지 이용 정보와 지역별 가이드를 제공하는 공식 블로그',
+    url: `${SITE_URL}${currentPath}`,
     publisher: {
-      '@type': 'Organization',
-      name: '노마드출장마사지',
-      url: 'https://nomadthai.kr',
+      '@id': `${SITE_URL}/#organization`,
     },
-    blogPost: posts.map(post => ({
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.excerpt,
-      url: `https://nomadthai.kr/blog/${post.slug}`,
-      datePublished: post.date,
-    })),
   }
+
+  const visiblePages = getVisiblePages(currentPage, totalPages)
 
   return (
     <>
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      
-      <div className='min-h-screen bg-gray-50'>
-        
-        {/* Main Content */}
-        <main className='container mx-auto px-4 py-8 md:py-12'>
-          <div className='text-center mb-10 md:mb-16'>
-            <h1 className='text-4xl md:text-5xl font-extrabold text-gray-900 mb-3'>블로그</h1>
-            <p className='text-lg text-gray-600'>마사지와 웰빙에 대한 유용한 정보를 확인하세요.</p>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      <div className="min-h-screen bg-gray-50">
+        <main className="container mx-auto px-4 py-8 md:py-12">
+          <div className="mb-10 text-center md:mb-16">
+            <h1 className="mb-3 text-4xl font-extrabold text-gray-900 md:text-5xl">{pageTitle}</h1>
+            <p className="text-lg text-gray-600">{pageDescription}</p>
           </div>
 
-          {/* Category Navigation */}
-          <div className='flex justify-center flex-wrap gap-2 mb-12'>
-            {categories.map(cat => (
-              <Link key={cat.id} href={cat.href}>
+          <div className="mb-10 flex flex-wrap justify-center gap-2 md:mb-12">
+            {categories.map((item) => (
+              <Link key={item.id} href={item.href}>
                 <Button
-                  variant={category === cat.id ? 'default' : 'outline'}
-                  className={`rounded-full ${category === cat.id ? 'bg-rose-500 hover:bg-rose-600' : ''}`}>
-                  {cat.label}
+                  variant={category === item.id ? 'default' : 'outline'}
+                  className={`rounded-full ${category === item.id ? 'bg-rose-500 hover:bg-rose-600' : ''}`}
+                >
+                  {item.label}
                 </Button>
               </Link>
             ))}
           </div>
 
-          {/* Blog Posts */}
-          {filteredPosts.length > 0 ? (
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-              {filteredPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
-              ))}
-            </div>
-          ) : (
-            <div className='text-center py-16'>
-              <div className='w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <Tag className='w-10 h-10 text-rose-400' />
+          {posts.length > 0 ? (
+            <>
+              <h2 className="sr-only">최신 블로그 글 목록</h2>
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {posts.map((post, index) => (
+                  <BlogCard key={post.slug} post={post} priority={index === 0} />
+                ))}
               </div>
-              <h3 className='text-2xl font-bold text-gray-800 mb-2'>선택한 카테고리에 글이 없습니다.</h3>
-              <p className='text-gray-600'>다른 카테고리를 확인해보세요.</p>
+
+              {totalPages > 1 && (
+                <nav className="mt-10 flex items-center justify-center gap-2 md:mt-12" aria-label="블로그 페이지 이동">
+                  {currentPage > 1 && (
+                    <Link
+                      href={buildPageHref(basePath, currentPage - 1)}
+                      className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:border-rose-300 hover:text-rose-600"
+                    >
+                      이전
+                    </Link>
+                  )}
+
+                  {visiblePages.map((page) => (
+                    <Link
+                      key={page}
+                      href={buildPageHref(basePath, page)}
+                      aria-current={page === currentPage ? 'page' : undefined}
+                      className={`min-w-10 rounded-full border px-4 py-2 text-center text-sm font-semibold transition-colors ${
+                        page === currentPage
+                          ? 'border-rose-500 bg-rose-500 text-white'
+                          : 'border-gray-300 bg-white text-gray-700 hover:border-rose-300 hover:text-rose-600'
+                      }`}
+                    >
+                      {page}
+                    </Link>
+                  ))}
+
+                  {currentPage < totalPages && (
+                    <Link
+                      href={buildPageHref(basePath, currentPage + 1)}
+                      className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:border-rose-300 hover:text-rose-600"
+                    >
+                      다음
+                    </Link>
+                  )}
+                </nav>
+              )}
+            </>
+          ) : (
+            <div className="py-16 text-center">
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-rose-100">
+                <Tag className="h-10 w-10 text-rose-400" />
+              </div>
+              <h2 className="mb-2 text-2xl font-bold text-gray-800">등록된 글이 없습니다.</h2>
+              <p className="text-gray-600">다른 카테고리에서 최신 콘텐츠를 확인해보세요.</p>
             </div>
           )}
         </main>
 
-        {/* Location Navigation */}
-        <div className='bg-white mt-16 py-8 border-t'>
-          <div className='container mx-auto px-4 text-center'>
-            <h3 className='text-xl md:text-2xl font-bold text-gray-800 mb-4'>다른 지역 마사지 페이지 둘러보기</h3>
-            <div className='flex flex-wrap justify-center gap-3 lg:gap-4'>
-              <Link href='/suwon' className='text-rose-500 hover:text-rose-600 font-semibold'>수원출장마사지</Link>
-              <Link href='/ansan' className='text-rose-500 hover:text-rose-600 font-semibold'>안산출장마사지</Link>
-              <Link href='/seongnam' className='text-rose-500 hover:text-rose-600 font-semibold'>성남출장마사지</Link>
-              <Link href='/anyang' className='text-rose-500 hover:text-rose-600 font-semibold'>안양출장마사지</Link>
-              <Link href='/gwacheon' className='text-rose-500 hover:text-rose-600 font-semibold'>과천출장마사지</Link>
-              <Link href='/uiwang' className='text-rose-500 hover:text-rose-600 font-semibold'>의왕출장마사지</Link>
-              <Link href='/gunpo' className='text-rose-500 hover:text-rose-600 font-semibold'>군포출장마사지</Link>
-              <Link href='/hanam' className='text-rose-500 hover:text-rose-600 font-semibold'>하남출장마사지</Link>
-              <Link href='/icheon' className='text-rose-500 hover:text-rose-600 font-semibold'>이천출장마사지</Link>
-              <Link href='/gwangju' className='text-rose-500 hover:text-rose-600 font-semibold'>광주출장마사지</Link>
-              <Link href='/yeoju' className='text-rose-500 hover:text-rose-600 font-semibold'>여주출장마사지</Link>
-              <Link href='/yongin' className='text-rose-500 hover:text-rose-600 font-semibold'>용인출장마사지</Link>
-            </div>
-
-            {/* Verification & Assets */}
-            <div className='mt-8 pt-6 border-t border-gray-200'>
-              <p className='text-[10px] lg:text-[11px] text-gray-500 leading-relaxed'>
-                [Verification & Assets]{' '}
-                <a href='https://www.nomadthai.kr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Main</a>
-                {' | '}
-                <a href='https://gitlab.com/nomadthai-official/nomadthai-main-hub/-/snippets/4916220' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>GitLab</a>
-                {' | '}
-                <a href='https://github.com/sangjsc/nomad' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>GitHub</a>
-                {' | '}
-                <a href='https://solo.to/nomadthai' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Solo.to</a>
-                {' | '}
-                <a href='https://anyflip.com/dibje/wkpr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Guide</a>
-                {' | '}
-                <a href='https://issuu.com/docs/6f464d67eece8867f497cb1331aa6f83' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Roadmap</a>
-                {' | '}
-                <a href='https://pin.it/32KOgnNEr' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>News</a>
-                {' | '}
-                <a href='https://x.com/jscnwing9201' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>X</a>
-                {' | '}
-                <a href='https://gravatar.com/ndmthai' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Gravatar</a>
-                {' | '}
-                <a href='https://www.behance.net/nomadthai' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Behance</a>
-                {' | '}
-                <a href='https://medium.com/@jscnwing920' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Medium</a>
-                {' | '}
-                <a href='https://www.slideshare.net/slideshow/2026-2fe7/284836511' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>SlideShare</a>
-                {' | '}
-                <a href='https://hub.docker.com/r/cclfrhr/nomadthai-core-v1' target='_blank' rel='noopener noreferrer' className='hover:text-gray-400 transition-colors'>Docker Hub</a>
-              </p>
+        <div className="mt-16 border-t bg-white py-8">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="mb-4 text-xl font-bold text-gray-800 md:text-2xl">다른 지역 페이지 함께 보기</h2>
+            <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+              {PRIMARY_SERVICE_AREAS.map((area) => (
+                <Link key={area.slug} href={`/${area.slug}`} className="font-semibold text-rose-500 hover:text-rose-600">
+                  {area.name}출장마사지
+                </Link>
+              ))}
+              <Link href="/service-areas" className="font-semibold text-rose-500 hover:text-rose-600">전체 서비스 지역</Link>
+              <Link href="/about" className="font-semibold text-rose-500 hover:text-rose-600">이용 안내</Link>
             </div>
           </div>
         </div>

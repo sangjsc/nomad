@@ -2,32 +2,30 @@ import type { Metadata } from "next";
 import LocationPage from "../components/LocationPage";
 
 export const metadata: Metadata = {
-  title: "광주출장마사지 1등업체 | 24시간 광주홈타이 | 100% 후불제",
+  title: "경기도 광주출장마사지 | 광주시 홈타이 예약 안내 | 오후 7시~오전 4시",
   description:
-    "광주출장마사지 1등업체 노마드! 경기도 광주시 전지역 24시간 광주출장마사지, 광주홈타이, 광주출장태국마사지 서비스. 100% 후불제, 30분 내 도착. 광주출장마사지 전문업체.",
-  keywords:
-    "광주출장마사지, 광주홈타이, 광주출장태국마사지, 광주출장안마, 광주마사지, 송정동출장마사지, 경안동출장마사지, 쌍령동출장마사지, 오포읍출장마사지, 곤지암읍출장마사지, 남종면출장마사지, 중부면출장마사지, 남한산성면출장마사지, 초월읍출장마사지, 도척면출장마사지, 경기도광주출장마사지",
+    "경기도 광주시 전 지역 출장마사지·홈타이 예약 안내. 본 페이지는 광주광역시가 아닌 경기도 광주시 기준이며, 오후 7시~오전 4시 운영·100% 후불제로 이용 가능합니다.",
   openGraph: {
-    title: "광주출장마사지 1등업체 | 광주홈타이 전문 | 노마드출장마사지",
-    description: "경기도 광주시 1등 광주출장마사지 전문업체. 24시간 광주홈타이, 광주출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
+    title: "경기도 광주출장마사지 | 광주시 홈타이 예약 안내 | 노마드출장마사지",
+    description: "경기도 광주시 전 지역 출장마사지 예약 안내. 광주광역시와 구분되는 경기도 광주시 기준 페이지입니다.",
     url: "https://www.nomadthai.kr/gwangju",
     type: "website",
     locale: "ko_KR",
     images: [
       {
-        url: "/images/spa-background.jpg",
+        url: "/og/gwangju",
         width: 1200,
         height: 630,
-        alt: "광주출장마사지 - 노마드출장마사지 24시간 서비스",
-        type: "image/jpeg",
+        alt: "광주출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "광주출장마사지 1등업체 | 노마드출장마사지",
-    description: "경기도 광주시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.",
-    images: ["/images/spa-background.jpg"],
+    title: "경기도 광주출장마사지 | 노마드출장마사지",
+    description: "경기도 광주시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.",
+    images: ["/og/gwangju"],
   },
   alternates: {
     canonical: "https://www.nomadthai.kr/gwangju",
@@ -46,14 +44,19 @@ export default function GwangjuPage() {
         { src: '/images/location-7.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-8.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="광주 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 광주 어디서든 최상의 힐링을 경험하세요."
-      areas={["송정동", "경안동", "쌍령동", "오포읍", "곤지암읍", "남종면", "중부면", "남한산성면", "초월읍", "도척면"]}
+      description="경기도 광주시 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 경기도 광주시 어디서든 최상의 힐링을 경험하세요."
+      areas={["경안동", "쌍령동", "송정동", "탄벌동", "광남1동", "광남2동", "오포1동", "오포2동", "신현동", "능평동", "초월읍", "곤지암읍", "도척면", "퇴촌면", "남종면", "남한산성면"]}
       latitude="37.429084"
       longitude="127.255189"
       intro={
         <>
+          <div className="mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-500 rounded-lg">
+            <p className="text-base sm:text-lg font-semibold text-gray-800 leading-relaxed">
+              본 페이지는 <strong className="text-purple-700">광주광역시가 아닌 경기도 광주시</strong> 예약 안내입니다.
+            </p>
+          </div>
           <p>
-            바쁜 일상에 지친 광주 고객님을 위한 최상의 힐링. 노마드출장마사지는 광주 전 지역 호텔, 모텔, 자택 등 고객님이 계신 곳으로 전문 관리사가 직접 방문하여 프라이빗하고 편안한 마사지 경험을 선사합니다.
+            바쁜 일상에 지친 경기도 광주 고객님을 위한 최상의 힐링. 노마드출장마사지는 경기도 광주시 전 지역 호텔, 모텔, 자택 등 고객님이 계신 곳으로 전문 관리사가 직접 방문하여 프라이빗하고 편안한 마사지 경험을 선사합니다.
           </p>
         </>
       }
@@ -69,7 +72,7 @@ export default function GwangjuPage() {
           <p>
             고객 만족 최우선! 노마드출장마사지 광주점에서 최상의 서비스를 경험하세요. 예약금, 선입금 없이 서비스 완료 후 현장 결제하는 투명한 시스템. 간편한 전화 한 통으로 광주 최고의 힐링을 경험하세요. 고객님의 소중한 시간을 위한 최고의 선택입니다.
           </p>
-          <div className="mt-4 text-sm text-gray-600">#송정동 #경안동 #쌍령동 #오포읍 #곤지암읍 #남종면 #중부면 #남한산성면 #초월읍 #도척면</div>
+          <div className="mt-4 text-sm text-gray-600">#송정동 #경안동 #쌍령동 #오포1동 #오포2동 #신현동 #능평동 #곤지암읍 #남종면 #남한산성면 #초월읍 #도척면</div>
         </>
       }
     />

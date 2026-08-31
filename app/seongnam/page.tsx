@@ -2,30 +2,30 @@ import { Metadata } from 'next'
 import LocationPage from '../components/LocationPage'
 
 export const metadata: Metadata = {
-  title: '성남출장마사지 1등업체 | 24시간 성남홈타이 | 100% 후불제',
-  description: '성남출장마사지 1등업체 노마드! 성남시 분당구 수정구 중원구 전지역 24시간 성남출장마사지, 성남홈타이, 성남출장태국마사지 서비스. 100% 후불제, 30분 내 도착. 성남출장마사지 전문업체.',
+  title: '성남출장마사지 | 경기도 성남 홈타이 예약 안내 | 오후 7시~오전 4시',
+  description: '경기도 성남시 전 지역 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제, 전화·카카오톡 상담이 가능합니다.',
   keywords: '성남출장마사지, 성남홈타이, 성남출장태국마사지, 성남출장안마, 성남마사지, 분당구출장마사지, 수정구출장마사지, 중원구출장마사지, 야탑동출장마사지, 정자동출장마사지, 서현동출장마사지, 판교동출장마사지, 태평동출장마사지, 신흥동출장마사지, 복정동출장마사지, 성남시출장마사지',
   openGraph: {
-    title: '성남출장마사지 1등업체 | 성남홈타이 전문 | 노마드출장마사지',
-    description: '경기도 성남시 1등 성남출장마사지 전문업체. 24시간 성남홈타이, 성남출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.',
+    title: '성남출장마사지 | 경기도 성남 홈타이 예약 안내 | 노마드출장마사지',
+    description: '경기도 성남시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 안심하고 이용하세요.',
     url: 'https://www.nomadthai.kr/seongnam',
     type: 'website',
     locale: 'ko_KR',
     images: [
       {
-        url: '/images/spa-background.jpg',
+        url: '/og/seongnam',
         width: 1200,
         height: 630,
-        alt: '성남출장마사지 - 노마드출장마사지 24시간 서비스',
-        type: 'image/jpeg',
+        alt: '성남출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '성남출장마사지 1등업체 | 노마드출장마사지',
-    description: '성남시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.',
-    images: ['/images/spa-background.jpg'],
+    title: '성남출장마사지 | 노마드출장마사지',
+    description: '성남시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.',
+    images: ['/og/seongnam'],
   },
   alternates: {
     canonical: 'https://www.nomadthai.kr/seongnam',
@@ -44,7 +44,7 @@ export default function SeongnamPage() {
         { src: '/images/location-2.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-3.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="성남 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 성남 어디서든 최상의 힐링을 경험하세요."
+      description="성남 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 성남 어디서든 최상의 힐링을 경험하세요."
       areas={["분당구", "수정구", "중원구", "야탑동", "정자동", "서현동", "판교동", "태평동", "신흥동", "복정동"]}
       latitude="37.4449"
       longitude="127.1388"

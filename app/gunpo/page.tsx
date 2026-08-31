@@ -2,30 +2,30 @@ import { Metadata } from 'next'
 import LocationPage from '../components/LocationPage'
 
 export const metadata: Metadata = {
-  title: '군포출장마사지 | 군포출장안마 | 군포홈타이 | 노마드 - 24시간',
-  description: '군포출장마사지 1등업체 노마드! 군포시 전지역 24시간 출장안마, 군포홈타이, 군포출장태국마사지. 100% 후불제, 30분내 도착. 군포출장마사지 최저가 보장.',
+  title: '군포출장마사지 | 경기도 군포 홈타이 예약 안내 | 오후 7시~오전 4시',
+  description: '경기도 군포시 전 지역 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제, 전화·카카오톡 상담이 가능합니다.',
   keywords: '군포출장마사지, 군포출장안마, 군포홈타이, 군포출장태국마사지, 군포마사지, 산본동출장마사지, 금정동출장안마, 당정동출장마사지, 대야미동출장안마, 반월동홈타이, 재궁동출장마사지, 산본역출장마사지, 금정역출장안마, 당정역출장마사지, 군포시출장마사지',
   openGraph: {
-    title: '군포 출장마사지 | 24시간 전문 서비스',
-    description: '군포시 전체 지역 출장마사지 전문업체. 산본신도시 주민들을 위한 프리미엄 서비스',
+    title: '군포출장마사지 | 경기도 군포 홈타이 예약 안내 | 노마드출장마사지',
+    description: '경기도 군포시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 이용 가능합니다.',
     url: 'https://www.nomadthai.kr/gunpo',
     type: 'website',
     locale: 'ko_KR',
     images: [
       {
-        url: '/images/spa-background.jpg',
+        url: '/og/gunpo',
         width: 1200,
         height: 630,
-        alt: '군포출장마사지 - 노마드출장마사지 24시간 서비스',
-        type: 'image/jpeg',
+        alt: '군포출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '군포출장마사지 1등업체 | 노마드출장마사지',
-    description: '군포시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.',
-    images: ['/images/spa-background.jpg'],
+    title: '군포출장마사지 | 노마드출장마사지',
+    description: '군포시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.',
+    images: ['/og/gunpo'],
   },
   alternates: {
     canonical: 'https://www.nomadthai.kr/gunpo',
@@ -44,7 +44,7 @@ export default function GunpoPage() {
         { src: '/images/location-5.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-6.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="군포 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 군포 어디서든 최상의 힐링을 경험하세요."
+      description="군포 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 군포 어디서든 최상의 힐링을 경험하세요."
       areas={[
         "산본동", "금정동", "당정동", "대야미동", "반월동", "재궁동", "산본역", "금정역", "당정역", "지하철 4호선"
       ]}

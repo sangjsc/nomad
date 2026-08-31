@@ -2,30 +2,30 @@ import { Metadata } from 'next'
 import LocationPage from '../components/LocationPage'
 
 export const metadata: Metadata = {
-  title: '과천출장마사지 | 과천출장안마 | 과천홈타이 | 노마드 - 24시간',
-  description: '과천출장마사지 1등업체 노마드! 과천시 전지역 24시간 출장안마, 과천홈타이, 과천출장태국마사지. 100% 후불제, 30분내 도착. 과천출장마사지 최저가 보장.',
+  title: '과천출장마사지 | 경기도 과천 홈타이 예약 안내 | 오후 7시~오전 4시',
+  description: '경기도 과천시 전 지역 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제, 전화·카카오톡 상담이 가능합니다.',
   keywords: '과천출장마사지, 과천출장안마, 과천홈타이, 과천출장태국마사지, 과천마사지, 중앙동출장마사지, 갈현동출장안마, 별양동출장마사지, 원문동출장안마, 과천동홈타이, 주암동출장마사지, 문원동출장안마, 막계동출장마사지, 청계동출장안마, 관문동홈타이, 과천시출장마사지',
   openGraph: {
-    title: '과천 출장마사지 | 24시간 전문 서비스',
-    description: '과천시 전체 지역 출장마사지 전문업체. 정부천사 공무원과 과천 시민들을 위한 프리미엄 서비스',
+    title: '과천출장마사지 | 경기도 과천 홈타이 예약 안내 | 노마드출장마사지',
+    description: '경기도 과천시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 이용 가능합니다.',
     url: 'https://www.nomadthai.kr/gwacheon',
     type: 'website',
     locale: 'ko_KR',
     images: [
       {
-        url: '/images/spa-background.jpg',
+        url: '/og/gwacheon',
         width: 1200,
         height: 630,
-        alt: '과천출장마사지 - 노마드출장마사지 24시간 서비스',
-        type: 'image/jpeg',
+        alt: '과천출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '과천출장마사지 1등업체 | 노마드출장마사지',
-    description: '과천시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.',
-    images: ['/images/spa-background.jpg'],
+    title: '과천출장마사지 | 노마드출장마사지',
+    description: '과천시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.',
+    images: ['/og/gwacheon'],
   },
   alternates: {
     canonical: 'https://www.nomadthai.kr/gwacheon',
@@ -44,7 +44,7 @@ export default function GwacheonPage() {
         { src: '/images/location-6.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-7.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="과천 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 과천 어디서든 최상의 힐링을 경험하세요."
+      description="과천 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 과천 어디서든 최상의 힐링을 경험하세요."
       areas={["중앙동", "갈현동", "별양동", "원문동", "과천동", "주암동", "문원동", "막계동", "청계동", "관문동"]}
       latitude="37.4138"
       longitude="126.9875"

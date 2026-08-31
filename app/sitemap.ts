@@ -1,43 +1,59 @@
 import type { MetadataRoute } from "next"
-import { getSortedPostsData } from "@/lib/blog"
+import {
+  BLOG_POSTS_PER_PAGE,
+  getAllPostsPageCount,
+  getCategoryPageCount,
+  getPostLastModified,
+  getSortedPostsData,
+} from "@/lib/blog"
+import { SEO_RELEASE_DATE, SERVICE_AREAS, SITE_URL } from "@/lib/site"
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const releaseDate = new Date(`${SEO_RELEASE_DATE}T00:00:00+09:00`)
   const posts = getSortedPostsData()
-  
-  // 지역 페이지 목록
-  const locationPages = [
-    "ansan", "anyang", "suwon", "yongin", "icheon", 
-    "gwangju", "yeoju", "seongnam", "gunpo", "gwacheon", 
-    "uiwang", "hanam"
-  ]
-  
-  const blogUrls = posts.map((post) => ({
-    url: `https://www.nomadthai.kr/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
+  const blogPageCount = getAllPostsPageCount(BLOG_POSTS_PER_PAGE)
+  const categoryPageCounts = {
+    official: getCategoryPageCount("official", BLOG_POSTS_PER_PAGE),
+    regional: getCategoryPageCount("regional", BLOG_POSTS_PER_PAGE),
+    info: getCategoryPageCount("info", BLOG_POSTS_PER_PAGE),
+  }
+
+  const blogUrls: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(getPostLastModified(post)),
   }))
 
-  const locationUrls = locationPages.map((location) => ({
-    url: `https://www.nomadthai.kr/${location}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.95, // 지역 페이지는 높은 우선순위
+  const locationUrls: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
+    url: `${SITE_URL}/${area.slug}`,
+    lastModified: releaseDate,
   }))
+
+  const blogListUrls: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/blog`, lastModified: releaseDate },
+    { url: `${SITE_URL}/blog/official`, lastModified: releaseDate },
+    { url: `${SITE_URL}/blog/regional`, lastModified: releaseDate },
+    { url: `${SITE_URL}/blog/info`, lastModified: releaseDate },
+  ]
+
+  const paginatedListUrls: MetadataRoute.Sitemap = [
+    ...Array.from({ length: Math.max(0, blogPageCount - 1) }, (_, index) => ({
+      url: `${SITE_URL}/blog/page/${index + 2}`,
+      lastModified: releaseDate,
+    })),
+    ...Object.entries(categoryPageCounts).flatMap(([category, pageCount]) =>
+      Array.from({ length: Math.max(0, pageCount - 1) }, (_, index) => ({
+        url: `${SITE_URL}/blog/${category}/page/${index + 2}`,
+        lastModified: releaseDate,
+      })),
+    ),
+  ]
 
   return [
-    {
-      url: "https://www.nomadthai.kr",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: "https://www.nomadthai.kr/blog",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
+    { url: SITE_URL, lastModified: releaseDate },
+    { url: `${SITE_URL}/service-areas`, lastModified: releaseDate },
+    { url: `${SITE_URL}/about`, lastModified: releaseDate },
+    ...blogListUrls,
+    ...paginatedListUrls,
     ...locationUrls,
     ...blogUrls,
   ]

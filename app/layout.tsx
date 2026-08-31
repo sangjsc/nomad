@@ -1,75 +1,163 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import Header from '@/components/Header'
-import MobileBottomNav from '@/components/MobileBottomNav'
-import ScrollToTop from '@/components/ScrollToTop'
-import Script from 'next/script'
+import type { Metadata } from "next"
+import Script from "next/script"
+import Header from "@/components/Header"
+import MobileBottomNav from "@/components/MobileBottomNav"
+import {
+  CONSULTATION_HOURS,
+  PHONE_DISPLAY,
+  SITE_ALTERNATE_NAME,
+  SITE_NAME,
+  SITE_URL,
+  schemaAreaServed,
+} from "@/lib/site"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.nomadthai.kr'),
-  title: "노마드출장마사지 | 이천, 광주, 여주, 용인 빠르게 찾아가는 프리미엄 마사지",
-  description: "경기도 이천, 광주, 여주, 용인 전지역 빠르게 찾아가는 노마드출장마사지! 최고의 실력을 갖춘 관리사가 편안한 공간에서 피로를 풀어드립니다. 지금 바로 예약하세요.",
-  keywords: "안산출장마사지, 안양출장마사지, 수원출장마사지, 용인출장마사지, 이천출장마사지, 광주출장마사지, 여주출장마사지, 성남출장마사지, 군포출장마사지, 과천출장마사지, 의왕출장마사지, 하남출장마사지, 홈타이, 방문마사지, 아로마마사지, 출장마사지",
-  manifest: '/manifest.json',
-  icons: {
-    icon: '/favicon.svg'
-  },
+  metadataBase: new URL(SITE_URL),
+  title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지·홈타이",
+  description:
+    "경기도 이천, 광주(경기도 광주시), 여주, 용인, 수원, 화성, 평택, 시흥, 부천, 광명 포함 주요 도시 출장마사지 서비스를 제공합니다. 오후 7시~오전 4시 운영, 100% 후불제 예약.",
+  manifest: "/manifest.json",
+  icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "노마드출장마사지 | 경기도 프리미엄 출장마사지",
-    description: "경기도 전지역 빠르게 찾아가는 노마드출장마사지! 최고의 실력을 갖춘 관리사가 편안한 공간에서 피로를 풀어드립니다.",
+    title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
+    description:
+      "경기 주요 22개 지역에서 주소와 희망 시간을 확인한 뒤 방문 가능 일정을 안내하는 노마드출장마사지입니다.",
     images: [
       {
-        url: '/images/spa-background.jpg',
+        url: "/og/home",
         width: 1200,
         height: 630,
-        alt: '노마드출장마사지 - 경기도 전지역 24시간 출장마사지 서비스',
-        type: 'image/jpeg',
+        alt: "노마드출장마사지 - 경기 주요 22개 지역 예약 안내",
+        type: "image/png",
       },
     ],
-    type: 'website',
-    locale: 'ko_KR',
-    url: '/',
+    type: "website",
+    locale: "ko_KR",
+    url: "/",
+    siteName: SITE_NAME,
   },
   twitter: {
-    card: 'summary_large_image',
-    title: '노마드출장마사지 | 경기도 프리미엄 출장마사지',
-    description: '경기도 전지역 빠르게 찾아가는 노마드출장마사지! 24시간 후불제.',
-    images: ['/images/spa-background.jpg'],
+    card: "summary_large_image",
+    title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
+    description: "경기 주요 22개 지역의 오후 7시~오전 4시 후불제 예약 안내.",
+    images: ["/og/home"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  }
 }
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  viewportFit: "cover",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const baseUrl = 'https://www.nomadthai.kr'
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        alternateName: SITE_ALTERNATE_NAME,
+        url: SITE_URL,
+        logo: `${SITE_URL}/icon-512.svg`,
+        sameAs: [
+          "https://x.com/jscnwing9201",
+          "https://www.youtube.com/@nomadthai_icheon",
+          "https://solo.to/nomadthai",
+        ],
+        telephone: PHONE_DISPLAY,
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: PHONE_DISPLAY,
+          contactType: "reservations",
+          availableLanguage: "Korean",
+          hoursAvailable: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "19:00",
+              closes: "23:59",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "00:00",
+              closes: "04:00",
+            },
+          ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_NAME,
+        alternateName: SITE_ALTERNATE_NAME,
+        inLanguage: "ko-KR",
+        publisher: { "@id": `${SITE_URL}/#organization` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/#massage-service`,
+        name: "경기도 출장마사지 서비스",
+        serviceType: "출장마사지",
+        url: `${SITE_URL}/service-areas`,
+        description:
+          "이천·경기 광주·여주·용인 등 경기도 22개 지역 출장마사지 서비스",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        areaServed: schemaAreaServed,
+        availableChannel: {
+          "@type": "ServiceChannel",
+          serviceUrl: SITE_URL,
+          servicePhone: {
+            "@type": "ContactPoint",
+            telephone: PHONE_DISPLAY,
+            contactType: "reservations",
+          },
+          availableLanguage: "Korean",
+        },
+      },
+    ],
+  }
 
   return (
     <html lang="ko">
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KV1DS4S3MR"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="gtag-base"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -79,77 +167,11 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script id="ld-localbusiness" type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "노마드출장마사지",
-            "url": "${baseUrl}",
-            "telephone": "+82-10-8186-7771",
-            "areaServed": [
-              {"@type": "City", "name": "안산시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "안양시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "수원시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "용인시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "이천시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "광주시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "여주시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "성남시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "군포시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "과천시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "의왕시", "addressRegion": "경기", "addressCountry": "KR"},
-              {"@type": "City", "name": "하남시", "addressRegion": "경기", "addressCountry": "KR"}
-            ],
-            "openingHours": "Mo-Su 00:00-23:59",
-            "priceRange": "₩₩₩",
-            "serviceType": "출장 마사지 (호텔/자택 방문)",
-            "paymentAccepted": "현금, 카드",
-            "currenciesAccepted": "KRW"
-          }
-          `}
-        </Script>
-        <Script id="ld-service" type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "출장마사지",
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "노마드출장마사지"
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "마사지 서비스",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {"@type": "Service", "name": "아로마마사지 60분"},
-                  "price": "70000",
-                  "priceCurrency": "KRW"
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {"@type": "Service", "name": "아로마마사지 90분"},
-                  "price": "90000",
-                  "priceCurrency": "KRW"
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {"@type": "Service", "name": "아로마마사지 120분"},
-                  "price": "120000",
-                  "priceCurrency": "KRW"
-                }
-              ]
-            }
-          }
-          `}
-        </Script>
         <Header />
-        <main className="pb-20 md:pb-0">{children}</main>
+        <div className="pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0" data-consultation-hours={CONSULTATION_HOURS}>
+          {children}
+        </div>
         <MobileBottomNav />
-        <ScrollToTop />
       </body>
     </html>
   )

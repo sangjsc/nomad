@@ -1,19 +1,33 @@
 import ClientPage from "./ClientPage"
 import type { Metadata } from "next"
 
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 export const metadata: Metadata = {
-  title: "노마드 출장마사지 | 경기 프리미엄 출장안마 24시",
+  title: "노마드출장마사지 | 경기 주요 22개 지역 예약 안내",
   description:
-    "경기 전역 24시간 출장마사지·출장안마 전문. 빠른 배차, 100% 후불제, 여성 전문 관리사가 즉시 방문합니다.",
-  keywords:
-    "출장마사지, 출장안마, 경기출장마사지, 수원출장마사지, 수원 출장마사지, 용인출장마사지, 용인 출장마사지, 이천출장마사지, 이천 출장마사지, 출장마사지24시, 방문마사지",
+    "경기 주요 22개 지역 출장마사지·홈타이 예약 안내. 이천, 경기 광주, 여주, 용인, 수원, 화성 등에서 주소와 희망 시간을 확인해 방문 가능 일정을 안내합니다.",
   openGraph: {
-    title: "노마드 출장마사지 | 집·호텔에서 즐기는 프리미엄 힐링",
-    description: "24시간 경기 출장마사지. 집이나 호텔에서 편하게 받는 프리미엄 힐링 서비스.",
+    title: "노마드출장마사지 | 경기 주요 22개 지역 예약 안내",
+    description: "오후 7시~오전 4시 경기 출장마사지. 집이나 호텔에서 편하게 받는 프리미엄 힐링 서비스.",
     url: "https://www.nomadthai.kr",
-    siteName: "노마드 출장마사지",
+    siteName: "노마드출장마사지",
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "https://www.nomadthai.kr/og/home",
+        width: 1200,
+        height: 630,
+        alt: "노마드 출장마사지 대표 카드 이미지",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "노마드출장마사지 | 경기 주요 22개 지역 예약",
+    description: "오후 7시~오전 4시 운영, 후불제 출장마사지 예약 서비스",
+    images: ["https://www.nomadthai.kr/og/home"],
   },
   robots: {
     index: true,
@@ -26,9 +40,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  ...(googleSiteVerification
+    ? {
+        verification: {
+          google: googleSiteVerification,
+        },
+      }
+    : {}),
   alternates: {
     canonical: "https://www.nomadthai.kr",
   },

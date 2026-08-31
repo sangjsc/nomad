@@ -2,32 +2,30 @@ import type { Metadata } from "next";
 import LocationPage from "../components/LocationPage";
 
 export const metadata: Metadata = {
-  title: "용인출장마사지 1등업체 | 24시간 용인홈타이 | 100% 후불제",
+  title: "용인출장마사지 | 경기도 용인 홈타이 예약 안내 | 오후 7시~오전 4시",
   description:
-    "용인출장마사지 1등업체 노마드! 용인시 수지구 기흥구 처인구 전지역 24시간 용인출장마사지, 용인홈타이, 용인출장태국마사지 서비스. 100% 후불제, 30분 내 도착. 용인출장마사지 전문업체.",
-  keywords:
-    "용인출장마사지, 용인홈타이, 용인출장태국마사지, 용인출장안마, 용인마사지, 수지구출장마사지, 기흥구출장마사지, 처인구출장마사지, 죽전동출장마사지, 신갈동출장마사지, 구성동출장마사지, 보정동출장마사지, 동천동출장마사지, 상현동출장마사지, 분당선출장마사지, 용인시출장마사지",
+    "경기도 용인시(수지구·기흥구·처인구) 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 이용 가능합니다.",
   openGraph: {
-    title: "용인출장마사지 1등업체 | 용인홈타이 전문 | 노마드출장마사지",
-    description: "경기도 용인시 1등 용인출장마사지 전문업체. 24시간 용인홈타이, 용인출장태국마사지 서비스. 100% 후불제로 안심하고 이용하세요.",
+    title: "용인출장마사지 | 경기도 용인 홈타이 예약 안내 | 노마드출장마사지",
+    description: "경기도 용인시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 안심하고 이용하세요.",
     url: "https://www.nomadthai.kr/yongin",
     type: "website",
     locale: "ko_KR",
     images: [
       {
-        url: "/images/spa-background.jpg",
+        url: "/og/yongin",
         width: 1200,
         height: 630,
-        alt: "용인출장마사지 - 노마드출장마사지 24시간 서비스",
-        type: "image/jpeg",
+        alt: "용인출장마사지 - 노마드출장마사지 오후 7시~오전 4시 서비스",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "용인출장마사지 1등업체 | 노마드출장마사지",
-    description: "용인시 전지역 24시간 출장마사지. 100% 후불제, 30분 내 도착.",
-    images: ["/images/spa-background.jpg"],
+    title: "용인출장마사지 | 노마드출장마사지",
+    description: "용인시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.",
+    images: ["/og/yongin"],
   },
   alternates: {
     canonical: "https://www.nomadthai.kr/yongin",
@@ -46,8 +44,8 @@ export default function YonginPage() {
         { src: '/images/location-5.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-6.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="용인 출장마사지, 노마드출장마사지! 24시간 언제든 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 용인 어디서든 최상의 힐링을 경험하세요."
-      areas={["수지구", "기흥구", "처인구", "죽전동", "분당선", "신갈동", "구성동", "보정동", "동천동", "상현동"]}
+      description="용인 출장마사지, 노마드출장마사지! 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 용인 어디서든 최상의 힐링을 경험하세요."
+      areas={["처인구", "기흥구", "수지구", "포곡읍", "모현읍", "이동읍", "남사읍", "백암면", "양지면", "동백동", "보정동", "죽전동", "상현동"]}
       latitude="37.240245"
       longitude="127.178020"
       intro={
