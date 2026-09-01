@@ -5,6 +5,7 @@ export default function MobileBottomNav() {
   return (
     <nav
       aria-label="빠른 예약 및 상담"
+      data-cta-location="mobile_bottom_nav"
       className="fixed inset-x-0 bottom-0 z-[60] border-t border-slate-200/80 bg-white shadow-[0_-8px_24px_rgba(15,23,42,0.12)] md:hidden"
     >
       <div className="grid grid-cols-2 gap-2 px-3 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2">

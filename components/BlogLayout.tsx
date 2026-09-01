@@ -6,7 +6,7 @@ import { Calendar, User, ArrowLeft, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { BlogPost, BlogPostSummary } from "@/lib/blog"
 import { extractCityFromTitle } from "@/lib/blog-utils"
-import { PRIMARY_SERVICE_AREAS, SERVICE_AREAS } from "@/lib/site"
+import { PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS } from "@/lib/site"
 
 interface BlogLayoutProps {
   post: BlogPost
@@ -240,11 +240,11 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
+                  asChild
                   size="lg"
                   className="bg-white text-rose-600 hover:bg-rose-50 rounded-full font-bold shadow-lg transition transform hover:scale-105"
-                  onClick={() => window.open("tel:010-8186-7771")}
                 >
-                  전화로 예약하기
+                  <a href={PHONE_TEL}>전화로 예약하기</a>
                 </Button>
                 <Button
                   size="lg"

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import Header from "@/components/Header"
 import MobileBottomNav from "@/components/MobileBottomNav"
+import ContactConversionTracker from "@/components/ContactConversionTracker"
 import {
   CONSULTATION_HOURS,
   PHONE_DISPLAY,
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지·홈타이",
   description:
-    "경기도 이천, 광주(경기도 광주시), 여주, 용인, 수원, 화성, 평택, 시흥, 부천, 광명 포함 주요 도시 출장마사지 서비스를 제공합니다. 오후 7시~오전 4시 운영, 100% 후불제 예약.",
+    "경기도 이천, 광주(경기도 광주시), 여주, 용인, 수원, 화성, 평택, 시흥, 부천, 광명 포함 주요 도시 출장마사지 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
   manifest: "/manifest.json",
   icons: { icon: "/favicon.svg" },
   verification: {
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
-    description: "경기 주요 22개 지역의 오후 7시~오전 4시 후불제 예약 안내.",
+    description: "경기 주요 22개 지역의 오후 7시~오전 4시 상담·후불제 예약 안내.",
     images: ["/og/home"],
   },
 }
@@ -159,11 +160,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KV1DS4S3MR"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script
           id="gtag-base"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -173,6 +174,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `,
           }}
         />
+        <ContactConversionTracker />
         <Header />
         <div className="pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0" data-consultation-hours={CONSULTATION_HOURS}>
           {children}

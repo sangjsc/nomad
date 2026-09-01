@@ -32,7 +32,7 @@ export default function Header() {
               </div>
               <div className="flex items-center space-x-2">
                 <Sparkles className="h-4 w-4 text-rose-300" />
-                <span className="text-slate-200">오후 7시~오전 4시 운영 · 100% 후불제</span>
+                <span className="text-slate-200">오후 7시~오전 4시 상담 · 서비스 완료 후 현장 결제</span>
               </div>
             </div>
             <a href={PHONE_TEL} className="flex items-center space-x-2 text-slate-200 transition-colors hover:text-white">

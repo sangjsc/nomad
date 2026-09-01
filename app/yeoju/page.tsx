@@ -4,10 +4,10 @@ import LocationPage from "../components/LocationPage";
 export const metadata: Metadata = {
   title: "여주출장마사지 | 경기도 여주시 홈타이 예약 안내 | 오후 7시~오전 4시",
   description:
-    "경기도 여주시 전 지역 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제, 전화·카카오톡 상담이 가능합니다.",
+    "여흥동·중앙동·오학동, 가남읍과 여주시 읍·면 출장마사지·홈타이 예약 안내. 오후 7시~오전 4시 상담, 주소와 이동 동선 확인, 서비스 완료 후 현장 결제.",
   openGraph: {
     title: "여주출장마사지 | 경기도 여주시 홈타이 예약 안내 | 노마드출장마사지",
-    description: "경기도 여주시 전 지역 출장마사지 예약 안내. 오후 7시~오전 4시 운영, 100% 후불제로 이용 가능합니다.",
+    description: "여주시 동·읍·면의 주소와 희망 시간을 확인해 가능한 출장마사지 예약 일정을 안내합니다.",
     url: "https://www.nomadthai.kr/yeoju",
     type: "website",
     locale: "ko_KR",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "여주출장마사지 | 노마드출장마사지",
-    description: "여주시 전 지역 오후 7시~오전 4시 출장마사지. 100% 후불제로 예약 가능합니다.",
+    description: "여주시 출장마사지 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
     images: ["/og/yeoju"],
   },
   alternates: {
@@ -40,34 +40,59 @@ export default function YeojuPage() {
       theme="amber"
       heroImage="/images/location-2.jpg"
       teamImages={[
-        { src: '/images/location-3.jpg', title: '전문 관리사', desc: "실력과 마인드를 겸비한 전문 여성 관리사", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
-        { src: '/images/location-4.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
-        { src: '/images/location-5.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
+        { src: '/images/location-3.jpg', title: '주소 확인', desc: '읍면동·건물명과 가까운 기준 지점 확인', gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
+        { src: '/images/location-4.jpg', title: '코스 안내', desc: '타이·아로마·스웨디시 코스별 상담', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
+        { src: '/images/location-5.jpg', title: '일정 안내', desc: '접수 순서와 이동 동선 확인 후 안내', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="여주 출장마사지, 노마드출장마사지. 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 신속하게 찾아가는 프리미엄 홈타이. 100% 후불제로 여주 어디서든 안심하고 이용할 수 있습니다."
+      description="여흥동·중앙동·오학동, 가남읍과 여주시 읍·면 출장마사지·홈타이 예약 안내입니다. 오후 7시~오전 4시 상담하며 주소·희망 시간·이동 동선을 확인해 가능한 일정을 안내하고 서비스 완료 후 현장 결제합니다."
       areas={["여흥동", "중앙동", "오학동", "가남읍", "점동면", "세종대왕면", "흥천면", "금사면", "산북면", "대신면", "북내면", "강천면"]}
       latitude="37.297809"
       longitude="127.637352"
       intro={
         <>
           <p>
-            바쁜 일상에 지친 여주 고객님을 위한 프리미엄 힐링 서비스입니다. 노마드출장마사지는 여주 전 지역 호텔, 모텔, 자택 등 고객님이 계신 곳으로 전문 관리사가 직접 방문해 편안한 마사지 경험을 제공합니다.
+            여주는 여흥·중앙·오학동과 가남읍, 점동·세종대왕·흥천·금사·산북·대신·북내·강천면으로 생활권이 나뉩니다. 읍·면 문의는 도로명 주소와 건물명 또는 가까운 기준 지점을 함께 알려주시면 가능한 시간을 확인하기 쉽습니다.
           </p>
         </>
       }
       serviceDescription={
         <>
           <p>
-            노마드출장마사지 여주점은 다년간의 노하우와 체계적인 교육을 수료한 전문 관리사들이 차별화된 서비스를 제공합니다. 태국 현지 마사지 스쿨 출신 관리사들의 타이, 아로마, 스웨디시 프로그램으로 피로를 해소하고 활력을 되찾으세요. 모든 서비스는 100% 후불제로 안심하고 이용 가능합니다.
+            상담 시 정확한 주소, 희망 시간 1·2순위, 타이·아로마·스웨디시 중 원하는 코스와 이용 시간, 출입·주차 정보를 확인합니다. 접수 순서와 이동 동선을 반영해 가능한 시간을 안내하며 결제는 서비스 완료 후 현장에서 진행합니다.
           </p>
         </>
       }
+      localGuide={
+        <div className="mb-12 rounded-3xl border border-amber-100 bg-white p-6 shadow-xl lg:p-10">
+          <p className="font-semibold text-amber-700">YEOJU LOCAL GUIDE</p>
+          <h2 className="mt-2 text-2xl font-bold text-gray-900 lg:text-4xl">여주시 생활권별 예약 확인 사항</h2>
+          <p className="mt-4 max-w-3xl leading-7 text-gray-600">여주 도심과 읍·면은 이동 범위가 다르므로 정확한 주소와 가능한 대체 시간을 함께 확인합니다.</p>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <article className="rounded-2xl bg-amber-50 p-5"><h3 className="font-bold text-gray-900">여흥·중앙·오학동</h3><p className="mt-2 text-sm leading-6 text-gray-600">자택·오피스텔은 공동현관, 방문 등록과 주차 위치를 확인해주세요.</p></article>
+            <article className="rounded-2xl bg-orange-50 p-5"><h3 className="font-bold text-gray-900">가남읍·점동면</h3><p className="mt-2 text-sm leading-6 text-gray-600">도로명 주소와 건물명, 가까운 기준 지점을 함께 알려주세요.</p></article>
+            <article className="rounded-2xl bg-yellow-50 p-5"><h3 className="font-bold text-gray-900">세종대왕·흥천·금사·산북면</h3><p className="mt-2 text-sm leading-6 text-gray-600">희망 시간 1·2순위와 코스·이용 시간을 확인해 동선을 안내합니다.</p></article>
+            <article className="rounded-2xl bg-slate-50 p-5"><h3 className="font-bold text-gray-900">대신·북내·강천면</h3><p className="mt-2 text-sm leading-6 text-gray-600">출입 방법과 주차 정보까지 알려주시면 가능한 일정을 확인하기 좋습니다.</p></article>
+          </div>
+        </div>
+      }
+      faqItems={[
+        { question: "여주 읍·면 지역도 예약 상담이 가능한가요?", answer: "가남읍과 점동·세종대왕·흥천·금사·산북·대신·북내·강천면의 정확한 주소를 확인해 가능한 시간을 안내합니다." },
+        { question: "주말 당일에도 문의할 수 있나요?", answer: "가능합니다. 다만 위치와 접수 상황에 따라 시간이 달라지므로 희망 시간 두 가지를 알려주세요." },
+        { question: "읍·면 심야 문의 시 무엇이 필요한가요?", answer: "도로명 주소·건물명, 가까운 기준 지점, 출입·주차 정보, 희망 시간과 이용 코스를 알려주세요." },
+        { question: "여주 결제 방식은 무엇인가요?", answer: "예약금이나 선결제가 아닌 서비스 완료 후 현장 결제 기준입니다." },
+      ]}
+      relatedAreaSlugs={["icheon", "yongin", "gwangju", "anseong"]}
+      relatedContentLinks={[
+        { href: "/blog/yeoju-massage-guide", title: "여주 이용 안내", description: "여주 도심과 읍면 예약 전 확인할 내용" },
+        { href: "/blog/yeoju-eup-myeon-night-booking-guide", title: "여주 읍면 심야 예약 안내", description: "읍면 주소·기준 지점·희망 시간 전달 방법" },
+        { href: "/blog/yeoju-weekend-reservation-faq", title: "여주 주말 예약 FAQ", description: "주말 당일 문의 시 준비할 정보" },
+      ]}
       outro={
         <>
           <p>
-            고객 만족 최우선. 노마드출장마사지 여주점은 예약금, 선입금 없이 서비스 완료 후 현장 결제하는 투명한 시스템을 운영합니다. 간편한 전화 한 통으로 여주 최고의 힐링 서비스를 경험하세요.
+            여흥·중앙·오학동과 가남읍 및 표시된 면 지역은 주소와 희망 시간을 확인해 가능한 일정을 안내합니다. 오후 7시~오전 4시 전화·카카오톡으로 문의할 수 있으며 서비스 완료 후 현장에서 결제합니다.
           </p>
-          <div className="mt-4 text-sm text-gray-600">여흥동 중앙동 오학동 가남읍 점동면 세종대왕면 흥천면 금사면 산북면 대신면 북내면 강천면</div>
+          <div className="mt-4 text-sm text-gray-600">여흥동 · 중앙동 · 오학동 · 가남읍 · 점동면 · 세종대왕면 · 흥천면 · 금사면 · 산북면 · 대신면 · 북내면 · 강천면</div>
         </>
       }
     />

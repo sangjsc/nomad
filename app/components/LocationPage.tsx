@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { KAKAO_CHAT_URL, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS, SITE_URL } from '@/lib/site'
+import { KAKAO_CHAT_URL, PAYMENT_POLICY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS, SITE_URL } from '@/lib/site'
 
 const themes = {
   rose: {
@@ -154,20 +154,20 @@ export default function LocationPage({
   teamImages = [
     {
       src: '/images/spa-image-2.jpg',
-      title: '전문 관리사',
-      desc: "실력과 마인드를 겸비한 전문 여성 관리사",
+      title: '예약 확인',
+      desc: '위치·시간·코스를 상담할 때 확인',
       gradient: `from-rose-200/80 via-pink-200/70 to-purple-200/60`,
     },
     {
       src: '/images/spa-image-3.jpg',
-      title: '럭셔리 서비스',
-      desc: '최고급 프리미엄 경험',
+      title: '코스 안내',
+      desc: '타이·아로마·스웨디시 코스별 안내',
       gradient: `from-pink-200/80 via-rose-200/70 to-purple-200/60`,
     },
     {
       src: '/images/spa-image-4.jpg',
-      title: '힐링 서비스',
-      desc: '완벽한 휴식과 회복',
+      title: '방문 일정',
+      desc: '접수 순서와 이동 동선 확인 후 안내',
       gradient: `from-purple-200/80 via-pink-200/70 to-rose-200/60`,
     },
   ],
@@ -178,7 +178,7 @@ export default function LocationPage({
   const defaultFaqItems: LocationFaq[] = [
     {
       question: `${city}출장마사지 예약은 얼마나 미리 해야 하나요?`,
-      answer: `${city}출장마사지는 당일 예약도 가능합니다. 상담 시 현재 위치와 희망 시간을 확인한 뒤 가능한 방문 예상 시간을 안내해드립니다.`,
+      answer: `${city}출장마사지는 당일에도 문의할 수 있습니다. 상담 시 현재 위치와 희망 시간을 확인한 뒤 가능한 방문 예상 시간을 안내해드립니다.`,
     },
     {
       question: `${city}출장마사지 이용 시 준비할 것이 있나요?`,
@@ -195,27 +195,25 @@ export default function LocationPage({
         .map((slug) => SERVICE_AREAS.find((area) => area.slug === slug))
         .filter((area): area is (typeof SERVICE_AREAS)[number] => Boolean(area))
     : PRIMARY_SERVICE_AREAS.filter((area) => area.slug !== cityEn)
-  const faqJsonLd = faqItems?.length
-    ? {
-        "@type": "FAQPage",
-        "@id": `${pageUrl}/#faq`,
-        mainEntity: displayedFaqItems.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
-      }
-    : null
+  const faqJsonLd = {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: displayedFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": `${pageUrl}/#webpage`,
+        "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: `${fullCityName} 출장마사지`,
         description,
@@ -229,12 +227,12 @@ export default function LocationPage({
           },
         ],
         mainEntity: { "@id": `${SITE_URL}/#massage-service` },
-        breadcrumb: { "@id": `${pageUrl}/#breadcrumb` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
         inLanguage: "ko-KR",
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `${pageUrl}/#breadcrumb`,
+        "@id": `${pageUrl}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
@@ -333,7 +331,7 @@ export default function LocationPage({
                       className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 ${currentTheme.lightText} mx-auto mb-1 sm:mb-2`}
                     />
                     <span className="text-xs sm:text-sm lg:text-base font-medium text-gray-700">
-                      19:00~04:00 운영
+                      19:00~04:00 상담
                     </span>
                   </div>
                   <div className={`bg-gradient-to-br ${currentTheme.lightBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 text-center border ${currentTheme.lightBorder}`}>
@@ -341,7 +339,7 @@ export default function LocationPage({
                       className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 ${currentTheme.lightText} mx-auto mb-1 sm:mb-2`}
                     />
                     <span className="text-xs sm:text-sm lg:text-base font-medium text-gray-700">
-                      전문 관리사
+                      코스 선택
                     </span>
                   </div>
                 </div>
@@ -354,7 +352,7 @@ export default function LocationPage({
                     <div className="relative">
                       <Image
                         src={heroImage}
-                        alt={`${city} 출장마사지 전문 관리사 - 노마드출장마사지`}
+                        alt={`${city} 출장마사지 예약 안내 - 노마드출장마사지`}
                         width={500}
                         height={600}
                         sizes="(max-width: 1024px) 100vw, 42vw"
@@ -371,15 +369,15 @@ export default function LocationPage({
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-800 text-base sm:text-lg">
-                            {city} 전문 서비스
+                            {city} 예약 안내
                           </h3>
                           <p className={`${currentTheme.text} text-xs sm:text-sm`}>
-                            Premium Experience
+                            LOCATION BOOKING
                           </p>
                         </div>
                       </div>
                       <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                        최고의 마사지 경험을 선사합니다
+                        위치·시간·코스를 확인해 가능한 일정을 안내합니다
                       </p>
                     </CardContent>
                   </Card>
@@ -406,7 +404,7 @@ export default function LocationPage({
                     <span
                       className={`font-semibold text-sm lg:text-base ${currentTheme.lightText}`}
                     >
-                      {`프리미엄 ${city} 출장 마사지`}
+                      {`${city} 지역 예약 안내`}
                     </span>
                   </div>
                   <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">
@@ -436,7 +434,7 @@ export default function LocationPage({
                         19–04
                       </div>
                       <div className="text-sm lg:text-base text-gray-600 font-medium">
-                        오후 7시~오전 4시 운영
+                        오후 7시~오전 4시 상담
                       </div>
                     </CardContent>
                   </Card>
@@ -448,7 +446,7 @@ export default function LocationPage({
                         100%
                       </div>
                       <div className="text-sm lg:text-base text-gray-600 font-medium">
-                        후불 안심
+                        서비스 후 결제
                       </div>
                     </CardContent>
                   </Card>
@@ -476,20 +474,20 @@ export default function LocationPage({
                     <div className="space-y-4 lg:space-y-6">
                       {[
                         {
-                          title: `집에서 편안하게, ${city} 어디든`,
-                          desc: '고객님의 공간에서 프리미엄 마사지 서비스를 받으세요',
+                          title: '정확한 위치 확인',
+                          desc: `${city}의 읍면동·건물명과 출입 방법을 확인합니다`,
                         },
                         {
-                          title: '전문 관리사',
-                          desc: "실력과 마인드를 겸비한 전문 여성 관리사",
+                          title: '코스와 시간 확인',
+                          desc: '원하는 코스와 60·90·120분 중 이용 시간을 확인합니다',
                         },
                         {
-                          title: '안전한 후불제',
-                          desc: '서비스 완료 후 결제하는 100% 안심 시스템',
+                          title: '후불제 운영',
+                          desc: PAYMENT_POLICY,
                         },
                         {
-                          title: '빠른 출발',
-                          desc: `${city} 전 지역 접수 순서와 이동 동선에 맞춰 방문 시간을 안내`,
+                          title: '방문 가능 시간 안내',
+                          desc: `${city}의 실제 주소와 접수 순서를 확인해 방문 가능 시간을 안내`,
                         },
                       ].map((item, index) => (
                         <div
@@ -524,7 +522,7 @@ export default function LocationPage({
                 {city}시 서비스 지역
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                {city}시 전 지역에서 최고의 출장마사지 서비스를 제공합니다
+                표시된 생활권은 실제 주소와 희망 시간을 확인해 방문 가능 일정을 안내합니다
               </p>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-xl">
@@ -566,7 +564,7 @@ export default function LocationPage({
                 </h3>
                 <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
                   노마드타이의 {city} 출장마사지 기본 가격은 <strong>70,000원(60분)</strong>부터 시작합니다.
-                  관리사가 도착한 후 결제하는 <strong>100% 후불제</strong>로 운영되며,
+                  서비스 완료 후 현장에서 결제하는 <strong>후불제</strong>로 운영되며,
                   타이마사지, 아로마마사지, 스웨디시 중 선택 가능합니다.
                 </p>
               </div>
@@ -576,8 +574,8 @@ export default function LocationPage({
                   {city} 출장마사지 예약 후 얼마나 빨리 오나요?
                 </h3>
                 <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-                  {city}시 전 지역 예약 접수 후 이동 동선과 교통 상황을 확인해 방문 시간을 안내해드립니다.
-                  <strong>오후 7시부터 오전 4시까지</strong> 운영되며, 심야 시간대도 예약 가능합니다.
+                  {city}시의 실제 주소와 접수 순서, 이동 동선을 확인해 방문 가능 시간을 안내해드립니다.
+                  <strong>오후 7시부터 오전 4시까지</strong> 상담하며, 심야 시간대도 문의할 수 있습니다.
                 </p>
               </div>
 
@@ -586,8 +584,8 @@ export default function LocationPage({
                   {city} 어느 지역까지 출장 가능한가요?
                 </h3>
                 <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-                  {city}시 전 지역({areas.slice(0, 5).join(', ')} 등) 호텔, 모텔, 자택 모두 방문 가능합니다.
-                  정확한 주소를 말씀해주시면 출장 가능 여부와 예상 도착 시간을 안내해드립니다.
+                  {city}시의 표시된 생활권({areas.slice(0, 5).join(', ')} 등)은 실제 주소를 확인해 방문 가능 여부를 안내합니다.
+                  호텔이나 숙소는 외부 방문과 객실 출입 허용 여부를 먼저 확인해주세요.
                 </p>
               </div>
             </div>
@@ -620,7 +618,7 @@ export default function LocationPage({
                 className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} mx-auto mb-6 lg:mb-8`}
               ></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                전문 관리사가 제공하는 다양한 프리미엄 마사지 서비스
+                타이·아로마·스웨디시 코스와 이용 시간을 비교해보세요
               </p>
             </div>
 
@@ -638,7 +636,7 @@ export default function LocationPage({
                     타이 마사지
                   </h3>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                    전통 타이 마사지 기법으로 몸의 균형을 맞춰드립니다
+                     스트레칭과 압박을 활용하는 타이 방식입니다
                   </p>
 
                   <table className="w-full border-separate border-spacing-y-2">
@@ -679,7 +677,7 @@ export default function LocationPage({
                     아로마 마사지
                   </h3>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                    향긋한 아로마 오일로 심신의 안정을 선사합니다
+                     오일을 사용해 진행하는 아로마 방식입니다
                   </p>
 
                   <table className="w-full border-separate border-spacing-y-2">
@@ -717,11 +715,11 @@ export default function LocationPage({
                     <Crown className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                   </div>
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4">
-                    스웨디시 힐링 마사지
+                    스웨디시 마사지
                   </h3>
 
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                    깊은 이완과 근육 회복을 위한 전문 마사지
+                     오일을 사용해 부드럽게 진행하는 스웨디시 방식입니다
                   </p>
 
                   <table className="w-full border-separate border-spacing-y-2">
@@ -868,13 +866,13 @@ export default function LocationPage({
                 </span>
               </div>
               <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">
-                전문 관리사
+                예약 과정 안내
               </h2>
               <div
                 className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} mx-auto mb-6 lg:mb-8`}
               ></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                최고의 서비스를 제공하는 전문 관리사들을 만나보세요
+                상담부터 방문 일정 확인까지 필요한 정보를 안내합니다
               </p>
             </div>
 
@@ -953,7 +951,7 @@ export default function LocationPage({
                 {city}출장마사지 서비스 지역 안내
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {city}시 전지역에서 이용 가능한 {city}출장마사지 및 {city}출장홈타이 서비스
+                표시된 생활권의 주소와 희망 시간을 확인하는 {city}출장마사지·홈타이 예약 안내
               </p>
             </div>
 
@@ -972,13 +970,13 @@ export default function LocationPage({
                   </div>
                   <div className="space-y-3 lg:space-y-4">
                     <p className="text-gray-600 leading-relaxed">
-                      <strong className={currentTheme.text}>{city}출장마사지</strong>는 {areas.slice(0, 3).join(', ')} 등 {city}시 전 지역에서 이용하실 수 있습니다.
+                      <strong className={currentTheme.text}>{city}출장마사지</strong>는 {areas.slice(0, 3).join(', ')} 등 표시된 생활권의 실제 주소를 확인합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
                       {areas.slice(3, 6).join(', ')} 등 읍면동은 실제 주소와 희망 시간을 확인한 뒤 <strong className={currentTheme.text}>{city}홈타이</strong> 방문 가능 일정을 안내합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      상담 운영시간은 오후 7시~오전 4시이며, 접수 순서와 이동 동선에 따라 가능한 <strong className={currentTheme.text}>{city}출장타이마사지</strong> 시간을 안내합니다.
+                      상담시간은 오후 7시~오전 4시이며, 접수 순서와 이동 동선에 따라 가능한 <strong className={currentTheme.text}>{city}출장타이마사지</strong> 시간을 안내합니다.
                     </p>
                   </div>
                 </CardContent>
@@ -991,18 +989,18 @@ export default function LocationPage({
                       <Clock className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                     </div>
                     <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
-                      {city}출장마사지 운영 시간
+                      {city}출장마사지 상담 시간
                     </h3>
                   </div>
                   <div className="space-y-3 lg:space-y-4">
                     <p className="text-gray-600 leading-relaxed">
-                      <strong className={currentTheme.text}>{city}출장마사지</strong>는 오후 7시~오전 4시로 운영됩니다.
+                      <strong className={currentTheme.text}>{city}출장마사지</strong> 상담은 오후 7시~오전 4시에 가능합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      오후 8시부터 자정까지는 <strong className={currentTheme.text}>{city}홈타이</strong> 예약 문의가 특히 많습니다.
+                      당일 가능 여부는 <strong className={currentTheme.text}>현재 위치와 접수 순서</strong>에 따라 달라집니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      {city}시 전 지역 접수 순서와 이동 동선을 기준으로, 가능한 예약 시간을 빠르게 안내해드립니다.
+                      실제 주소와 접수 순서, 이동 동선을 기준으로 가능한 예약 시간을 안내해드립니다.
                     </p>
                   </div>
                 </CardContent>
@@ -1060,7 +1058,7 @@ export default function LocationPage({
                 </span>
               </div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
-                인접 지역 출장마사지
+                함께 보는 경기 서비스 지역
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 현재 위치와 이동 동선을 확인해 경기 주요 서비스 지역의 가능한 일정을 안내합니다
@@ -1098,7 +1096,7 @@ export default function LocationPage({
                   경기 주요 서비스 지역 예약 안내
                 </h3>
                 <p className="text-sm lg:text-base text-gray-600 mb-6">
-                  지역별 방문 가능 시간 확인 · 100% 후불제 · 오후 7시~오전 4시 운영
+                  지역별 방문 가능 시간 확인 · 100% 후불제 · 오후 7시~오전 4시 상담
                 </p>
                 <div className="flex flex-wrap gap-2 lg:gap-3 justify-center">
                   <Button asChild className={`h-auto min-h-11 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientTo} text-white`}>
@@ -1140,14 +1138,14 @@ export default function LocationPage({
                     <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
                       <Crown className="w-4 h-4 lg:w-5 lg:h-5" />
                       <span className="font-semibold text-sm lg:text-base">
-                        Premium Booking
+                        BOOKING GUIDE
                       </span>
                     </div>
                     <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">
                       {city} 출장마사지 지금 바로 예약하세요
                     </h2>
                     <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8">
-                      경기도 {city}시 최고의 프리미엄 출장마사지
+                      현재 위치와 희망 시간을 알려주시면 가능한 일정을 안내합니다
                     </p>
                     <div className="flex items-center justify-center space-x-3 lg:space-x-4 text-xl lg:text-3xl font-bold mb-6 lg:mb-10">
                       <Phone className="w-6 h-6 lg:w-8 lg:h-8" />
@@ -1214,7 +1212,7 @@ export default function LocationPage({
                       노마드출장마사지
                     </div>
                     <div className={`text-xs lg:text-sm ${currentTheme.text}`}>
-                      {city} 전문 출장마사지
+                      {city} 출장마사지 예약 안내
                     </div>
                   </div>
                 </Link>
@@ -1222,11 +1220,11 @@ export default function LocationPage({
                   {outro}
                 </div>
                 <div className="flex flex-wrap items-center gap-2 lg:gap-4 text-xs lg:text-sm text-gray-400">
-                  <span>오후 7시~오전 4시 운영</span>
+                  <span>오후 7시~오전 4시 상담</span>
                   <span>•</span>
-                  <span>100% 후불제</span>
+                  <span>{PAYMENT_POLICY}</span>
                   <span>•</span>
-                  <span>전문 관리사</span>
+                  <span>전화·카카오톡</span>
                 </div>
 
                 {/* 공식 채널 링크 */}

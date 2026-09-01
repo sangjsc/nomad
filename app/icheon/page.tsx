@@ -4,10 +4,10 @@ import LocationPage from "../components/LocationPage";
 export const metadata: Metadata = {
   title: "이천출장마사지 | 타이·홈타이 후불제 예약 안내",
   description:
-    "이천 출장마사지·타이마사지·홈타이 예약 안내. 중리·창전·증포·부발 등 이천 전 지역, 오후 7시~오전 4시 운영, 예약금 없는 후불제.",
+    "이천 중리·창전·증포·관고동과 부발·장호원읍, 마장·신둔 등 출장마사지·타이·홈타이 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
   openGraph: {
     title: "이천출장마사지 | 타이·홈타이 후불제 예약 안내",
-    description: "이천 출장마사지·타이마사지·홈타이 예약 안내. 중리·창전·증포·부발 등 이천 전 지역, 오후 7시~오전 4시 운영, 예약금 없는 후불제.",
+    description: "이천 중리·창전·증포·부발 등 출장마사지·타이마사지·홈타이 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
     url: "https://www.nomadthai.kr/icheon",
     type: "website",
     locale: "ko_KR",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "이천출장마사지 | 타이·홈타이 후불제 예약 안내",
-    description: "이천 전 지역 출장마사지·타이마사지·홈타이 예약 안내. 오후 7시~오전 4시 운영, 예약금 없는 후불제.",
+    description: "이천 출장마사지·타이마사지·홈타이 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
     images: ["/og/icheon"],
   },
   alternates: {
@@ -44,7 +44,7 @@ export default function IcheonPage() {
         { src: '/images/location-9.jpg', title: '코스 안내', desc: '타이·아로마·스웨디시 코스별 상담', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-1.jpg', title: '예약 안내', desc: '위치와 시간 확인 후 가능한 일정 안내', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="이천 출장마사지, 이천출장안마, 이천 홈타이 예약을 한 곳에서 안내하는 노마드출장마사지 이천 페이지입니다. 오후 7시부터 오전 4시까지 고객님의 편안한 공간으로 방문하며, 100% 후불제로 이용하실 수 있습니다."
+      description="이천 중리·창전·증포·관고동과 부발·장호원읍, 마장·신둔 등 출장마사지·타이·홈타이 예약 안내입니다. 오후 7시~오전 4시 상담하며 주소·장소·코스·희망 시간을 확인해 가능한 일정을 안내하고 서비스 완료 후 현장 결제합니다."
       areas={["중리동", "창전동", "증포동", "관고동", "부발읍", "장호원읍", "마장면", "신둔면", "백사면", "호법면", "대월면", "모가면", "설성면", "율면"]}
       latitude="37.27221"
       longitude="127.43513"
@@ -52,7 +52,7 @@ export default function IcheonPage() {
         <>
           <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-500 rounded-lg">
             <p className="text-lg font-semibold text-gray-800 leading-relaxed">
-              노마드타이는 <strong className="text-blue-600">이천 전 지역(중리동, 창전동, 부발읍 등)</strong>을 아우르는 프리미엄 이천 출장마사지 공식 예약 채널입니다.
+              노마드출장마사지는 <strong className="text-blue-600">이천 중리동·창전동·증포동·부발읍 등</strong>의 예약 가능 일정을 안내합니다.
             </p>
           </div>
           <p>
@@ -63,7 +63,7 @@ export default function IcheonPage() {
       serviceDescription={
         <>
           <p>
-            노마드출장마사지 이천 서비스는 타이, 아로마, 스웨디시 등 코스와 이용 시간을 상담하고 현재 위치에 맞는 방문 가능 일정을 안내합니다. 이천출장타이마사지 또는 이천출장홈타이 예약을 문의할 때 원하는 관리 방식과 강도, 이용 장소를 함께 알려주시면 선택 가능한 코스를 비교하기 쉽습니다. 모든 서비스는 예약금과 선입금 없이 관리사 도착 확인 후 결제하는 후불제로 운영합니다.
+            노마드출장마사지 이천 서비스는 타이, 아로마, 스웨디시 등 코스와 이용 시간을 상담하고 현재 위치에 맞는 방문 가능 일정을 안내합니다. 이천출장타이마사지 또는 이천출장홈타이 예약을 문의할 때 원하는 관리 방식과 강도, 이용 장소를 함께 알려주시면 선택 가능한 코스를 비교하기 쉽습니다. 모든 서비스는 예약금과 선입금 없이 서비스 완료 후 현장에서 결제하는 후불제로 운영합니다.
           </p>
         </>
       }
@@ -130,7 +130,7 @@ export default function IcheonPage() {
         },
         {
           question: "후불제 결제는 어떻게 진행되나요?",
-          answer: "예약금이나 선입금을 받지 않으며, 관리사 도착을 확인한 다음 예약 과정에서 안내받은 금액을 결제합니다.",
+          answer: "예약금이나 선입금을 받지 않으며, 서비스 완료 후 예약 과정에서 안내받은 금액을 현장에서 결제합니다.",
         },
       ]}
       relatedAreaSlugs={["gwangju", "yeoju", "anseong"]}
@@ -141,9 +141,9 @@ export default function IcheonPage() {
           description: "도심과 읍면 지역에서 주소와 시간을 전달하는 방법",
         },
         {
-          href: "/blog/icheon-bubal-majang-booking-notes",
-          title: "부발·마장 예약 메모",
-          description: "부발읍과 마장면 생활권의 위치·동선 확인 항목",
+          href: "/blog/icheon-massage-guide",
+          title: "이천 호텔·숙소 예약 가이드",
+          description: "숙소 외부 방문 정책과 출입 절차 확인 항목",
         },
         {
           href: "/blog/icheon-night-booking-checklist",
@@ -154,7 +154,7 @@ export default function IcheonPage() {
       outro={
         <>
           <p>
-            노마드출장마사지 이천 서비스는 예약금과 선입금 없이 관리사 도착 확인 후 결제하는 방식으로 운영됩니다. 현재 위치와 원하는 코스, 희망 시간을 전화나 카카오톡으로 알려주시면 이천출장마사지·이천출장안마의 가능한 일정을 안내해드립니다.
+            노마드출장마사지 이천 서비스는 예약금과 선입금 없이 서비스 완료 후 현장에서 결제하는 방식으로 운영됩니다. 현재 위치와 원하는 코스, 희망 시간을 전화나 카카오톡으로 알려주시면 이천출장마사지와 이천 홈타이의 가능한 일정을 안내해드립니다.
           </p>
           <div className="mt-4 text-sm text-gray-600">중리동 · 창전동 · 증포동 · 관고동 · 부발읍 · 장호원읍 · 마장면 · 신둔면 · 백사면 · 호법면 · 대월면 · 모가면 · 설성면 · 율면</div>
         </>

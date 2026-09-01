@@ -6,6 +6,14 @@ export const PHONE_TEL = "tel:01081867771"
 export const KAKAO_CHAT_URL = "https://open.kakao.com/o/ssZxRuEh"
 export const CONSULTATION_HOURS = "오후 7시~오전 4시"
 export const SEO_RELEASE_DATE = "2026-09-01"
+export const PAYMENT_POLICY = "서비스 완료 후 현장 결제"
+export const SERVICE_INFORMATION_UPDATED = "2026-09-01"
+
+export const SERVICE_COURSES = [
+  { name: "타이", prices: [{ minutes: 60, price: 70000 }, { minutes: 90, price: 80000 }, { minutes: 120, price: 100000 }] },
+  { name: "아로마", prices: [{ minutes: 60, price: 80000 }, { minutes: 90, price: 90000 }, { minutes: 120, price: 110000 }] },
+  { name: "스웨디시", prices: [{ minutes: 60, price: 100000 }, { minutes: 90, price: 130000 }, { minutes: 120, price: 160000 }] },
+] as const
 
 export type ServiceArea = {
   slug: string
