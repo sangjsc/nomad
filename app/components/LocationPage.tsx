@@ -547,7 +547,8 @@ export default function LocationPage({
         </section>
 
         {/* GEAF Q&A 섹션 - 구글 AI/SGE 최적화 */}
-        <section className="py-12 lg:py-16 bg-white">
+        {!faqItems?.length && (
+          <section className="py-12 lg:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-8 lg:mb-12">
               <h2 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-4">
@@ -591,7 +592,8 @@ export default function LocationPage({
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        )}
 
         <section
           id="services"
@@ -951,7 +953,7 @@ export default function LocationPage({
                 {city}출장마사지 서비스 지역 안내
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {city}시 전지역에서 이용 가능한 {city}출장마사지 및 {city}홈타이 서비스
+                {city}시 전지역에서 이용 가능한 {city}출장마사지 및 {city}출장홈타이 서비스
               </p>
             </div>
 
@@ -976,7 +978,7 @@ export default function LocationPage({
                       {areas.slice(3, 6).join(', ')} 등 읍면동은 실제 주소와 희망 시간을 확인한 뒤 <strong className={currentTheme.text}>{city}홈타이</strong> 방문 가능 일정을 안내합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      상담 운영시간은 오후 7시~오전 4시이며, 접수 순서와 이동 동선에 따라 가능한 <strong className={currentTheme.text}>{city}출장태국마사지</strong> 시간을 안내합니다.
+                      상담 운영시간은 오후 7시~오전 4시이며, 접수 순서와 이동 동선에 따라 가능한 <strong className={currentTheme.text}>{city}출장타이마사지</strong> 시간을 안내합니다.
                     </p>
                   </div>
                 </CardContent>

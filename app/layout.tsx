@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     "경기도 이천, 광주(경기도 광주시), 여주, 용인, 수원, 화성, 평택, 시흥, 부천, 광명 포함 주요 도시 출장마사지 서비스를 제공합니다. 오후 7시~오전 4시 운영, 100% 후불제 예약.",
   manifest: "/manifest.json",
   icons: { icon: "/favicon.svg" },
+  verification: {
+    other: {
+      "ahrefs-site-verification":
+        "30e195960243813345bd96ca0c896cfe60df7d559c1fe62b75c5fab89362d978",
+    },
+  },
   openGraph: {
     title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
     description:
