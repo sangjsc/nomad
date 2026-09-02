@@ -15,9 +15,9 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지·홈타이",
+  title: "�븶�����帶���� | ��� �ֿ� 22�� ���� ���帶������ȨŸ��",
   description:
-    "경기도 이천, 광주(경기도 광주시), 여주, 용인, 수원, 화성, 평택, 시흥, 부천, 광명 포함 주요 도시 출장마사지 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
+    "��⵵ ��õ, ����(��⵵ ���ֽ�), ����, ����, ����, ȭ��, ����, ����, ��õ, ���� ���� �ֿ� ���� ���帶���� ���� �ȳ�. ���� 7��~���� 4�� ���, ���� �Ϸ� �� ���� ����.",
   manifest: "/manifest.json",
   icons: { icon: "/favicon.svg" },
   verification: {
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
+    title: "�븶�����帶���� | ��� �ֿ� 22�� ���� ���帶����",
     description:
-      "경기 주요 22개 지역에서 주소와 희망 시간을 확인한 뒤 방문 가능 일정을 안내하는 노마드출장마사지입니다.",
+      "��� �ֿ� 22�� �������� �ּҿ� ��� �ð��� Ȯ���� �� �湮 ���� ������ �ȳ��ϴ� �븶�����帶�����Դϴ�.",
     images: [
       {
         url: "/og/home",
         width: 1200,
         height: 630,
-        alt: "노마드출장마사지 - 경기 주요 22개 지역 예약 안내",
+        alt: "�븶�����帶���� - ��� �ֿ� 22�� ���� ���� �ȳ�",
         type: "image/png",
       },
     ],
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
-    description: "경기 주요 22개 지역의 오후 7시~오전 4시 상담·후불제 예약 안내.",
+    title: "�븶�����帶���� | ��� �ֿ� 22�� ���� ���帶����",
+    description: "��� �ֿ� 22�� ������ ���� 7��~���� 4�� ��㡤�ĺ��� ���� �ȳ�.",
     images: ["/og/home"],
   },
 }
@@ -72,7 +72,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         sameAs: [
           "https://x.com/jscnwing9201",
           "https://www.youtube.com/@nomadthai_icheon",
-          "https://solo.to/nomadthai",
         ],
         telephone: PHONE_DISPLAY,
         contactPoint: {
@@ -124,11 +123,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       {
         "@type": "Service",
         "@id": `${SITE_URL}/#massage-service`,
-        name: "경기도 출장마사지 서비스",
-        serviceType: "출장마사지",
+        name: "��⵵ ���帶���� ����",
+        serviceType: "���帶����",
         url: `${SITE_URL}/service-areas`,
         description:
-          "이천·경기 광주·여주·용인 등 경기도 22개 지역 출장마사지 서비스",
+          "��õ����� ���֡����֡����� �� ��⵵ 22�� ���� ���帶���� ����",
         provider: { "@id": `${SITE_URL}/#organization` },
         areaServed: schemaAreaServed,
         availableChannel: {
@@ -184,3 +183,4 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   )
 }
+
