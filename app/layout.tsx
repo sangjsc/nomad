@@ -72,7 +72,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         sameAs: [
           "https://x.com/jscnwing9201",
           "https://www.youtube.com/@nomadthai_icheon",
-          "https://solo.to/nomadthai",
         ],
         telephone: PHONE_DISPLAY,
         contactPoint: {
