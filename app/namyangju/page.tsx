@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import LocationPage from "../components/LocationPage";
 
 export const metadata: Metadata = {
@@ -42,9 +42,9 @@ export default function NamyangjuPage() {
       theme="rose"
       heroImage="/images/location-3.jpg"
       teamImages={[
-        { src: '/images/location-5.jpg', title: '전문 관리사', desc: "실력과 마인드를 겸비한 전문 여성 관리사", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
-        { src: '/images/location-6.jpg', title: '럭셔리 서비스', desc: '최고급 프리미엄 경험', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
-        { src: '/images/location-7.jpg', title: '힐링 서비스', desc: '완벽한 휴식과 회복', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
+        { src: '/images/location-5.jpg', title: '예약 확인', desc: "위치·시간·코스를 상담할 때 확인", gradient: 'from-rose-200/80 via-pink-200/70 to-purple-200/60' },
+        { src: '/images/location-6.jpg', title: '코스 안내', desc: '타이·아로마·스웨디시 코스별 안내', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
+        { src: '/images/location-7.jpg', title: '방문 일정', desc: '접수 순서와 이동 동선 확인 후 안내', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
       description="남양주출장마사지, 남양주출장안마, 남양주 홈타이 예약을 한곳에서 안내하는 노마드출장마사지 남양주 페이지입니다. 오후 7시부터 오전 4시까지 100% 후불제로 운영합니다."
       areas={["호평동", "평내동", "다산동", "별내동", "와부읍", "진접읍", "오남읍", "화도읍", "금곡동", "퇴계원읍"]}

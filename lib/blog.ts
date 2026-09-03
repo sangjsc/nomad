@@ -3,7 +3,10 @@ import path from 'path'
 import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
-const redirectedPostSlugs = new Set(['gyeonggi-massage-guidebook-2024'])
+const redirectedPostSlugs = new Set([
+  'gyeonggi-massage-guidebook-2024',
+  'icheon-bubal-majang-booking-notes',
+])
 
 export type BlogCategory = 'official' | 'regional' | 'info'
 

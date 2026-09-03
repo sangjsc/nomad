@@ -66,7 +66,7 @@ export default function ClientPage() {
                 <div className="mb-4 lg:mb-8">
                   <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-500/20 to-purple-500/20 backdrop-blur-sm border border-rose-400/30 rounded-full px-3 lg:px-6 py-2 lg:py-3 mb-3 lg:mb-6">
                     <Sparkles className="w-3 h-3 lg:w-5 lg:h-5 text-rose-300" />
-                    <span className="text-xs lg:text-base font-medium text-rose-200">경기도 전문 출장마사지</span>
+                    <span className="text-xs lg:text-base font-medium text-rose-200">경기도 출장마사지 공식 안내</span>
                   </div>
 
                   <h1 className="text-3xl sm:text-4xl lg:text-7xl xl:text-8xl font-bold mb-3 lg:mb-6 leading-tight">
@@ -74,14 +74,14 @@ export default function ClientPage() {
                       노마드출장마사지
                     </span>
                     <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 bg-clip-text text-transparent block">
-                      프리미엄 홈케어
+                      경기 22개 지역 안내
                     </span>
                   </h1>
 
                   <p className="text-sm sm:text-lg lg:text-2xl xl:text-3xl text-gray-200 mb-4 lg:mb-8 leading-relaxed px-2 sm:px-0">
-                    최고의 프리미엄 출장마사지
+                    지역·가격·운영시간을 확인하는 공식 페이지
                     <br className="hidden sm:block" />
-                    <span className="text-rose-300">오후 7시~오전 4시 예약 가능</span>
+                    <span className="text-rose-300">오후 7시~오전 4시 상담</span>
                   </p>
                 </div>
 
@@ -118,7 +118,7 @@ export default function ClientPage() {
                   </div>
                   <div className="flex items-center justify-center sm:justify-start space-x-2 bg-white/10 backdrop-blur-sm rounded-xl p-2 lg:p-4">
                     <Crown className="w-4 h-4 lg:w-6 lg:h-6 text-pink-300" />
-                    <span className="text-xs lg:text-base text-white font-medium">전문 관리사</span>
+                    <span className="text-xs lg:text-base text-white font-medium">코스별 안내</span>
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function ClientPage() {
                     <div className="relative">
                       <Image
                         src="/images/spa-image-1.jpg"
-                        alt="노마드출장마사지 - 프리미엄 스파 경험"
+                        alt="노마드출장마사지 예약 코스 안내"
                         width={500}
                         height={600}
                         className="w-full h-96 xl:h-[500px] object-cover object-center"
@@ -148,11 +148,11 @@ export default function ClientPage() {
                           <Sparkles className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-gray-800 text-lg">프리미엄 서비스</h3>
-                          <p className="text-rose-500 text-sm">Premium Experience</p>
+                          <h3 className="font-bold text-gray-800 text-lg">예약 전 확인</h3>
+                          <p className="text-rose-500 text-sm">Booking Information</p>
                         </div>
                       </div>
-                      <p className="text-gray-600 leading-relaxed">최고급 마사지 경험을 선사합니다</p>
+                      <p className="text-gray-600 leading-relaxed">위치·희망 시간·코스를 확인해 가능한 일정을 안내합니다</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -171,7 +171,7 @@ export default function ClientPage() {
               </div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">경기 주요 22개 지역 출장마사지</h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                오후 7시부터 오전 4시까지 신속하게 찾아가는 프리미엄 홈케어 서비스
+                실제 주소와 희망 시간을 확인해 방문 가능한 일정을 안내합니다
               </p>
             </div>
 
@@ -247,7 +247,7 @@ export default function ClientPage() {
                 <div className="mb-8 lg:mb-12">
                   <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
                     <Crown className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
-                    <span className="text-rose-800 font-semibold text-sm lg:text-base">{"프리미엄 출장 마사지"}</span>
+                    <span className="text-rose-800 font-semibold text-sm lg:text-base">공식 운영·이용 안내</span>
                   </div>
                   <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">ABOUT US</h2>
                   <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 mb-6 lg:mb-8"></div>
@@ -255,16 +255,16 @@ export default function ClientPage() {
 
                 <div className="space-y-4 lg:space-y-6 text-gray-600 leading-relaxed">
                   <p className="text-lg lg:text-xl">
-                    <span className="font-bold text-rose-600">노마드출장마사지</span>는 경기도 주요 도시를 중심으로
-                    최상의 <span className="font-bold">출장안마</span>와 <span className="font-bold">출장마사지</span> 서비스를 제공하는 프리미엄 브랜드입니다.
+                    <span className="font-bold text-rose-600">노마드출장마사지</span>는 경기도 주요 22개 지역에서
+                    주소와 희망 시간을 확인한 뒤 방문 가능 일정을 안내합니다.
                   </p>
                   <p className="text-base lg:text-lg">
-                    바쁜 일상에 지친 고객님들을 위해 노마드출장마사지가 여러분을 찾아갑니다. 일상의 피로와 스트레스에 지친 고객님께 집이나 원하시는 곳에서 편안하게 최상의 힐링을 경험할 수 있도록 도와드립니다.
-                    실력과 마인드를 겸비한 전문 여성 관리사로 구성되어 있으며, 체계적인 교육을 통해 고객님께 최상의 힐링 경험을 선사합니다. 이제 집, 오피스텔, 호텔 등 가장 편안한 공간에서 격이 다른 서비스를 경험해 보세요.
+                    전화 또는 카카오톡으로 이용 지역, 희망 시간, 원하는 코스와 이용 시간을 알려주세요.
+                    호텔이나 숙소는 외부 방문과 객실 출입 가능 여부를 먼저 확인해야 합니다.
                   </p>
                   <p className="text-base lg:text-lg">
-                    서비스에 만족하신 후 결제하는 <span className="font-bold">100% 안심 후불제</span>를 통해 고객님의 신뢰를 최우선으로 생각하며,
-                    오후 7시~오전 4시 언제나 신속하고 정확한 서비스를 제공할 것을 약속드립니다.
+                    상담시간은 <span className="font-bold">오후 7시~오전 4시</span>이며, 예약금이나 선입금 없이 서비스 완료 후 현장에서 결제합니다.
+                    실제 방문 가능 시간과 최종 금액은 예약 확정 전에 확인해주세요.
                   </p>
                 </div>
 
@@ -278,7 +278,7 @@ export default function ClientPage() {
                   <Card className="bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <CardContent className="p-4 lg:p-6 text-center">
                       <div className="text-2xl lg:text-4xl font-bold text-purple-600 mb-2">100%</div>
-                      <div className="text-sm lg:text-base text-gray-600 font-medium">후불 안심</div>
+                      <div className="text-sm lg:text-base text-gray-600 font-medium">서비스 후 결제</div>
                     </CardContent>
                   </Card>
                 </div>
@@ -302,16 +302,16 @@ export default function ClientPage() {
                     <div className="space-y-4 lg:space-y-6">
                       {[
                         {
-                          title: "집에서 편안하게, 이동 없이",
-                          desc: "고객님의 공간에서 프리미엄 마사지 서비스를 받으세요",
+                          title: "정확한 위치 확인",
+                          desc: "읍면동·건물명과 출입·주차 조건을 확인합니다",
                         },
                         {
-                          title: "전문 관리사",
-                          desc: "엄선된 20대 전문 관리사가 최상의 서비스 제공",
+                          title: "코스와 일정 확인",
+                          desc: "코스·이용 시간과 희망·대체 시간을 확인합니다",
                         },
                         {
-                          title: "안전한 후불제",
-                          desc: "서비스 완료 후 결제하는 100% 안심 시스템",
+                          title: "현장 결제",
+                          desc: "예약금·선입금 없이 서비스 완료 후 현장에서 결제합니다",
                         },
 
                       ].map((item, index) => (
@@ -509,10 +509,10 @@ export default function ClientPage() {
                 <Crown className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
                 <span className="text-rose-800 font-semibold text-sm lg:text-base">Service Guide</span>
               </div>
-              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">전문 관리사</h2>
+              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">예약 과정 안내</h2>
               <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 mx-auto mb-6 lg:mb-8"></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                최고의 서비스를 제공하는 전문 관리사들을 만나보세요
+                상담부터 방문 가능 일정 확인까지 필요한 정보를 안내합니다
               </p>
             </div>
 
@@ -520,24 +520,24 @@ export default function ClientPage() {
               {[
                 {
                   src: "/images/spa-image-2.jpg",
-                  title: "전문 관리사",
-                  desc: "친절하고 전문적인 서비스",
+                  title: "예약 확인",
+                  desc: "위치·시간·코스를 상담할 때 확인",
                   gradient: "from-rose-200/80 via-pink-200/70 to-purple-200/60",
-                  alt: "친절하고 전문적인 서비스를 제공하는 노마드출장마사지 전문 관리사",
+                  alt: "노마드출장마사지 위치와 예약 시간 확인 안내",
                 },
                 {
                   src: "/images/spa-image-3.jpg",
-                  title: "럭셔리 서비스",
-                  desc: "최고급 프리미엄 경험",
+                  title: "코스 안내",
+                  desc: "타이·아로마·스웨디시 코스별 안내",
                   gradient: "from-pink-200/80 via-rose-200/70 to-purple-200/60",
-                  alt: "최고급 프리미엄 경험을 제공하는 노마드출장마사지 럭셔리 서비스",
+                  alt: "노마드출장마사지 타이 아로마 스웨디시 코스 안내",
                 },
                 {
                   src: "/images/spa-image-4.jpg",
-                  title: "힐링 서비스",
-                  desc: "완벽한 휴식과 회복",
+                  title: "방문 일정",
+                  desc: "접수 순서와 이동 동선 확인 후 안내",
                   gradient: "from-purple-200/80 via-pink-200/70 to-rose-200/60",
-                  alt: "완벽한 휴식과 회복을 위한 노마드출장마사지 힐링 서비스",
+                  alt: "노마드출장마사지 방문 가능 일정 안내",
                 },
               ].map((item, index) => (
                 <div
@@ -612,7 +612,7 @@ export default function ClientPage() {
                     </div>
                     <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">지금 바로 예약하세요</h2>
                     <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8">
-                      최고의 프리미엄 마사지 서비스를 경험하세요
+                      공식 연락처에서 현재 가능한 일정을 확인하세요
                     </p>
                     <div className="flex items-center justify-center space-x-3 lg:space-x-4 text-xl lg:text-3xl font-bold mb-6 lg:mb-10">
                       <Phone className="w-6 h-6 lg:w-8 lg:h-8" />
@@ -680,7 +680,7 @@ export default function ClientPage() {
                   <span>•</span>
                   <span>100% 후불제</span>
                   <span>•</span>
-                  <span>전문 관리사</span>
+                  <span>전화·카카오톡 상담</span>
                 </div>
 
                 <div className="flex flex-wrap gap-3 lg:gap-4 text-sm text-gray-400 mt-4">

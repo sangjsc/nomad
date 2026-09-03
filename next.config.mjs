@@ -22,6 +22,11 @@ const nextConfig = {
         destination: '/service-areas',
         permanent: true,
       },
+      {
+        source: '/blog/icheon-bubal-majang-booking-notes',
+        destination: '/blog/icheon-eup-myeon-booking-guide',
+        permanent: true,
+      },
     ]
   },
   async headers() {

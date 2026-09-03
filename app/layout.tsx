@@ -3,6 +3,7 @@ import Script from "next/script"
 import Header from "@/components/Header"
 import MobileBottomNav from "@/components/MobileBottomNav"
 import ContactConversionTracker from "@/components/ContactConversionTracker"
+import SiteTrustBar from "@/components/SiteTrustBar"
 import {
   CONSULTATION_HOURS,
   PHONE_DISPLAY,
@@ -177,6 +178,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <div className="pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0" data-consultation-hours={CONSULTATION_HOURS}>
           {children}
+          <SiteTrustBar />
         </div>
         <MobileBottomNav />
       </body>

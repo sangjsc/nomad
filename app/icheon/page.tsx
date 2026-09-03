@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import LocationPage from "../components/LocationPage";
+import { SERVICE_INFORMATION_UPDATED } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "이천출장마사지 | 타이·홈타이 후불제 예약 안내",
+  title: "이천출장마사지 | 타이·홈타이 7만원부터 후불제",
   description:
-    "이천 중리·창전·증포·관고동과 부발·장호원읍, 마장·신둔 등 출장마사지·타이·홈타이 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
+    "이천출장마사지·이천출장홈타이·이천출장타이마사지 예약 안내. 타이 60분 7만원부터, 오후 7시~오전 4시 상담, 선입금 없이 서비스 완료 후 현장 결제.",
   openGraph: {
-    title: "이천출장마사지 | 타이·홈타이 후불제 예약 안내",
-    description: "이천 중리·창전·증포·부발 등 출장마사지·타이마사지·홈타이 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
+    title: "이천출장마사지 | 타이·홈타이 7만원부터 후불제",
+    description: "이천 출장마사지·홈타이 공식 안내. 타이 60분 7만원부터, 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
     url: "https://www.nomadthai.kr/icheon",
     type: "website",
     locale: "ko_KR",
@@ -23,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "이천출장마사지 | 타이·홈타이 후불제 예약 안내",
-    description: "이천 출장마사지·타이마사지·홈타이 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
+    title: "이천출장마사지 | 타이·홈타이 7만원부터 후불제",
+    description: "이천 출장마사지·홈타이 공식 안내. 타이 60분 7만원부터, 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
     images: ["/og/icheon"],
   },
   alternates: {
@@ -37,6 +39,7 @@ export default function IcheonPage() {
     <LocationPage
       city="이천"
       cityEn="icheon"
+      heroTitle="이천 출장마사지·홈타이 예약 안내"
       theme="blue"
       heroImage="/images/location-7.jpg"
       teamImages={[
@@ -44,7 +47,7 @@ export default function IcheonPage() {
         { src: '/images/location-9.jpg', title: '코스 안내', desc: '타이·아로마·스웨디시 코스별 상담', gradient: 'from-pink-200/80 via-rose-200/70 to-purple-200/60' },
         { src: '/images/location-1.jpg', title: '예약 안내', desc: '위치와 시간 확인 후 가능한 일정 안내', gradient: 'from-purple-200/80 via-pink-200/70 to-rose-200/60' },
       ]}
-      description="이천 중리·창전·증포·관고동과 부발·장호원읍, 마장·신둔 등 출장마사지·타이·홈타이 예약 안내입니다. 오후 7시~오전 4시 상담하며 주소·장소·코스·희망 시간을 확인해 가능한 일정을 안내하고 서비스 완료 후 현장 결제합니다."
+      description="이천출장마사지·이천출장홈타이·이천출장타이마사지 공식 예약 안내입니다. 중리·창전·증포·관고동과 부발·장호원읍, 마장·신둔 등에서 오후 7시~오전 4시 상담하며, 서비스 완료 후 현장에서 결제합니다."
       areas={["중리동", "창전동", "증포동", "관고동", "부발읍", "장호원읍", "마장면", "신둔면", "백사면", "호법면", "대월면", "모가면", "설성면", "율면"]}
       latitude="37.27221"
       longitude="127.43513"
@@ -75,6 +78,17 @@ export default function IcheonPage() {
             <p className="mt-4 leading-7 text-gray-600">
               이천은 도심과 읍면 사이 이동 범위가 넓습니다. 실제 주소와 장소 유형을 먼저 확인하면 접수 순서와 이동 동선을 반영한 가능한 시간을 더 정확하게 안내받을 수 있습니다.
             </p>
+          </div>
+
+          <div className="mt-7 grid grid-cols-2 gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm sm:grid-cols-4 sm:p-5">
+            <div><span className="block text-slate-500">상담시간</span><strong className="mt-1 block text-slate-950">19:00~04:00</strong></div>
+            <div><span className="block text-slate-500">시작가격</span><strong className="mt-1 block text-slate-950">타이 60분 70,000원</strong></div>
+            <div><span className="block text-slate-500">결제</span><strong className="mt-1 block text-slate-950">서비스 후 현장 결제</strong></div>
+            <div><span className="block text-slate-500">정보 확인일</span><strong className="mt-1 block text-slate-950"><time dateTime={SERVICE_INFORMATION_UPDATED}>{SERVICE_INFORMATION_UPDATED}</time></strong></div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold">
+            <Link href="/contact" className="text-blue-700 hover:text-blue-900">공식 문의·예약 확인</Link>
+            <Link href="/about" className="text-blue-700 hover:text-blue-900">운영·이용 안내</Link>
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -137,8 +151,8 @@ export default function IcheonPage() {
       relatedContentLinks={[
         {
           href: "/blog/icheon-eup-myeon-booking-guide",
-          title: "이천 읍면 예약 가이드",
-          description: "도심과 읍면 지역에서 주소와 시간을 전달하는 방법",
+          title: "이천 읍면 이동·주소 가이드",
+          description: "장호원·부발·마장·신둔·백사 등 주소와 진입 정보 전달 방법",
         },
         {
           href: "/blog/icheon-massage-guide",
@@ -147,8 +161,8 @@ export default function IcheonPage() {
         },
         {
           href: "/blog/icheon-night-booking-checklist",
-          title: "이천 심야 예약 체크리스트",
-          description: "늦은 시간 문의 전에 준비할 위치·코스·시간 정보",
+          title: "이천 22시 이후 문의 체크리스트",
+          description: "심야 문의 전에 준비할 위치·출입·주차·대체 시간 정보",
         },
       ]}
       outro={

@@ -6,7 +6,7 @@ import { Calendar, User, ArrowLeft, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { BlogPost, BlogPostSummary } from "@/lib/blog"
 import { extractCityFromTitle } from "@/lib/blog-utils"
-import { PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS } from "@/lib/site"
+import { PHONE_TEL, SERVICE_AREAS } from "@/lib/site"
 
 interface BlogLayoutProps {
   post: BlogPost
@@ -23,9 +23,7 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
     const shortName = area.name.replace('경기 ', '')
     return postSearchText.includes(area.name) || postSearchText.includes(shortName)
   })
-  const contextualAreas = matchedArea
-    ? [matchedArea, ...PRIMARY_SERVICE_AREAS.filter((area) => area.slug !== matchedArea.slug)].slice(0, 4)
-    : PRIMARY_SERVICE_AREAS
+  const contextualAreas = matchedArea ? [matchedArea] : []
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -220,14 +218,14 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
             <div className="max-w-3xl mx-auto text-white">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">예약 전 서비스 지역과 시간을 확인하세요</h2>
               <p className="text-lg lg:text-xl mb-6 text-rose-100 font-semibold">
-                현재 글과 관련된 지역 안내
+                {matchedArea ? `${matchedArea.fullName}의 공식 운영 정보로 이어집니다` : "전체 공식 서비스 지역을 확인하세요"}
               </p>
               <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-8 text-white">
                 {contextualAreas.map((area, index) => (
                   <span key={area.slug} className="inline-flex items-center gap-2">
                     {index > 0 ? <span>|</span> : null}
                     <Link href={`/${area.slug}`} className="hover:text-rose-200 underline transition-colors">
-                      {area.name} 출장마사지
+                      {area.name} 공식 서비스 안내
                     </Link>
                   </span>
                 ))}

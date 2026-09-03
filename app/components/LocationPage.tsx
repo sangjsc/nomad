@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { KAKAO_CHAT_URL, PAYMENT_POLICY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS, SITE_URL } from '@/lib/site'
+import { KAKAO_CHAT_URL, PAYMENT_POLICY, PHONE_DISPLAY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const themes = {
   rose: {
@@ -121,6 +121,7 @@ type RelatedContentLink = {
 interface LocationPageProps {
   city: string
   cityEn: string
+  heroTitle?: string
   description: string
   areas: string[]
   intro: React.ReactNode
@@ -140,11 +141,14 @@ interface LocationPageProps {
 export default function LocationPage({
   city,
   cityEn,
+  heroTitle,
   description,
   areas,
   intro,
   serviceDescription,
   outro,
+  latitude,
+  longitude,
   theme,
   localGuide,
   faqItems,
@@ -175,6 +179,18 @@ export default function LocationPage({
   const currentTheme = themes[theme] || themes.rose
   const pageUrl = `${SITE_URL}/${cityEn}`
   const fullCityName = cityEn === 'gwangju' ? '경기도 광주시' : `경기도 ${city}시`
+  const cityEntity = {
+    "@type": "City",
+    "@id": `${pageUrl}#area`,
+    name: fullCityName,
+    containedInPlace: { "@type": "AdministrativeArea", name: "경기도" },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: Number(latitude),
+      longitude: Number(longitude),
+    },
+  }
+  const localServiceId = `${pageUrl}#service`
   const defaultFaqItems: LocationFaq[] = [
     {
       question: `${city}출장마사지 예약은 얼마나 미리 해야 하나요?`,
@@ -220,15 +236,37 @@ export default function LocationPage({
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: [
           { "@id": `${SITE_URL}/#massage-service` },
-          {
-            "@type": "City",
-            name: fullCityName,
-            containedInPlace: { "@type": "AdministrativeArea", name: "경기도" },
-          },
+          { "@id": `${pageUrl}#area` },
         ],
-        mainEntity: { "@id": `${SITE_URL}/#massage-service` },
+        mainEntity: { "@id": localServiceId },
         breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
         inLanguage: "ko-KR",
+      },
+      cityEntity,
+      {
+        "@type": "Service",
+        "@id": localServiceId,
+        name: `${fullCityName} 출장마사지 예약 안내`,
+        alternateName: [`${city} 출장마사지`, `${city} 홈타이`, `${city} 출장타이마사지`],
+        serviceType: ["출장마사지", "타이마사지", "홈타이"],
+        url: pageUrl,
+        description,
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+        },
+        areaServed: { "@id": `${pageUrl}#area` },
+        availableChannel: {
+          "@type": "ServiceChannel",
+          serviceUrl: pageUrl,
+          servicePhone: {
+            "@type": "ContactPoint",
+            telephone: PHONE_DISPLAY,
+            contactType: "reservations",
+            availableLanguage: "Korean",
+          },
+        },
       },
       {
         "@type": "BreadcrumbList",
@@ -287,7 +325,7 @@ export default function LocationPage({
 
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight text-gray-900">
                     <span className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} bg-clip-text text-transparent block`}>
-                      {city} 출장마사지
+                      {heroTitle ?? `${city} 출장마사지`}
                     </span>
                   </h1>
 

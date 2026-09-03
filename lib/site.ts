@@ -7,7 +7,7 @@ export const KAKAO_CHAT_URL = "https://open.kakao.com/o/ssZxRuEh"
 export const CONSULTATION_HOURS = "오후 7시~오전 4시"
 export const SEO_RELEASE_DATE = "2026-09-01"
 export const PAYMENT_POLICY = "서비스 완료 후 현장 결제"
-export const SERVICE_INFORMATION_UPDATED = "2026-09-01"
+export const SERVICE_INFORMATION_UPDATED = "2026-09-03"
 
 export const SERVICE_COURSES = [
   { name: "타이", prices: [{ minutes: 60, price: 70000 }, { minutes: 90, price: 80000 }, { minutes: 120, price: 100000 }] },

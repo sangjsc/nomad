@@ -52,6 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, lastModified: releaseDate },
     { url: `${SITE_URL}/service-areas`, lastModified: releaseDate },
     { url: `${SITE_URL}/about`, lastModified: releaseDate },
+    { url: `${SITE_URL}/contact`, lastModified: new Date("2026-09-03T00:00:00+09:00") },
     ...blogListUrls,
     ...paginatedListUrls,
     ...locationUrls,
