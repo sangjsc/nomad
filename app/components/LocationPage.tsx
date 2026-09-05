@@ -179,6 +179,7 @@ export default function LocationPage({
   const currentTheme = themes[theme] || themes.rose
   const startingCourse = SERVICE_COURSES[0]
   const startingPrice = startingCourse.prices[0]
+  const hasConfirmedFeePolicy = ['icheon', 'yeoju', 'gwangju'].includes(cityEn)
   const pageUrl = `${SITE_URL}/${cityEn}`
   const fullCityName = cityEn === 'gwangju' ? '경기도 광주시' : `경기도 ${city}시`
   const cityEntity = {
@@ -388,7 +389,9 @@ export default function LocationPage({
                     <span className="mt-1 text-xs text-gray-600 underline underline-offset-2">가격표 보기</span>
                   </a>
                 </div>
-                <p className="mt-3 text-center text-xs sm:text-sm text-gray-600 lg:text-left">{ADDITIONAL_FEE_POLICY}</p>
+                {hasConfirmedFeePolicy && (
+                  <p className="mt-3 text-center text-xs sm:text-sm text-gray-600 lg:text-left">{ADDITIONAL_FEE_POLICY}</p>
+                )}
               </div>
 
               <div className="order-2 w-full lg:col-span-5">
@@ -666,9 +669,11 @@ export default function LocationPage({
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 타이·아로마·스웨디시 코스와 이용 시간을 비교해보세요
               </p>
-              <p className={`mt-4 text-sm sm:text-base font-semibold ${currentTheme.lightText}`}>
-                {ADDITIONAL_FEE_POLICY} · {PAYMENT_POLICY}
-              </p>
+              {hasConfirmedFeePolicy && (
+                <p className={`mt-4 text-sm sm:text-base font-semibold ${currentTheme.lightText}`}>
+                  {ADDITIONAL_FEE_POLICY} · {PAYMENT_POLICY}
+                </p>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
