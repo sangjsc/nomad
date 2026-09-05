@@ -37,6 +37,7 @@ export default function GwangjuPage() {
     <LocationPage
       city="광주"
       cityEn="gwangju"
+      heroTitle="경기도 광주 출장마사지"
       theme="purple"
       heroImage="/images/location-5.jpg"
       teamImages={[

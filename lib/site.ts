@@ -7,6 +7,7 @@ export const KAKAO_CHAT_URL = "https://open.kakao.com/o/ssZxRuEh"
 export const CONSULTATION_HOURS = "오후 7시~오전 4시"
 export const SEO_RELEASE_DATE = "2026-09-01"
 export const PAYMENT_POLICY = "서비스 완료 후 현장 결제"
+export const ADDITIONAL_FEE_POLICY = "출장·주차·야간 추가비 없음"
 export const SERVICE_INFORMATION_UPDATED = "2026-09-03"
 
 export const SERVICE_COURSES = [

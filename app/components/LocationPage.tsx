@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { KAKAO_CHAT_URL, PAYMENT_POLICY, PHONE_DISPLAY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS, SITE_NAME, SITE_URL } from '@/lib/site'
+import { ADDITIONAL_FEE_POLICY, KAKAO_CHAT_URL, PAYMENT_POLICY, PHONE_DISPLAY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS, SERVICE_COURSES, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const themes = {
   rose: {
@@ -177,6 +177,8 @@ export default function LocationPage({
   ],
 }: LocationPageProps) {
   const currentTheme = themes[theme] || themes.rose
+  const startingCourse = SERVICE_COURSES[0]
+  const startingPrice = startingCourse.prices[0]
   const pageUrl = `${SITE_URL}/${cityEn}`
   const fullCityName = cityEn === 'gwangju' ? '경기도 광주시' : `경기도 ${city}시`
   const cityEntity = {
@@ -334,7 +336,7 @@ export default function LocationPage({
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-4 mb-8 lg:mb-12">
+                <div className="flex flex-col gap-4 mb-8 lg:mb-12" data-cta-location="hero">
                   <Button
                     asChild
                     className={`h-auto min-h-12 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} ${currentTheme.hoverGradientFrom} ${currentTheme.hoverGradientVia} ${currentTheme.hoverGradientTo} text-white px-8 py-4 text-lg sm:text-xl rounded-2xl font-bold shadow-xl transition-all duration-300 transform active:scale-95 w-full sm:w-auto hover:shadow-2xl`}
@@ -372,15 +374,21 @@ export default function LocationPage({
                       19:00~04:00 상담
                     </span>
                   </div>
-                  <div className={`bg-gradient-to-br ${currentTheme.lightBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 text-center border ${currentTheme.lightBorder}`}>
-                    <Crown
-                      className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 ${currentTheme.lightText} mx-auto mb-1 sm:mb-2`}
-                    />
+                  <a
+                    href="#services"
+                    aria-label={`${startingCourse.name} ${startingPrice.minutes}분 ${startingPrice.price.toLocaleString('ko-KR')}원부터, 전체 가격표 보기`}
+                    className={`flex flex-col justify-center bg-gradient-to-br ${currentTheme.lightBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 text-center border ${currentTheme.lightBorder} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+                  >
                     <span className="text-xs sm:text-sm lg:text-base font-medium text-gray-700">
-                      코스 선택
+                      {startingCourse.name} {startingPrice.minutes}분
                     </span>
-                  </div>
+                    <strong className={`mt-1 whitespace-nowrap text-xs sm:text-sm lg:text-base ${currentTheme.lightText}`}>
+                      {startingPrice.price.toLocaleString('ko-KR')}원부터
+                    </strong>
+                    <span className="mt-1 text-xs text-gray-600 underline underline-offset-2">가격표 보기</span>
+                  </a>
                 </div>
+                <p className="mt-3 text-center text-xs sm:text-sm text-gray-600 lg:text-left">{ADDITIONAL_FEE_POLICY}</p>
               </div>
 
               <div className="order-2 w-full lg:col-span-5">
@@ -657,6 +665,9 @@ export default function LocationPage({
               ></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 타이·아로마·스웨디시 코스와 이용 시간을 비교해보세요
+              </p>
+              <p className={`mt-4 text-sm sm:text-base font-semibold ${currentTheme.lightText}`}>
+                {ADDITIONAL_FEE_POLICY} · {PAYMENT_POLICY}
               </p>
             </div>
 
