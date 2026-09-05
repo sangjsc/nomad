@@ -377,6 +377,8 @@ export default function LocationPage({
                   </div>
                   <a
                     href="#services"
+                    data-analytics-event="price_table_click"
+                    data-cta-location="hero"
                     aria-label={`${startingCourse.name} ${startingPrice.minutes}분 ${startingPrice.price.toLocaleString('ko-KR')}원부터, 전체 가격표 보기`}
                     className={`flex flex-col justify-center bg-gradient-to-br ${currentTheme.lightBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 text-center border ${currentTheme.lightBorder} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
                   >

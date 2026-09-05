@@ -1,14 +1,28 @@
 "use client"
 
 import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { SERVICE_AREAS } from "@/lib/site"
 
 type ContactMethod = "phone" | "kakao"
 
 declare global {
   interface Window {
-    dataLayer?: unknown[][]
+    dataLayer?: unknown[]
     gtag?: (...args: unknown[]) => void
+  }
+}
+
+function sendEvent(name: string, parameters: Record<string, string>) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, parameters)
+  } else {
+    // Match Google's gtag queue format while the tag initializes.
+    function queueCommand(..._args: unknown[]) {
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push(arguments)
+    }
+    queueCommand("event", name, parameters)
   }
 }
 
@@ -31,7 +45,12 @@ function getCtaLocation(link: HTMLAnchorElement) {
 }
 
 export default function ContactConversionTracker() {
+  const pathname = usePathname()
+
   useEffect(() => {
+    // In-memory, per-page interaction only; not a booking or proof of reading prices.
+    let pricingShortcutUsed = false
+
     const handleClick = (event: MouseEvent) => {
       const target = event.target
       if (!(target instanceof Element)) return
@@ -40,6 +59,8 @@ export default function ContactConversionTracker() {
       if (!link) return
 
       const rawHref = link.getAttribute("href")?.trim() ?? ""
+      const isPricingShortcut =
+        link.getAttribute("data-analytics-event") === "price_table_click" && rawHref === "#services"
       let method: ContactMethod | null = null
 
       if (rawHref.toLowerCase().startsWith("tel:")) {
@@ -53,32 +74,37 @@ export default function ContactConversionTracker() {
         }
       }
 
-      if (!method) return
+      if (!method && !isPricingShortcut) return
 
-      const eventName = method === "phone" ? "phone_click" : "kakao_click"
-      const ctaText = (link.innerText || link.getAttribute("aria-label") || method)
+      const ctaText = (link.innerText || link.getAttribute("aria-label") || method || "price_table")
         .replace(/\s+/g, " ")
         .trim()
         .slice(0, 80)
       const parameters = {
-        contact_method: method,
         service_area: getServiceArea(window.location.pathname),
         cta_location: getCtaLocation(link),
         cta_text: ctaText,
         page_path: window.location.pathname,
       }
 
-      if (typeof window.gtag === "function") {
-        window.gtag("event", eventName, parameters)
-      } else {
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push(["event", eventName, parameters])
+      if (isPricingShortcut) {
+        pricingShortcutUsed = true
+        sendEvent("price_table_click", parameters)
+        return
+      }
+
+      if (method) {
+        sendEvent(method === "phone" ? "phone_click" : "kakao_click", {
+          ...parameters,
+          contact_method: method,
+          pricing_shortcut_used: pricingShortcutUsed ? "yes" : "no",
+        })
       }
     }
 
     document.addEventListener("click", handleClick, true)
     return () => document.removeEventListener("click", handleClick, true)
-  }, [])
+  }, [pathname])
 
   return null
 }
