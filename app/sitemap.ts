@@ -25,7 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const locationUrls: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
     url: `${SITE_URL}/${area.slug}`,
-    lastModified: releaseDate,
+    // All regional pages received the pricing shortcut on this actual release date.
+    lastModified: "2026-09-05",
   }))
 
   const blogListUrls: MetadataRoute.Sitemap = [
