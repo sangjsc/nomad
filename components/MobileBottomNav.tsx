@@ -11,7 +11,7 @@ export default function MobileBottomNav() {
       <div className="grid grid-cols-2 gap-2 px-3 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2">
         <a
           href={PHONE_TEL}
-          aria-label="전화로 즉시 예약"
+          aria-label="전화로 예약 상담"
           className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 px-4 text-base font-bold text-white shadow-md transition-transform active:scale-[0.98]"
         >
           <Phone className="h-5 w-5" aria-hidden="true" />

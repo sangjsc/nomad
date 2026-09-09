@@ -1,38 +1,25 @@
 ---
-title: "마사지 강도 선택 가이드 | 약·중·강 어떻게 고를까?"
+title: "마사지 강도, 약·중·강 중 꼭 골라야 하나요?"
 category: "info"
 date: "2026-02-12"
-updated: "2026-02-12"
-excerpt: "마사지 강도를 약·중·강 중에서 어떻게 선택하면 좋은지, 초보자 기준으로 쉽게 정리했습니다."
+updated: "2026-09-10"
+excerpt: "숫자나 단계가 아니어도 괜찮습니다. 편한 압과 피하고 싶은 자극을 말로 알려주세요."
 tags: ["마사지강도", "약중강", "코스선택", "마사지팁", "초보자가이드"]
 author: "노마드출장마사지"
 image: "/images/spa-image-3.jpg"
 ---
 
-# 마사지 강도 선택 가이드
+“약하게요”라고 했는데 어느 정도인지 설명하기 어려우신가요? 약·중·강 중 하나만 고르기보다는 **어떤 압이 부담스러운지** 함께 말해 주세요.
 
-강도는 만족도에 가장 큰 영향을 주는 요소 중 하나입니다. 무조건 강한 압보다 현재 컨디션에 맞는 강도가 더 중요합니다.
+## 이렇게 요청하셔도 됩니다
 
-## 강도별 특징
+- “처음 받아봐서 강도는 잘 모르겠어요.”
+- “부드럽게 받고 싶어요.”
+- “어깨는 괜찮지만 이쪽은 약하게 해주세요.”
+- “스트레칭은 빼고 싶어요.”
 
-- 약: 자극에 민감하거나 첫 이용일 때 적합
-- 중: 가장 무난하고 보편적인 선택
-- 강: 평소 압에 익숙하고 뻣뻣함이 큰 경우
+## 시작한 뒤 바꿔도 되나요?
 
-## 선택 기준
+네. “조금 더 약하게 해주세요”처럼 바로 말씀해 주세요. 처음 정한 강도를 끝까지 유지해야 하는 것은 아닙니다. 불편한 자극을 참을 필요도 없습니다.
 
-1. 최근 수면 상태
-2. 불편 부위의 민감도
-3. 운동/장거리 이동 여부
-4. 이전 마사지 경험
-
-## 초보자 권장
-
-처음에는 중강도 또는 약~중으로 시작하고, 진행 중에 세부 조정하는 방식이 가장 안전합니다.
-
-## 함께 보면 좋은 페이지
-
-- 60/90/120분 비교: [/blog/massage-course-duration-comparison-60-90-120](/blog/massage-course-duration-comparison-60-90-120)
-- 첫 이용 절차: [/blog/first-visit-reservation-payment-flow](/blog/first-visit-reservation-payment-flow)
-- 허리·하체 가이드: [/blog/lower-back-leg-fatigue-course-guide](/blog/lower-back-leg-fatigue-course-guide)
-
+[이용 시간 비교](/blog/massage-course-duration-comparison-60-90-120) · [처음 이용하는 방법](/blog/first-visit-reservation-payment-flow) · [허리·하체 관련 요청](/blog/lower-back-leg-fatigue-course-guide)

@@ -137,8 +137,8 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
 
                 {matchedArea && (
                   <aside aria-label={`${matchedArea.name} 공식 예약 정보`} className="mb-8 rounded-2xl border border-rose-200 bg-rose-50 p-4 sm:p-5">
-                    <p className="font-semibold text-slate-900">{matchedArea.name}의 현재 가격과 방문 가능 일정을 찾으시나요?</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{CONSULTATION_HOURS} 상담 · {ADDITIONAL_FEE_POLICY}. 가능한 방문 시간은 실제 주소와 접수 상황을 확인해 안내합니다.</p>
+                    <p className="font-semibold text-slate-900">{matchedArea.name} 예약·가격 안내</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{CONSULTATION_HOURS} 상담 · {ADDITIONAL_FEE_POLICY}. 예약할 때 받으실 주소와 원하는 시간을 알려주세요.</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       <Link href={`/${matchedArea.slug}#services`} className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-rose-700 underline underline-offset-4">
                         {matchedArea.name} 코스·가격표
@@ -212,7 +212,7 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
                       navigator.share({ title: post.title, text: post.excerpt, url: window.location.href });
                     } else {
                       navigator.clipboard.writeText(window.location.href);
-                      alert('링크가 클립보드에 복사되었습니다!');
+                      alert('링크를 복사했습니다.');
                     }
                   }}
                 >
@@ -227,16 +227,16 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
         <section className="py-16 lg:py-20 bg-rose-500">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto text-white">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">예약 전 서비스 지역과 시간을 확인하세요</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">예약이 필요하신가요?</h2>
               <p className="text-lg lg:text-xl mb-6 text-rose-100 font-semibold">
-                {matchedArea ? `${matchedArea.fullName}의 공식 운영 정보로 이어집니다` : "전체 공식 서비스 지역을 확인하세요"}
+                {matchedArea ? `${matchedArea.name}에서 받으실 장소와 원하는 시간을 알려주세요.` : "받으실 지역과 원하는 시간을 알려주세요."}
               </p>
               <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-8 text-white">
                 {contextualAreas.map((area, index) => (
                   <span key={area.slug} className="inline-flex items-center gap-2">
                     {index > 0 ? <span>|</span> : null}
                     <Link href={`/${area.slug}`} className="hover:text-rose-200 underline transition-colors">
-                      {area.name} 공식 서비스 안내
+                      {area.name} 예약 안내
                     </Link>
                   </span>
                 ))}

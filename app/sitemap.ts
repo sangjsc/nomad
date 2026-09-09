@@ -55,10 +55,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   return [
-    { url: SITE_URL, lastModified: releaseDate },
-    { url: `${SITE_URL}/service-areas`, lastModified: releaseDate },
-    { url: `${SITE_URL}/about`, lastModified: releaseDate },
-    { url: `${SITE_URL}/contact`, lastModified: new Date("2026-09-03T00:00:00+09:00") },
+    { url: SITE_URL, lastModified: "2026-09-10" },
+    { url: `${SITE_URL}/service-areas`, lastModified: "2026-09-10" },
+    { url: `${SITE_URL}/about`, lastModified: "2026-09-10" },
+    { url: `${SITE_URL}/contact`, lastModified: "2026-09-10" },
     ...blogListUrls,
     ...paginatedListUrls,
     ...locationUrls,

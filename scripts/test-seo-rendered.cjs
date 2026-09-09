@@ -4,6 +4,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 const root = path.resolve(__dirname, '..', '.next', 'server', 'app')
 const read = (name) => fs.readFileSync(path.join(root, name), 'utf8')
+const renderedText = (html) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<[^>]+>/g, ' ')
 const sitemap = read('sitemap.xml.body')
 const urls = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1])
 assert.equal(urls.length, 100)
@@ -21,6 +22,13 @@ for (const region of regions) {
   assert.ok(nav, region)
   assert.ok(nav.includes('data-cta-location="local_guide_nav"'), region)
   assert.ok(/<a[^>]*href="#services"[^>]*data-analytics-event="price_table_click"/.test(nav), region)
+  const priceTables = Array.from(html.matchAll(/<table\b[^>]*>[\s\S]*?<\/table>/g), (match) =>
+    Array.from(match[0].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g), (cell) => renderedText(cell[1]).trim()))
+  assert.deepEqual(priceTables, [
+    ['60분', '70,000원', '90분', '80,000원', '120분', '100,000원'],
+    ['60분', '80,000원', '90분', '90,000원', '120분', '110,000원'],
+    ['60분', '100,000원', '90분', '130,000원', '120분', '160,000원'],
+  ], `${region}: price tables`)
   for (const [, target] of nav.matchAll(/href="#([^"]+)"/g)) {
     assert.equal((html.match(new RegExp(`id="${target}"`, 'g')) || []).length, 1, `${region}#${target}`)
   }
@@ -53,4 +61,12 @@ const faq = read('blog/suwon-weekend-night-booking-faq.html')
 assert.ok(faq.includes('href="/blog/icheon-eup-myeon-booking-guide"'))
 assert.ok(!faq.includes('icheon-bubal-majang-booking-notes'))
 assert.ok(!/빠른 회복|깊은 근육 이완|문의가 가장 몰리는/.test(faq))
+const articleUrls = urls.filter((url) => /^\/blog\/[^/]+$/.test(new URL(url).pathname) && !/\/(official|regional|info)$/.test(url))
+for (const url of articleUrls) {
+  const html = read(new URL(url).pathname.slice(1) + '.html')
+  assert.ok(!renderedText(html).includes('**'), `${url}: visible Markdown delimiter`)
+  assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, url)
+  assert.ok(html.includes(`rel="canonical" href="${url}"`), url)
+}
 console.log('PASS rendered SEO: sitemap 100 unique URLs; 22 regional navigations, anchors, H1/canonicals and price tracking; 6 regional article shortcuts; 2 corrected Suwon articles.')
+console.log(`PASS copy regression: all 22 regional price tables unchanged; ${articleUrls.length} published articles have one H1, self-canonical and no visible Markdown delimiters.`)

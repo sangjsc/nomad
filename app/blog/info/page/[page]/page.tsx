@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: InfoPaginatedPageProps): Prom
 
   if (page === 1) {
     return {
-      title: "테라피 인사이트 | 노마드출장마사지 블로그",
+      title: "코스 선택과 준비 | 노마드출장마사지 블로그",
       alternates: {
         canonical: "https://www.nomadthai.kr/blog/info",
       },
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: InfoPaginatedPageProps): Prom
     }
   }
 
-  const title = `테라피 인사이트 ${page}페이지 | 노마드출장마사지 블로그`
+  const title = `코스 선택과 준비 ${page}페이지 | 노마드출장마사지 블로그`
   const description = `마사지 이용 팁과 웰빙 정보 ${page}페이지입니다.`
   const url = `https://www.nomadthai.kr/blog/info/page/${page}`
 

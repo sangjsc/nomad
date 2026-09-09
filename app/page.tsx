@@ -6,10 +6,10 @@ const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 export const metadata: Metadata = {
   title: "노마드출장마사지 | 경기 주요 22개 지역 예약 안내",
   description:
-    "경기 주요 22개 지역 출장마사지·홈타이 예약 안내. 이천, 경기 광주, 여주, 용인, 수원, 화성 등에서 주소와 희망 시간을 확인해 방문 가능 일정을 안내합니다.",
+    "이천·경기 광주·여주·용인 등 경기 22개 지역 출장마사지·홈타이. 타이 60분 7만원부터, 출장·주차·야간 추가비 없이 받으세요. 오후 7시~오전 4시 상담, 결제는 마사지 후에 합니다.",
   openGraph: {
     title: "노마드출장마사지 | 경기 주요 22개 지역 예약 안내",
-    description: "오후 7시~오전 4시 경기 출장마사지. 집이나 호텔에서 편하게 받는 프리미엄 힐링 서비스.",
+    description: "집에서 편하게 받는 타이·아로마·스웨디시. 경기 22개 지역, 추가비 없이 마사지 후 결제하세요. 오후 7시~오전 4시 상담합니다.",
     url: "https://www.nomadthai.kr",
     siteName: "노마드출장마사지",
     locale: "ko_KR",

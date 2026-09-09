@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: OfficialPaginatedPageProps): 
 
   if (page === 1) {
     return {
-      title: "공식 소식 | 노마드출장마사지 블로그",
+      title: "노마드 소식 | 노마드출장마사지 블로그",
       alternates: {
         canonical: "https://www.nomadthai.kr/blog/official",
       },
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: OfficialPaginatedPageProps): 
     }
   }
 
-  const title = `공식 소식 ${page}페이지 | 노마드출장마사지 블로그`
+  const title = `노마드 소식 ${page}페이지 | 노마드출장마사지 블로그`
   const description = `노마드출장마사지 공식 공지와 운영 소식 ${page}페이지입니다.`
   const url = `https://www.nomadthai.kr/blog/official/page/${page}`
 

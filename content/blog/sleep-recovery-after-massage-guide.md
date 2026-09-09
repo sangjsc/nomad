@@ -1,35 +1,22 @@
 ---
-title: "마사지 후 수면 회복 가이드 | 다음날 컨디션 올리는 법"
+title: "늦게 마사지 받을 때, 끝나는 시간도 확인하세요"
 category: "info"
 date: "2026-02-12"
-updated: "2026-02-12"
-excerpt: "마사지 후 수면의 질을 높이면 다음날 회복 체감이 달라집니다. 취침 전 루틴을 중심으로 정리했습니다."
-tags: ["마사지후수면", "회복가이드", "컨디션관리", "웰빙", "수면루틴"]
+updated: "2026-09-10"
+excerpt: "잠들기 전 받고 싶다면 시작 시간뿐 아니라 마치는 시간까지 생각해서 코스를 골라보세요."
+tags: ["심야이용","예약시간","휴식","이용안내","코스선택"]
 author: "노마드출장마사지"
 image: "/images/spa-image-1.jpg"
 ---
 
-# 마사지 후 수면 회복 가이드
+잠들기 전에 받고 싶다면 몇 시에 시작할지뿐 아니라 **몇 시쯤 마치고 싶은지**도 말씀해 주세요. 늦은 시간이라고 무조건 긴 코스를 고를 필요는 없습니다.
 
-마사지 효과는 수면과 함께 완성됩니다. 취침 전 1~2시간 루틴을 정리하면 다음날 피로감이 줄어드는 경우가 많습니다.
+## 이용 뒤 일정이 있나요?
 
-## 취침 전 권장 루틴
+다음 날 일찍 나가야 하거나 정해둔 취침 시간이 있다면, 그 일정에 맞춰 받을 시간을 고르세요. 방문 가능한 시간은 상담에서 확인한 뒤 결정하시면 됩니다.
 
-1. 미지근한 물로 짧은 샤워
-2. 카페인 섭취 중단
-3. 조도 낮춘 환경 준비
-4. 스마트폰 사용 시간 줄이기
-5. 가벼운 호흡 정리 3분
+## 코스를 받으면 잠을 잘 잘 수 있나요?
 
-## 피하면 좋은 행동
+이 글에서 숙면이나 다음 날 컨디션을 약속하지는 않습니다. 받고 싶은 방식과 본인의 일정에 맞춰 선택해 주세요.
 
-- 취침 직전 과식
-- 강한 운동
-- 장시간 화면 노출
-
-## 함께 보면 좋은 페이지
-
-- 마사지 후 관리 체크리스트: [/blog/massage-aftercare-checklist](/blog/massage-aftercare-checklist)
-- 마사지 전 체크리스트: [/blog/pre-massage-do-dont-checklist](/blog/pre-massage-do-dont-checklist)
-- 첫 이용 절차: [/blog/first-visit-reservation-payment-flow](/blog/first-visit-reservation-payment-flow)
-
+[이용 전 준비](/blog/pre-massage-do-dont-checklist) · [서비스 후 확인할 것](/blog/massage-aftercare-checklist) · [처음 예약하고 결제하는 순서](/blog/first-visit-reservation-payment-flow)

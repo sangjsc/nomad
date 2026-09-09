@@ -12,9 +12,9 @@ export default function SiteTrustBar() {
     <aside className="border-t border-slate-800 bg-slate-950 text-slate-300" aria-label="공식 운영 정보">
       <div className="container mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="font-semibold text-white">노마드출장마사지 공식 운영 정보</p>
+          <p className="font-semibold text-white">노마드출장마사지 예약·문의</p>
           <p className="mt-1 text-sm leading-6 text-slate-400">
-            {CONSULTATION_HOURS} 상담 · {PAYMENT_POLICY} · 정보 확인일{" "}
+            {CONSULTATION_HOURS} 상담 · {PAYMENT_POLICY} · 기준일{" "}
             <time dateTime={SERVICE_INFORMATION_UPDATED}>{SERVICE_INFORMATION_UPDATED}</time>
           </p>
         </div>

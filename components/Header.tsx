@@ -14,7 +14,7 @@ const priorityNavLinks = [
 
 const utilityNavLinks = [
   { href: "/", label: "홈", icon: Crown },
-  { href: "/service-areas", label: "전체지역 안내", icon: MapPin },
+  { href: "/service-areas", label: "전체 지역 안내", icon: MapPin },
   { href: "/about", label: "이용 안내", icon: Sparkles },
   { href: "/blog", label: "블로그", icon: Heart },
 ]
@@ -28,7 +28,7 @@ export default function Header() {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-rose-300" />
-                <span className="text-slate-200">이천 · 광주 · 여주 · 용인 · 수원 · 화성 · 평택 · 시흥 · 부천 · 광명 외 경기권 다수 지역</span>
+                <span className="text-slate-200">이천·경기 광주·여주·용인 등 경기 22개 지역</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Sparkles className="h-4 w-4 text-rose-300" />
@@ -59,7 +59,7 @@ export default function Header() {
                 <p className="truncate bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-base font-bold text-transparent sm:text-xl md:text-2xl">
                   노마드출장마사지
                 </p>
-                <p className="-mt-1 hidden text-xs text-slate-500 sm:block md:text-sm">Premium Massage Service</p>
+                <p className="-mt-1 hidden text-xs text-slate-500 sm:block md:text-sm">방문 마사지 · 후불제</p>
               </div>
             </Link>
 
@@ -86,10 +86,10 @@ export default function Header() {
                   <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3">
                     <div>
                       <p className="font-bold text-slate-900">경기 지역별 출장마사지</p>
-                      <p className="mt-1 text-xs text-slate-500">원하는 지역 페이지로 바로 이동하세요</p>
+                      <p className="mt-1 text-xs text-slate-500">받으실 지역을 선택해주세요</p>
                     </div>
                     <Link href="/service-areas" className="text-sm font-semibold text-rose-600 hover:text-rose-700">
-                      전체 안내 보기
+                      전체 지역 보기
                     </Link>
                   </div>
                   <div className="grid grid-cols-4 gap-2">
@@ -97,7 +97,7 @@ export default function Header() {
                       <Link
                         key={area.slug}
                         href={`/${area.slug}`}
-                        title={`${area.fullName} 출장마사지 페이지`}
+                        title={`${area.fullName} 출장마사지 예약 안내`}
                         className="flex min-h-10 items-center rounded-xl border border-slate-100 bg-slate-50 px-3 text-sm font-medium text-slate-700 transition-colors hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
                       >
                         {area.name}
@@ -123,7 +123,7 @@ export default function Header() {
 
             <div className="hidden md:block">
               <Button asChild className="rounded-full bg-gradient-to-r from-rose-500 to-rose-600 px-6 py-3 font-semibold text-white shadow-lg hover:from-rose-600 hover:to-rose-700">
-                <a href={PHONE_TEL}><Phone className="mr-2 h-4 w-4" />지금 예약</a>
+                <a href={PHONE_TEL}><Phone className="mr-2 h-4 w-4" />전화 상담</a>
               </Button>
             </div>
 
@@ -148,7 +148,7 @@ export default function Header() {
                       <Link
                         key={area.slug}
                         href={`/${area.slug}`}
-                        title={`${area.fullName} 출장마사지 페이지`}
+                        title={`${area.fullName} 출장마사지 예약 안내`}
                         className={`flex min-h-11 items-center rounded-xl border px-3 text-sm font-medium transition-colors ${
                           area.tier === 1
                             ? "border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100"
@@ -172,7 +172,7 @@ export default function Header() {
                   })}
                   </div>
                   <Button asChild size="sm" className="mt-2 min-h-11 w-full rounded-lg bg-gradient-to-r from-rose-500 to-rose-600 font-semibold text-white hover:from-rose-600 hover:to-rose-700">
-                    <a href={PHONE_TEL}><Phone className="mr-2 h-4 w-4" />예약하기</a>
+                    <a href={PHONE_TEL}><Phone className="mr-2 h-4 w-4" />전화 상담</a>
                   </Button>
                 </nav>
               </div>

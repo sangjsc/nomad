@@ -43,28 +43,28 @@ export default function BlogPageClient({
 }: BlogPageClientProps) {
   const categories: Array<{ id: 'all' | BlogCategory; label: string; href: string }> = [
     { id: 'all', label: '전체', href: '/blog' },
-    { id: 'official', label: '[공식] 브랜드 소식', href: '/blog/official' },
-    { id: 'regional', label: '[경기] 지역별 이용 가이드', href: '/blog/regional' },
-    { id: 'info', label: '[정보] 테라피 인사이트', href: '/blog/info' },
+    { id: 'official', label: '노마드 소식', href: '/blog/official' },
+    { id: 'regional', label: '지역별 이용 방법', href: '/blog/regional' },
+    { id: 'info', label: '코스 선택과 준비', href: '/blog/info' },
   ]
 
   const pageTitle =
     category === 'official'
-      ? '공식 소식'
+      ? '노마드 소식'
       : category === 'regional'
-        ? '경기 지역 가이드'
+        ? '지역별 이용 방법'
         : category === 'info'
-          ? '테라피 인사이트'
+          ? '코스 선택과 준비'
           : '블로그'
 
   const pageDescription =
     category === 'official'
-      ? '운영 공지, 서비스 변경사항, 정책 업데이트를 확인하세요.'
+      ? '운영시간과 결제 방법 등 이용하실 때 알아두실 소식입니다.'
       : category === 'regional'
-        ? '지역별 출장마사지 예약 포인트와 이용 팁을 확인하세요.'
+        ? '우리 동네에서 예약하는 방법, 숙소에서 받을 때 궁금한 점을 모았습니다.'
         : category === 'info'
-          ? '마사지 전후 관리와 코스 선택에 도움이 되는 정보를 확인하세요.'
-          : '출장마사지 이용 정보와 지역별 가이드를 확인하세요.'
+          ? '어떤 코스를 고를지, 받기 전후에는 무엇을 챙길지 살펴보세요.'
+          : '처음 예약할 때 궁금한 점부터 코스 고르는 방법까지, 필요한 글을 찾아보세요.'
 
   const currentPath = buildPageHref(basePath, currentPage)
 
@@ -72,7 +72,7 @@ export default function BlogPageClient({
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: '노마드출장마사지 블로그',
-    description: '출장마사지 이용 정보와 지역별 가이드를 제공하는 공식 블로그',
+    description: '출장마사지 예약 방법, 코스 선택과 지역별 이용 방법을 정리한 노마드 블로그',
     url: `${SITE_URL}${currentPath}`,
     publisher: {
       '@id': `${SITE_URL}/#organization`,
@@ -157,14 +157,14 @@ export default function BlogPageClient({
                 <Tag className="h-10 w-10 text-rose-400" />
               </div>
               <h2 className="mb-2 text-2xl font-bold text-gray-800">등록된 글이 없습니다.</h2>
-              <p className="text-gray-600">다른 카테고리에서 최신 콘텐츠를 확인해보세요.</p>
+              <p className="text-gray-600">다른 주제의 글을 살펴보세요.</p>
             </div>
           )}
         </main>
 
         <div className="mt-16 border-t bg-white py-8">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="mb-4 text-xl font-bold text-gray-800 md:text-2xl">다른 지역 페이지 함께 보기</h2>
+            <h2 className="mb-4 text-xl font-bold text-gray-800 md:text-2xl">계신 지역의 가격과 예약 방법</h2>
             <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
               {PRIMARY_SERVICE_AREAS.map((area) => (
                 <Link key={area.slug} href={`/${area.slug}`} className="font-semibold text-rose-500 hover:text-rose-600">
