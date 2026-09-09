@@ -46,6 +46,7 @@ for (const [slug, region] of Object.entries(blogCases)) {
 
 const timeGuide = read('blog/suwon-booking-time-guide.html')
 assert.ok(timeGuide.includes('19:00~04:00'))
+assert.ok(!timeGuide.includes('**오후 7시'))
 assert.ok(!/09:00-12:00|12:00-18:00|18:00-23:00/.test(timeGuide))
 assert.ok(timeGuide.includes('2026-09-10'))
 const faq = read('blog/suwon-weekend-night-booking-faq.html')
