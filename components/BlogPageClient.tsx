@@ -115,7 +115,7 @@ export default function BlogPageClient({
               </div>
 
               {totalPages > 1 && (
-                <nav className="mt-10 flex items-center justify-center gap-2 md:mt-12" aria-label="블로그 페이지 이동">
+                <nav className="mt-10 flex flex-wrap items-center justify-center gap-2 md:mt-12" aria-label="블로그 페이지 이동">
                   {currentPage > 1 && (
                     <Link
                       href={buildPageHref(basePath, currentPage - 1)}
