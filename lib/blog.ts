@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { getPostServiceArea } from './blog-utils'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 const redirectedPostSlugs = new Set([
@@ -187,12 +188,27 @@ export function getPostLastModified(post: BlogPostSummary): string {
 }
 
 export function getRelatedPosts(post: BlogPostSummary, limit = 3): BlogPostSummary[] {
+  const safeLimit = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : 0
+  if (!safeLimit || post.draft || redirectedPostSlugs.has(post.slug)) return []
+
   const allPosts = getSortedPostsData()
+  const sourceArea = getPostServiceArea(post)
   const sourceTags = new Set(post.tags || [])
+  const seenSlugs = new Set([post.slug])
 
   const scored = allPosts
-    .filter((candidate) => candidate.slug !== post.slug)
+    .filter((candidate) => {
+      if (candidate.draft || redirectedPostSlugs.has(candidate.slug) || seenSlugs.has(candidate.slug)) return false
+      seenSlugs.add(candidate.slug)
+      return true
+    })
     .map((candidate) => {
+      const candidateArea = getPostServiceArea(candidate)
+      const sameArea = Boolean(sourceArea && candidateArea?.slug === sourceArea.slug)
+      const generalGuide = !candidateArea && (candidate.category === 'info' || candidate.category === 'official')
+      // Region comes before generic shared tags. If local coverage is sparse,
+      // useful non-regional guidance can fill the gap, but another city's page cannot.
+      const relevanceTier = sameArea ? 0 : generalGuide ? 1 : 2
       let score = 0
       if (candidate.category && post.category && candidate.category === post.category) {
         score += 3
@@ -202,14 +218,18 @@ export function getRelatedPosts(post: BlogPostSummary, limit = 3): BlogPostSumma
       if (score === 0) {
         score = 1
       }
-      return { candidate, score }
+      return { candidate, score, relevanceTier }
     })
+    .filter((item) => item.relevanceTier < 2)
     .sort((a, b) => {
+      if (a.relevanceTier !== b.relevanceTier) {
+        return a.relevanceTier - b.relevanceTier
+      }
       if (b.score !== a.score) {
         return b.score - a.score
       }
       return new Date(getPostLastModified(b.candidate)).getTime() - new Date(getPostLastModified(a.candidate)).getTime()
     })
 
-  return scored.slice(0, limit).map((item) => item.candidate)
+  return scored.slice(0, safeLimit).map((item) => item.candidate)
 }

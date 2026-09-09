@@ -5,8 +5,8 @@ import Image from "next/image"
 import { Calendar, User, ArrowLeft, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { BlogPost, BlogPostSummary } from "@/lib/blog"
-import { extractCityFromTitle } from "@/lib/blog-utils"
-import { PHONE_TEL, SERVICE_AREAS } from "@/lib/site"
+import { getPostServiceArea } from "@/lib/blog-utils"
+import { ADDITIONAL_FEE_POLICY, CONSULTATION_HOURS, PHONE_TEL } from "@/lib/site"
 
 interface BlogLayoutProps {
   post: BlogPost
@@ -15,14 +15,10 @@ interface BlogLayoutProps {
 }
 
 export default function BlogLayout({ post, relatedPosts = [], children }: BlogLayoutProps) {
-  const city = post.category === 'regional' ? extractCityFromTitle(post.title) : ''
+  const matchedArea = getPostServiceArea(post)
+  const city = matchedArea?.name || ''
   const imageAlt = city ? `${city} 출장마사지 노마드타이` : post.title
   const modifiedDate = post.updated || post.date
-  const postSearchText = [post.title, ...(post.tags || [])].join(' ')
-  const matchedArea = SERVICE_AREAS.find((area) => {
-    const shortName = area.name.replace('경기 ', '')
-    return postSearchText.includes(area.name) || postSearchText.includes(shortName)
-  })
   const contextualAreas = matchedArea ? [matchedArea] : []
 
   const jsonLd = {
@@ -138,6 +134,21 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
                     </div>
                   )}
                 </div>
+
+                {matchedArea && (
+                  <aside aria-label={`${matchedArea.name} 공식 예약 정보`} className="mb-8 rounded-2xl border border-rose-200 bg-rose-50 p-4 sm:p-5">
+                    <p className="font-semibold text-slate-900">{matchedArea.name}의 현재 가격과 방문 가능 일정을 찾으시나요?</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{CONSULTATION_HOURS} 상담 · {ADDITIONAL_FEE_POLICY}. 가능한 방문 시간은 실제 주소와 접수 상황을 확인해 안내합니다.</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <Link href={`/${matchedArea.slug}#services`} className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-rose-700 underline underline-offset-4">
+                        {matchedArea.name} 코스·가격표
+                      </Link>
+                      <Link href={`/${matchedArea.slug}#local-guide`} className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-rose-700 underline underline-offset-4">
+                        {matchedArea.name} 지역별 예약 안내
+                      </Link>
+                    </div>
+                  </aside>
+                )}
 
                 <div className="prose prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-bold prose-headings:text-gray-800 prose-a:text-rose-600 hover:prose-a:text-rose-700 prose-strong:text-gray-800">
                   {children}

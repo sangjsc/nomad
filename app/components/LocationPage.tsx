@@ -435,6 +435,15 @@ export default function LocationPage({
           </div>
         </section>
 
+        <nav aria-label={`${city} 예약 안내 바로가기`} data-cta-location="local_guide_nav" className="container mx-auto px-4 pb-4 sm:px-6">
+          <div className="flex flex-wrap justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-sm font-semibold text-slate-700">
+            <a href="#services" data-analytics-event="price_table_click" className="inline-flex min-h-11 items-center rounded-xl bg-slate-50 px-4 py-2 hover:bg-slate-100">가격·코스</a>
+            <a href="#local-guide" className="inline-flex min-h-11 items-center rounded-xl bg-slate-50 px-4 py-2 hover:bg-slate-100">지역별 예약 안내</a>
+            <a href="#location-faq" className="inline-flex min-h-11 items-center rounded-xl bg-slate-50 px-4 py-2 hover:bg-slate-100">자주 묻는 질문</a>
+            {relatedContentLinks.length > 0 && <a href="#booking-guides" className="inline-flex min-h-11 items-center rounded-xl bg-slate-50 px-4 py-2 hover:bg-slate-100">상세 이용 가이드</a>}
+          </div>
+        </nav>
+
         <section
           id="about"
           className={`py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/20`}
@@ -643,7 +652,7 @@ export default function LocationPage({
 
         <section
           id="services"
-          className={`py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/40`}
+          className={`scroll-mt-24 py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/40`}
         >
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 lg:mb-20">
@@ -989,7 +998,7 @@ export default function LocationPage({
         </section>
 
         {/* Local Information Section */}
-        <section className={`py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/20`}>
+        <section id="local-guide" className={`scroll-mt-24 py-16 lg:py-24 bg-gradient-to-br from-white via-gray-50 ${currentTheme.lightBg}/20`}>
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12 lg:mb-16">
               <div className={`inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6`}>
@@ -1059,7 +1068,7 @@ export default function LocationPage({
             </div>
 
             {/* Enhanced FAQ Section */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-xl">
+            <div id="location-faq" className="scroll-mt-24 bg-white/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-xl">
               <div className="text-center mb-8 lg:mb-12">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
                   {city}출장마사지 자주 묻는 질문
@@ -1078,7 +1087,7 @@ export default function LocationPage({
             </div>
 
             {relatedContentLinks.length > 0 && (
-              <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-lg lg:p-8">
+              <div id="booking-guides" className="mt-8 scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-lg lg:p-8">
                 <h3 className="text-2xl font-bold text-gray-800">{city} 예약 전 함께 볼 안내</h3>
                 <p className="mt-2 text-gray-600">위치와 시간대에 맞는 예약 정보를 먼저 확인해보세요.</p>
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
