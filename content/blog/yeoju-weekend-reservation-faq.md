@@ -15,7 +15,7 @@ image: "/images/location-2.jpg"
 
 ## 읍·면에 있으면 추가비가 있나요?
 
-없습니다. 출장비·주차비·야간 추가비는 받지 않습니다. [여주 가격표](/yeoju)에서 선택한 코스의 금액을 확인해 주세요. 건물 입구를 설명하기 어렵다면 [읍·면 주소 보내는 방법](/blog/yeoju-eup-myeon-night-booking-guide)을 참고하셔도 됩니다.
+없습니다. 출장비·주차비·야간 추가비는 받지 않습니다. [여주 가격표](/yeoju#services)에서 선택한 코스의 금액을 확인해 주세요. 건물 입구를 설명하기 어렵다면 [읍·면 주소 보내는 방법](/blog/yeoju-eup-myeon-night-booking-guide)을 참고하셔도 됩니다.
 
 ## 예약금은 얼마인가요?
 

@@ -1,9 +1,28 @@
 import Link from 'next/link'
-import { Tag } from 'lucide-react'
+import { ArrowRight, Tag } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import BlogCard from '@/components/BlogCard'
 import type { BlogPostSummary, BlogCategory } from '@/lib/blog'
 import { PRIMARY_SERVICE_AREAS, SITE_URL } from '@/lib/site'
+
+const PRIORITY_REGION_GUIDES = [
+  {
+    city: '이천',
+    links: [
+      { href: '/blog/icheon-massage-guide', label: '호텔·숙소에서 예약하기' },
+      { href: '/blog/icheon-eup-myeon-booking-guide', label: '읍·면 주소 보내기' },
+      { href: '/blog/icheon-night-booking-checklist', label: '밤 10시 이후 문의하기' },
+    ],
+  },
+  {
+    city: '여주',
+    links: [
+      { href: '/blog/yeoju-massage-guide', label: '처음 예약하기' },
+      { href: '/blog/yeoju-eup-myeon-night-booking-guide', label: '읍·면에서 심야 예약하기' },
+      { href: '/blog/yeoju-weekend-reservation-faq', label: '주말 예약 질문' },
+    ],
+  },
+] as const
 
 interface BlogPageClientProps {
   posts: BlogPostSummary[]
@@ -80,6 +99,10 @@ export default function BlogPageClient({
   }
 
   const visiblePages = getVisiblePages(currentPage, totalPages)
+  const showPriorityGuides = currentPage === 1 && (
+    (basePath === '/blog' && category === 'all') ||
+    (basePath === '/blog/regional' && category === 'regional')
+  )
 
   return (
     <>
@@ -104,6 +127,29 @@ export default function BlogPageClient({
               </Link>
             ))}
           </div>
+
+          {showPriorityGuides && (
+            <section aria-labelledby="priority-region-guides-title" className="mb-10 md:mb-12">
+              <h2 id="priority-region-guides-title" className="mb-4 text-xl font-bold text-gray-900">이천·여주 이용 안내</h2>
+              <div className="grid min-w-0 gap-4 sm:grid-cols-2">
+                {PRIORITY_REGION_GUIDES.map((guide) => (
+                  <article key={guide.city} className="min-w-0 rounded-2xl border border-rose-100 bg-white p-4">
+                    <h3 className="text-lg font-bold text-gray-900">{guide.city} 예약 안내</h3>
+                    <ul className="mt-3 space-y-1">
+                      {guide.links.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} className="flex min-h-11 items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-medium text-rose-700 transition-colors hover:bg-rose-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500">
+                            <span className="min-w-0 break-keep">{link.label}</span>
+                            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           {posts.length > 0 ? (
             <>

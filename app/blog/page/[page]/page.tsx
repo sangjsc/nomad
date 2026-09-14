@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound, permanentRedirect } from "next/navigation"
 import BlogPageClient from "@/components/BlogPageClient"
+import { parsePageNumber } from "@/lib/blog-pagination"
 import {
   BLOG_POSTS_PER_PAGE,
   getAllPostsPageCount,
@@ -12,14 +13,6 @@ interface BlogPaginatedPageProps {
   params: Promise<{
     page: string
   }>
-}
-
-function parsePageNumber(rawPage: string): number | null {
-  const page = Number(rawPage)
-  if (!Number.isInteger(page) || page < 1) {
-    return null
-  }
-  return page
 }
 
 export function generateStaticParams() {
@@ -94,6 +87,10 @@ export default async function BlogPaginatedPage({ params }: BlogPaginatedPagePro
 
   if (page > paginated.totalPages) {
     notFound()
+  }
+
+  if (rawPage !== String(page)) {
+    permanentRedirect(`/blog/page/${page}`)
   }
 
   return (
