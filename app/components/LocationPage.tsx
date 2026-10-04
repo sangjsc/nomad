@@ -181,6 +181,8 @@ export default function LocationPage({
   const startingPrice = startingCourse.prices[0]
   const pageUrl = `${SITE_URL}/${cityEn}`
   const fullCityName = cityEn === 'gwangju' ? '경기도 광주시' : `경기도 ${city}시`
+  const bookingCityName = cityEn === 'gwangju' ? '경기 광주' : city
+  const bookingAreas = [...new Set([fullCityName, ...areas])].slice(0, 5)
   const cityEntity = {
     "@type": "City",
     "@id": `${pageUrl}#area`,
@@ -926,13 +928,13 @@ export default function LocationPage({
                 </span>
               </div>
               <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">
-                예약은 이렇게 하시면 됩니다
+                예약할 때 알려주세요
               </h2>
               <div
                 className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} mx-auto mb-6 lg:mb-8`}
               ></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                긴 설명은 필요 없습니다. 계신 곳, 원하는 시간, 코스를 알려주세요.
+                받으실 주소와 원하는 시간을 알려주세요. 코스는 상담하면서 정하셔도 됩니다.
               </p>
             </div>
 
@@ -956,13 +958,13 @@ export default function LocationPage({
                     <div className="absolute inset-0 bg-white/0 transition-all duration-500 md:group-hover:bg-white/20"></div>
 
                     <div
-                      className={`absolute inset-0 bg-gradient-to-t ${item.gradient} opacity-100 transition-all duration-500 md:opacity-0 md:group-hover:opacity-100`}
+                      className={`absolute inset-0 bg-gradient-to-t ${item.gradient}`}
                     ></div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-white/10 opacity-100 transition-all duration-300 md:opacity-0 md:group-hover:opacity-100"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-white/10"></div>
 
-                    <div className="absolute inset-0 flex translate-y-0 transform flex-col justify-end p-4 transition-all duration-300 md:translate-y-2 md:group-hover:translate-y-0 lg:p-6">
-                      <div className="rounded-2xl border border-white/40 bg-white/90 p-4 opacity-100 shadow-lg backdrop-blur-sm transition-all duration-500 delay-100 md:opacity-0 md:group-hover:opacity-100 lg:p-6">
+                    <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">
+                      <div className="rounded-2xl border border-white/40 bg-white/90 p-4 shadow-lg backdrop-blur-sm lg:p-6">
                         <div className="flex items-center space-x-3 mb-3">
                           <div
                             className={`w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br ${currentTheme.gradientFrom} ${currentTheme.gradientTo} rounded-full flex items-center justify-center shadow-md`}
@@ -1184,7 +1186,7 @@ export default function LocationPage({
           </div>
         </section>
 
-        <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-purple-900">
+        <section id="booking-contact" aria-labelledby="booking-contact-title" className="py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-purple-900">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
               <Card
@@ -1198,18 +1200,18 @@ export default function LocationPage({
                     <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
                       <Crown className="w-4 h-4 lg:w-5 lg:h-5" />
                       <span className="font-semibold text-sm lg:text-base">
-                        BOOKING GUIDE
+                        전화·카카오톡 문의
                       </span>
                     </div>
-                    <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">
-                      오늘 {city}에서 받고 싶으시면
+                    <h2 id="booking-contact-title" className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">
+                      {bookingCityName} 예약 문의
                     </h2>
                     <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8">
-                      계신 곳과 원하는 시간을 보내주세요. 코스가 고민되시면 함께 물어보셔도 됩니다.
+                      원하는 시간에 예약할 수 있는지 먼저 물어보세요. 코스와 금액도 함께 알려드립니다.
                     </p>
                     <div className="flex items-center justify-center space-x-3 lg:space-x-4 text-xl lg:text-3xl font-bold mb-6 lg:mb-10">
                       <Phone className="w-6 h-6 lg:w-8 lg:h-8" />
-                      <span>010-8186-7771</span>
+                      <span>{PHONE_DISPLAY}</span>
                     </div>
                   </div>
 
@@ -1218,7 +1220,7 @@ export default function LocationPage({
                       asChild
                       className={`h-auto min-h-12 bg-white ${currentTheme.text} hover:bg-rose-50 px-6 lg:px-10 py-3 lg:py-4 text-lg lg:text-xl rounded-full font-bold shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto`}
                     >
-                    <a href={PHONE_TEL} aria-label={`${city} 출장마사지 전화 예약`}>
+                      <a href={PHONE_TEL} aria-label={`${city} 출장마사지 전화 예약`}>
                         <Phone className="w-5 h-5 mr-2" />
                         전화로 예약하기
                       </a>
@@ -1234,10 +1236,10 @@ export default function LocationPage({
                   </div>
 
                   <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-4">
-                    {['이천시', '경기도 광주시', '여주시', '용인시', '수원시'].map(
-                      (area, index) => (
+                    {bookingAreas.map(
+                      (area) => (
                         <div
-                          key={index}
+                          key={area}
                           className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 lg:p-4 hover:bg-white/20 transition-all duration-300"
                         >
                           <MapPin className="w-4 h-4 lg:w-6 lg:h-6 mx-auto mb-1 lg:mb-2" />
