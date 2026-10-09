@@ -93,9 +93,10 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
             {/* Article */}
             <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {post.image && (
-                <div className="relative h-56 md:h-80 w-full">
+                <div className="relative aspect-[1200/630] w-full">
                   <Image
                     src={post.image}
+                    unoptimized={post.image.startsWith('/blog/covers/')}
                     alt={imageAlt}
                     fill
                     className="w-full h-full"
@@ -108,7 +109,7 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
               )}
               
               <div className="p-6 md:p-10">
-                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                <h1 className="break-keep text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
                   {post.title}
                 </h1>
                 
@@ -138,7 +139,7 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
                 {matchedArea && (
                   <aside aria-label={`${matchedArea.name} 공식 예약 정보`} className="mb-8 rounded-2xl border border-rose-200 bg-rose-50 p-4 sm:p-5">
                     <p className="font-semibold text-slate-900">{matchedArea.name} 예약·가격 안내</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{CONSULTATION_HOURS} 상담 · {ADDITIONAL_FEE_POLICY}. 예약할 때 받으실 주소와 원하는 시간을 알려주세요.</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{CONSULTATION_HOURS} 상담 · {ADDITIONAL_FEE_POLICY} · 이용 후 100% 후불 결제</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       <Link href={`/${matchedArea.slug}#services`} className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-rose-700 underline underline-offset-4">
                         {matchedArea.name} 코스·가격표
@@ -227,9 +228,9 @@ export default function BlogLayout({ post, relatedPosts = [], children }: BlogLa
         <section className="py-16 lg:py-20 bg-rose-500">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto text-white">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">예약이 필요하신가요?</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">{matchedArea ? `${matchedArea.name} 출장마사지 예약` : "노마드 출장마사지 예약"}</h2>
               <p className="text-lg lg:text-xl mb-6 text-rose-100 font-semibold">
-                {matchedArea ? `${matchedArea.name}에서 받으실 장소와 원하는 시간을 알려주세요.` : "받으실 지역과 원하는 시간을 알려주세요."}
+                전화 한 통으로 예약 상담. 출장·주차·야간 추가비 없이, 마사지가 끝난 뒤 결제합니다.
               </p>
               <div className="flex flex-wrap justify-center gap-2 lg:gap-3 mb-8 text-white">
                 {contextualAreas.map((area, index) => (

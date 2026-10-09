@@ -159,19 +159,19 @@ export default function LocationPage({
     {
       src: '/images/spa-image-2.jpg',
       title: '1. 위치와 시간',
-      desc: '받으실 주소와 원하는 시간을 보내주세요.',
+      desc: '이용 지역·방문 주소·희망 시간 접수',
       gradient: `from-rose-200/80 via-pink-200/70 to-purple-200/60`,
     },
     {
       src: '/images/spa-image-3.jpg',
       title: '2. 코스 선택',
-      desc: '원하는 코스를 고르세요. 고민되시면 물어보셔도 됩니다.',
+      desc: '타이·아로마·스웨디시 코스 및 이용 시간 상담',
       gradient: `from-pink-200/80 via-rose-200/70 to-purple-200/60`,
     },
     {
       src: '/images/spa-image-4.jpg',
       title: '3. 시간 확정',
-      desc: '방문 가능한 시간과 금액을 확인한 뒤 예약해주세요.',
+      desc: '방문 일정과 코스 금액 확인 후 예약 확정',
       gradient: `from-purple-200/80 via-pink-200/70 to-rose-200/60`,
     },
   ],
@@ -198,15 +198,15 @@ export default function LocationPage({
   const defaultFaqItems: LocationFaq[] = [
     {
       question: `오늘 바로 예약할 수 있나요?`,
-      answer: `당일에도 전화나 카톡으로 문의해주세요. 계신 곳과 원하는 시간을 말씀해주시면 예약이 가능한지 답해드리겠습니다.`,
+      answer: `당일 예약은 전화·카카오톡으로 접수합니다. 방문 시간은 예약 상담 시 안내합니다.`,
     },
     {
       question: `따로 준비할 게 있나요?`,
-      answer: `마사지 용품은 준비하지 않으셔도 됩니다. 호텔에서 받으신다면 외부인이 객실에 들어갈 수 있는지만 숙소에 미리 물어봐주세요.`,
+      answer: `마사지 용품은 별도로 준비할 필요가 없습니다. 호텔·숙소는 외부 방문객 출입이 허용되는 곳에서 이용 가능합니다.`,
     },
     {
       question: `도착하는 데 얼마나 걸리나요?`,
-      answer: `계신 곳까지의 거리와 앞선 예약에 따라 달라집니다. 동네와 건물명을 알려주시면 예상 도착 시간을 말씀드리겠습니다.`,
+      answer: `예약 상담에서 방문 주소와 당일 일정을 확인한 뒤 예상 도착 시간을 안내합니다.`,
     },
   ]
   const displayedFaqItems = faqItems?.length ? faqItems : defaultFaqItems
@@ -329,7 +329,11 @@ export default function LocationPage({
 
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 leading-tight text-gray-900">
                     <span className={`bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} bg-clip-text text-transparent block`}>
-                      {heroTitle ?? `${city} 출장마사지`}
+                      {(heroTitle ?? `${city} 출장마사지`).split('·').map((part, index) => (
+                        <span key={`${index}-${part}`} className="inline-block max-w-full break-keep">
+                          {index > 0 ? '·' : ''}{part}
+                        </span>
+                      ))}
                     </span>
                   </h1>
 
@@ -419,7 +423,7 @@ export default function LocationPage({
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-800 text-base sm:text-lg">
-                            오늘 예약이 궁금하시면
+                            오늘 예약 상담
                           </h3>
                           <p className={`${currentTheme.text} text-xs sm:text-sm`}>
                             {city} 출장마사지
@@ -427,7 +431,7 @@ export default function LocationPage({
                         </div>
                       </div>
                       <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                        계신 곳과 원하는 시간을 알려주세요. 언제 방문할 수 있는지 답해드리겠습니다.
+                        당일 예약·심야 상담, 전화와 카카오톡으로. 예약금 없이 이용 후 결제합니다.
                       </p>
                     </CardContent>
                   </Card>
@@ -467,7 +471,7 @@ export default function LocationPage({
                     </span>
                   </div>
                   <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">
-                    계신 곳에서<br />편하게 받으세요
+                    집에서 받는<br />타이·아로마·스웨디시
                   </h2>
                   <div
                     className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} mb-6 lg:mb-8`}
@@ -524,7 +528,7 @@ export default function LocationPage({
                       <div className="flex items-center space-x-3 mb-4 lg:mb-6">
                         <Crown className="w-6 h-6 lg:w-8 lg:h-8" />
                         <h3 className="text-2xl lg:text-4xl font-bold italic">
-                          예약 전에 알아두세요
+                          노마드 방문 서비스
                         </h3>
                       </div>
                       <div className="w-12 lg:w-16 h-1 bg-white/50"></div>
@@ -533,20 +537,20 @@ export default function LocationPage({
                     <div className="space-y-4 lg:space-y-6">
                       {[
                         {
-                          title: '집이나 숙소에서',
-                          desc: '받으실 주소를 알려주세요. 숙소는 외부인 방문이 가능한지 먼저 확인해주세요.',
+                          title: '계신 곳으로 직접 방문',
+                          desc: '자택·오피스텔·호텔·숙소 방문. 숙소는 외부 방문객 출입이 허용되는 곳에 한합니다.',
                         },
                         {
-                          title: '원하는 코스로',
-                          desc: '타이·아로마·스웨디시, 60·90·120분 중에서 고르세요.',
+                          title: '취향에 맞춘 마사지 코스',
+                          desc: '타이·아로마·스웨디시 / 60·90·120분 코스 운영',
                         },
                         {
-                          title: '결제는 마지막에',
-                          desc: '예약금 없이, 마사지를 마친 뒤 현장에서 결제해주세요.',
+                          title: '이용 후 100% 후불 결제',
+                          desc: '예약금·선입금 없이, 마사지가 끝난 뒤 현장 결제.',
                         },
                         {
-                          title: '추가비 없이',
-                          desc: '어느 지역이든 출장비·주차비·야간 추가비를 따로 받지 않습니다.',
+                          title: '코스 요금 그대로',
+                          desc: '출장비도 주차비도 야간 추가비도 없습니다.',
                         },
                       ].map((item, index) => (
                         <div
@@ -581,7 +585,7 @@ export default function LocationPage({
                 {city} 방문 지역
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                아래에서 동네 이름을 찾아보세요. 예상 도착 시간은 예약할 때 말씀드립니다.
+                {city} 전 지역 방문 예약. 방문 시간은 예약 상담 시 안내합니다.
               </p>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-xl">
@@ -612,7 +616,7 @@ export default function LocationPage({
                 {city} 출장마사지 자주 묻는 질문
               </h2>
               <p className="text-base lg:text-lg text-gray-600">
-                가격과 방문 시간, 궁금한 점부터 살펴보세요.
+                코스 요금·방문 시간·서비스 지역 안내
               </p>
             </div>
 
@@ -623,7 +627,7 @@ export default function LocationPage({
                 </h3>
                 <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
                   타이 마사지는 <strong>60분 70,000원</strong>부터입니다.
-                  아로마·스웨디시 가격도 아래에서 비교해보세요.
+                  아로마·스웨디시를 포함한 전체 요금은 아래 가격표와 같습니다.
                   결제는 마사지를 마친 뒤 하는 <strong>후불제</strong>입니다.
                 </p>
               </div>
@@ -633,7 +637,7 @@ export default function LocationPage({
                   {city} 출장마사지 예약 후 얼마나 빨리 오나요?
                 </h3>
                 <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-                  거리와 앞선 예약에 따라 달라집니다. 동네와 건물명을 알려주시면 예상 도착 시간을 말씀드리겠습니다.
+                  예약 상담에서 방문 주소와 당일 일정을 확인한 뒤 예상 도착 시간을 안내합니다.
                   상담은 <strong>오후 7시부터 오전 4시까지</strong>입니다.
                 </p>
               </div>
@@ -644,7 +648,7 @@ export default function LocationPage({
                 </h3>
                 <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
                   {areas.slice(0, 5).join(', ')} 등 {city} 지역에서 문의하실 수 있습니다.
-                  방문할 주소와 원하는 시간을 보내주세요. 호텔은 외부인 방문이 가능한지 미리 확인해주세요.
+                  예약 접수 항목은 방문 주소와 희망 시간입니다. 호텔·숙소는 외부 방문객 출입이 허용되는 곳에 한합니다.
                 </p>
               </div>
             </div>
@@ -667,17 +671,17 @@ export default function LocationPage({
                 <span
                   className={`font-semibold text-sm lg:text-base ${currentTheme.lightText}`}
                 >
-                  어떤 코스로 받을까요?
+                  타이·아로마·스웨디시
                 </span>
               </div>
               <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">
-                {city} 출장마사지 코스와 가격
+                {city} 출장마사지 코스별 요금
               </h2>
               <div
                 className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} mx-auto mb-6 lg:mb-8`}
               ></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                타이·아로마·스웨디시 중 원하는 코스를 고르세요. 결제는 마사지를 다 받으신 뒤에 합니다.
+                출장비도 야간 추가비도 없이, 코스 요금 그대로. 결제는 마사지가 끝난 뒤에.
               </p>
               <p className={`mt-4 text-sm sm:text-base font-semibold ${currentTheme.lightText}`}>
                 {ADDITIONAL_FEE_POLICY} · {PAYMENT_POLICY}
@@ -698,7 +702,7 @@ export default function LocationPage({
                     타이 마사지
                   </h3>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                     스트레칭과 압을 사용하는 코스입니다. 선호하는 강도를 말씀해주세요.
+                     압과 스트레칭을 중심으로 진행하는 타이 코스. 관리 강도는 상담 시 조율합니다.
                   </p>
 
                   <table className="w-full border-separate border-spacing-y-2">
@@ -739,7 +743,7 @@ export default function LocationPage({
                     아로마 마사지
                   </h3>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                     아로마 오일을 사용하는 코스입니다. 향에 민감하시면 예약할 때 알려주세요.
+                     오일을 사용하는 아로마 코스. 향이나 오일에 민감한 경우 예약 상담에서 사용 여부를 확인합니다.
                   </p>
 
                   <table className="w-full border-separate border-spacing-y-2">
@@ -781,7 +785,7 @@ export default function LocationPage({
                   </h3>
 
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                     오일을 사용해 부드럽게 진행합니다. 강한 압이 부담스러운 분은 상담할 때 말씀해주세요.
+                     오일을 사용한 부드러운 움직임이 중심인 스웨디시 코스. 강한 압보다 부드러운 관리를 선호할 때 선택할 수 있습니다.
                   </p>
 
                   <table className="w-full border-separate border-spacing-y-2">
@@ -821,7 +825,7 @@ export default function LocationPage({
                   <span
                     className={`font-semibold text-sm lg:text-base ${currentTheme.lightText}`}
                   >
-                    두 가지를 함께 받고 싶다면
+                    두 가지 코스를 한 번에
                   </span>
                 </div>
                 <h3 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-4">
@@ -924,17 +928,17 @@ export default function LocationPage({
                 <span
                   className={`font-semibold text-sm lg:text-base ${currentTheme.lightText}`}
                 >
-                  처음 이용하시나요?
+                  전화·카카오톡 예약 접수
                 </span>
               </div>
               <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">
-                예약할 때 알려주세요
+                노마드 방문 마사지 서비스
               </h2>
               <div
                 className={`w-16 lg:w-24 h-1 bg-gradient-to-r ${currentTheme.gradientFrom} ${currentTheme.gradientVia} ${currentTheme.gradientTo} mx-auto mb-6 lg:mb-8`}
               ></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                받으실 주소와 원하는 시간을 알려주세요. 코스는 상담하면서 정하셔도 됩니다.
+                전화 한 통으로 예약 상담. 코스 선택부터 방문 일정까지 상담에서 진행합니다.
               </p>
             </div>
 
@@ -1013,13 +1017,13 @@ export default function LocationPage({
                 {city} 동네별 예약 안내
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                동네별 방문 방법과 예약 전에 궁금한 점을 모았습니다.
+                {city} 방문 지역과 당일·심야 예약 안내
               </p>
             </div>
 
             {localGuide}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16">
+            {!localGuide && <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16">
               <Card className="bg-white shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <CardContent className="p-6 lg:p-8">
                   <div className="flex items-center mb-4 lg:mb-6">
@@ -1027,18 +1031,18 @@ export default function LocationPage({
                       <MapPin className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                     </div>
                     <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
-                      우리 동네도 오나요?
+                      {city} 방문 서비스
                     </h3>
                   </div>
                   <div className="space-y-3 lg:space-y-4">
                     <p className="text-gray-600 leading-relaxed">
-                      {areas.slice(0, 3).join(', ')}에서 <strong className={currentTheme.text}>{city} 출장마사지</strong>를 찾으시나요? 받으실 주소를 전화나 카톡으로 보내주세요.
+                      {areas.slice(0, 3).join(', ')} 등 <strong className={currentTheme.text}>{city} 출장마사지</strong> 방문 예약을 접수합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      {areas.slice(3, 6).join(', ')} 등 다른 동네도 문의해주세요. 집이나 오피스텔, 외부 방문이 허용된 숙소에서 받으실 수 있습니다.
+                      {areas.slice(3, 6).join(', ')}에서도 자택·오피스텔·숙소로 방문합니다. 숙소는 외부 방문객 출입이 허용되는 곳에 한합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      도착 시간은 거리와 앞선 예약에 따라 달라집니다. 원하시는 시간에 갈 수 있는지 먼저 확인해드리겠습니다.
+                      방문 시간은 예약 상담 시 안내합니다.
                     </p>
                   </div>
                 </CardContent>
@@ -1051,7 +1055,7 @@ export default function LocationPage({
                       <Clock className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
                     </div>
                     <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
-                      몇 시까지 문의할 수 있나요?
+                      새벽 4시까지 예약 상담
                     </h3>
                   </div>
                   <div className="space-y-3 lg:space-y-4">
@@ -1059,15 +1063,15 @@ export default function LocationPage({
                       <strong className={currentTheme.text}>오후 7시부터 다음 날 오전 4시까지</strong> 전화와 카톡으로 상담합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      당일 예약도 문의하실 수 있습니다. 원하는 시간을 먼저 말씀해주세요.
+                      전화·카카오톡으로 당일 예약과 심야 상담을 접수합니다.
                     </p>
                     <p className="text-gray-600 leading-relaxed">
-                      늦은 시간이라도 추가비는 없습니다. 방문 시간이 맞으면 코스와 이용 시간을 정하시면 됩니다.
+                      늦은 시간에도 야간 추가비 없이, 공개된 코스 요금 그대로 이용 가능합니다.
                     </p>
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </div>}
 
             {/* Enhanced FAQ Section */}
             <div id="location-faq" className="scroll-mt-24 bg-white/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 shadow-xl">
@@ -1090,8 +1094,8 @@ export default function LocationPage({
 
             {relatedContentLinks.length > 0 && (
               <div id="booking-guides" className="mt-8 scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-lg lg:p-8">
-                <h3 className="text-2xl font-bold text-gray-800">{city}에서 처음 이용하신다면</h3>
-                <p className="mt-2 text-gray-600">숙소 방문이나 늦은 시간 예약이 궁금할 때 읽어보세요.</p>
+                <h3 className="text-2xl font-bold text-gray-800">{city} 출장마사지 이용 안내</h3>
+                <p className="mt-2 text-gray-600">숙소 방문·심야 예약·결제 안내</p>
                 <div className="mt-6 grid gap-4 md:grid-cols-3">
                   {relatedContentLinks.map((item) => (
                     <Link
@@ -1120,10 +1124,10 @@ export default function LocationPage({
                 </span>
               </div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
-                다른 지역에서 받고 싶으신가요?
+                인근 지역 출장마사지
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                원하시는 지역을 눌러 자세히 살펴보세요. 어느 지역이든 추가비는 없습니다.
+                지역이 달라도 추가비 없는 노마드. 각 지역의 코스·가격과 예약 안내입니다.
               </p>
             </div>
 
@@ -1155,7 +1159,7 @@ export default function LocationPage({
             <div className="mt-12 lg:mt-16 text-center">
               <Card className={`bg-gradient-to-br ${currentTheme.lightBg} border-2 ${currentTheme.lightBorder} rounded-3xl p-6 lg:p-8 max-w-4xl mx-auto shadow-xl`}>
                 <h3 className={`text-xl lg:text-2xl font-bold mb-4 ${currentTheme.lightText}`}>
-                  경기도 22개 지역에서 이용하세요
+                  경기도 22개 지역 직접 방문
                 </h3>
                 <p className="text-sm lg:text-base text-gray-600 mb-6">
                   마사지 후 결제 · 추가비 없음 · 오후 7시~오전 4시 상담
@@ -1207,7 +1211,7 @@ export default function LocationPage({
                       {bookingCityName} 예약 문의
                     </h2>
                     <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8">
-                      원하는 시간에 예약할 수 있는지 먼저 물어보세요. 코스와 금액도 함께 알려드립니다.
+                      당일 예약·심야 상담 접수. 방문 시간과 코스 금액은 예약 상담 시 안내합니다.
                     </p>
                     <div className="flex items-center justify-center space-x-3 lg:space-x-4 text-xl lg:text-3xl font-bold mb-6 lg:mb-10">
                       <Phone className="w-6 h-6 lg:w-8 lg:h-8" />
@@ -1279,7 +1283,7 @@ export default function LocationPage({
                   </div>
                 </Link>
                 <div className="text-gray-400 mb-4 lg:mb-6 text-sm lg:text-base leading-relaxed">
-                  {outro}
+                  {city} 타이·아로마·스웨디시 방문 서비스. {ADDITIONAL_FEE_POLICY}.
                 </div>
                 <div className="flex flex-wrap items-center gap-2 lg:gap-4 text-xs lg:text-sm text-gray-400">
                   <span>오후 7시~오전 4시 상담</span>

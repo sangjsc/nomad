@@ -15,7 +15,7 @@ export default function ClientPage() {
         url: SITE_URL,
         name: "노마드출장마사지",
         description:
-          "집에서 편하게 받는 타이·아로마·스웨디시. 이천·경기 광주·여주·용인 등 경기 22개 지역, 오후 7시~오전 4시 상담. 추가비 없이 마사지 후 결제합니다.",
+          "이천·경기 광주·여주·용인 등 경기 22개 지역으로 직접 찾아가는 노마드출장마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 100% 후불제. 오후 7시~오전 4시 상담.",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         mainEntity: { "@id": `${SITE_URL}/#massage-service` },
         about: [
@@ -73,26 +73,26 @@ export default function ClientPage() {
                     <span className="bg-gradient-to-r from-white via-rose-100 to-purple-100 bg-clip-text text-transparent block">
                       노마드출장마사지
                     </span>
-                    <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 bg-clip-text text-transparent block">
-                      집에서 편하게
-                    </span>
                   </h1>
 
-                  <p className="break-keep text-sm sm:text-lg lg:text-2xl xl:text-3xl text-gray-200 mb-4 lg:mb-8 leading-relaxed px-2 sm:px-0">
-                    타이·아로마·스웨디시, 원하는 코스로 골라보세요.
-                    <br />
-                    <span className="text-rose-300">오후 7시~오전 4시 상담</span>
+                  <p className="break-keep text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-100 mb-4 lg:mb-6 leading-relaxed px-2 sm:px-0">
+                    계신 곳으로 직접 찾아가는<br />특급 마사지 서비스
+                  </p>
+                  <p className="break-keep text-sm sm:text-base lg:text-lg text-gray-200 mb-4 lg:mb-8 leading-relaxed px-2 sm:px-0">
+                    <strong className="block text-xl lg:text-2xl text-rose-300">타이 60분 7만원부터</strong>
+                    출장·주차·야간 추가비 없는 100% 후불제<br />
+                    오후 7시~오전 4시 상담
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 lg:gap-6 mb-6 lg:mb-12 px-2 sm:px-0">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 lg:gap-4 mb-6 lg:mb-12 px-2 sm:px-0">
                   <Button
                     asChild
                     className="h-auto min-h-12 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:via-pink-600 hover:to-purple-700 text-white px-4 lg:px-10 py-3 lg:py-5 text-base lg:text-xl rounded-full font-bold shadow-2xl ring-4 ring-rose-400/30 hover:ring-rose-300/50 transition-all duration-300 transform hover:scale-105"
                   >
                     <a href="tel:01081867771">
                       <Phone className="w-4 h-4 mr-2" />
-                      지금 예약하기
+                      전화 예약 상담
                     </a>
                   </Button>
                   <Button
@@ -101,9 +101,12 @@ export default function ClientPage() {
                     className="h-auto min-h-12 border-2 border-white/50 text-white hover:bg-white hover:text-gray-800 px-4 lg:px-10 py-3 lg:py-5 text-base lg:text-xl rounded-full font-bold transition-all duration-300 bg-transparent sm:backdrop-blur-sm"
                   >
                     <a href="https://open.kakao.com/o/ssZxRuEh" target="_blank" rel="noopener noreferrer">
-                      카카오톡 상담
+                      카카오톡 예약
                     </a>
                   </Button>
+                  <a href="#services" data-analytics-event="price_table_click" data-cta-location="home_hero" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/50 px-4 py-3 text-base font-semibold text-white underline-offset-4 hover:underline lg:text-xl">
+                    코스·가격표
+                  </a>
                 </div>
 
                 {/* Premium Features */}
@@ -114,7 +117,7 @@ export default function ClientPage() {
                   </div>
                   <div className="flex items-center justify-center sm:justify-start space-x-2 bg-white/10 backdrop-blur-sm rounded-xl p-2 lg:p-4">
                     <Clock className="w-4 h-4 lg:w-6 lg:h-6 text-purple-300" />
-                    <span className="text-xs lg:text-base text-white font-medium">오후 7시~오전 4시 운영</span>
+                    <span className="text-xs lg:text-base text-white font-medium">오후 7시~오전 4시 상담</span>
                   </div>
                   <div className="flex items-center justify-center sm:justify-start space-x-2 bg-white/10 backdrop-blur-sm rounded-xl p-2 lg:p-4">
                     <Crown className="w-4 h-4 lg:w-6 lg:h-6 text-pink-300" />
@@ -148,11 +151,11 @@ export default function ClientPage() {
                           <Sparkles className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-gray-800 text-lg">오늘 받을 수 있을까요?</h3>
-                          <p className="text-rose-500 text-sm">전화나 카톡으로 물어보세요</p>
+                          <h3 className="font-bold text-gray-800 text-lg">오늘 예약 상담</h3>
+                          <p className="text-rose-500 text-sm">당일 예약·심야 상담</p>
                         </div>
                       </div>
-                      <p className="text-gray-600 leading-relaxed">계신 곳과 원하는 시간을 알려주세요. 언제 방문할 수 있는지 답해드리겠습니다.</p>
+                      <p className="text-gray-600 leading-relaxed">전화·카카오톡 예약 접수. 이용 지역과 희망 시간에 맞춰 방문 일정을 안내합니다.</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -167,11 +170,11 @@ export default function ClientPage() {
             <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
                 <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
-                <span className="text-rose-800 font-semibold text-sm lg:text-base">어디에서 받으실 건가요?</span>
+                <span className="text-rose-800 font-semibold text-sm lg:text-base">경기도 출장마사지·홈타이</span>
               </div>
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">경기 주요 22개 지역 출장마사지</h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-                계신 지역을 눌러 가격과 예약 방법을 살펴보세요.
+                이천·여주부터 경기 광주·용인·안산까지. 지역별 코스와 가격, 방문 예약을 한곳에서.
               </p>
             </div>
 
@@ -206,9 +209,9 @@ export default function ClientPage() {
 
             <div className="mt-12 lg:mt-16 text-center">
               <Card className="bg-gradient-to-br from-rose-500 via-pink-500 to-purple-600 text-white rounded-3xl shadow-2xl p-6 lg:p-8 max-w-4xl mx-auto">
-                <h3 className="text-xl lg:text-3xl font-bold mb-4">오늘 예약이 궁금하시면</h3>
+                <h3 className="text-xl lg:text-3xl font-bold mb-4">당일 예약·심야 상담, 전화와 카카오톡으로</h3>
                 <p className="text-sm lg:text-lg mb-6 opacity-90">
-                  원하시는 지역과 시간을 말씀해주세요. 당일 예약은 빈 시간과 거리에 따라 달라집니다.
+                  오후 7시부터 다음 날 오전 4시까지 상담합니다. 방문 시간은 예약 상담 시 안내합니다.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <Button
@@ -249,22 +252,22 @@ export default function ClientPage() {
                     <Crown className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
                     <span className="text-rose-800 font-semibold text-sm lg:text-base">노마드출장마사지</span>
                   </div>
-                  <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">나갈 필요 없이,<br />계신 곳에서 쉬세요</h2>
+                  <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">집에서 받는<br />타이·아로마·스웨디시</h2>
                   <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 mb-6 lg:mb-8"></div>
                 </div>
 
                 <div className="space-y-4 lg:space-y-6 text-gray-600 leading-relaxed">
                   <p className="text-lg lg:text-xl">
                     <span className="font-bold text-rose-600">노마드출장마사지</span>는 이천·경기 광주·여주·용인 등
-                    경기도 22개 지역에서 이용하실 수 있습니다. 집이나 오피스텔에서 편하게 받아보세요.
+                    경기도 22개 지역의 자택과 오피스텔로 직접 찾아갑니다.
                   </p>
                   <p className="text-base lg:text-lg">
-                    어떤 코스를 고를지 모르겠다면 상담할 때 물어보세요.
-                    호텔에서 받으실 때는 외부인 방문이 가능한지 숙소에 먼저 확인해주세요.
+                    타이의 압과 스트레칭, 오일을 사용하는 아로마와 스웨디시까지.
+                    60·90·120분 코스로 운영하며, 호텔·숙소는 외부 방문이 허용되는 곳에서 이용 가능합니다.
                   </p>
                   <p className="text-base lg:text-lg">
                     전화와 카톡 상담은 <span className="font-bold">오후 7시~오전 4시</span>입니다.
-                    예약금은 받지 않습니다. 마사지를 다 받으신 뒤 현장에서 결제하시면 됩니다.
+                    예약금 없이, 마사지가 끝난 뒤 현장에서 결제합니다.
                   </p>
                 </div>
 
@@ -272,7 +275,7 @@ export default function ClientPage() {
                   <Card className="bg-gradient-to-br from-rose-50 to-pink-50 border-rose-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <CardContent className="p-4 lg:p-6 text-center">
                       <div className="text-2xl lg:text-4xl font-bold text-rose-600 mb-2">19–04</div>
-                      <div className="text-sm lg:text-base text-gray-600 font-medium">오후 7시~오전 4시 운영</div>
+                      <div className="text-sm lg:text-base text-gray-600 font-medium">오후 7시~오전 4시 상담</div>
                     </CardContent>
                   </Card>
                   <Card className="bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
@@ -294,7 +297,7 @@ export default function ClientPage() {
                     <div className="mb-6 lg:mb-10">
                       <div className="flex items-center space-x-3 mb-4 lg:mb-6">
                         <Crown className="w-6 h-6 lg:w-8 lg:h-8" />
-                        <h3 className="text-2xl lg:text-4xl font-bold">부담 없이 고르세요</h3>
+                        <h3 className="text-2xl lg:text-4xl font-bold">타이부터 스웨디시까지,<br />취향에 맞춘 마사지 코스</h3>
                       </div>
                       <div className="w-12 lg:w-16 h-1 bg-white/50"></div>
                     </div>
@@ -302,16 +305,16 @@ export default function ClientPage() {
                     <div className="space-y-4 lg:space-y-6">
                       {[
                         {
-                          title: "추가비는 없습니다",
+                          title: "코스 요금 그대로",
                           desc: "어느 지역이든 출장비·주차비·야간 추가비를 따로 받지 않습니다.",
                         },
                         {
-                          title: "받고 싶은 만큼",
-                          desc: "타이·아로마·스웨디시 중에서 코스를, 60·90·120분 중에서 시간을 고르세요.",
+                          title: "세 가지 마사지, 세 가지 이용 시간",
+                          desc: "타이·아로마·스웨디시 / 60·90·120분 코스 운영",
                         },
                         {
-                          title: "결제는 마지막에",
-                          desc: "예약할 때 미리 보내실 돈은 없습니다. 마사지를 마친 뒤 결제해주세요.",
+                          title: "이용 후 100% 후불 결제",
+                          desc: "예약금·선입금 없이, 마사지가 끝난 뒤 현장 결제.",
                         },
 
                       ].map((item, index) => (
@@ -339,12 +342,12 @@ export default function ClientPage() {
             <div className="text-center mb-12 lg:mb-20">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
                 <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
-                <span className="text-rose-800 font-semibold text-sm lg:text-base">어떤 코스로 받을까요?</span>
+                <span className="text-rose-800 font-semibold text-sm lg:text-base">타이·아로마·스웨디시</span>
               </div>
-              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">마사지 코스와 가격</h2>
+              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">추가비 없는 코스별 요금</h2>
               <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 mx-auto mb-6 lg:mb-8"></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                타이는 60분 7만원부터입니다. 아래 가격 외 출장·주차·야간 추가비는 없습니다.
+                타이 60분 7만원부터. 출장비도 야간 추가비도 없이, 코스 요금 그대로.
               </p>
             </div>
 
@@ -357,7 +360,7 @@ export default function ClientPage() {
                   </div>
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4">타이 마사지</h3>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                    스트레칭과 압을 사용하는 코스입니다. 선호하는 강도를 말씀해주세요.
+                    압과 스트레칭을 중심으로 진행하는 타이 코스. 관리 강도는 상담 시 조율합니다.
                   </p>
 
                   <div className="space-y-2 lg:space-y-3">
@@ -383,7 +386,7 @@ export default function ClientPage() {
                   </div>
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4">아로마 마사지</h3>
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                    아로마 오일을 사용하는 코스입니다. 향에 민감하시면 예약할 때 알려주세요.
+                    오일을 사용하는 아로마 코스. 향이나 오일에 민감한 경우 예약 상담에서 사용 여부를 확인합니다.
                   </p>
 
                   <div className="space-y-2 lg:space-y-3">
@@ -410,7 +413,7 @@ export default function ClientPage() {
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4">스웨디시 마사지</h3>
 
                   <p className="text-gray-600 mb-4 lg:mb-6 leading-relaxed text-sm lg:text-base">
-                    오일을 사용해 부드럽게 진행합니다. 강한 압이 부담스러운 분은 상담할 때 말씀해주세요.
+                    오일을 사용한 부드러운 움직임이 중심인 스웨디시 코스. 강한 압보다 부드러운 관리를 선호할 때 선택할 수 있습니다.
                   </p>
 
                   <div className="space-y-2 lg:space-y-3">
@@ -434,7 +437,7 @@ export default function ClientPage() {
               <div className="text-center mb-8 lg:mb-12">
                 <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4">
                   <Crown className="w-4 h-4 lg:w-5 lg:h-5 text-purple-600" />
-                  <span className="text-purple-800 font-semibold text-sm lg:text-base">두 가지를 함께 받고 싶다면</span>
+                  <span className="text-purple-800 font-semibold text-sm lg:text-base">두 가지 코스를 한 번에</span>
                 </div>
                 <h3 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-4">120분 묶음 코스</h3>
                 <div className="w-12 lg:w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-500 mx-auto"></div>
@@ -507,12 +510,12 @@ export default function ClientPage() {
             <div className="text-center mb-12 lg:mb-20">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">
                 <Crown className="w-4 h-4 lg:w-5 lg:h-5 text-rose-600" />
-                <span className="text-rose-800 font-semibold text-sm lg:text-base">처음 이용하시나요?</span>
+                <span className="text-rose-800 font-semibold text-sm lg:text-base">전화·카카오톡 예약 접수</span>
               </div>
-              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">예약은 이렇게 하시면 됩니다</h2>
+              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mb-4 lg:mb-6">예약부터 방문까지</h2>
               <div className="w-16 lg:w-24 h-1 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 mx-auto mb-6 lg:mb-8"></div>
               <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                긴 설명은 필요 없습니다. 계신 곳, 원하는 시간, 코스를 알려주세요.
+                전화 한 통으로 예약 상담. 결제는 마사지가 끝난 뒤에.
               </p>
             </div>
 
@@ -521,21 +524,21 @@ export default function ClientPage() {
                 {
                   src: "/images/spa-image-2.jpg",
                   title: "1. 위치와 시간",
-                  desc: "받으실 주소와 원하는 시간을 보내주세요.",
+                  desc: "이용 지역·방문 주소·희망 시간 접수",
                   gradient: "from-rose-200/80 via-pink-200/70 to-purple-200/60",
                   alt: "노마드출장마사지 위치와 예약 시간 확인 안내",
                 },
                 {
                   src: "/images/spa-image-3.jpg",
                   title: "2. 코스 선택",
-                  desc: "원하는 코스와 시간을 고르세요. 고민되시면 물어보셔도 됩니다.",
+                  desc: "타이·아로마·스웨디시 코스 및 이용 시간 상담",
                   gradient: "from-pink-200/80 via-rose-200/70 to-purple-200/60",
                   alt: "노마드출장마사지 타이 아로마 스웨디시 코스 안내",
                 },
                 {
                   src: "/images/spa-image-4.jpg",
                   title: "3. 시간 확정",
-                  desc: "방문 가능한 시간과 금액을 확인한 뒤 예약해주세요.",
+                  desc: "방문 일정과 코스 금액 확인 후 예약 확정",
                   gradient: "from-purple-200/80 via-pink-200/70 to-rose-200/60",
                   alt: "노마드출장마사지 방문 가능 일정 안내",
                 },
@@ -610,9 +613,9 @@ export default function ClientPage() {
                       <Crown className="w-4 h-4 lg:w-5 lg:h-5" />
                       <span className="font-semibold text-sm lg:text-base">전화·카카오톡 예약</span>
                     </div>
-                    <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">궁금한 점부터 물어보세요</h2>
+                    <h2 className="text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4">노마드 출장마사지 예약</h2>
                     <p className="text-lg lg:text-xl text-white/90 mb-6 lg:mb-8">
-                      코스나 예약 시간이 고민되시면 전화나 카톡으로 편하게 문의해주세요.
+                      당일 예약부터 심야 상담까지. 오후 7시~오전 4시, 전화·카카오톡 접수.
                     </p>
                     <div className="flex items-center justify-center space-x-3 lg:space-x-4 text-xl lg:text-3xl font-bold mb-6 lg:mb-10">
                       <Phone className="w-6 h-6 lg:w-8 lg:h-8" />
@@ -673,10 +676,10 @@ export default function ClientPage() {
                   </div>
                 </Link>
                 <p className="text-gray-400 mb-4 lg:mb-6 text-sm lg:text-base leading-relaxed">
-                  타이·아로마·스웨디시를 계신 곳에서 편하게 받으세요.
+                  타이·아로마·스웨디시 방문 서비스. 예약금 없이, 마사지 후 결제합니다.
                 </p>
                 <div className="flex flex-wrap items-center gap-2 lg:gap-4 text-xs lg:text-sm text-gray-400">
-                  <span>오후 7시~오전 4시 운영</span>
+                  <span>오후 7시~오전 4시 상담</span>
                   <span>•</span>
                   <span>100% 후불제</span>
                   <span>•</span>

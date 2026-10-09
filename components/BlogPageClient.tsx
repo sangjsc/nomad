@@ -9,16 +9,16 @@ const PRIORITY_REGION_GUIDES = [
   {
     city: '이천',
     links: [
-      { href: '/blog/icheon-massage-guide', label: '호텔·숙소에서 예약하기' },
-      { href: '/blog/icheon-eup-myeon-booking-guide', label: '읍·면 주소 보내기' },
-      { href: '/blog/icheon-night-booking-checklist', label: '밤 10시 이후 문의하기' },
+      { href: '/blog/icheon-massage-guide', label: '호텔·숙소 방문 서비스' },
+      { href: '/blog/icheon-eup-myeon-booking-guide', label: '읍·면 방문 지역과 예약' },
+      { href: '/blog/icheon-night-booking-checklist', label: '밤 10시 이후 심야 예약' },
     ],
   },
   {
     city: '여주',
     links: [
-      { href: '/blog/yeoju-massage-guide', label: '처음 예약하기' },
-      { href: '/blog/yeoju-eup-myeon-night-booking-guide', label: '읍·면에서 심야 예약하기' },
+      { href: '/blog/yeoju-massage-guide', label: '여주 코스·가격·예약' },
+      { href: '/blog/yeoju-eup-myeon-night-booking-guide', label: '읍·면 심야 방문 서비스' },
       { href: '/blog/yeoju-weekend-reservation-faq', label: '주말 예약 질문' },
     ],
   },
@@ -78,12 +78,12 @@ export default function BlogPageClient({
 
   const pageDescription =
     category === 'official'
-      ? '운영시간과 결제 방법 등 이용하실 때 알아두실 소식입니다.'
+      ? '노마드 운영 소식과 예약·결제 안내'
       : category === 'regional'
-        ? '우리 동네에서 예약하는 방법, 숙소에서 받을 때 궁금한 점을 모았습니다.'
+        ? '이천·여주·경기 광주·용인 등 경기도 지역별 출장마사지와 숙소 방문 안내'
         : category === 'info'
-          ? '어떤 코스를 고를지, 받기 전후에는 무엇을 챙길지 살펴보세요.'
-          : '처음 예약할 때 궁금한 점부터 코스 고르는 방법까지, 필요한 글을 찾아보세요.'
+          ? '타이·아로마·스웨디시 비교와 마사지 전후 이용 정보'
+          : '출장마사지 코스·가격부터 지역별 예약까지, 노마드 서비스 안내'
 
   const currentPath = buildPageHref(basePath, currentPage)
 
@@ -203,14 +203,14 @@ export default function BlogPageClient({
                 <Tag className="h-10 w-10 text-rose-400" />
               </div>
               <h2 className="mb-2 text-2xl font-bold text-gray-800">등록된 글이 없습니다.</h2>
-              <p className="text-gray-600">다른 주제의 글을 살펴보세요.</p>
+              <p className="text-gray-600">전체 목록에서 다른 주제의 글을 확인할 수 있습니다.</p>
             </div>
           )}
         </main>
 
         <div className="mt-16 border-t bg-white py-8">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="mb-4 text-xl font-bold text-gray-800 md:text-2xl">계신 지역의 가격과 예약 방법</h2>
+            <h2 className="mb-4 text-xl font-bold text-gray-800 md:text-2xl">지역별 출장마사지 코스·가격·예약</h2>
             <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
               {PRIMARY_SERVICE_AREAS.map((area) => (
                 <Link key={area.slug} href={`/${area.slug}`} className="font-semibold text-rose-500 hover:text-rose-600">

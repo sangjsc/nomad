@@ -16,11 +16,11 @@ import {
 
 export const metadata: Metadata = {
   title: "문의·예약 | 노마드출장마사지 연락처",
-  description: `노마드출장마사지 전화 ${PHONE_DISPLAY} 또는 카카오톡으로 예약하세요. 매일 ${CONSULTATION_HOURS} 상담하며, 받으실 장소와 원하는 시간·코스를 알려주시면 됩니다.`,
+  description: `노마드출장마사지 전화 ${PHONE_DISPLAY}·카카오톡 예약. 매일 ${CONSULTATION_HOURS} 상담, 타이 60분 7만원부터 추가비 없이 서비스 후 현장 결제합니다.`,
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "노마드출장마사지 문의·예약",
-    description: `매일 ${CONSULTATION_HOURS} 전화·카카오톡으로 상담합니다. 받으실 장소와 원하는 시간·코스를 알려주세요.`,
+    description: `노마드출장마사지 전화 ${PHONE_DISPLAY}·카카오톡 예약. 매일 ${CONSULTATION_HOURS} 상담, 타이 60분 7만원부터 추가비 없이 서비스 후 현장 결제합니다.`,
     url: "/contact",
     type: "website",
     images: [{ url: "/og/home", width: 1200, height: 630, alt: "노마드출장마사지 문의·예약" }],
@@ -56,7 +56,7 @@ export default function ContactPage() {
           <p className="font-semibold text-rose-600">전화·카카오톡 상담</p>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">문의·예약</h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-            받으실 장소와 원하는 시간, 코스를 알려주세요. 코스를 아직 정하지 못하셨다면 상담할 때 물어보셔도 됩니다.
+            전화·카카오톡으로 접수하는 방문 마사지 예약. 타이 60분 7만원부터, 출장·주차·야간 추가비 없이 서비스 후 현장에서 결제합니다.
           </p>
           <p className="mt-3 text-sm text-slate-500">
             운영 정보 확인일 <time dateTime={SERVICE_INFORMATION_UPDATED}>{SERVICE_INFORMATION_UPDATED}</time>
@@ -82,7 +82,7 @@ export default function ContactPage() {
             <CardContent className="p-6 sm:p-8">
               <MessageCircle className="h-9 w-9 text-emerald-600" />
               <h2 className="mt-5 text-2xl font-bold text-slate-950">카카오톡 상담</h2>
-              <p className="mt-3 leading-7 text-slate-600">통화가 어려우시면 카카오톡에 주소와 원하는 시간을 남겨주세요.</p>
+              <p className="mt-3 leading-7 text-slate-600">카카오톡으로 방문 일정과 코스·가격을 상담하고 예약할 수 있습니다.</p>
               <Button asChild className="mt-6 min-h-12 w-full bg-emerald-600 hover:bg-emerald-700 sm:w-auto">
                 <a href={KAKAO_CHAT_URL} target="_blank" rel="noopener noreferrer">카카오톡 열기</a>
               </Button>
@@ -94,7 +94,7 @@ export default function ContactPage() {
           <Card className="border-slate-200 shadow-sm">
             <CardContent className="p-6 sm:p-8">
               <MapPin className="h-8 w-8 text-indigo-600" />
-              <h2 className="mt-4 text-2xl font-bold text-slate-950">문의할 때 알려주실 정보</h2>
+              <h2 className="mt-4 text-2xl font-bold text-slate-950">예약 접수 정보</h2>
               <ol className="mt-6 space-y-4">
                 {bookingDetails.map((detail, index) => (
                   <li key={detail} className="flex gap-3 leading-7 text-slate-700">
@@ -112,7 +112,7 @@ export default function ContactPage() {
                 <Clock className="h-7 w-7 text-amber-600" />
                 <h2 className="mt-4 text-xl font-bold text-slate-950">방문 시간 안내</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  방문 가능한 시간은 예약마다 다릅니다. 원하시는 시간이 있다면 주소와 함께 알려주세요. 바로 방문하기 어려울 수 있어 예약 전에 시간을 상담해주세요.
+                  방문 일정은 주소와 희망 시간, 예약 현황에 따라 정합니다. 당일 예약도 상담 후 접수합니다.
                 </p>
               </CardContent>
             </Card>
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 <WalletCards className="h-7 w-7 text-emerald-600" />
                 <h2 className="mt-4 text-xl font-bold text-slate-950">결제 기준</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  예약금과 선입금 없이 {PAYMENT_POLICY}합니다. 어느 지역이든 출장·주차·야간 추가비는 없습니다. 결제 수단은 예약할 때 문의해주세요.
+                  예약금과 선입금 없이 {PAYMENT_POLICY}합니다. 출장·주차·야간 추가비는 없으며, 결제 수단은 예약 상담에서 안내합니다.
                 </p>
               </CardContent>
             </Card>

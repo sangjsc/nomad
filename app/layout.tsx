@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지·홈타이",
   description:
-    "경기도 이천, 광주(경기도 광주시), 여주, 용인, 수원, 화성, 평택, 시흥, 부천, 광명 포함 주요 도시 출장마사지 예약 안내. 오후 7시~오전 4시 상담, 서비스 완료 후 현장 결제.",
+    "이천·경기 광주·여주·용인 등 경기 22개 지역으로 직접 찾아가는 노마드출장마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 100% 후불제. 오후 7시~오전 4시 상담.",
   manifest: "/manifest.json",
   icons: { icon: "/favicon.svg" },
   verification: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
     description:
-      "집에서 편하게 받는 타이·아로마·스웨디시. 노마드출장마사지는 경기 22개 지역에서 추가비 없이 이용하실 수 있습니다. 오후 7시~오전 4시 상담합니다.",
+      "이천·경기 광주·여주·용인 등 경기 22개 지역으로 직접 찾아가는 노마드출장마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 100% 후불제. 오후 7시~오전 4시 상담.",
     images: [
       {
         url: "/og/home",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "노마드출장마사지 | 경기 주요 22개 지역 출장마사지",
-    description: "경기 주요 22개 지역의 오후 7시~오전 4시 상담·후불제 예약 안내.",
+    description: "이천·경기 광주·여주·용인 등 경기 22개 지역으로 직접 찾아가는 노마드출장마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 100% 후불제. 오후 7시~오전 4시 상담.",
     images: ["/og/home"],
   },
 }

@@ -86,7 +86,7 @@ export default function Header() {
                   <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3">
                     <div>
                       <p className="font-bold text-slate-900">경기 지역별 출장마사지</p>
-                      <p className="mt-1 text-xs text-slate-500">받으실 지역을 선택해주세요</p>
+                      <p className="mt-1 text-xs text-slate-500">지역별 코스·가격·방문 예약</p>
                     </div>
                     <Link href="/service-areas" className="text-sm font-semibold text-rose-600 hover:text-rose-700">
                       전체 지역 보기
@@ -136,7 +136,7 @@ export default function Header() {
                   <div className="mb-3 flex items-center justify-between">
                     <div>
                       <p className="font-bold text-slate-900">전체 22개 지역</p>
-                      <p className="mt-0.5 text-xs text-slate-500">지역을 선택하세요</p>
+                      <p className="mt-0.5 text-xs text-slate-500">지역별 코스·가격·방문 예약</p>
                     </div>
                     <Link href="/service-areas" className="text-xs font-semibold text-rose-600 hover:text-rose-700">
                       전체 안내

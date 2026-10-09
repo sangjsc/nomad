@@ -31,11 +31,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   return {
     title: `${post.title} | 노마드출장마사지 블로그`,
-    description: post.excerpt || `${post.title}에 대한 전문적인 정보를 제공합니다.`,
+    description: post.excerpt || `${post.title} | 노마드출장마사지 이용 안내`,
     keywords: post.tags?.join(", ") || "마사지, 건강, 웰빙",
     openGraph: {
       title: post.title,
-      description: post.excerpt || `${post.title}에 대한 전문적인 정보`,
+      description: post.excerpt || `${post.title} | 노마드출장마사지 이용 안내`,
       url: `https://www.nomadthai.kr/blog/${post.slug}`,
       siteName: "노마드출장마사지",
       locale: "ko_KR",
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.excerpt || `${post.title}에 대한 전문적인 정보`,
+      description: post.excerpt || `${post.title} | 노마드출장마사지 이용 안내`,
       images: ["https://www.nomadthai.kr/og/home"],
     },
     other: {

@@ -28,8 +28,8 @@ for (const entry of fs.readdirSync(app, { withFileTypes: true })) {
 
   const guide = html.match(/<section\b[^>]*\bid="team"[^>]*>[\s\S]*?<\/section>/)?.[0]
   assert.ok(guide, `${slug}: booking guide`)
-  assert.ok(guide.includes('예약할 때 알려주세요'), `${slug}: plain booking heading`)
-  assert.ok(guide.includes('코스는 상담하면서 정하셔도 됩니다.'), `${slug}: course optional until consultation`)
+  assert.ok(guide.includes('노마드 방문 마사지 서비스'), `${slug}: service heading`)
+  assert.ok(guide.includes('코스 선택부터 방문 일정까지 상담에서 진행합니다.'), `${slug}: course chosen during consultation`)
   assert.ok(!guide.includes('긴 설명은 필요 없습니다'), `${slug}: old copy removed`)
   assert.ok(!guide.includes('md:opacity-0'), `${slug}: guide text must not require hover`)
   assert.equal((guide.match(/<h3\b/g) || []).length, 3, `${slug}: all guide cards preserved`)
@@ -53,4 +53,4 @@ for (const entry of fs.readdirSync(app, { withFileTypes: true })) {
 }
 
 assert.equal(checked, 22, 'Every regional page must be checked')
-console.log(`PASS booking guide HTML: ${checked} regions retain 3 cards without md:opacity-0, current-city labels, plain copy and contact destinations. Visual layout requires browser QA.`)
+console.log(`PASS booking guide HTML: ${checked} regions retain 3 cards without md:opacity-0, current-city labels, revised copy and contact destinations. Visual layout requires browser QA.`)

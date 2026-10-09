@@ -18,11 +18,11 @@ import {
 export const metadata: Metadata = {
   title: "경기도 출장마사지 지역·가격·예약 안내 | 노마드출장마사지",
   description:
-    "이천·경기 광주·여주·용인·안산 등 경기도 22개 지역의 출장마사지 가격과 예약 방법을 알아보세요. 오후 7시~오전 4시 상담, 출장·주차·야간 추가비 없이 서비스 후 결제합니다.",
+    "이천·경기 광주·여주·용인·안산 등 경기도 22개 지역 방문 마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 후불 결제. 오후 7시~오전 4시 상담.",
   alternates: { canonical: "/service-areas" },
   openGraph: {
     title: "경기도 출장마사지 지역·가격·예약 안내 | 노마드출장마사지",
-    description: "경기도 22개 지역의 출장마사지 가격과 예약 방법을 알아보세요. 출장·주차·야간 추가비 없이 서비스 후 결제합니다.",
+    description: "이천·경기 광주·여주·용인·안산 등 경기도 22개 지역 방문 마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 후불 결제. 오후 7시~오전 4시 상담.",
     url: "/service-areas",
     type: "website",
     images: [{ url: "/og/home", width: 1200, height: 630, alt: "경기도 출장마사지 지역·가격·예약 안내" }],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "경기도 출장마사지 지역·가격·예약 안내",
-    description: "이천·경기 광주·여주·용인·안산 등 22개 지역의 가격과 예약 방법을 알아보세요.",
+    description: "이천·경기 광주·여주·용인·안산 등 경기도 22개 지역 방문 마사지. 타이 60분 7만원부터, 출장·주차·야간 추가비 없는 후불 결제. 오후 7시~오전 4시 상담.",
     images: ["/og/home"],
   },
 }
@@ -41,9 +41,9 @@ const faqItems = [
   { question: "경기 광주는 광주광역시와 같은 지역인가요?", answer: "아닙니다. 방문 지역은 광주광역시가 아닌 경기도 광주시입니다." },
   { question: "몇 시까지 상담할 수 있나요?", answer: `매일 ${CONSULTATION_HOURS}에 전화와 카카오톡으로 상담합니다.` },
   { question: "결제는 언제 하나요?", answer: `예약금이나 선입금 없이 ${PAYMENT_POLICY}합니다. 어느 지역이든 출장·주차·야간 추가비는 없습니다.` },
-  { question: "당일 예약도 가능한가요?", answer: "당일에도 문의하실 수 있습니다. 바로 방문하기 어려울 수 있으니 받으실 주소와 원하는 시간을 알려주세요." },
-  { question: "호텔이나 숙소에서도 받을 수 있나요?", answer: "먼저 숙소에 외부인 방문과 객실 출입이 허용되는지 확인해주세요. 허용되는 곳이라면 주소와 출입 방법을 알려주시면 됩니다." },
-  { question: "동네별로 알아둘 내용이 있나요?", answer: "받으실 지역을 선택하면 읍면동별 주소 전달 방법과 출입·주차 시 알아둘 내용을 볼 수 있습니다." },
+  { question: "당일 예약도 가능한가요?", answer: "당일 예약 상담을 받습니다. 실제 방문 시간은 주소와 예약 현황에 따라 정합니다." },
+  { question: "호텔이나 숙소에서도 받을 수 있나요?", answer: "외부 방문객의 객실 출입이 허용되는 호텔·숙소에서 이용할 수 있습니다. 예약에는 숙소 주소와 출입 정보가 필요합니다." },
+  { question: "지역별 안내에는 어떤 내용이 있나요?", answer: "각 지역 페이지에서 서비스 지역과 코스별 가격, 읍·면·동별 방문 예약 정보를 볼 수 있습니다." },
 ]
 
 function AreaCard({ area, featured = false }: { area: (typeof SERVICE_AREAS)[number]; featured?: boolean }) {
@@ -52,7 +52,7 @@ function AreaCard({ area, featured = false }: { area: (typeof SERVICE_AREAS)[num
       <Card className={`h-full transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-lg ${featured ? "border-rose-200 bg-gradient-to-br from-rose-50 to-white" : "border-slate-200"}`}>
         <CardContent className="flex h-full items-center justify-between p-5">
           <div>
-            <h3 className="font-bold text-slate-900">{area.name} 예약 안내</h3>
+            <h3 className="font-bold text-slate-900">{area.name} 출장마사지</h3>
             <p className="mt-1 text-sm text-slate-500">{area.fullName} · 코스·가격</p>
           </div>
           <ArrowRight className="h-5 w-5 text-rose-500 transition-transform group-hover:translate-x-1" />
@@ -121,15 +121,15 @@ export default function ServiceAreasPage() {
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10"><MapPin className="h-7 w-7 text-rose-300" /></div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">경기도 출장마사지 서비스 지역·가격·예약 안내</h1>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
-            이천·경기 광주·여주·용인·안산 등 경기도 22개 지역으로 방문합니다. 받으실 지역을 선택해 코스와 가격을 살펴보세요. 어느 지역이든 출장·주차·야간 추가비는 없습니다.
+            이천·경기 광주·여주·용인·안산 등 경기도 22개 지역의 집과 숙소로 찾아갑니다. 타이 60분 7만원부터, 출장·주차·야간 추가비 없이 서비스를 받은 뒤 현장에서 결제합니다.
           </p>
           <div className="mx-auto mt-7 grid max-w-3xl gap-3 text-left sm:grid-cols-3">
             <div className="rounded-2xl bg-white/10 p-4"><Clock className="mb-2 h-5 w-5 text-rose-300" /><p className="font-semibold">상담시간</p><p className="mt-1 text-sm text-slate-200">{CONSULTATION_HOURS}</p></div>
             <div className="rounded-2xl bg-white/10 p-4"><CreditCard className="mb-2 h-5 w-5 text-rose-300" /><p className="font-semibold">결제 기준</p><p className="mt-1 text-sm text-slate-200">{PAYMENT_POLICY}</p></div>
-            <div className="rounded-2xl bg-white/10 p-4"><MapPin className="mb-2 h-5 w-5 text-rose-300" /><p className="font-semibold">방문 일정</p><p className="mt-1 text-sm text-slate-200">방문 시간 문의</p></div>
+            <div className="rounded-2xl bg-white/10 p-4"><MapPin className="mb-2 h-5 w-5 text-rose-300" /><p className="font-semibold">방문 일정</p><p className="mt-1 text-sm text-slate-200">상담 후 일정 확정</p></div>
           </div>
           <p className="mx-auto mt-6 max-w-3xl rounded-xl border border-amber-300/30 bg-amber-200/10 px-4 py-3 text-sm leading-6 text-amber-50">
-            원하시는 시간이 있다면 미리 문의해주세요. 당일 예약은 바로 방문하기 어려울 수 있습니다.
+            당일 예약도 전화·카카오톡으로 접수합니다. 방문 시간은 주소와 예약 현황에 따라 안내합니다.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" className="min-h-12 bg-white font-bold text-rose-700 hover:bg-rose-50"><a href={PHONE_TEL}><Phone className="mr-2 h-5 w-5" />{PHONE_DISPLAY}</a></Button>
@@ -141,13 +141,13 @@ export default function ServiceAreasPage() {
       <section className="container mx-auto max-w-6xl px-4 py-14 sm:py-16">
         <div>
           <p className="font-semibold text-rose-600">지역별 안내</p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">지역별 예약 안내 바로가기</h2>
-          <p className="mt-3 max-w-3xl leading-7 text-slate-600">받으실 지역의 가격과 예약 방법을 살펴보세요.</p>
+          <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">주요 지역 출장마사지</h2>
+          <p className="mt-3 max-w-3xl leading-7 text-slate-600">지역별 코스·가격과 방문 예약 정보를 한곳에서 안내합니다.</p>
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">{featuredAreas.map((area) => <AreaCard key={area.slug} area={area} featured />)}</div>
         </div>
         <div className="mt-14 border-t border-slate-200 pt-12">
           <h2 className="text-2xl font-bold text-slate-900">경기도 주요 22개 서비스 지역</h2>
-          <p className="mt-3 text-slate-600">목록에서 지역을 고른 뒤, 전화나 카카오톡으로 주소와 원하는 시간을 알려주세요.</p>
+          <p className="mt-3 text-slate-600">22개 지역 모두 같은 코스 가격과 추가비 없는 후불 결제를 적용합니다.</p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{SERVICE_AREAS.map((area) => <AreaCard key={area.slug} area={area} />)}</div>
         </div>
       </section>
@@ -156,7 +156,7 @@ export default function ServiceAreasPage() {
         <div className="container mx-auto max-w-6xl px-4">
           <p className="font-semibold text-rose-600">코스·가격</p>
           <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">코스별 가격표</h2>
-          <p className="mt-3 text-slate-600">원하는 코스와 이용 시간을 골라주세요. 예약금 없이 서비스가 끝난 뒤 결제합니다.</p>
+          <p className="mt-3 text-slate-600">타이·아로마·스웨디시를 60·90·120분으로 제공합니다. 예약금 없이 서비스가 끝난 뒤 결제합니다.</p>
           <div className="mt-7 grid gap-4 md:grid-cols-3">
             {SERVICE_COURSES.map((course) => (
               <Card key={course.name} className="border-slate-200"><CardContent className="p-5 sm:p-6">
@@ -174,7 +174,7 @@ export default function ServiceAreasPage() {
       <section className="container mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:py-16 lg:grid-cols-2">
         <div>
           <p className="font-semibold text-rose-600">예약 준비</p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">문의할 때 알려주세요</h2>
+          <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">방문 예약 접수 항목</h2>
           <ul className="mt-6 space-y-3 text-slate-700">
             {["받으실 주소와 건물명", "원하는 예약 시간과 가능한 다른 시간", "원하는 코스와 60·90·120분 중 이용 시간", "호텔·숙소의 외부인 출입 규정", "연락 가능한 전화번호"].map((item) => <li key={item} className="flex gap-3 rounded-xl bg-white p-4 shadow-sm"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" /><span>{item}</span></li>)}
           </ul>
@@ -188,8 +188,8 @@ export default function ServiceAreasPage() {
 
       <section className="bg-slate-900 py-14 text-white">
         <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-2xl font-bold sm:text-3xl">예약은 전화로 문의해주세요</h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-300">받으실 장소와 원하는 시간을 알려주세요. 코스와 가격이 궁금하시면 함께 물어보셔도 됩니다.</p>
+          <h2 className="text-2xl font-bold sm:text-3xl">노마드 방문 마사지 예약</h2>
+          <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-300">타이 60분 7만원부터, 예약금 없는 후불 서비스. 전화로 코스와 방문 일정을 상담할 수 있습니다.</p>
           <Button asChild size="lg" className="mt-7 min-h-12 bg-rose-600 font-bold text-white hover:bg-rose-700"><a href={PHONE_TEL}><Phone className="mr-2 h-5 w-5" />{PHONE_DISPLAY}</a></Button>
           <p className="mt-6 text-xs text-slate-400">정보 업데이트: {SERVICE_INFORMATION_UPDATED}</p>
         </div>

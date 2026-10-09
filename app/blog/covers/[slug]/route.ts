@@ -28,11 +28,49 @@ function escapeXml(value: string): string {
     .replace(/'/g, '&#39;')
 }
 
-function truncate(value: string, maxLength: number): string {
-  if (value.length <= maxLength) {
-    return value
+function characterWidth(character: string, fontSize: number): number {
+  // Leave room for Korean fallback fonts and wider Latin letters without a canvas.
+  if (character === ' ') return fontSize * 0.36
+  if (/[ilI1|.,:;'!]/.test(character)) return fontSize * 0.4
+  if (/[MWmw@#%&]/.test(character)) return fontSize * 1.05
+  if (/^[\x00-\x7f]$/.test(character)) return fontSize * 0.8
+  return fontSize * 1.1
+}
+
+function wrapText(value: string, maxWidth: number, fontSize: number, maxLines: number): string[] {
+  let remaining = Array.from(value.replace(/\s+/g, ' ').trim())
+  const lines: string[] = []
+
+  while (remaining.length > 0 && lines.length < maxLines) {
+    let width = 0
+    let count = 0
+    while (count < remaining.length && width + characterWidth(remaining[count], fontSize) <= maxWidth) {
+      width += characterWidth(remaining[count], fontSize)
+      count += 1
+    }
+
+    if (count === remaining.length) {
+      lines.push(remaining.join(''))
+      break
+    }
+
+    if (lines.length === maxLines - 1) {
+      while (count > 0 && width + characterWidth('…', fontSize) > maxWidth) {
+        count -= 1
+        width -= characterWidth(remaining[count], fontSize)
+      }
+      lines.push(`${remaining.slice(0, count).join('').trimEnd()}…`)
+      break
+    }
+
+    const lastSpace = remaining.slice(0, count).lastIndexOf(' ')
+    const breakAt = lastSpace > 0 ? lastSpace : Math.max(1, count)
+    lines.push(remaining.slice(0, breakAt).join('').trimEnd())
+    remaining = remaining.slice(breakAt)
+    while (remaining[0] === ' ') remaining.shift()
   }
-  return `${value.slice(0, Math.max(0, maxLength - 1))}...`
+
+  return lines
 }
 
 function getCategoryLabel(category?: string): string {
@@ -58,8 +96,11 @@ export async function GET(
     ? resolvedParams.slug
     : 'post'
   const post = getPostData(slug)
-  const title = truncate(post?.title ?? slug.replace(/-/g, ' '), 44)
-  const excerpt = truncate(post?.excerpt ?? 'Booking and service guide', 92)
+  const title = post?.title ?? slug.replace(/-/g, ' ')
+  const excerpt = post?.excerpt ?? 'Booking and service guide'
+  const titleLines = wrapText(title, 1020, 50, 3)
+  const excerptLines = wrapText(excerpt, 1020, 26, 2)
+  const coverUrl = wrapText(`nomadthai.kr/blog/${slug}`, 1012, 18, 1)[0] ?? ''
   const categoryLabel = getCategoryLabel(post?.category)
   const palette = palettes[hashText(slug) % palettes.length]
   const decoSeed = hashText(`${slug}-cover`)
@@ -91,11 +132,11 @@ export async function GET(
   <rect x="70" y="76" rx="999" ry="999" width="250" height="42" fill="url(#accent)" opacity="0.95" />
   <text x="94" y="104" fill="#ffffff" font-size="20" font-family="Arial, sans-serif" letter-spacing="1.2">${escapeXml(categoryLabel)}</text>
 
-  <text x="70" y="220" fill="#ffffff" font-size="58" font-weight="700" font-family="Arial, sans-serif">${escapeXml(title)}</text>
-  <text x="70" y="288" fill="#e2e8f0" font-size="30" font-family="Arial, sans-serif">${escapeXml(excerpt)}</text>
+  <text fill="#ffffff" font-size="50" font-weight="700" font-family="Arial, sans-serif">${titleLines.map((line, index) => `<tspan x="70" y="${190 + index * 64}">${escapeXml(line)}</tspan>`).join('')}</text>
+  <text fill="#e2e8f0" font-size="26" font-family="Arial, sans-serif">${excerptLines.map((line, index) => `<tspan x="70" y="${390 + index * 42}">${escapeXml(line)}</tspan>`).join('')}</text>
 
-  <rect x="70" y="500" rx="10" ry="10" width="360" height="54" fill="#ffffff" opacity="0.1" />
-  <text x="94" y="535" fill="#f8fafc" font-size="24" font-family="Arial, sans-serif">nomadthai.kr/blog/${escapeXml(slug)}</text>
+  <rect x="70" y="500" rx="10" ry="10" width="1060" height="54" fill="#ffffff" opacity="0.1" />
+  <text x="94" y="534" fill="#f8fafc" font-size="18" font-family="Arial, sans-serif">${escapeXml(coverUrl)}</text>
 </svg>`
 
   return new Response(svg, {

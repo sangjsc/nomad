@@ -9,6 +9,9 @@ import {
 import { SEO_RELEASE_DATE, SERVICE_AREAS, SITE_URL } from "@/lib/site"
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Actual copy revision for the home, region and service-information pages.
+  // Business-fact verification dates and original article dates stay separate.
+  const copyModifiedDate = "2026-10-09"
   const releaseDate = new Date(`${SEO_RELEASE_DATE}T00:00:00+09:00`)
   const posts = getSortedPostsData()
   const latestPostUpdate = (category?: string) => new Date(Math.max(
@@ -30,8 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const locationUrls: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
     url: `${SITE_URL}/${area.slug}`,
-    // All regional pages received the local-guide navigation on this actual release date.
-    lastModified: "2026-09-10",
+    lastModified: copyModifiedDate,
   }))
 
   const blogListUrls: MetadataRoute.Sitemap = [
@@ -55,10 +57,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   return [
-    { url: SITE_URL, lastModified: "2026-09-10" },
-    { url: `${SITE_URL}/service-areas`, lastModified: "2026-09-10" },
-    { url: `${SITE_URL}/about`, lastModified: "2026-09-10" },
-    { url: `${SITE_URL}/contact`, lastModified: "2026-09-10" },
+    { url: SITE_URL, lastModified: copyModifiedDate },
+    { url: `${SITE_URL}/service-areas`, lastModified: copyModifiedDate },
+    { url: `${SITE_URL}/about`, lastModified: copyModifiedDate },
+    { url: `${SITE_URL}/contact`, lastModified: copyModifiedDate },
     ...blogListUrls,
     ...paginatedListUrls,
     ...locationUrls,
