@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ChevronDown, Crown, Heart, MapPin, Menu, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import NavigationDisclosure from "@/components/NavigationDisclosure"
 import { PHONE_DISPLAY, PHONE_TEL, PRIMARY_SERVICE_AREAS, SERVICE_AREAS } from "@/lib/site"
 
 const priorityNavLinks = [
@@ -76,7 +77,7 @@ export default function Header() {
                 )
               })}
 
-              <details className="group relative">
+              <NavigationDisclosure className="group relative">
                 <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 [&::-webkit-details-marker]:hidden">
                   <MapPin className="h-4 w-4 text-rose-500" aria-hidden="true" />
                   <span className="whitespace-nowrap">전체 22개 지역</span>
@@ -105,7 +106,7 @@ export default function Header() {
                     ))}
                   </div>
                 </div>
-              </details>
+              </NavigationDisclosure>
 
               <Link href="/about" className="group rounded-full px-3 py-2 transition-colors hover:bg-slate-50">
                 <span className="flex items-center space-x-2">
@@ -127,7 +128,7 @@ export default function Header() {
               </Button>
             </div>
 
-            <details className="relative shrink-0 xl:hidden">
+            <NavigationDisclosure className="relative shrink-0 xl:hidden">
               <summary aria-label="전체 메뉴 열기" className="list-none cursor-pointer rounded-md p-3 text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 [&::-webkit-details-marker]:hidden">
                 <Menu className="h-6 w-6" />
               </summary>
@@ -176,7 +177,7 @@ export default function Header() {
                   </Button>
                 </nav>
               </div>
-            </details>
+            </NavigationDisclosure>
           </div>
         </div>
       </header>

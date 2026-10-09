@@ -337,7 +337,7 @@ export default function ClientPage() {
         </section>
 
         {/* Ultra Premium Services Section */}
-        <section id="services" className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-rose-50">
+        <section id="services" className="scroll-mt-24 py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-rose-50">
           <div className="container mx-auto px-2 sm:px-4">
             <div className="text-center mb-12 lg:mb-20">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-100 to-purple-100 rounded-full px-4 lg:px-6 py-2 lg:py-3 mb-4 lg:mb-6">

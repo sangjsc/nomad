@@ -4,11 +4,12 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Malgun Gothic", sans-serif;
-  overflow-x: hidden;
+  /* Clip decoration without creating a scroll container that breaks the sticky header. */
+  overflow-x: clip;
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @layer utilities {
